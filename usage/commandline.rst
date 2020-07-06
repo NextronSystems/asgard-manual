@@ -96,7 +96,7 @@ This command will create a new agent for all operating systems. This is speciall
 
 An installed agent with the name "javax" would look like this:
 
-.. code-block::
+.. code-block:: bash
 
    systemctl status javax
    javax.service
@@ -106,7 +106,7 @@ An installed agent with the name "javax" would look like this:
       Tasks: 7 (limit: 4915)
    Memory: 4.7M
    CGroup: /system.slice/javax.service
-         └─20048 /usr/sbin/javax-serviceMar 26 16:47:22 asgard2-dev systemd[1]: Started javax.service.
+           20048 /usr/sbin/javax-serviceMar 26 16:47:22 asgard2-dev systemd[1]: Started javax.service.
 
 Backup and Restore
 ------------------
