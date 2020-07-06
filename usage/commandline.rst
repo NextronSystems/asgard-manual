@@ -99,7 +99,7 @@ An installed agent with the name "javax" would look like this:
 .. code-block::
 
    systemctl status javax
-   ● javax.service
+   javax.service
    Loaded: loaded (/etc/systemd/system/javax.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2020-xx-xx 16:47:22 CET; 5s ago
    Main PID: 20048 (javax-service)
