@@ -514,8 +514,8 @@ If Bifrost is used with your THOR scans, all collected samples show up here. You
 
    Downloading samples from Bifrost collections 
 
-Downloads
----------
+Generate Download Links
+-----------------------
 
 The ``Downloads`` section lets you create and download a full THOR package including scanner, custom IOCs and MISP rulesets along with a valid license for a specific host. This package can then be used for systems that cannot be equipped with an ASGARD agent for some reason. For example, this can be used on air gapped networks. Copy the package to a USB stick or a CD ROM and use it where needed.
 
