@@ -28,7 +28,7 @@ CPU Cores           4
 Setting up MASTER ASGARD
 ------------------------
 
-The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. However, the default credentials differ. 
+The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. However, the default credentials differ.
 
 On the Web based GUI
 ^^^^^^^^^^^^^^^^^^^^

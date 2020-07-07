@@ -113,7 +113,6 @@ Backup and Restore
 
 Backup
 ^^^^^^
-
 The command ``asgard-backup`` can be used to generate a backup of all configurations, assets, tags, user accounts, tasks etc. except:
 
 * Log files (ASGARD, THOR)

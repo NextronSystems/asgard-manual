@@ -1,0 +1,32 @@
+.wy-side-nav-search {
+    background-color: #d72f32;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: #d72f32;
+}
+
+.rst-versions a {
+    color: #d72f32;
+}
+
+a {
+    color: #d72f32;
+}
+
+a:hover {
+    color: #da2c2f;
+}
+
+.rst-content .section ol li>*, .rst-content .section a:visited {
+    color: #9c2224;
+}
+
+.wy-breadcrumbs li a {
+    color: #d72f32;
+}
+
+.rst-content table.docutils thead th, .rst-content table.field-list thead th, .wy-table thead th {
+    background-color: #d72f32;
+    color: #fff;
+}
