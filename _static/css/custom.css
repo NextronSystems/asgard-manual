@@ -18,7 +18,7 @@ a:hover {
     color: #da2c2f;
 }
 
-.rst-content .section ol li>*, .rst-content .section a:visited {
+.rst-content .section a:visited {
     color: #9c2224;
 }
 
@@ -33,4 +33,8 @@ a:hover {
 
 .rst-versions .rst-current-version {
     color: #d72f32;
+}
+
+code {
+    width: 400px;
 }

@@ -365,19 +365,21 @@ ASGARD ships with pre-defined playbooks for the following tasks:
 
 
 * Collect full triage pack (Windows only)
-* Quarantine endpoint (Windows only)
+* Isolate endpoint (Windows only)
 * Collect system memory
-* Collect File
-* Collect Directory
-* Execute Command and collect stdout and stderr
+* Collect file
+* Collect directory
+* Execute command and collect stdout and stderr
 
-Nextron will deliver additional playbooks through ASGARD updates.
+Nextron provides additional playbooks via ASGARD updates.
+
+
 
 **Caution !!!**  
 
 The collection of memory can set the systems under  high load and impacts the systems response times during the transmission of  collected files. Consider all settings carefully!   Also be aware that memory dumps may fail due to  kernel incompatibilities or conflicting security mechanisms. Memory dumps  have been successfully tested on all supported Windows operating systems with  various patch levels. The memory collection on Linux systems depends on  kernel settings and loaded modules, thus we cannot guarantee a successful  collection.   Additionally, memory dumps require temporary free  disk space on the system drive and consume a significant amount of disk space  on ASGARD as well. The ASGARD agent checks if there is enough memory on the  system drive and adds a 50% safety buffer. If there is not enough free disk  space, the memory dump will fail.  
 
-Response Control for groups of Systems
+Response Control for Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Response functions for groups of systems can be defined in the ``New Group Tasks`` tab or the ``New Scheduled Group Task`` tab.
@@ -410,6 +412,23 @@ This lets you define a name and a description for your playbook. After clicking 
 
 You can have up to 16 entries in each playbook that are executed in a row. Every entry can be either "download something from ASGARD to the endpoint", "execute a command line" or "Upload something from the endpoint to ASGARD". If you run a command line the stdout and stderr are reported back to ASGARD. 
 
+Evidence Collection 
+-------------------
+
+ASGARD provides two forms of collected evidence: 
+
+1. Playbook output (file or memory collection, command output)
+2. Sample quarantine (sent by THOR via Bifrost protocol during the scan)
+
+All collected evidence can be downloaded in the "Collected Evidence" section.
+
+.. figure:: ../images/evidence-collection.png
+   :target: ../_images/evidence-collection.png
+   :alt: Collected Evidence List
+
+   Collected Evidence List
+
+
 IOC Management
 --------------
 
@@ -432,7 +451,7 @@ Browse to the file you want to add and click upload. This adds your IOC file to 
 
 Even existing scheduled scans that are executed on a frequent basis will start using the default ruleset once it is created. Merely modify the default ruleset; the modified rules will come into effect immediately after you hit the "Upload" button.
 
-**Note:** In case that you don’t desire the default IOC ruleset to be included with every scan: Remove it from your scan templates and/or from the new ``New Group Scan`` dialogue in the ``Custom IOCs`` field. See picture below. 
+**Note:** In case that you don’t want the default IOC ruleset to be included in every scan: Remove it from your scan templates and/or from the new ``New Group Scan`` dialogue in the ``Custom IOCs`` field. See picture below. 
 
 .. figure:: ../images/image62.png
    :target: ../_images/image62.png
@@ -501,11 +520,11 @@ Downloads
 The ``Downloads`` section lets you create and download a full THOR package including scanner, custom IOCs and MISP rulesets along with a valid license for a specific host. This package can then be used for systems that cannot be equipped with an ASGARD agent for some reason. For example, this can be used on air gapped networks. Copy the package to a USB stick or a CD ROM and use it where needed.
 
 
-.. figure:: ../images/image69.png
-   :target: ../_images/image69.png
-   :alt: image-20200608160838905
+.. figure:: ../images/download-url1.png
+   :target: ../_images/download-url1.png
+   :alt: Generate THOR Package Download Link
 
-   Download full THOR Package 
+   Download THOR package and license for Windows workstation named 'myhost123'
 
 While selecting different options in the form, the download link changes.
 
@@ -513,24 +532,38 @@ After you have selected the correct scanner, operating system and target hostnam
 
 **Note:** The scanner package will not contain a license file if you don’t set a hostname in the ``Target Hostname`` field. If you have an Incident Response license, you must provide it separately.
 
-Use Case 1 - Provice Download Links
+Use Case 1 - Share th URL without Hostname
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can generate download links without an included license by leaving the `hostname` field empty. A valid license (e.g. "Incident Response") must be  placed in the program folder after the download and extraction. 
+
+Use Case 2 - Share th URL with Hostname
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By including the hostname in the form, a license will be generated and included in the download package You can copy the final download link and send it to anyone, who can use this link to download a package and run scans on a host with that name.
+
+You or the recipient can change the name in that URL to make it usable on other systems.
+
+Note that you may have to adjust the `type` field to get the correct license type (`client` for workstations, `server` for servers) and the THOR version (`win`, `linux`, `osx`) to generate a correct URL. 
+
+.. code:: bash
+   
+   .../thor10-win?hostname=mywinserver1&type=server...
+   .../thor10-win?hostname=mywinwks1&type=client...
+   .../thor10-linux?hostname=mylinuxsrv1&type=server...
+
+Use Case 3 - Use the URL in Scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can generate download links for the different scanner packages without a license for yourself or the administration team. A valid license (e.g. "Incident Response") must be provided and placed in the program folder. You can also use "thor-util" to retrieve licenses for specific hostnames from an ASGARD server (see the ``THOR_Util_Manual.pdf`` in each scanners ``./docs`` folder for details)
+By default, the generated download link is protected with a token that makes it impossible to download a package or generate a license without knowing that token. This token is specific to every ASGARD instance.  
 
-Use Case 2 - Administrator Asked to Run a Scan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can use that URL in Bash or PowerShell scripts to automate scans on systems without an installed ASGARD agent. 
 
-You can copy the final download link and send it to an administrator, who can use this link on one of the servers to retrieve a full scanner package with license and run a scan.
+.. code:: powershell 
 
-Use Case 3 - Use the URL in Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   $Type = "server"
+   $Download_Url = "https://asgard2.nextron:8443/api/v0/downloads/thor/thor10-win?hostname=$($Hostname)&type=$($Type)&iocs=%5B%22default%22%5D&misps=%5B%222%22%5D&token=fQku7OKvDal2SMub4pv2QJOCCDL9P7dh5h"
 
-By default, the generated download link is protected with a token that makes it impossible to download and use a package for a different hostname just by editing the URL. This protection can be removed in ``Settings -> Advanced``.
-
-This allows usage of the URL in Bash or PowerShell scripts to automate scans on systems without an installed ASGARD agent. Replace the hostname value with the value of the current host on which the script is being executed to get a URL for the scanner download package with a host-specific license. 
-
-Use this option with care! In case of an error, you may accidently exhaust your ASGARDs license pool with licenses for systems that don’t even exist. 
 
 Licensing
 ---------
