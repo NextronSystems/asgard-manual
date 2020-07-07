@@ -30,3 +30,7 @@ a:hover {
     background-color: #d72f32;
     color: #fff;
 }
+
+.rst-versions .rst-current-version {
+    color: #d72f32;
+}
