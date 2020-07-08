@@ -184,18 +184,30 @@ After the desired parameters have been set, the scan can be started by clicking 
 Stopping a Single Scan
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To stop a single scan, navigate to the "Single Scans" tab in Scan Control section and click the button for the scan you want to stop.
-
-.. figure:: ../images/image43.png
-   :target: ../_images/image43.png
-   :alt: image-20200608153945931
-
+To stop a single scan, navigate to the "Single Scans" tab in Scan Control section and click the "stop" (square) button for the scan you want to stop.
 
 .. figure:: ../images/image44.png
    :target: ../_images/image44.png
    :alt: image-20200608153951250
 
-   Stopping a single Scan
+   Stopping a Single Scan
+
+Download Scan Results 
+~~~~~~~~~~~~~~~~~~~~~
+
+After the scan completion, you can download the scan results via the download button in the actions column.
+
+The download button has the following options: 
+
+* Download THOR Log (the text log file)
+* Download HTML Report (as \*.gz compressed file; available for successful scans only)
+* Show HTML Report (opens another tab with the HTML report)
+
+.. figure:: ../images/download-scan-results.png
+   :target: ../_images/download-scan-results.png
+   :alt: Download Scan Results
+
+   Scan Control - Download Scan Results
 
 Scan Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^

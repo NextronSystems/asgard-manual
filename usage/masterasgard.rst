@@ -4,9 +4,7 @@ Manage ASGARD Using MASTER ASGARD
 
 MASTER ASGARD is a single central management console that can control all of your ASGARD systems. It is meant to manage centrally controlled scans on all your ASGARD systems with just one click. MASTER ASGARD also provides one central point of management for your IOCs. 
 
-The local IOC Management on an ASGARD system will become inactive when connected to a MASTER ASGARD. Instead, all IOCs on the MASTER ASGARD will sync down to the subordinate ASGARD. 
-
-From then on, ASGARD will only use the central IOCs stored and managed on MASTER ASGARD. Additionally, the licensing section on ASGARD will become inactive and the local ASGARD license will be replaced by the MASTER ASGARD license. Every ASGARD can issue scanning licenses to assets as long as the total number of scanned servers and workstations does not exceed the number of systems in the master license.
+The licensing section on ASGARD will become inactive and the local ASGARD license will be replaced by the MASTER ASGARD license. Every ASGARD can issue scanning licenses to assets as long as the total number of scanned servers and workstations does not exceed the number of systems in the master license.
 
 On MASTER ASGARD, all functions are relatively similar to use compared to ASGARD. You can select and label your assets in the ``Asset Management`` section, manage your users in the "Users" section, add your licenses in the ``Licensing`` section. Evidence collection is started in the asset view and results show up in the ``Evidence Collection`` section. 
 
@@ -28,21 +26,23 @@ CPU Cores           4
 Setting up MASTER ASGARD
 ------------------------
 
-The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. However, the default credentials differ.
+The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. 
 
-On the Web based GUI
-^^^^^^^^^^^^^^^^^^^^
+Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER ASGARD v2 through a special license upload.
+
+Default Password Web GUI
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 User: ``admin``
-Password: ``masterasgard-admin!`` 
+Password: ``admin`` 
 
-On the Console
-^^^^^^^^^^^^^^
+Default Password Console
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 User: ``nextron`` 
-Password: ``masterNextron2019``
+Password: ``nextron``
 
-Scan control in MASTER ASGARD
+Scan Control in MASTER ASGARD
 -----------------------------
 
 Create a Master Scan
@@ -78,7 +78,7 @@ If the checkbox ``syslog to ASGARD`` is marked, all endpoints will send their sc
 
    Create a Grouped Scan on MASTER ASGARD
 
-User roles in Master ASGARD
+User Roles in Master ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Master ASGARDs user roles are not as granular as role management in ASGARD 2. However, there is a set of permissions to define the level of privileges that can be granted to a user. 
