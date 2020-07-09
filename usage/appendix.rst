@@ -1,8 +1,8 @@
 Appendix
 ========
 
-Detailed procedures for generating and installing TLS certificates on ASGARD and Master ASGARD
-----------------------------------------------------------------------------------------------
+Install TLS certificates on ASGARD and Master ASGARD
+----------------------------------------------------
 
 There are several methods to sign the ASGARD generated CSR request. This section describes the two most common procedures.
 
@@ -241,8 +241,8 @@ As a result, the signed certificate will be available with the indicated filenam
 
 As a last step, the generated certificate can be imported following the Certificate Import steps.
 
-Migrating agents from ASGARD V1 to ASGARD V2
---------------------------------------------
+Agent Migration from ASGARD v1 to v2
+------------------------------------
 
 This document will guide customers with an existing ASGARD version 1.x installation to perform an agent migration from ASGARD version 1.x to ASGARD version 2.
 
@@ -315,11 +315,7 @@ Connect to your new ASGARD version 2 server over SSH and transfer the new window
 
 This step will allow the old ASGARD version 1.x server to distribute the new agent.
 
-
-.. figure:: ../images/clip_image001.png
-   :target: ../_images/clip_image001.png
-
-Information: In this step you require the password of your ASGARD version 1.x and your ASGARD version 2.x
+**Note:** In this step you require the password of your ASGARD version 1.x and your ASGARD version 2.x
 
 Connect to ASGARD version 2 over SSH
 """"""""""""""""""""""""""""""""""""
@@ -329,14 +325,9 @@ Connect to ASGARD version 2 over SSH
 Copy the new agent(s) to ASGARD version 1.x
 """""""""""""""""""""""""""""""""""""""""""
 
+You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ , this example will cover a migration of a windows x64 system. Please see the following chapters for Linux/macOS hosts.
 
-.. figure:: ../images/clip_image001-1592781050637.png
-   :target: ../_images/clip_image001-1592781050637.png
-
-You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ , this example will cover a migration of a windows x64 system. Please refer to section 8.2.2.2.8 and 8.2.2.2.9 for Linux/macOS hosts.
-
-``sudo scp /var/lib/nextron/asgard2/installer/asgard2-agent-windows-amd64.exe`` `\ ``bsk@yourasgardv1.domain:/home/bsk`` <mailto:bsk@yourasgardv1.domain:/home/bsk>`_
-
+``sudo scp /var/lib/nextron/asgard2/installer/asgard2-agent-windows-amd64.exe bsk@yourasgardv1.domain:/home/bsk``
 
 .. figure:: ../images/image119-1592781151667.PNG
    :target: ../_images/image119-1592781151667.PNG
@@ -347,7 +338,6 @@ You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ , thi
 Check that the new agent has been transferred to the old ASGARD version 1.x Server
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 .. figure:: ../images/image120-1592781225253.PNG
    :target: ../_images/image120-1592781225253.PNG
    :alt: image120
@@ -357,11 +347,9 @@ Check that the new agent has been transferred to the old ASGARD version 1.x Serv
 Sign the new agents in order to be able to distribute them via GRR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-``sudo grr_config_updater upload_exe --file **asgard2-agent-windows-amd64.exe** --dest_path`` ``aff4:/**yourasgardv1.domain**/asgard2-agent-windows-amd64.exe --platform`` ``**windows** --arch **amd64**``
+.. code:: bash
 
-
-.. figure:: ../images/clip_image001-1592781356426.png
-   :target: ../_images/clip_image001-1592781356426.png
+   sudo grr_config_updater upload_exe --file asgard2-agent-windows-amd64.exe --dest_path aff4:/yourasgardv1.domain/asgard2-agent-windows-amd64.exe --platform windows --arch amd64
    
 Please modify any variable data from the above command. 
 
@@ -370,10 +358,7 @@ Please modify any variable data from the above command.
 
    Signing of executable(s)
 
-.. figure:: ../images/clip_image001-1592781418341.png
-   :target: ../_images/clip_image001-1592781418341.png
-
-Remember to save the "--dest_path". In our case it is aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe
+Remember to save the ``--dest_path``. In our case it is ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
 
 Switch to Advanced Mode within GRR
 """"""""""""""""""""""""""""""""""
@@ -422,9 +407,6 @@ We will be requested to put in a binary, please use the binary name we gathered/
 
    Launch Binary
 
-.. figure:: ../images/clip_image001-1592781675090.png
-   :target: ../_images/clip_image001-1592781675090.png
-
 The used binary name was extracted from step 8.2.2.2.4. In this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
 
 .. figure:: ../images/image126-1592781692011.PNG
@@ -448,15 +430,13 @@ For migrating Linux hosts please create a shell script and follow the above proc
 
 An example shell script for Debian based systems could look like this:
 
-``\#!/bin/bash``
+.. code:: bash 
 
-``cd /tmp``
-
-``wget -O agent-linux.deb --no-check-certificate https://asgardv2:8443/agent-installers?asgard2-agent-linux-amd64.deb``
-
-``dpkg -i /tmp/agent-linux.deb``
-
-``rm -f /tmp/agent-linux.deb``
+   #!/bin/bash
+   cd /tmp
+   wget -O agent-linux.deb --no-check-certificate https://asgardv2:8443/agent-installers?asgard2-agent-linux-amd64.deb
+   dpkg -i /tmp/agent-linux.deb
+   rm -f /tmp/agent-linux.deb
 
 Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 8.2.2.2.4, afterwards you will be able to launch a HUNT to your connected Linux Systems. 
 
@@ -469,13 +449,13 @@ For migrating macOS hosts please create a shell script and follow the above proc
 
 An example shell script for macOS based systems could look like this:
 
-``\#!/bin/bash``
+.. code:: bash
 
-``cd /tmp``
-``curl -o agent-darwin.pkg -k "https://asgardv2.bsk:8443/agent-installers?asgard2-agent-macos-amd64.pkg"``
-``sudo installer -pkg /tmp/agent-darwin.pkg -target /``
-
-``rm -f /tmp/agent-darwin.pkg``
+   #!/bin/bash
+   cd /tmp
+   curl -o agent-darwin.pkg -k "https://asgardv2.bsk:8443/agent-installers?asgard2-agent-macos-amd64.pkg"
+   sudo installer -pkg /tmp/agent-darwin.pkg -target /
+   rm -f /tmp/agent-darwin.pkg
 
 Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 8.2.2.2.4, afterwards you will be able to launch a HUNT to your connected ``macOS Systems``. 
 
