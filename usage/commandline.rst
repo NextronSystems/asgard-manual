@@ -1,5 +1,5 @@
-Managing ASGARD on the command line
-===================================
+Advanced Configuration
+======================
 
 Performance Tuning
 ------------------
@@ -7,13 +7,13 @@ Performance Tuning
 Overview
 ^^^^^^^^
 
-The ASGARD agent polls the ASGARD server frequently for new tasks to execute. The default polling interval is 20 seconds in environments with up to 500 endpoints. In larger environments the polling interval increases dynamically up to 10 minutes for a configuration with 25.000 endpoints connected to a single ASGARD. 
+The ASGARD agent polls the ASGARD server frequently for new tasks to execute. The default polling interval depends on the number of connected endpoints. In larger environments the polling interval increases dynamically up to 10 minutes for a configuration with 25.000 endpoints connected to a single ASGARD. 
 
 Additionally, ASGARD is configured to serve a maximum of 100 concurrent asset connections and 25 concurrent asset streams. Asset connections are short polls from the agent such as answering the question "do you have a new task for me?". Asset streams are intense polls such as downloading THOR to the agent or uploading scan results back to ASGARD. 
 
-Requests that exceed the limits will receive an answer from ASGARD to repeat the request after N seconds, where N is calculated based on the current (over)load.
+Requests that exceed the limits will receive an answer from ASGARD to repeat the request after N seconds, where N is calculated based on the current load.
 
-This factory preset behavior insures your ASGARD stays stable and responsive even if your ASGARD’s system resources are limited. Furthermore, you most likely will not overload your network or firewalls with high numbers of requests or downloads.
+This factory preset behavior insures your ASGARD stays stable and responsive even if your ASGARD’s system resources are limited. Furthermore, you most likely can't overload your network or firewalls with high numbers of requests or downloads.
 
 In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asgard.conf`` and restart the ASGARD service.
 
@@ -29,7 +29,7 @@ PingRateMax=600    Polling Rate with 25000 connected Assets (seconds)
 PingRateFast=5     Polling Rate for Assets in Fast Ping Mode (seconds)
 ================== ==============
 
-These values should work fine for most scenarios – regardless of the size of the installation. However, you may want to decrease PingRateMax in order to achieve a better responsiveness of your ASGARD infrastructure. 
+These values should work fine in most scenarios – regardless of the size of the installation. However, you may want to decrease PingRateMax in order to achieve a better responsiveness of your ASGARD infrastructure. 
 
 Overloading ASGARD
 ^^^^^^^^^^^^^^^^^^
@@ -38,15 +38,13 @@ While temporary stream overloads are quite normal, connection overloads should n
 
 ASGARD will indicate an overload with the "Connection Overload line" and the "Stream Overload line" within the graphs in the overview section (see picture below). If an ASGARD is in an overload situation it will postpone connections and streams but will not lose or drop tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
-
 .. figure:: ../images/image28-1592782262147.png
    :target: ../_images/image28-1592782262147.png
    :alt: image28
 
    Asset Connections and Asset Streams 
 
-Stream overloads can happen temporarily (e.g. if you schedule a grouped scan or grouped task with an unlimited rate). The picture below shows such a normal overload situation that was caused by starting a grouped scan with an unlimited rate. This is the expected behavior. ASGARD will manage the load automatically and postpone streams until the load has returned to normal. 
-
+Stream overloads can happen temporarily (e.g. if you schedule a grouped scan or grouped task with an unlimited rate). The picture below shows such a normal overload situation that was caused by starting a grouped scan with an unlimited rate. This is the expected behavior. ASGARD will manage the load automatically and postpone streams until the load has returned to normal.
 
 .. figure:: ../images/image95-1592778455357.png
    :target: ../_images/image95-1592778455357.png

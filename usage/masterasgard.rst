@@ -76,6 +76,16 @@ Scan Control in MASTER ASGARD looks the same as in an ASGARD server. The only di
 
    Scan Control in MASTER ASGARD - New Group Scan
 
+Asset Management
+----------------
+
+Asset Management in MASTER ASGARD is very similar to the asset management in ASGARD. 
+
+The only differences are:
+
+* ASGARD column shows to which ASGARD system the endpoint is connected
+* Only CSV export is allow (asset labeling via CSV import is unavailable)
+
 IOC Management
 --------------
 
@@ -123,80 +133,10 @@ It is possible to set a certain THOR and Signatures version for each connected A
 
 Customers use this feature in cases in which they want to test a certain THOR version before using it in production. In this use case the ASGARD system that runs the test scans is set to automatic updates, while the ASGARD systems in production use versions that administratos set manually after successful test runs. 
 
-User Roles
-----------
+User Management
+---------------
 
-MASTER ASGARD has the following predefined user roles, which can be extended by custom roles.
-
-.. figure:: ../images/user-roles.png
-   :target: ../_images/user-roles.png
-   :alt: MASTER ASGARD User Roles
-
-   MASTER ASGARD User Roles
-
-Note that all users except users with the right ``ReadOnly`` have the right to run scans on endpoints since this is the main function of an ASGARD system. 
-
-The following section describes these predefined rights and restrictions that each role can have in detail.
-
-Rights
-^^^^^^
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - Admin
-   * - Unrestricted
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - ManageScanTemplates
-   * - Allows scan templates management
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - ResponseControl
-   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - RemoteConsole
-   * - Connect to endsystems via remote console
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - RemoteConsoleProtocol
-   * - Review the recordings of all remote console sessions
-
-Restrictions 
-^^^^^^^^^^^^
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - ForceStandardArgs
-   * - Creat and start scans with predefined arguments or scan templates that are not restricted
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - NoInactiveAssets
-   * - Cannot view inactive assets in asset management.
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - NoTaskStart
-   * - Cannot start scans or task (playbooks)
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - ReadOnly
-   * - Can't change anything, can't run scans or response tasks. Used to generate read-only API keys
+MASTER ASGARD offers no no central user and role management for all connected ASGARD servers. Each Since MASTER ASGARD and ASGARD allow to use LDAP for authentication, we believe that complex and centralised user management should be based on LDAP.
 
 MASTER ASGARD and Analysis Cockpit
 ----------------------------------

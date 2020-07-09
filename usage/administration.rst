@@ -1,8 +1,8 @@
 .. role:: raw-html-m2r(raw)
    :format: html
 
-Manage ASGARD Using the Web GUI
-===============================
+Administration
+==============
 
 License Management
 ------------------
@@ -92,34 +92,66 @@ Management of all endpoints registered with ASGARD can be performed in Asset Man
 
    Asset View
 
-By clicking the control buttons in the Actions column, you can start a new scan, run a response playbook, open a command line or switch the endpoints ping rate to 10 seconds instead of 10 minutes. 
+By clicking the control buttons in the Actions column, you can start a new scan, run a response playbook, open a command line or switch the endpoints ping rate to a few seconds instead of a maximum of 10 minutes. 
 
-.. figure:: ../images/image34.png
-   :target: ../_images/image34.png
-   :alt: image-20200608153111153
+.. figure:: ../images/asset-actions.png
+   :target: ../_images/asset-actions.png
+   :alt: Asset Actions
 
-   Run Playbook, Run Scan, Start Remote Console, Decrease/Increase Endpoint Ping Rate
+   Available Actions (left to right): Run Scan, Run Playbook, Start Remote Console, Decrease/Increase Endpoint Ping Rate
 
-Please note that this is an internal ping between the ASGARD agent and ASGARD. This must not be confused with ICMP!
+Please note: 
 
-Please note: You will need the "Universal Administrator" role in order to see all control buttons.
+* The internal ping between the ASGARD agent and ASGARD is based on HTTPS not ICMP
+* Depending on the user's role some of the control buttons may be disabled
+
+Column Visibility
+^^^^^^^^^^^^^^^^^
+
+Users can select various columns and adjust their view according to their needs.
+
+.. figure:: ../images/assets-columns.png
+   :target: ../_images/assets-columns.png
+   :alt: Asset Columns
+
+   Available columns in Asset Management
 
 Asset Labels
 ^^^^^^^^^^^^
 
-You can add multiple Labels to an asset or a group of assets. This is done by selecting the particular assets in the left column, typing your label name (e.g. New_Label) and clicking the red `(+)` button in the upper right corner. 
+Labels are used to group assets. These groups can then be used in scans or tasks. 
 
-.. figure:: ../images/image36.png
-   :target: ../_images/image36.png
-   :alt: image-20200608153144459
+You can add multiple labels to an asset or a group of assets. This is done by selecting the particular assets in the left column, typing the label name (e.g. New_Label) and clicking the red ``(+)`` button in the upper right corner. 
+
+**Note:** Don't use labels with white space characters as it could cause issues in syncs with Analysis Cockpit, exports / imports or other underlying legacy functions. 
+
+.. figure:: ../images/assets-label1.png
+   :target: ../_images/assets-label1.png
+   :alt: Asset Labling
 
    Asset List with Labels
 
-In order to remove labels, select your assets, type the name of the label you want to remove for these assets and click the `(x)` button. 
+In order to remove labels, select your assets, type the name of the label you want to remove for these assets and click the ``(-)`` button. 
 
-The asset management section has powerful filtering capabilities. E.g. only display Linux assets that have been online today and are assigned a particular label. 
+The asset management section has extensive filtering capabilities, e.g. it is easy to select only Linux endpoints that have been online today and have a particular label assigned. 
 
-The Import/Export Section allows you to export your assets to a .csv file. The import function is aimed to change labels through an import of a list. When importing this file only the values in the "ADD LABELS" and "REMOVE LABELS" columns are used. In order to change labels, use the already exported list, add values in these columns and re-import it. 
+Export Asset List 
+"""""""""""""""""
+
+The Import/Export Section allows you to export your assets to a .csv file. 
+
+Import Labels
+"""""""""""""
+
+The import function allows you to add or remove labels on assets based on columns in that CSV file. 
+
+The import function processes the values in the columns ``Add Labels ...`` and ``Remove Labels ...`` only. In order to change labels, use the already exported list, add values in these columns and re-import it. Separate multiple labels with comma. Leading or ending white space characters will be stripped from the labels. 
+
+.. figure:: ../images/asset-label-import.png
+   :target: ../_images/asset-label-import.png
+   :alt: Asset Labling via CSV
+
+   Asset Labling via CSV
 
 Scan Control
 ------------
@@ -165,7 +197,7 @@ Scan a Single System
 ^^^^^^^^^^^^^^^^^^^^
 
 Create a Single Scan
-~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""
 
 The creation of a scan is performed within the Asset Management. There is a button for each asset to create a new scan and to show all past scans. 
 
@@ -182,7 +214,7 @@ Within this form, you can choose the scan flags and custom signatures can be sel
 After the desired parameters have been set, the scan can be started by clicking the ``Submit`` button.
 
 Stopping a Single Scan
-~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""
 
 To stop a single scan, navigate to the "Single Scans" tab in Scan Control section and click the "stop" (square) button for the scan you want to stop.
 
@@ -193,7 +225,7 @@ To stop a single scan, navigate to the "Single Scans" tab in Scan Control sectio
    Stopping a Single Scan
 
 Download Scan Results 
-~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""
 
 After the scan completion, you can download the scan results via the download button in the actions column.
 
@@ -213,7 +245,7 @@ Scan Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create Grouped Scans
-~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""
 
 A scan for a group of systems can be created in the Scan Control section.
 
@@ -252,7 +284,7 @@ If you have provided custom IOCs in the IOC Management section, they can be sele
 After the group scan has been saved or saved and started, you will automatically be forwarded to the list of grouped scans. 
 
 List of all Group Scans
-~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""
 
 The list of all group scans contains, among other items, the unique Scan-ID and the name.
 
@@ -273,7 +305,7 @@ The Status field can have the following values:
 **Completed:** The group scan is completed. No further scan jobs will be issued.
 
 Starting a Group Scan
-~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""
 
 A group scan can be started by clicking on the "play" button in the "Actions" column of a group scan.
 
@@ -286,7 +318,7 @@ A group scan can be started by clicking on the "play" button in the "Actions" co
 Subsequently, the scan will be listed as "Started".
 
 Starting a Scheduled Group Scan
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""""""""""
 
 Scans that are to run on a frequent basis can be created in the "New Scheduled Grouped Scan" tab.
 
@@ -305,7 +337,7 @@ Scans that are to run on a frequent basis can be created in the "New Scheduled G
 The Scheduled Group Scan section shows all schedules along with their periodicity. All group scans that have been started through the scheduler will show up on top of the Group Scan section the moment they are started. 
 
 Details of a Group Scan
-~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""
 
 Further information about a group scan can be observed from the detail page of the group scan. Click the scan you are interested in and the details section will appear.
 
@@ -384,8 +416,6 @@ ASGARD ships with pre-defined playbooks for the following tasks:
 * Execute command and collect stdout and stderr
 
 Nextron provides additional playbooks via ASGARD updates.
-
-
 
 **Caution !!!**  
 
@@ -605,10 +635,10 @@ The following systems require a server license in order to be scanned:
 * All Microsoft Windows server systems
 * All Linux systems
 
-Provide an existing THOR Incident Response License (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Provide an THOR Incident Response License (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In case you have an existing THOR Incident Response license and want to use it with ASGARD, just upload it through the web based UI. This will remove all endpoint count restrictions from ASGARD. You can scan as many endpoints as you like – regardless of the type (workstation / server). 
+In case you have an THOR Incident Response license and want to use it with ASGARD, just upload it through the web based UI. This will remove all endpoint count restrictions from ASGARD. You can scan as many endpoints as you like – regardless of the type (workstation / server). 
 
 Updates
 -------
@@ -650,93 +680,112 @@ Please be aware, that this is a global setting and will affect all scans!
 
    Selecting a Scanner version manually 
 
-Settings
---------
-
 User Management
-^^^^^^^^^^^^^^^
+---------------
 
-User Roles
-~~~~~~~~~~
+Access user management via ``Settings`` > ``Users``. This section allows administrators to add or edit user accounts.
 
-By default, ASGARD ships with the following pre-configured user roles. 
+.. figure:: ../images/add-user.png
+   :target: ../_images/add-user.png
+   :alt: Add User
 
+   Add User Account
 
-.. figure:: ../images/image74-1592213380231.png
-   :target: ../_images/image74-1592213380231.png
-   :alt: image74
+Editing a user account does not require a password although the fields are shown in the dialogue.
 
-   User Roles – factory defaults 
+Access the user roles in ``Settings`` > ``Roles``. 
 
-The pre-configured roles can be modified or deleted. The ASGARD role model is fully configurable.
+Roles
+^^^^^
 
-The following rights are available and can be added to a role.
-
-
-.. figure:: ../images/image75-1592213406010.png
-   :target: ../_images/image75-1592213406010.png
-   :alt: image75
-
-All rights comprise the right of starting and stopping scans. 
-
-**Admin:** 
-
-Users with the Admin permission are allowed to modify everything, but are not allowed to access the Response Control and the Bifrost sections. Additionally, the Admin permission does not allow to open remote shells on endpoints. 
-
-The Admin permission allows to 
-
-* create or modify users and roles
-* add, generate, download licenses
-* update ASGARD, THOR and scanners
-* modify configurations in the Settings section
-
-**Manage Scan Templates:** Users with this permission are able to manage scan templates. 
-
-**Remote Console:** Users with this permission are allowed to open a remote console on all connected endpoints. 
-
-**Remote Console Protocol:** Users with this permission are allowed to view all remote console sessions. Additionally, all permissions from Response Control and Scan Control are included.
-
-**Response Control:** Users with this permission have full access to the response control section, are able to use "Evidence Collection", access the Bifrost section, but cannot open remote console sessions. The Response Control permission allows you to update the ASGARD agent on the endpoints.
-
-Furthermore, roles can be given one or more restrictions. The following restrictions are available:
-
-.. figure:: ../images/image76-1592213469591.png
-   :target: ../_images/image76-1592213469591.png
-   :alt: image76
-
-**ForceStandardArgs:** If this restriction is set, the user has the Scan Control permission but can only use unrestricted scan templates. 
-
-**NoTaskStart:** Users with this restriction are not allowed to start scans or start tasks in the response control section.
-
-**Read Only:** If this restriction is set the user only has read access to the functions he is allowed to use.
-
-Configuring LDAP
-~~~~~~~~~~~~~~~~
-
-In order to configure LDAP, navigate to "Settings", LDAP tab and add LDAP server details. Then provide role mapping by clicking "Add LDAP Role".
+By default, ASGARD ships with the following pre-configured user roles. The pre-configured roles can be modified or deleted. The ASGARD role model is fully configurable.
 
 
-.. figure:: ../images/image77-1592213527329.png
-   :target: ../_images/image77-1592213527329.png
-   :alt: image77
+.. figure:: ../images/asgard-user-roles.png
+   :target: ../_images/asgard-user-roles.png
+   :alt: ASGARD User Roles
+
+   User Roles – Factory Defaults 
+
+Note that all users except users with the right ``ReadOnly`` have the right to run scans on endpoints. 
+
+The following section describes these predefined rights and restrictions that each role can have.
+
+Rights
+^^^^^^
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Admin
+   * - Unrestricted
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ManageScanTemplates
+   * - Allows scan templates management
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ResponseControl
+   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - RemoteConsole
+   * - Connect to endsystems via remote console
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - RemoteConsoleProtocol
+   * - Review the recordings of all remote console sessions
+
+Restrictions 
+^^^^^^^^^^^^
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ForceStandardArgs
+   * - Creat and start scans with predefined arguments or scan templates that are not restricted
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - NoInactiveAssets
+   * - Cannot view inactive assets in asset management.
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - NoTaskStart
+   * - Cannot start scans or task (playbooks)
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ReadOnly
+   * - Can't change anything, can't run scans or response tasks. Used to generate read-only API keys
+
+LDAP Configuration
+^^^^^^^^^^^^^^^^^^
+
+In order to configure LDAP, navigate to ``Settings`` > ``LDAP``. Then provide role mapping after clicking ``Add LDAP Role``.
+
+.. figure:: ../images/config-ldap.png
+   :target: ../_images/config-ldap.png
+   :alt: Configure LDAP
 
    Configure LDAP
 
-All local users are disabled except for the built-in admin user when LDAP is configured.
+All local users get disabled except for the built-in ``admin`` user when LDAP is configured.
 
-Create a New User
-~~~~~~~~~~~~~~~~~
-
-You can manage all users that have access to ASGARD under Settings à Users. In order to create a new user, click the "Create User" button in the upper right corner of this section.
-
-
-.. figure:: ../images/image78-1592213605993.png
-   :target: ../_images/image78-1592213605993.png
-   :alt: image78
-
-   User Management
-
-**Note:** You must specify the user’s role when creating the user. 
+Other Settings
+--------------
 
 Syslog Forwarding
 ^^^^^^^^^^^^^^^^^
@@ -760,7 +809,7 @@ The following log types can be forwarded individually:
 
 **THOR Log:** All THOR scan results. This is only available if the scan configuration contains syslog forwarding to ASGARD. 
 
-Installing a TLS Certificate
+TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Instead of using a pre-installed self-signed TLS Certificate, you can use your own TLS Certificate for ASGARD. First of all, a Certificate Signing Request (CSR) is required. 
@@ -943,3 +992,52 @@ API Key
 This section also allows you to set and modify an API key. 
 
 Note that currently an API key always has the access rights of the user context in which it has been generated. If you want to create a restricted API key, add a new restricted user and generate an API key in the new user’s context.  
+
+Uninstall ASGARD Agents 
+-----------------------
+
+The following listings contain commands to uninstall ASGARD Agents on endpoints. 
+
+**Note:** The commands contain names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
+
+Uninstall ASGARD Agents on Windows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: batch
+
+   sc stop asgard2-agent
+   sc delete asgard2-agent
+   del /F /Q C:\Windows\System32\asgard2-agent
+
+Uninstall ASGARD Agents on Linux
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+RPMs via ``yum``
+
+.. code:: bash 
+
+   yum remove 'asgard2-agent*'
+
+DPKGs via ``apt-get`` 
+
+.. code:: bash 
+
+   apt-get remove 'asgard2-agent*'
+
+Manual uninstall
+
+.. code:: bash
+
+   /usr/sbin/asgard2-agent-amd64 stop
+   /usr/sbin/asgard2-agent-amd64 uninstall
+   rm -rf /usr/sbin/asgard2-agent-amd64
+   rm -rf /var/tmp/nextron/asgard2-agent
+   rm -rf /var/lib/nextron/asgard2-agent
+
+Uninstall ASGARD Agents on macOS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash 
+
+   sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
+   sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
