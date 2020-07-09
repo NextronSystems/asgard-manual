@@ -790,51 +790,55 @@ Other Settings
 Syslog Forwarding
 ^^^^^^^^^^^^^^^^^
 
-In order to define syslog forwarding, navigate to the ``RSYSLOG`` tab in the ``Settings`` section and click ``Add RSYSLOG Forwarding``. 
+Syslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add RSYSLOG Forwarding``. 
 
-
-.. figure:: ../images/image79-1592213669170.png
-   :target: ../_images/image79-1592213669170.png
-   :alt: image79
+.. figure:: ../images/config-syslog.png
+   :target: ../_images/config-syslog.png
+   :alt: Syslog Forwarding
 
    Configure Syslog forwarding
 
-The following log types can be forwarded individually:
+The following log sources can be forwarded individually:
 
-**ASGARD Log:** Everything related to the ASGARD service, processes, jobs and scans.
+.. list-table:: Available Log Sources 
+   :header-rows: 1
 
-**ASGARD Audit Log:** ASGARD features a powerful audit function that logs every mouse click in the system as well as all login related events to the audit log.
-
-**Agent Log:** All ASGARD agent activities are logged to the agent log.
-
-**THOR Log:** All THOR scan results. This is only available if the scan configuration contains syslog forwarding to ASGARD. 
+   * - Log
+     - Description
+   * - ASGARD Log
+     - Everything related to the ASGARD service, processes, task and scan jobs
+   * - ASGARD Audit Log
+     - Detailed audit log of all user activity within the system
+   * - Agent Log
+     - All ASGARD agent activities
+   * - THOR Log
+     - THOR scan results (available if scan config has ``Syslog to ASGARD`` enabled) 
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Instead of using a pre-installed self-signed TLS Certificate, you can use your own TLS Certificate for ASGARD. First of all, a Certificate Signing Request (CSR) is required. 
-
+Instead of using the pre-installed self-signed TLS Certificate, users can upload their own TLS Certificate for ASGARD. 
 
 .. figure:: ../images/image80-1592213746875.png
    :target: ../_images/image80-1592213746875.png
    :alt: image80
 
-   Generating a CSR
+   Generate a Certificate Signing Request (CSR)
 
-For best experience with Google Chrome, we recommend entering the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
+In order to achieve the best possible compatibilty with the most common browsers, we recommend using the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
 
-Please note: Generating the CSR on the command line  is not supported.   
+Please note that the generating a CSR on the command line is not supported.   
 
-This CSR can be used to generate a TLS Certificate. Subsequently, this TLS Certificate can be uploaded in the Settings section.
+This CSR can be used to generate a TLS Certificate. Subsequently, this TLS Certificate can be uploaded in the ``Settings`` > ``TLS`` section.
 
 Manage Services
 ^^^^^^^^^^^^^^^
 
-The individual ASGARD services can be managed within the sub-section ``Services``. These are presented in a table and can be stopped or restarted with the buttons in the ``Actions`` column. 
+The individual ASGARD services can be managed in ``Settings`` > ``Services``. The services can be stopped or restarted with the respective buttons in the ``Actions`` column. 
 
-.. figure:: ../images/image81-1592213825369.png
-   :target: ../_images/image81-1592213825369.png
-   :alt: image81
+.. figure:: ../images/config-services.png
+   :target: ../_images/config-services.png
+   :alt: Configuration of Services
 
    Manage Services
 
@@ -843,18 +847,18 @@ NTP Configuration
 
 The current NTP configuration can be found in the NTP sub-section. 
 
-.. figure:: ../images/image82-1592213876007.png
-   :target: ../_images/image82-1592213876007.png
-   :alt: image82
+.. figure:: ../images/config-ntp.png
+   :target: ../_images/config-ntp.png
+   :alt: NTP Configuration
 
    Current NTP configuration
 
-A Source Pool or Source Server can be removed by clicking the „X" button. To create a new Source Pool or Source Server, click ``Add NTP Source`` in the upper right corner. 
+A Source Pool or Source Server can be removed by clicking the ``X`` button. To create a new Source Pool or Source Server, click ``Add NTP Source`` in the upper right corner. 
 
 Settings for Bifrost
 ^^^^^^^^^^^^^^^^^^^^
 
-Bifrost allows you to automatically download suspicious files to your ASGARD. If an Analysis Cockpit is connected, these files are automatically forwarded to the Analysis Cockpit in order to drop them into a connected Sandbox system. However, the collected files will stay on ASGARD for the amount of time specified in "Retention time" (0 days represent an indefinite amount of time). 
+Bifrost allows you to automatically upload suspicious files to your ASGARD during a THOR scan. If an Analysis Cockpit is connected, these files get automatically forwarded to the Analysis Cockpit in order to drop them into a connected Sandbox system. However, the collected files will stay on ASGARD for the amount of time specified in ``Retention time`` (0 days represent an indefinite amount of time). 
 
 .. figure:: ../images/image83-1592213927829.png
    :target: ../_images/image83-1592213927829.png
@@ -862,20 +866,19 @@ Bifrost allows you to automatically download suspicious files to your ASGARD. If
 
    Settings for Bifrost
 
-The collected files can be downloaded in the ``Collected Files`` section. All files are zipped and password protected with the password specified under ``Download Password``. 
+The collected files can be downloaded in the ``Evidence Collection`` section. All files are zip archived and password protected with the password specified in the setting ``Download Password``. 
 
-If no password is set, ASGARD will use the factory default password. The default password is: ``infected``
+If no password is set, ASGARD will use the default password ``infected``.
 
-In order to automatically collect suspicious files, you must create a scan with the Bifrost option. Checking the ``Send Bifrost2 to ASGARD`` option will automatically add ``%asgard-host%`` as Bifrost Server.
+In order to automatically collect suspicious files, you have to create a scan with Bifrost enabled. Check the ``Send Bifrost2 to ASGARD`` option to send samples to the system set as ``bifrost2Server``. Use the placeholder ``%asgard-host%`` to use the hostname of you ASGARD instance as the Bifrost server.
 
-
-.. figure:: ../images/image84-1592214051656.png
-   :target: ../_images/image84-1592214051656.png
-   :alt: image84
+.. figure:: ../images/scan-bifrost-option.png
+   :target: ../_images/scan-bifrost-option.png
+   :alt: Bifrost Options
 
    Scan option for Bifrost 
 
-This will collect all files with a minimum Score of 60 and make them available for download in ASGARDs ``Collected Files`` section. 
+This will collect all files with a score of 60 or higher.  and make them available for download in ASGARDs ``Collected Files`` section. 
 
 For Details on how to automatically forward to a sandbox system please refer to the Analysis Cockpit manual.
 
@@ -890,18 +893,17 @@ In order to connect to an Analysis Cockpit, enter the respective hostname or IP 
 
    Linking the Analysis Cockpit 
 
-You may obtain the Cockpit’s API key in the upper right corner of the Cockpit’s Overview section.
+The Cockpit’s API key can be found on the right side of the Analysis Cockpit's ``Overview`` page.
 
 .. figure:: ../images/image86-1592214154933.png
    :target: ../_images/image86-1592214154933.png
    :alt: image86
 
-   Finding the Cockpit’s API key
+   Analysis Cockpit API Key
 
 ASGARD must be able to connect to the Analysis Cockpit on port 443/TCP for a successful integration. Once connected, the Cockpit will show up in ASGARDs overview section along with the "last synced date" (lower left corner). 
 
-Please allow up to five minutes for the status to change on ASGARD’s System Status page. It will change from ``Not linked`` to ``Online``.
-
+Please wait up to five minutes for the status to change on ASGARD’s system status page. It will change from ``Not linked`` to ``Online``.
 
 .. figure:: ../images/image87-1592214183046.png
    :target: ../_images/image87-1592214183046.png
