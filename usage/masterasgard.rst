@@ -1,14 +1,10 @@
 
-Manage ASGARD Using MASTER ASGARD
-=================================
+MASTER ASGARD
+=============
 
-MASTER ASGARD is a single central management console that can control all of your ASGARD systems. It is meant to manage centrally controlled scans on all your ASGARD systems with just one click. MASTER ASGARD also provides one central point of management for your IOCs. 
+MASTER ASGARD is a single central management console that can control all of your ASGARD systems. It is meant to centrally manage controlled scans on all your ASGARD systems. MASTER ASGARD also provides one central point of management for your Response Playbooks, Evidence Collection and IOC Management. 
 
-The licensing section on ASGARD will become inactive and the local ASGARD license will be replaced by the MASTER ASGARD license. Every ASGARD can issue scanning licenses to assets as long as the total number of scanned servers and workstations does not exceed the number of systems in the master license.
-
-On MASTER ASGARD, all functions are relatively similar to use compared to ASGARD. You can select and label your assets in the ``Asset Management`` section, manage your users in the "Users" section, add your licenses in the ``Licensing`` section. Evidence collection is started in the asset view and results show up in the ``Evidence Collection`` section. 
-
-However, there are some important changes and additions to certain functions in order to support central control.
+Since MASTER ASGARD version 2, you install a MASTER ASGARD by promoting a bare ASGARD system with the installation of a special license. After the MASTER ASGARD license installation many functions offer additional options. Howevery from that moment onwards, your MASTER ASGARD controls all endpoints connected to all linked ASGARD systems. 
 
 Hardware Requirements for MASTER ASGARD
 ---------------------------------------
@@ -20,15 +16,21 @@ Component           Value
 =================== =======
 System memory       16 GB
 Hard disk           1 TB 
-CPU Cores           4
+CPU Cores           8
 =================== =======
+
+License Management
+------------------
+
+Once you connect ASGARD systems with MASTER ASGARD, the licensing sections on connected ASGARD systems become inactive. The local ASGARD license will be replaced with the MASTER ASGARD license. Every ASGARD can issue scanning licenses to assets as long as the total number of scanned servers and workstations does not exceed the number of systems in the master license.
 
 Setting up MASTER ASGARD
 ------------------------
 
 The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. 
-
 Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER ASGARD v2 through a special license upload.
+
+**Note:** After upgrading an ASGARD to a MASTER ASGARRD, all previous information and settings on that system will be lost. Don't upgrade ASGARD systems with connected endpoints, but only newly installed systems. 
 
 Default Password Web GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -42,65 +44,174 @@ Default Password Console
 User: ``nextron`` 
 Password: ``nextron``
 
-Scan Control in MASTER ASGARD
------------------------------
+Link ASGARD Systems with MASTER ASGARD 
+--------------------------------------
 
-Create a Master Scan
-^^^^^^^^^^^^^^^^^^^^
+On your ASGARD server, got to ``Settings`` > ``Connections`` > ``Link MASTER ASGARD``, generate a one-time code and copy it. 
 
-A "Master Scan" is a scan that runs on all ASGARDS. In order to create a master scan, navigate to the ``New Master Scan`` tab, fill out the values that you need and click the ``Create Master Scan`` button. Please note, this only defines the Master Scan. You can start the scan in the ``Master Scan`` tab of this section. 
+.. figure:: ../images/link-master1.png
+   :target: ../_images/link-master1.png
+   :alt: Generate One Time Token
 
-You can limit the number of assets by using labels. Please note, the ``Client Rate`` value is pushed down to every ASGARD. If you use a client rate of 5 and push the scan to 10 ASGARDs you will end up with a total client rate of 50.  
+   Generate One Time Token on ASGARD
 
-If the checkbox ``syslog to ASGARD`` is marked, all endpoints will send their scan results to the respective ASGARD they are connected to. MASTER ASGARD is not designed to receive syslog messages. 
+In MASTER ASGARD go to ``Asgard Management``, click the ``Add ASGARD`` button in the upper right and use the hostname and one-time token to connect that ASGARD system. You can use a description to provide more information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
 
-.. figure:: ../images/image93-1592778165691.png
-   :target: ../_images/image93-1592778165691.png
-   :alt: image93
+.. figure:: ../images/link-master2.png
+   :target: ../_images/link-master2.png
+   :alt: Link ASGARD in MASTER ASGARD
 
-   Create a Master Scan
+   Link ASGARD in MASTER ASGARD
 
-Create a Grouped Scan
-^^^^^^^^^^^^^^^^^^^^^
+**Note:** You don't have to provide a port in the hostname field. Don't use a URL like ``https://`` but just the FQDN. Remember that MASTER ASGARD must be able to reach ASGARD v2 systems on port 5443/tcp and ASGARD v1 systems on port 9443/tcp. Also make sure that the MASTER ASGARD system is able to resolve the hostname of the ASGARD system. 
 
-While a Master Scan is always pushed to all connected ASGARDs, a Grouped Scan gives you the opportunity to select a subset of ASGARDS where you want the scan to run. 
+Scan Control
+------------
 
-In order to create a new grouped scan, click the ``New Grouped Scan`` tab, fill out the values that you need and click the ``Create Grouped Scan`` button. Please note, this only defines the Grouped Scan. You can start the scan in the ``Grouped Scan`` tab of this section. 
+Scan Control in MASTER ASGARD looks the same as in an ASGARD server. The only difference is that you can select an ASGARD Server or "All ASGARDs" to run the scans on.  
 
-You must select at least one ASGARD in order to define the scan. Please note, the ``Client Rate`` value is pushed down to every ASGARD. If you use a client rate of 5 and push the scan to 10 ASGARDs you will have a total client rate of 50. 
+.. figure:: ../images/master-asgard-scan-control.png
+   :target: ../_images/master-asgard-scan-control.png
+   :alt: MASTER ASGARD Scan Control
 
-If the checkbox ``syslog to ASGARD`` is marked, all endpoints will send their scan results to the respective ASGARD they are connected to. MASTER ASGARD is not designed to receive syslog messages. 
+   Scan Control in MASTER ASGARD - New Group Scan
 
+IOC Management
+--------------
 
-.. figure:: ../images/image94-1592778235197.png
-   :target: ../_images/image94-1592778235197.png
-   :alt: image94
+ASGARD provides two ways to import custom IOCs, YARA or Sigma rules:
 
-   Create a Grouped Scan on MASTER ASGARD
+1. Upload in a format that THOR understands (see THOR Manual)  
+2. Sync with a MISP instance
 
-User Roles in Master ASGARD
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+All IOCs, rules and MISP events can be used in scans on every connected endpoint. 
 
-Master ASGARDs user roles are not as granular as role management in ASGARD 2. However, there is a set of permissions to define the level of privileges that can be granted to a user. 
+In version 2.4 of ASGARD it is not yet possible to sync down IOCs, rules or MISP events to connected ASGARD systems and use them in local scans. Future versions of ASGARD will allow that. 
 
-The permissions are defined as follows.
+Evidence Collection 
+-------------------
 
-Admin
-"""""
-Unrestricted
+All collected evidence is available in MASTER ASGARD's ``Evidence Collection`` section. 
 
-Evidence Collection
-"""""""""""""""""""
-Users with this permission are able to access the "Response Control Section" and collect evidence such as files and memory dumps. They may also create and start scans.
+In version 2.4 of ASGARD it is not possible to limit the availability of collected evidence, e.g. maling locally collected evidence on an ASGARD only available to local users and not the users on the MASTER ASGARD. Future versions of ASGARD will allow that.
 
-Advanced Scan Control
-"""""""""""""""""""""
-Users with this permission are able to overwrite the standard arguments for all scans, may use restricted scan templates and may use ``Evidence Collection``. They can also create and start scans.
+Download Section 
+----------------
 
-Manage Scan Templates
-"""""""""""""""""""""
-Users with this permission are able to manage scan templates. They can also create and start scans.
+The ``Downloads`` section of MASTER ASGARD doesn't contain scanner packages since the scanners get downloaded and maintained on each of the connected ASGARD servers only. 
 
-Force Standard Args
-"""""""""""""""""""
-Users with this permission are able to create and start scans only with predefined standard arguments or scan templates that are not restricted.
+Updates
+-------
+
+The ``Updates`` section contains a tab in which upgrades for ASGARD can be installed. 
+
+A second tab named ``Scanners and Signatures`` gives you an overview of the used scanner and signature versions on all connected ASGARDs. 
+
+.. figure:: ../images/scanner-updates1.png
+   :target: ../_images/scanner-updates1.png
+   :alt: MASTER ASGARD Scanner Updates
+
+   MASTER ASGARD Scanner Updates
+
+It is possible to set a certain THOR and Signatures version for each connected ASGARD. However, if automatic updates is configured, this setting has only effect until a new version gets downloaded. 
+
+.. figure:: ../images/scanner-updates2.png
+   :target: ../_images/scanner-updates2.png
+   :alt: MASTER ASGARD Set Scanner Version
+
+   MASTER ASGARD Set Scanner Version
+
+Customers use this feature in cases in which they want to test a certain THOR version before using it in production. In this use case the ASGARD system that runs the test scans is set to automatic updates, while the ASGARD systems in production use versions that administratos set manually after successful test runs. 
+
+User Roles
+----------
+
+MASTER ASGARD has the following predefined user roles, which can be extended by custom roles.
+
+.. figure:: ../images/user-roles.png
+   :target: ../_images/user-roles.png
+   :alt: MASTER ASGARD User Roles
+
+   MASTER ASGARD User Roles
+
+Note that all users except users with the right ``ReadOnly`` have the right to run scans on endpoints since this is the main function of an ASGARD system. 
+
+The following section describes these predefined rights and restrictions that each role can have in detail.
+
+Rights
+^^^^^^
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Admin
+   * - Unrestricted
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ManageScanTemplates
+   * - Allows scan templates management
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ResponseControl
+   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - RemoteConsole
+   * - Connect to endsystems via remote console
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - RemoteConsoleProtocol
+   * - Review the recordings of all remote console sessions
+
+Restrictions 
+^^^^^^^^^^^^
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ForceStandardArgs
+   * - Creat and start scans with predefined arguments or scan templates that are not restricted
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - NoInactiveAssets
+   * - Cannot view inactive assets in asset management.
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - NoTaskStart
+   * - Cannot start scans or task (playbooks)
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - ReadOnly
+   * - Can't change anything, can't run scans or response tasks. Used to generate read-only API keys
+
+MASTER ASGARD and Analysis Cockpit
+----------------------------------
+
+It is not possible to link MASTER ASGARD with an Analysis Cockpit and transmit all scan logs via MASTER ASGARD to a single Analysis Cockpit instance. Each ASGARD has to deliver its logs seperately to a connected Analysis Cockpit.
+
+MASTER ASGARD API
+-----------------
+
+The MASTER ASGARD API is documented in the ``API Documentation`` section and resembles the API in ASGARD systems. 
+
+However, many API endpoints contain a field in which users select the corresponding ASGARD (via ID) or all ASGARDs (ID=``0``) 
+
+.. figure:: ../images/master-api1.png
+   :target: ../_images/master-api1.png
+   :alt: MASTER ASGARD API Specialty
+
+   MASTER ASGARD API Specialty
