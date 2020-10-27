@@ -399,7 +399,7 @@ Install the new ASGARD2 Agent
 
 In order to install the new agent, we will need to expand the ``Administrative`` folder and select ``Launch Binary``.
 
-We will be requested to put in a binary, please use the binary name we gathered/created in step 8.2.2.2.4. and click Launch.
+We will be requested to put in a binary, please use the binary name we gathered/created in step 7.2.2.2.4. and click Launch.
 
 .. figure:: ../images/image125-1592781654614.PNG
    :target: ../_images/image125-1592781654614.PNG
@@ -407,7 +407,7 @@ We will be requested to put in a binary, please use the binary name we gathered/
 
    Launch Binary
 
-The used binary name was extracted from step 8.2.2.2.4. In this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
+The used binary name was extracted from step 7.2.2.2.4. In this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
 
 .. figure:: ../images/image126-1592781692011.PNG
    :target: ../_images/image126-1592781692011.PNG
@@ -438,7 +438,7 @@ An example shell script for Debian based systems could look like this:
    dpkg -i /tmp/agent-linux.deb
    rm -f /tmp/agent-linux.deb
 
-Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 8.2.2.2.4, afterwards you will be able to launch a HUNT to your connected Linux Systems. 
+Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 7.2.2.2.4, afterwards you will be able to launch a HUNT to your connected Linux Systems. 
 
 Please bear in mind that the above script will work only for Ubuntu/Debian systems and needs to be adapted for ``Redhat/CentOS systems``.
 
@@ -457,7 +457,7 @@ An example shell script for macOS based systems could look like this:
    sudo installer -pkg /tmp/agent-darwin.pkg -target /
    rm -f /tmp/agent-darwin.pkg
 
-Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 8.2.2.2.4, afterwards you will be able to launch a HUNT to your connected ``macOS Systems``. 
+Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 7.2.2.2.4, afterwards you will be able to launch a HUNT to your connected ``macOS Systems``. 
 
 Migration check and completion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
