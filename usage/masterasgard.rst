@@ -96,7 +96,15 @@ ASGARD provides two ways to import custom IOCs, YARA or Sigma rules:
 
 All IOCs, rules and MISP events can be used in scans on every connected endpoint. 
 
-In version 2.4 of ASGARD it is not yet possible to sync down IOCs, rules or MISP events to connected ASGARD systems and use them in local scans. Future versions of ASGARD will allow that. 
+In version 2.4 of MASTER ASGARD synced down IOCs are not visible on the connected ASGARD servers by default. However, there is a setting that enables the visibility on the connected ASGARD servers, although it is not yet available in the web GUI. To enable the visibility open the file ``/etc/nextron/asgard2/asgard.conf`` and add the following setting. 
+
+.. code:: bash
+
+   MasterSyncIOCs = 1
+
+The MASTER ASGARD server has the be restarted after that change. 
+
+Note: This only works for setups that use ASGARD v2.4 or higher and MASTER v2.4 or higher.
 
 Evidence Collection 
 -------------------
