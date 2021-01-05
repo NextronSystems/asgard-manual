@@ -152,3 +152,20 @@ You can use the ``asgard-restore`` command to restore a backup.
    24 bytes copied, 3.2337e-05 s, 742 kB/s
    Starting services... Created symlink /etc/systemd/system/multi-user.target.wants/asgard2.service → lib/systemd/system/asgard2.service. done.
 
+
+Disable Remote Console Globally
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Remote Console on connected endpoints can be diabled centrally by creating the following file. 
+
+.. code:: bash
+
+   $ sudo touch /etc/nextron/asgard2/disable_console
+
+
+To reenable Remote Console simply remove the created file
+
+.. code:: bash
+
+   $ sudo rm /etc/nextron/asgard2/disable_console
+
+
