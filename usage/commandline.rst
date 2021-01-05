@@ -154,7 +154,7 @@ You can use the ``asgard-restore`` command to restore a backup.
 
 
 Disable Remote Console Globally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 Remote Console on connected endpoints can be diabled centrally by creating the following file. 
 
 .. code:: bash
