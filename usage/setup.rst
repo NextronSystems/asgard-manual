@@ -94,12 +94,11 @@ If DHCP is available, network parameters will be configured automatically. Witho
    :alt: image-20200608150649677
 
 
-
 .. figure:: ../images/image19.png
    :target: ../images/image19.png
    :alt: image-20200608150655947
 
-
+Important: Make sure that the combination of hostname and domain creates an FQDN that can be resolved from the endsystems on which you intend to install the ASGARD agents. If you've configured a FQDN (hostname + domain) that cannot be resolved on the clients, no agent will be able to find and reconnect to the ASGARD server. 
 
 .. figure:: ../images/image20.png
    :target: ../images/image20.png
