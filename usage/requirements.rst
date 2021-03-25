@@ -148,3 +148,28 @@ DNS
 ^^^
 
 ASGARD needs to be able to resolve internal and external IP addresses.
+
+Antivirus or EDR Exclusions
+---------------------------
+
+We recommend excluding certain folders and binaries from Antivirus scanning. 
+
+The exclusions will not only prevent Antivirus engines from removing the agents and scanner executables but also increase scan speed, since their real-time engines won't check every file that the scanner has opened for analysis. This can improve the scan speed by up to 30% and also reduces the system's CPU load. 
+
+- %SYSTEMROOT%\System32\asgard2-agent\
+- %SYSTEMROOT%\Temp\asgard2-agent\
+
+If you can use wildcards, use the following more specific list:
+
+- %SYSTEMROOT%\System32\asgard2-agent\asgard2-agent.exe
+- %SYSTEMROOT%\System32\asgard2-agent\asgard2-agent-service.execute
+- %SYSTEMROOT%\System32\asgard2-agent\bin\thor.exe
+- %SYSTEMROOT%\System32\asgard2-agent\bin\interrogate.exe
+- %SYSTEMROOT%\System32\asgard2-agent\bin\console.exe
+- %SYSTEMROOT%\Temp\asgard2-agent\\*\thor64.exe
+- %SYSTEMROOT%\Temp\asgard2-agent\\*\thor64-lite.exe
+- %SYSTEMROOT%\System32\asgard2-agent\asgard2-agent_sc.exe
+- %SYSTEMROOT%\System32\asgard2-agent\asgard2-agent_sc-service.exe
+- %SYSTEMROOT%\System32\asgard2-agent\services\bin\logwatcher.exe
+
+If you've obfuscated the agent name, replace *asgard2-agent* with your custom agent name. 
