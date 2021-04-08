@@ -168,11 +168,10 @@ If you have to create a more specific list that can use wildcards, use the follo
 - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\thor.exe
 - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\interrogate.exe
 - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\console.exe
-- %SYSTEMROOT%\\Temp\\asgard2-agent\\*\\thor64.exe
-- %SYSTEMROOT%\\Temp\\asgard2-agent\\*\\thor64-lite.exe
 - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc.exe
 - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
 - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
+- %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
 
 Using the more specific list, we've experienced problems with some AV solutions that even trigger on certain keywords in filenames. They don't kill the excluded executable but block write access to disk if certain keywords like "bloodhound" or "mimikatz" appear in filenames. In these cases, the executable exclusions are not enough and you should use the recommended list of two folders and all sub folders (see above). 
 
