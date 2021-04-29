@@ -22,8 +22,7 @@ How to Fix an unset or wrong FQDN
 
 Connect via SSH to the system. 
 
-
-
+TBD
 
 The agents have to be rebuild after a change of the FQDN. Adjust and run the following script: 
 
