@@ -494,8 +494,8 @@ Frequently Asked Questions
 
 This section will cover frequent questions regarding the migration.
 
-Will there be any problem in running both agents at the same time?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Will there be any problem in running both agents (v1, v2) at the same time?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are no known issues running both agents at the same time. The new ASGARD v2 agent is more lightweight and performant. The expected RAM utilization in idle mode demonstrated in our tests put the new agent in a very good position, consuming only 1 MB.
 
@@ -508,3 +508,67 @@ Can I import my memory dumps and file collections made on ASGARD v1?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Unfortunately importing memory dumps and/or file collections made on ASGARD v1 is not possible.
+
+ASGARD Agent macOS Notarization
+-------------------------------
+
+Introduction
+^^^^^^^^^^^^
+
+Starting with macOS BIG SUR (v11.0), Apple requires software developers
+to notarize applications.
+
+Due to the nature of the asgard2-agent installer, which is generated on
+installation time, making it unique for each new installation, it’s
+currently not possible to notarize the same.
+
+This document aims to describe possible workarounds intending to be a
+reference for IT Administrators or IT packaging teams to bypass Apple
+verifications and install the personalized asgard2-agents on their macOS
+BIG Sur workstations.
+
+Considerations
+^^^^^^^^^^^^^^
+
+Executing any of the workarounds described in this document puts your
+system at risk for a short period of time. This document will deactivate
+global security mechanisms of the operating system intended to protect
+the integrity of the system.
+
+Please always keep in mind to check your systems after performing any of
+the described actions to ensure that all security mechanisms are in
+place and are re-activated after performing the described actions.
+
+Install asgard2-agent Using the Command-Line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section describes the installation of the asgard2-agent using the
+command line
+
+1. Download the asgard2-agent from the ASGARD Management Center Agent
+   Download page for macOS (.pkg extension). This page can be located
+   under the following URL:
+   https://\ *YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers
+2. | Deactivate macOS security mechanism (Gatekeeper) launching a
+     terminal session:
+   | **sudo spctl --master-disable**
+3. Close the terminal
+4. | Install asgard2-agent
+   | **sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg
+     -target /**
+5. Close the terminal
+6. | Reactivate macOS security mechanism
+   | **sudo spctl --master-enable**
+
+Optional: Check the State of the Gatekeeper Protection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can verify the state of the protection mechanism with this command:
+
+.. code:: bash
+  
+   spctl --status
+
+On a system with re-activated Gatekeeper output has to be:
+
+assessments enabled
