@@ -1,6 +1,26 @@
 Common Errors
 =============
 
+SSL Interception
+----------------
+
+Using a web proxy with TLS/SSL interception will break the installation routine and shows this error:
+
+.. code::
+
+   Certificate verification failed: The certificate is NOT trusted. The certificate issuer is unknown.  Could not handshake: Error in the certificate verification.
+
+Solution: Disable TLS/SSL interception for our update servers. 
+
+- update3.nextron-systems.com
+
+Used for THOR updates:
+
+- update1.nextron-systems.com
+- update2.nextron-systems.com
+
+We do not support setups in which the CA of the intercepting proxy is used on our ASGARD appliances. 
+
 Using Hostname instead of FQDN 
 ------------------------------
 
@@ -20,27 +40,68 @@ Errors that appear in these cases
 How to Fix an unset or wrong FQDN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Connect via SSH to the system. 
+The FQDN is set at installation time and is composed by the hostname and the domain name. The ASGARD Agents require a resolvable FQDN to correctly operate and connect to the ASGARD Server.
+One of the processes which are executed at installation time include the integration of the FQDN we set during installation into our agents. If we incorrectly set the FQDN or we leave any of those values empty , the agents will fail to connect to ASGARD.
 
-TBD
+With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal certificates and rebuild the agents.
 
-The agents have to be rebuild after a change of the FQDN. Adjust and run the following script: 
+* Connect via SSH to the system.
 
-.. code:: bash
+ .. code:: bash
+
+   ssh nextron@YOURASGARDSERVER
+
+* Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
+
+ .. code:: bash
+
+   nano fix-fqdn.sh
+
+ Change the HOST and DOMAIN variable , make sure that the resulting FQDN is resolvable by the endpoints you deploy the agent to later.
+
+ .. code:: bash
 
    #!/bin/bash
    # VARIABLES
    ############################################
    HOST="asgard"
-   FQDN=$HOST.internaldomain.net
+   DOMAIN="internaldomain.net"
+   FQDN=$HOST.$DOMAIN
    CLIENTCERTVALIDITY=36500
    ############################################
    hostnamectl set-hostname "$FQDN"
-   
+
    openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
-   
+
    openssl req -newkey rsa:4096 -nodes -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
-   
+
    openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days $CLIENTCERTVALIDITY -out /etc/nextron/asgard2/client-service.pem
-   
-   asgard2-repacker -host $FQDN   
+
+   asgard2-repacker -host $FQDN
+
+* After changing the variables to the desired values , save the file. This can be done in "nano" pressing CTRL + X and confirming the changes
+
+* Give the created script execution permissions
+
+ .. code:: bash
+
+   chmod +x fix-fqdn.sh
+
+
+* Execute the script
+
+ .. code:: bash
+
+   sudo ./fix-fqdn.sh
+
+Once the script has been executed the ASGARD service should be restarted.
+
+* Restart the service
+
+ .. code:: bash
+
+   sudo systemctl restart asgard2
+
+You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
+
+You should now install again the agents on the endpoints , they should now be communicating correctly back to ASGARD. Remember to review the network requirements section to ensure all needed ports are open from the endpoint to the ASGARD Management Center.
