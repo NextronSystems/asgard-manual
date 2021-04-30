@@ -784,6 +784,8 @@ In order to configure LDAP, navigate to ``Settings`` > ``LDAP``. Then provide ro
 
 All local users get disabled except for the built-in ``admin`` user when LDAP is configured.
 
+Note: Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**.
+
 Other Settings
 --------------
 
