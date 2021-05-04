@@ -75,7 +75,7 @@ In the requests tab, select the agents you want ASGARD to manage and click ``Acc
 
    Accepting ASGARD Agent Requests
 
-A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see chapter 7.1 Performance Tuning for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
+A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see :ref:`chapter 6.1 Performance Tuning <usage/commandline:Performance Tuning>` for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
 
 Asset Management
 ----------------
@@ -167,7 +167,7 @@ A popular use case for scan templates is providing additional resource control �
 
 Please keep in mind, that we have already optimized THOR to use the most relevant scan options for a particular system (based on type, numbers of CPUs and system resources) and a comprehensive resource control is enabled by default. 
 
-For more details please refer to the THOR manual. Only use the scan templates if you want to deviate from the default for a reason.
+For more details please refer to the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_. Only use the scan templates if you want to deviate from the default for a reason.
 
 Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates" - permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (see user management section for details).
 
@@ -479,7 +479,7 @@ Integrating Custom IOCs
 
 The section IOC management gives you the opportunity to easily integrate custom signatures into your scans. 
 
-You may upload your own signatures in any of THOR’s IOC formats (e.g. files for keyword IOCs, YARA Files and SIGMA files). Refer to the THOR manual for a complete list and file formats. 
+You may upload your own signatures in any of THOR’s IOC formats (e.g. files for keyword IOCs, YARA Files and SIGMA files). Refer to the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_ for a complete list and file formats. 
 
 In order to create your own custom ruleset, navigate to ``IOC Management`` and click ``Upload IOC`` in the IOCs tab. 
 
@@ -967,7 +967,7 @@ The Advanced tab lets you specify additional global settings. The session timeou
 
 Inactive assets can be hidden in the Asset Management Section by setting a suitable threshold for ``Hide inactive Assets``. 
 
-Finally, the download for THOR packages can be protected with a token. If unprotected, anybody can request a THOR package with a valid license for a particular host just by sending a https request with the hostname included (for Details see chapter "4.9 Downloads"). This may lead to unwanted exhaustion of the ASGARD license pool. 
+Finally, the download for THOR packages can be protected with a token. If unprotected, anybody can request a THOR package with a valid license for a particular host just by sending a https request with the hostname included (for Details see :ref:`chapter 4.10 Generate Download Links <usage/administration:Generate Download Links>`). This may lead to unwanted exhaustion of the ASGARD license pool. 
 
 
 .. figure:: ../images/image91-1592214497531.png

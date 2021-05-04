@@ -14,12 +14,13 @@ In environments with up to 500 endpoints, the default polling interval is 20 sec
 
 Obviously, large environments are not as responsive as small environments when it comes to opening remote shells or executing urgent response tasks. It may take up to 10 minutes for the shell to open or the result to show up. However, once open, the shell or the response tasks are very responsive – almost as if it is native on the system.
 
-In order to adapt to specific requirements regarding responsiveness, the polling behavior can be modified. For details, refer to chapter 6.1 Performance Tuning. The hardware requirements in the next chapter assume that the default polling interval is used. 
+In order to adapt to specific requirements regarding responsiveness, the polling behavior can be modified. For details, refer to 
+:ref:`chapter 6.1 Performance Tuning <usage/commandline:Performance Tuning>`. The hardware requirements in the next chapter assume that the default polling interval is used. 
 
 Using a Proxy between ASGARD Agent and ASGARD
 ---------------------------------------------
 
-ASGARD supports using a standard http proxy for the entire Agent to ASGARD communication. In order to use a proxy, the ASGARD agent must be repacked after installation. For details, see chapter 6.3 Creating Custom Agent Installer.
+ASGARD supports using a standard http proxy for the entire Agent to ASGARD communication. In order to use a proxy, the ASGARD agent must be repacked after installation. For details, see :ref:`chapter 6.3 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
 Hardware Requirements
 ---------------------

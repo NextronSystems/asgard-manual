@@ -28,7 +28,9 @@ author = 'Stephan Kaiser, Florian Roth'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'recommonmark'
+    'recommonmark',
+    'sphinx.ext.autosectionlabel'
+
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,3 +62,11 @@ html_css_files = [
 
 # Master 
 master_doc = 'index'
+
+# Enable -- to -
+smartquotes = False
+
+# Use :ref: for subsections
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 3
+
