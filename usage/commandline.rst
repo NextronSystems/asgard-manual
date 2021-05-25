@@ -87,15 +87,13 @@ Then you need to run the ``Update Agent`` module. You can do this on a per asset
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You need to update the agent installer as well, so that newly added assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`Creating Custom Agent Installer`.
+You need to update the agent installer as well, so that newly added assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`chapter 6.4 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
 If you use the default installer without any modifications you can run the following command to update the agent installers:
 
 .. code::
 
    sudo asgard2-repacker
-
-.. _create-custom-agent-installer:
 
 Creating Custom Agent Installer
 -------------------------------

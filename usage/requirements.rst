@@ -20,7 +20,7 @@ In order to adapt to specific requirements regarding responsiveness, the polling
 Using a Proxy between ASGARD Agent and ASGARD
 ---------------------------------------------
 
-ASGARD supports using a standard http proxy for the entire Agent to ASGARD communication. In order to use a proxy, the ASGARD agent must be repacked after installation. For details, see :ref:`chapter 6.3 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
+ASGARD supports using a standard http proxy for the entire Agent to ASGARD communication. In order to use a proxy, the ASGARD agent must be repacked after installation. For details, see :ref:`chapter 6.4 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
 Hardware Requirements
 ---------------------
