@@ -82,7 +82,7 @@ Then you need to run the ``Update Agent`` module. You can do this on a per asset
    Example Group Task for Agent Update
 
 .. note::
-   The ``Update Agent`` module is not shown by default. To show the group task or single tasks (also inside the group task) you need to select the ``Update Agent`` module from the ``Module`` column. You may need to select the ``Module`` column from ``Column visibility`` first, if not shown.
+   The ``Update Agent`` module is not shown by default under (Group) Tasks. To show the group task or single tasks (also inside the group task) you need to select the ``Update Agent`` module from the ``Module`` column. You may need to select the ``Module`` column from ``Column visibility`` first, if not shown.
 
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
