@@ -887,7 +887,7 @@ For Details on how to automatically forward to a sandbox system please refer to 
 Link Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^
 
-In order to connect to an Analysis Cockpit, enter the respective hostname or IP in the field ``Analysis Cockpit``, enter the Cockpit’s API key and click ``Connect``. 
+In order to connect to an Analysis Cockpit, enter the respective hostname of the Analysis Cockpit (use the same FQDN used during installation of the Analysis Cockpit) in the field ``Analysis Cockpit``, enter the Cockpit’s API key and click ``Connect``. 
 
 .. figure:: ../images/image85-1592214126711.png
    :target: ../_images/image85-1592214126711.png
