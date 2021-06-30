@@ -159,20 +159,47 @@ The exclusions will not only prevent Antivirus engines from removing the agents 
 
 We recommend using this list - include all sub folders:
 
-- %SYSTEMROOT%\\System32\\asgard2-agent\\ 
-- %SYSTEMROOT%\\Temp\\asgard2-agent\\
+- For Windows:
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\ 
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\
+- For Linux:
+    - /usr/sbin/asgard2-agent-service
+    - /var/lib/asgard2-agent/
+    - /var/tmp/asgard2-agent/
+- For MacOS:
+    - /var/lib/asgard2-agent/
+    - /var/tmp/asgard2-agent/
+
 
 If you have to create a more specific list that can use wildcards, use the following list:
 
-- %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent-service.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\thor.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\interrogate.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\console.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
-- %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
-- %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
+- For Windows:
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent-service.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\thor.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\interrogate.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\console.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
+- For Linux:
+    - /usr/sbin/asgard2-agent-service
+    - /var/lib/asgard2-agent/asgard2-agent
+    - /var/lib/asgard2-agent/bin/console
+    - /var/lib/asgard2-agent/bin/interrogate
+    - /var/lib/asgard2-agent/bin/thor
+    - /var/lib/asgard2-agent/bin/update
+    - /var/tmp/asgard2-agent/[random]/thor/thor-linux
+    - /var/tmp/asgard2-agent/[random]/thor/thor-linux-64
+- For MacOS:
+    - /var/lib/asgard2-agent/asgard2-agent-service
+    - /var/lib/asgard2-agent/asgard2-agent
+    - /var/lib/asgard2-agent/asgard2-agent/bin/console
+    - /var/lib/asgard2-agent/asgard2-agent/bin/interrogate
+    - /var/lib/asgard2-agent/asgard2-agent/bin/thor
+    - /var/lib/asgard2-agent/asgard2-agent/bin/update
+    - /var/tmp/asgard2-agent/[random]/thor/thor-macosx
 
 Using the more specific list, we've experienced problems with some AV solutions that even trigger on certain keywords in filenames. They don't kill the excluded executable but block write access to disk if certain keywords like "bloodhound" or "mimikatz" appear in filenames. In these cases, the executable exclusions are not enough and you should use the recommended list of two folders and all sub folders (see above). 
 
