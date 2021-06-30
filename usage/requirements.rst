@@ -171,7 +171,7 @@ We recommend using this list - include all sub folders:
     - /var/tmp/asgard2-agent/
 
 
-If you have to create a more specific list that can use wildcards, use the following list:
+If you have to create a more specific list that can use wildcards, use the following list (and replace [random] with the wildcard):
 
 - For Windows:
     - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent.exe
