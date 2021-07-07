@@ -111,7 +111,7 @@ Evidence Collection
 
 All collected evidence is available in MASTER ASGARD's ``Evidence Collection`` section. 
 
-In version 2.4 of ASGARD it is not possible to limit the availability of collected evidence, e.g. maling locally collected evidence on an ASGARD only available to local users and not the users on the MASTER ASGARD. Future versions of ASGARD will allow that.
+In version 2.4 of ASGARD it is not possible to limit the availability of collected evidence, e.g. making locally collected evidence on an ASGARD only available to local users and not the users on the MASTER ASGARD. Future versions of ASGARD will allow that.
 
 Download Section 
 ----------------
