@@ -263,7 +263,7 @@ Freely selectable name for the group scan.
 
 **Limit** 
 
-ASGARD will not send additional scans to the agents when the client limit is reached.
+ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan.
 
 **Rate**
 
