@@ -1011,7 +1011,11 @@ Uninstall ASGARD Agents on Windows
 
    sc stop asgard2-agent
    sc delete asgard2-agent
+   sc stop asgard2-agent_sc
+   sc delete asgard2-agent_sc
    del /F /Q C:\Windows\System32\asgard2-agent
+
+Note: Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
 
 Uninstall ASGARD Agents on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
