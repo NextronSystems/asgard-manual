@@ -159,7 +159,7 @@ The exclusions will not only prevent Antivirus engines from removing the agents 
 
 General Recommendation
 ^^^^^^^^^^^^^^^^^^^^^^
-We recommend using this list - include all sub folders:
+We recommend using this list - include all subfolders:
 
 - For Windows:
     - %SYSTEMROOT%\\System32\\asgard2-agent\\ 
@@ -222,7 +222,7 @@ On-Access Scan:
     - generic.exe
     - asgard2-agent.exe
     - asgard2-agent-service.exe
-- Exclusions (include subfolder):
+- Exclusions (include subfolders):
     - %SYSTEMROOT%\\System32\\asgard2-agent\\
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\
 - Access Protection:
