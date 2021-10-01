@@ -1,5 +1,18 @@
-Common Errors
+Debugging
 =============
+
+Agent Communication Errors
+--------------------------
+
+Edit the file ``C:\Windows\System32\asgard2-agent\asgard2-agent.yaml`` and set the value of ``write_log`` to true.
+
+.. code::
+
+   write_log: true
+
+After making these changes, restart the ASGARD service. You can then find log entries and possible error messages in the file ``C:\Windows\System32\asgard2-agent\asgard2-agent.log``
+
+Note: The value is set to ``false`` by default, because the agent doesn't rotate or compress these logs. Leaving that value on ``true`` could cause that file to grow very big and use a significant amount of disk space. We recommend resetting it after the debugging session.
 
 SSL Interception
 ----------------

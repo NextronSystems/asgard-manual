@@ -17,7 +17,7 @@ Welcome to ASGARD's documentation!
    usage/administration
    usage/masterasgard
    usage/commandline
-   usage/commonerrors
+   usage/debugging
    usage/appendix
 
 
