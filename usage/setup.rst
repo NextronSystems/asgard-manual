@@ -127,7 +127,7 @@ The base installation is now complete. In the next step we’ll install the ASGA
 
 SSH to the appliance using the user: ``nextron`` and password: ``nextron`` and type 
 
-``sudo nextronInstaller`` (caution: upper case “i" in the middle). This will install ASGARD.
+``sudo nextronInstaller -asgard`` (caution: upper case “i" in the middle). This will install ASGARD.
 
 .. figure:: ../images/image23.png
    :target: ../images/image23.png
