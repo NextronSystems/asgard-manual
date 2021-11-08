@@ -30,7 +30,8 @@ Setting up MASTER ASGARD
 The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. 
 Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER ASGARD v2 through a special license upload.
 
-**Note:** After upgrading an ASGARD to a MASTER ASGARRD, all previous information and settings on that system will be lost. Don't upgrade ASGARD systems with connected endpoints, but only newly installed systems. 
+.. note::
+   After upgrading an ASGARD to a MASTER ASGARRD, all previous information and settings on that system will be lost. Don't upgrade ASGARD systems with connected endpoints, but only newly installed systems. 
 
 Default Password Web GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,7 +64,8 @@ In MASTER ASGARD go to ``Connected ASGARDs``, click the ``Add ASGARD`` button in
 
    Link ASGARD in MASTER ASGARD
 
-**Note:** You don't have to provide a port in the hostname field. Don't use a URL like ``https://`` but just the FQDN. Remember that MASTER ASGARD must be able to reach ASGARD v2 systems on port 5443/tcp and ASGARD v1 systems on port 9443/tcp. Also make sure that the MASTER ASGARD system is able to resolve the hostname of the ASGARD system. 
+.. note::
+   You don't have to provide a port in the hostname field. Don't use a URL like ``https://`` but just the FQDN. Remember that MASTER ASGARD must be able to reach ASGARD v2 systems on port 5443/tcp and ASGARD v1 systems on port 9443/tcp. Also make sure that the MASTER ASGARD system is able to resolve the hostname of the ASGARD system. 
 
 Scan Control
 ------------
@@ -104,7 +106,8 @@ In version 2.4 of MASTER ASGARD synced down IOCs are not visible on the connecte
 
 The MASTER ASGARD server has the be restarted after that change. 
 
-Note: This only works for setups that use ASGARD v2.4 or higher and MASTER v2.4 or higher.
+.. note::
+   This only works for setups that use ASGARD v2.4 or higher and MASTER v2.4 or higher.
 
 Evidence Collection 
 -------------------

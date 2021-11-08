@@ -26,7 +26,8 @@ The initial system status page provides a summary of the most important system c
 
 It also includes the current resource consumption (disk, CPU and memory) and lists the currently installed ASGARD software version along with available versions of THOR. Additionally, the connection status to the update servers, Master ASGARD and Cockpit are shown with a graph that shows asset connections and asset streams.
 
-Note: The THOR version numbers may be missing in a new installation. THOR is not included in the installed packages. THOR is downloaded automatically after the installation and should show up not later than one hour after installation. 
+.. note::
+   The THOR version numbers may be missing in a new installation. THOR is not included in the installed packages. THOR is downloaded automatically after the installation and should show up not later than one hour after installation. 
 
 
 .. figure:: ../images/overview.png
@@ -101,10 +102,10 @@ By clicking the control buttons in the Actions column, you can start a new scan,
 
    Available Actions (left to right): Run Scan, Run Task, Connect To Remote Console, Show Timeline, Enable/Disbale Fast Poll Mode
 
-Please note: 
+.. note::
 
-* The internal ping between the ASGARD agent and ASGARD is based on HTTPS not ICMP
-* Depending on the user's role some of the control buttons may be disabled
+    * The internal ping between the ASGARD agent and ASGARD is based on HTTPS not ICMP
+    * Depending on the user's role some of the control buttons may be disabled
 
 Column Visibility
 ^^^^^^^^^^^^^^^^^
@@ -124,7 +125,8 @@ Labels are used to group assets. These groups can then be used in scans or tasks
 
 You can add multiple labels to an asset or a group of assets. This is done by selecting the particular assets in the left column, typing the label name (e.g. New_Label) and clicking the blue ``Add Labels`` button. 
 
-**Note:** Don't use labels with white space characters as it could cause issues in syncs with Analysis Cockpit, exports / imports or other underlying legacy functions. 
+.. note::
+   Don't use labels with white space characters as it could cause issues in syncs with Analysis Cockpit, exports / imports or other underlying legacy functions. 
 
 .. figure:: ../images/add-labels.png
    :target: ../_images/add-labels.png
@@ -143,12 +145,12 @@ In order to remove labels, select your assets, click the yellow ``Remove Labels`
 The asset management section has extensive filtering capabilities, e.g. it is easy to select only Linux endpoints that have been online today and have a particular label assigned. 
 
 Export Asset List 
-"""""""""""""""""
+~~~~~~~~~~~~~~~~~
 
 The Import/Export Section allows you to export your assets to a .csv file. 
 
 Import Labels
-"""""""""""""
+~~~~~~~~~~~~~
 
 The import function allows you to add or remove labels on assets based on columns in that CSV file. 
 
@@ -215,7 +217,7 @@ Scan a Single System
 ^^^^^^^^^^^^^^^^^^^^
 
 Create a Single Scan
-""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~
 
 The creation of a scan is performed within the Asset Management. There is a button for each asset to create a new scan and to show all past scans. 
 
@@ -232,7 +234,7 @@ Within this form, you can choose the max. runtime, module, scanner, scan flags, 
 After the desired parameters have been set, the scan can be started by clicking the ``Add Task`` button.
 
 Stopping a Single Scan
-""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~
 
 To stop a single scan, navigate to the "Single Scans" tab in Scan Control section and click the "stop" (square) button for the scan you want to stop.
 
@@ -243,7 +245,7 @@ To stop a single scan, navigate to the "Single Scans" tab in Scan Control sectio
    Stopping a Single Scan
 
 Download Scan Results 
-"""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~
 
 After the scan completion, you can download the scan results via the download button in the actions column.
 
@@ -263,7 +265,7 @@ Scan Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create Grouped Scans
-""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~
 
 A scan for a group of systems can be created in the "Scan Control > Group Scans" tab. Click the ``Add Group Scan`` button in the upper right corner.
 
@@ -302,7 +304,7 @@ Select a date for a scheduled start of the scan.
 After the group scan has been saved or saved and started, you will automatically be forwarded to the list of grouped scans. 
 
 List of all Group Scans
-"""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The list of all group scans contains, among other items, the unique Scan-ID and the name.
 
@@ -323,12 +325,12 @@ The Status field can have the following values:
 **Completed:** The group scan is completed. No further scan jobs will be issued.
 
 Starting a Group Scan
-"""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~
 
 A group scan can be started by clicking on the "play" button in the "Actions" column of a group scan. Subsequently, the scan will be listed as "Started".
 
 Starting a Scheduled Group Scan
-"""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Scheduled Group Scan section shows all scans that are to run on a frequent basis along with their periodicity. All group scans that have been started through the scheduler will show up on top of the Group Scan section the moment they are started. New scheduled tasks can be created by clicking the ``Add Scheduled Group Scan`` button.
 
@@ -345,7 +347,7 @@ The Scheduled Group Scan section shows all scans that are to run on a frequent b
    Scan Control – New Scheduled Group Scan 
 
 Details of a Group Scan
-"""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Further information about a group scan can be observed from the detail page of the group scan. Click the scan you are interested in and the details section will appear.
 
@@ -517,9 +519,8 @@ ASGARD ships with pre-defined playbooks for the following tasks:
 
 Nextron provides additional playbooks via ASGARD updates.
 
-**Caution !!!**  
-
-The collection of memory can set the systems under  high load and impacts the systems response times during the transmission of  collected files. Consider all settings carefully!   Also be aware that memory dumps may fail due to  kernel incompatibilities or conflicting security mechanisms. Memory dumps  have been successfully tested on all supported Windows operating systems with  various patch levels. The memory collection on Linux systems depends on  kernel settings and loaded modules, thus we cannot guarantee a successful  collection.   Additionally, memory dumps require temporary free  disk space on the system drive and consume a significant amount of disk space  on ASGARD as well. The ASGARD agent checks if there is enough memory on the  system drive and adds a 50% safety buffer. If there is not enough free disk  space, the memory dump will fail.  
+.. warning::
+    The collection of memory can set the systems under  high load and impacts the systems response times during the transmission of  collected files. Consider all settings carefully!   Also be aware that memory dumps may fail due to  kernel incompatibilities or conflicting security mechanisms. Memory dumps  have been successfully tested on all supported Windows operating systems with  various patch levels. The memory collection on Linux systems depends on  kernel settings and loaded modules, thus we cannot guarantee a successful  collection.   Additionally, memory dumps require temporary free  disk space on the system drive and consume a significant amount of disk space  on ASGARD as well. The ASGARD agent checks if there is enough memory on the  system drive and adds a 50% safety buffer. If there is not enough free disk  space, the memory dump will fail.  
 
 Response Control for Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -555,6 +556,196 @@ click on your new playbook and start adding steps by clicking the ``Add Step`` b
    Add Playbook Entry
 
 You can have up to 16 entries in each playbook that are executed in a row. Every entry can be either "download something from ASGARD to the endpoint", "execute a command line" or "Upload something from the endpoint to ASGARD". If you run a command line the stdout and stderr are reported back to ASGARD. 
+
+
+Service Control
+---------------
+
+Service Control is ASGARD's way of deploying real-time services on endpoints.
+
+Service Controller Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To install asgard2-service-controller on an asset you need to install the asgard2-agent first. If you already have installed asgard2-agent on an asset and accepted it in ASGARD, you can use the **"Installs the ASGARD Service Controller on assets"** playbook to deploy the service controller on an asset or you can manually download and execute the asgard2-service-controller installer from the ASGARD downloads page.
+
+.. figure:: ../images/sc-install.png
+   :target: ../_images/sc-install.png
+   :alt: Install Service Controller
+
+   Install Service Controller
+
+Service Controller Update
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If an ASGARD update comes with a new service controller version, you need to update the service controller on the already rolled-out assets. You can do this using an "Update Agent" task. For a single asset the task can be run in ``Asset Management`` > ``Assets`` > ``Run Task`` (play button action) or analogous as a (scheduled) group task under ``Response Control`` > ``(Scheduled) Group Tasks`` > ``Add (Scheduled) Group Task``.
+
+.. figure:: ../images/sc-update.png
+   :target: ../_images/sc-update.png
+   :alt: Update Service Controller
+
+   Update Service Controller
+
+.. note::
+    If you don't see the **Update Agent** module, you need to enable **Show Advanced Tasks** in ``Settings`` > ``Advanced``
+
+
+
+LogWatcher Service
+^^^^^^^^^^^^^^^^^^
+
+The LogWatcher real-time service monitors the Windows Event Log using predefined rules in the Sigma format and creates an alert that is forwarded to ASGARD Analysis Cockpit if a match was found.
+
+What is Sigma
+~~~~~~~~~~~~~
+
+From the `project website <https://github.com/SigmaHQ/sigma>`_:
+
+    Sigma is a generic and open signature format that allows you to describe relevant log events in a straightforward manner. The rule format is very flexible, easy to write and applicable to any type of log file. The main purpose of this project is to provide a structured form in which researchers or analysts can describe their once developed detection methods and make them shareable with others.
+
+    Sigma is for log files what `Snort <https://www.snort.org/>`_ is for network traffic and `YARA <https://github.com/VirusTotal/yara>`_ is for files.
+
+Prerequisites
+~~~~~~~~~~~~~
+
+In order to make full use of ASGARD LogWatcher you need a Windows Audit Policy and Sysmon, both with a reasonable configuration, in place. We expect organizations to take care of providing a sane configuration by their own. This section helps in giving starting points, if needed.
+
+Windows Audit Policy
+""""""""""""""""""""
+
+The default audit policy of Windows is not suitable for security monitoring and needs to be configured. There are Microsoft recommendations available `online <https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations>`_.
+
+Also auditing the command line for process creation events should be enabled. Documentation for that task is available `here <https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing>`_.
+
+Sysmon Configuration Template
+"""""""""""""""""""""""""""""
+
+There are some best practise configurations available. See them as a good starting point to develop your own configuration. If you do not have a Sysmon configuration yet, there are several options we suggest:
+
+1. The Nextron Systems fork of SwiftOnSecurity's `sysmon-config <https://github.com/Neo23x0/sysmon-config>`_
+2. The `SwiftOnSecurity sysmon-config <https://github.com/SwiftOnSecurity/sysmon-config>`_
+3. Olaf Hartong's `sysmon-modular <https://github.com/olafhartong/sysmon-modular>`_
+
+In general we suggest our own configuration, as we test our rules with it and include changes from the upstream configuration. But depending on your preferences, either of those listed configurations is a good starting point for writing your own configuration.
+
+.. warning::
+    Do not deploy those configurations to your production environment without prior testing.
+
+    It is expected that some tools you use will be the source of huge log volume and should be tuned in the configuration depending your environment.
+
+Sysmon Installation
+"""""""""""""""""""
+
+`Sysmon <https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon>`_ is part of Microsoft Sysinternals and therefore has to be installed as a third party tool. The preferred way to distribute Sysmon and its configuration is using your organization's device management. If you do not have access to one, you can use ASGARD's playbook feature to distribute Sysmon and update its configuration. Documentation which describes the playbook creation and that offers maintenance scripts can be found in our `asgard-playpooks repository <https://github.com/NextronSystems/asgard-playbooks>`_.
+
+Operation
+~~~~~~~~~
+This chapter explains how to to configure LogWatcher using Sigma rules.
+
+Overview
+""""""""
+
+Under ``Service Control`` -> ``Services`` the Overview of all Assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
+
+.. figure:: ../images/sc-overview.png
+   :target: ../_images/sc-overview.png
+   :alt: Assets with installed Service Controller
+
+   Assets with installed Service Controller
+
+Enable Service for an Asset
+"""""""""""""""""""""""""""
+To enable a service - such as LogWatcher - for an asset, navigate to ``Service Control`` > ``Services`` to select the asset's checkbox and choose ``Change Configuration``. Then choose the desired service configuration by clicking ``Use``.
+
+.. figure:: ../images/sc-change-configuration.png
+   :target: ../_images/sc-change-configuration.png
+   :alt: Enable a Service Configuration
+
+   Enable a Service Configuration
+
+If you have not configured a service yet, you need to do so beforehand.
+
+Creating a Service Configuration
+""""""""""""""""""""""""""""""""
+
+A service configuration is used to group assets of similar type and assign them a set of rules (in form of rulesets). 
+
+Go to ``Service Control`` > ``Service Configurations`` > ``Create Service Configuration``, enter a name, choose the **LogWatcher** service type and add the rulesets that should apply for this service configuration (i.e. group of assets).
+
+.. figure:: ../images/sc-service-configuration.png
+   :target: ../_images/sc-service-configuration.png
+   :alt: Create a Service Configuration
+
+   Create a Service Configuration
+
+If you have not configured a ruleset yet, you need to do so beforehand.
+
+Creating a Ruleset
+""""""""""""""""""
+
+Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma: Rulesets`` > ``Create Ruleset``. 
+
+.. figure:: ../images/sc-create-ruleset.png
+   :target: ../_images/sc-create-ruleset.png
+   :alt: Create a Ruleset
+
+   Create a Ruleset
+
+After creating a ruleset, go to ``Service Control`` > ``Sigma: Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Rulesets``. A rule can be assigned to multiple rulesets.
+
+.. figure:: ../images/sc-add-to-ruleset.png
+   :target: ../_images/sc-add-to-ruleset.png
+   :alt: Add a Rule to Rulesets
+
+   Add a Rule to Rulesets
+
+.. note::
+    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma: Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
+
+    .. figure:: ../images/sc-uncommitted-changes.png
+       :target: ../_images/sc-uncommitted-changes.png
+       :alt: Uncommitted Changes Indicator
+    
+       Uncommitted Changes Indicator
+
+Choosing which Rules to activate
+""""""""""""""""""""""""""""""""
+
+It is not advised to enable all available rules on an asset. We suggest to start with all "critical" rules. Only then advancing to the "high" rules. "Medium" rules should not be enabled in bulk or "low"/"informational" at all . Single medium rules, which increase an organisation's detection coverage and do not trigger a bigger number of false positives can be added to the active configuration, but should be tested rule by rule.
+
+In order to easily add rules to a ruleset you can use the column filters to select the desired rules and add the bulk to a ruleset. As an example you can add all rules of level "critical" to a ruleset:
+
+    .. figure:: ../images/sc-choose-rules1.png
+       :target: ../_images/sc-choose-rules1.png
+       :alt: Add all critical rules to a ruleset
+    
+       Add All Critical Rules to a Ruleset
+
+Another great way to pivot the sigma rule database is the usage of MITRE ATT&CK® IDs.
+
+    .. figure:: ../images/sc-choose-rules2.png
+       :target: ../_images/sc-choose-rules2.png
+       :alt: Search by MITRE ATT&CK® ID
+    
+       Search by MITRE ATT&CK® ID
+
+Or you can just search the title or description field of the rules (the description column is not shown by default and has to be added using the ``Columns`` button).
+
+    .. figure:: ../images/sc-choose-rules3.png
+       :target: ../_images/sc-choose-rules3.png
+       :alt: Search by Rule Title or Description
+    
+       Search by Rule Title or Description
+       
+Adding Custom Rules
+"""""""""""""""""""
+
+Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma: Rules`` > ``Add Rules``.
+
+    .. figure:: ../images/sc-custom-rule.png
+       :target: ../_images/sc-custom-rule.png
+       :alt: Adding Custom Rules
+    
+       Adding Custom Rules
 
 Evidence Collection 
 -------------------
@@ -603,7 +794,8 @@ While selecting different options in the form, the download link changes.
 
 After you have generated a download tokane and have selected the correct scanner, operating system and target hostname (not FQDN), you can copy the download link and use it to retrieve a full scanner package including a license file for that host. These download links can be sent to administrators or team members that don’t have access to ASGARD management center. Remember that the recipients of that link still need to be able to reach ASGARD’s web server port (443/tcp). The token can be used to download THOR or a THOR license whithout an ASGARD account. Attention: If you disable the token, anybody can download THOR from this ASGARD or can generate licenses.
 
-**Note:** The scanner package will not contain a license file if you don’t set a hostname in the ``Target Hostname`` field. If you have an Incident Response license, you must provide it separately.
+.. note::
+   The scanner package will not contain a license file if you don’t set a hostname in the ``Target Hostname`` field. If you have an Incident Response license, you must provide it separately.
 
 
 Use Case 1 - Share th URL without Hostname
@@ -831,7 +1023,8 @@ In order to configure LDAP, navigate to ``Settings`` > ``LDAP``. Then provide ro
 
 All local users get disabled except for the built-in ``admin`` user when LDAP is configured.
 
-Note: Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**.
+.. note::
+    Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**.
 
 Other Settings
 --------------
@@ -1054,7 +1247,8 @@ Uninstall ASGARD Agents
 
 The following listings contain commands to uninstall ASGARD Agents on endpoints. 
 
-**Note:** The commands contain names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
+.. note::
+   The commands contain names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
 
 Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1067,7 +1261,8 @@ Uninstall ASGARD Agents on Windows
    sc delete asgard2-agent_sc
    del /F /Q C:\Windows\System32\asgard2-agent
 
-Note: Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
+.. note::
+   Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
 
 Uninstall ASGARD Agents on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
