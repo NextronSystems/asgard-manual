@@ -315,7 +315,8 @@ Connect to your new ASGARD version 2 server over SSH and transfer the new window
 
 This step will allow the old ASGARD version 1.x server to distribute the new agent.
 
-**Note:** In this step you require the password of your ASGARD version 1.x and your ASGARD version 2.x
+.. note::
+   In this step you require the password of your ASGARD version 1.x and your ASGARD version 2.x
 
 Connect to ASGARD version 2 over SSH
 """"""""""""""""""""""""""""""""""""
