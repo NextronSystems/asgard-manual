@@ -566,7 +566,7 @@ Service Control is ASGARD's way of deploying real-time services on endpoints.
 Service Controller Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To install asgard2-service-controller on an asset you need to install the asgard2-agent first. If you already have installed asgard2-agent on an asset and accepted it in ASGARD, you can use the **"Installs the ASGARD Service Controller on assets"** playbook to deploy the service controller on an asset or you can manually download and execute the asgard2-service-controller installer from the ASGARD downloads page.
+To install asgard2-service-controller on an asset you need to install the asgard2-agent first. If you already have installed asgard2-agent on an asset and accepted it in ASGARD, you can use the **"Install ASGARD Service Controller"** playbook to deploy the service controller on an asset or you can manually download and execute the asgard2-service-controller installer from the ASGARD downloads page.
 
 .. figure:: ../images/sc-install.png
    :target: ../_images/sc-install.png
