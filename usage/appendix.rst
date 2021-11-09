@@ -131,22 +131,18 @@ Navigate to Settings >> TLS.
 On the bottom of the page click "Upload TLS Certificate" and select the exported certificate from the previous step.
 
 
-.. figure:: ../images/image109-1592779874156.png
-   :target: ../_images/image109-1592779874156.png
+.. figure:: ../images/upload-tls-certificate.png
+   :target: ../_images/upload-tls-certificate.png
    :alt: image109
 
    ASGARD Certificate Import
 
 If all steps were followed, a message box should pop up indicating that the certificate was successfully installed.
 
-Navigate to Settings >> Services and restart the "ASGARD 2 Service" by clicking the icon.
-
-.. figure:: ../images/image110-1592779909362.png
-   :target: ../_images/image110-1592779909362.png
-   :alt: image110
+Navigate to Settings >> Services and restart the "ASGARD 2 Service" by clicking ``Restart`` button.
                                 
-.. figure:: ../images/image111-1592779924108.png
-   :target: ../_images/image111-1592779924108.png
+.. figure:: ../images/asgard-service-restart.png
+   :target: ../_images/asgard-service-restart.png
    :alt: image111
 
    ASGARD service restart
@@ -474,8 +470,8 @@ Once a new agent is reporting to ASGARD version 2.x it will automatically create
 Log into ASGARD version 2.x and navigate to the Asset Management – Requests.
 
 
-.. figure:: ../images/image128-1592781972033.PNG
-   :target: ../_images/image128-1592781972033.PNG
+.. figure:: ../images/asset-management-requests.png
+   :target: ../_images/asset-management-requests.png
    :alt: image128
 
    Asset Management (Requests)
@@ -483,8 +479,8 @@ Log into ASGARD version 2.x and navigate to the Asset Management – Requests.
 Select the migrated system and click on the top right on Accept. This should place the system in the ``Assets`` tab.
 
 
-.. figure:: ../images/image129-1592781991116.PNG
-   :target: ../_images/image129-1592781991116.PNG
+.. figure:: ../images/asset-management-assets-view.png
+   :target: ../_images/asset-management-assets-view.png
    :alt: image129
 
    Asset Management (Assets View)
