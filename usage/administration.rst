@@ -537,7 +537,7 @@ Sysmon Installation
 
 Operation
 ~~~~~~~~~
-This chapter explains how to to configure LogWatcher using Sigma rules.
+This chapter explains how to configure LogWatcher using Sigma rules.
 
 Overview
 """"""""
