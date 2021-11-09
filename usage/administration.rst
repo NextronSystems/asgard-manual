@@ -163,7 +163,7 @@ Managing Scan Templates
 
 Scan templates are the most convenient way to make use of THOR's rich set of scan options. Starting with ASGARD 1.10., it is possible to define scan parameters for THOR 10 and store them in different templates for later use in single scans and grouped scans. 
 
-Imagine you want to use dedicated scan options for different system groups (e.g. Linux Servers, Domain Controllers, Workstations, etc.) and make sure to use exactly the same set of scan options every time you scan a particular group of systems. With ASGSARD you can now add a scan template for every group. 
+Imagine you want to use dedicated scan options for different system groups (e.g. Linux Servers, Domain Controllers, Workstations, etc.) and make sure to use exactly the same set of scan options every time you scan a particular group of systems. With ASGARD you can now add a scan template for every group.
 
 A popular use case for scan templates is providing additional resource control – for example telling THOR to set the lowest process priority for itself and never use more that 50% of a single CPU. 
 
@@ -552,7 +552,7 @@ Under ``Service Control`` -> ``Services`` the Overview of all Assets with an ins
 
 Enable Service for an Asset
 """""""""""""""""""""""""""
-To enable a service - such as LogWatcher - for an asset, navigate to ``Service Control`` > ``Services`` to select the asset's checkbox and choose ``Change Configuration``. Then choose the desired service configuration by clicking ``Use``.
+To enable the LogWatcher service for an asset, navigate to ``Service Control`` > ``Services``, select the asset's checkbox and choose ``Change Configuration``. Then choose the desired service configuration by clicking ``Use``.
 
 .. figure:: ../images/sc-change-configuration.png
    :target: ../_images/sc-change-configuration.png
@@ -1021,7 +1021,7 @@ Instead of using the pre-installed self-signed TLS Certificate, users can upload
 
    Generate a Certificate Signing Request (CSR)
 
-In order to achieve the best possible compatibilty with the most common browsers, we recommend using the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
+In order to achieve the best possible compatibility with the most common browsers, we recommend using the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
 
 Please note that the generating a CSR on the command line is not supported.   
 
@@ -1074,7 +1074,7 @@ In order to automatically collect suspicious files, you have to create a scan wi
 
    Scan option for Bifrost 
 
-This will collect all files with a score of 60 or higher.  and make them available for download in ASGARDs ``Collected Files`` section. 
+This will collect all files with a score of 60 or higher and make them available for download in ASGARDs ``Collected Files`` section.
 
 For Details on how to automatically forward to a sandbox system please refer to the Analysis Cockpit manual.
 
