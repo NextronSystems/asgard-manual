@@ -364,8 +364,6 @@ Integrating Custom IOCs
 
 The tab "IOC management" gives you the opportunity to easily integrate custom signatures into your scans. 
 
-You may upload 
-
 In order to create your own custom IOC Group, navigate to ``Scan Control`` > ``IOC Management`` > ``IOC Groups``
 and click ``Add IOC Group`` in the upper right corner. Select a name, a description and a ruleset for your IOC Group.
 
