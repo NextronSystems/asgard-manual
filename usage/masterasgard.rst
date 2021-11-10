@@ -56,10 +56,10 @@ On your ASGARD server, got to ``Settings`` > ``Connections`` > ``Link MASTER ASG
 
    Generate One Time Token on ASGARD
 
-In MASTER ASGARD go to ``Asgard Management``, click the ``Add ASGARD`` button in the upper right and use the hostname and one-time token to connect that ASGARD system. You can use a description to provide more information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
+In MASTER ASGARD go to ``Connected ASGARDs``, click the ``Add ASGARD`` button in the upper right and use the hostname and one-time token to connect that ASGARD system. You can use a description to provide more information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
 
-.. figure:: ../images/link-master2.png
-   :target: ../_images/link-master2.png
+.. figure:: ../images/link-asgard-in-master-asgard.png
+   :target: ../_images/link-asgard-in-master-asgard.png
    :alt: Link ASGARD in MASTER ASGARD
 
    Link ASGARD in MASTER ASGARD
@@ -72,11 +72,11 @@ Scan Control
 
 Scan Control in MASTER ASGARD looks the same as in an ASGARD server. The only difference is that you can select an ASGARD Server or "All ASGARDs" to run the scans on.  
 
-.. figure:: ../images/master-asgard-scan-control.png
-   :target: ../_images/master-asgard-scan-control.png
+.. figure:: ../images/scan-control-in-master-asgard-add-group-task.png
+   :target: ../_images/scan-control-in-master-asgard-add-group-task.png
    :alt: MASTER ASGARD Scan Control
 
-   Scan Control in MASTER ASGARD - New Group Scan
+   Scan Control in MASTER ASGARD - Add Group Task
 
 Asset Management
 ----------------
@@ -128,19 +128,13 @@ The ``Updates`` section contains a tab in which upgrades for ASGARD can be insta
 
 A second tab named ``Scanners and Signatures`` gives you an overview of the used scanner and signature versions on all connected ASGARDs. 
 
-.. figure:: ../images/scanner-updates1.png
-   :target: ../_images/scanner-updates1.png
+.. figure:: ../images/master-asgard-scanner-updates.png
+   :target: ../_images/master-asgard-scanner-updates.png
    :alt: MASTER ASGARD Scanner Updates
 
    MASTER ASGARD Scanner Updates
 
 It is possible to set a certain THOR and Signatures version for each connected ASGARD. However, if automatic updates is configured, this setting has only effect until a new version gets downloaded. 
-
-.. figure:: ../images/scanner-updates2.png
-   :target: ../_images/scanner-updates2.png
-   :alt: MASTER ASGARD Set Scanner Version
-
-   MASTER ASGARD Set Scanner Version
 
 Customers use this feature in cases in which they want to test a certain THOR version before using it in production. In this use case the ASGARD system that runs the test scans is set to automatic updates, while the ASGARD systems in production use versions that administratos set manually after successful test runs. 
 
