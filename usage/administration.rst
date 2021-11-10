@@ -440,7 +440,7 @@ In order to create a ruleset, click ``Add MISP Ruleset`` in the "Scan Control > 
 
    Adding a new MISP ruleset
 
-In order to use a MISP ruleset in a scan: add the ruleset in the ``MISP Rulesets`` field when creating your scan.
+In order to use a MISP ruleset in a scan: Add the ruleset in the ``MISP Signatures`` field when creating your scan.
 
 
 .. figure:: ../images/adding-a-misp-rulset-to-a-scan.png
