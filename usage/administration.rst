@@ -374,7 +374,7 @@ and click ``Add IOC Group`` in the upper right corner. Select a name, a descript
    Add IOC Group
 
 To add IOCs to this group, just click the entry in the table and two blue buttons will show up. You can click the ``Import IOCs`` button to import your own signatures in any of THOR’s IOC formats (e.g. files for keyword IOCs, YARA Files and SIGMA files). Refer to the 
-`THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_ for a complete list and file formats. Browse to the file you want to add and click upload. This adds your IOC file to the default ruleset. 
+`THOR manual (custom signatures) <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_ for a complete list and file formats. Browse to the file you want to add and click upload. This adds your IOC file to the default ruleset. 
 
 .. figure:: ../images/import-iocs.png
    :target: ../_images/import-iocs.png
