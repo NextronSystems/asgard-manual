@@ -1011,18 +1011,59 @@ Restrictions
 LDAP Configuration
 ^^^^^^^^^^^^^^^^^^
 
-In order to configure LDAP, navigate to ``Settings`` > ``LDAP``. Then provide role mapping after clicking ``Add LDAP Role``.
+In order to configure LDAP, navigate to ``Settings`` > ``LDAP``. In the left column you can test and configure the LDAP connection itself.
+In the right column, the mapping of LDAP groups to ASGARD groups (and its associated permissions) is defined.
 
-.. figure:: ../images/configure-ldap.png
-   :target: ../_images/configure-ldap.png
-   :alt: Configure LDAP
+First check if your LDAP server is reachable by ASGARD by clicking "Test Connection".
 
-   Configure LDAP
+.. figure:: ../images/ldap-server.png
+   :target: ../_images/ldap-server.png
+   :alt: Configure the LDAP Server
 
-All local users get disabled except for the built-in ``admin`` user when LDAP is configured.
+   Configure the LDAP Server
+
+Then check the bind user you want to use for ASGARD. Read permissions on the bind user are sufficient.
+To find out the distinguished name you can use an LDAP browser or query using the Powershell AD module command ``Get-ADUser <username>``.
+
+.. figure:: ../images/ldap-bind.png
+   :target: ../_images/ldap-bind.png
+   :alt: Configure the LDAP Bind User
+
+   Configure the LDAP Bind User
+
+Next configure the LDAP filters used to identify the groups and users and their preferred attributes in your LDAP structure.
+A default for LDAP and AD in a flat structure is given in the **"Use recommended filters"** drop-down menu, but you can
+adapt it to your liking. The test button shows you if a login with that user would be successful and which groups ASGARD identified
+and could be used for a mapping to ASGARD groups. 
+
+.. figure:: ../images/ldap-filter.png
+   :target: ../_images/ldap-filter.png
+   :alt: Configure the LDAP User and Group Filters
+
+   Configure the LDAP User and Group Filters
+
+If you need to adapt the recommended configuration or want to customize it, we recommend an LDAP browser such as `ADExplorer <https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer>`_ from Sysinternals
+to browse your LDAP structure. As an example you could use your organisation's e-mail address as a user login name if you change the "User Filter"
+to ``(&(objectClass=user)(objectCategory=user)(userPrincipalName=%s))``
 
 .. note::
-    Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**.
+   You need to save the configuration by clicking ``Update LDAP Config``.
+   Using the test buttons only uses the data in the forms, but does not save it, so that you can use it for testing purposes anytime, without changing your working configuration.
+
+After the LDAP configuration is set up, you need to provide role mapping from LDAP groups to ASGARD groups.
+This is done in the right column by using the ``Add LDAP Role`` feature.
+
+.. figure:: ../images/ldap-role.png
+   :target: ../_images/ldap-role.png
+   :alt: LDAP Group to ASGARD Role Mapping
+
+   LDAP Group to ASGARD Role Mapping
+
+.. note::
+    All local users, except the built-in **admin** user, get disabled when LDAP is configured.
+
+.. note::
+    Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**. (LDAP users cannot use said features).
 
 Other Settings
 --------------
