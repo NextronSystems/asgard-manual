@@ -24,7 +24,7 @@ System Status
 
 The initial system status page provides a summary of the most important system components. 
 
-It also includes the current resource consumption (disk, CPU and memory) and lists the currently installed ASGARD software version along with available versions of THOR. Additionally, the connection status to the update servers, Master ASGARD and Cockpit are shown with a graph that shows asset connections and asset streams.
+It also includes the current resource consumption (disk, CPU and memory) and lists the currently installed ASGARD software version along with available versions of THOR. Additionally, the connection status to the update servers, MASTER ASGARD and Cockpit are shown with a graph that shows asset connections and asset streams.
 
 .. note::
    The THOR version numbers may be missing in a new installation. THOR is not included in the installed packages. THOR is downloaded automatically after the installation and should show up not later than one hour after installation. 
@@ -287,7 +287,7 @@ Here you can define which assets will be affected by the group scan. In case mor
 
 **Limit** 
 
-ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan. If you are using Master ASGARD, this limit is applied on each single selected ASGARD.
+ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
 
 **Rate**
 
@@ -1232,17 +1232,17 @@ In this dialogue, you can add or modify ASGARDs proxy configuration. Please note
 
    Change Proxy Settings
 
-Link Master ASGARD
+Link MASTER ASGARD
 ^^^^^^^^^^^^^^^^^^
 
-In order to control your ASGARD with a Master ASGARD, you must generate a One-Time Code and use it in the "Add ASGARD" dialogue within the Master ASGARD frontend. 
+In order to control your ASGARD with a MASTER ASGARD, you must generate a One-Time Code and use it in the "Add ASGARD" dialogue within the MASTER ASGARD frontend. 
 
 
 .. figure:: ../images/link-master-asgard.png
    :target: ../_images/link-master-asgard.png
    :alt: image90
 
-   Link Master ASGARD
+   Link MASTER ASGARD
 
 Advanced
 ^^^^^^^^

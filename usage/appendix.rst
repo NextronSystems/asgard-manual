@@ -1,7 +1,7 @@
 Appendix
 ========
 
-Install TLS certificates on ASGARD and Master ASGARD
+Install TLS certificates on ASGARD and MASTER ASGARD
 ----------------------------------------------------
 
 There are several methods to sign the ASGARD generated CSR request. This section describes the two most common procedures.
