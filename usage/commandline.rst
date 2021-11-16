@@ -38,8 +38,8 @@ While temporary stream overloads are quite normal, connection overloads should n
 
 ASGARD will indicate an overload with the "Connection Overload line" and the "Stream Overload line" within the graphs in the overview section (see picture below). If an ASGARD is in an overload situation it will postpone connections and streams but will not lose or drop tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
-.. figure:: ../images/image28-1592782262147.png
-   :target: ../_images/image28-1592782262147.png
+.. figure:: ../images/overview.png
+   :target: ../_images/overview.png
    :alt: image28
 
    Asset Connections and Asset Streams 
@@ -75,8 +75,8 @@ If this is the first agent update performed on this ASGARD you might need to ena
 
 Then you need to run the ``Update Agent`` module. You can do this on a per asset basis by running a playbook from ``Asset Management`` or create a ``New Group Task`` from ``Response Control``, which is the preferred way. You can roll-out the update in batches by providing labels for each stage or not select any label to perform the update on all assets.
 
-.. figure:: ../images/group-task-update-agent.png
-   :target: ../images/group-task-update-agent.png
+.. figure:: ../images/example-group-task-for-agent-update.png
+   :target: ../images/example-group-task-for-agent-update.png
    :alt: Example Group Task for Agent Update
 
    Example Group Task for Agent Update

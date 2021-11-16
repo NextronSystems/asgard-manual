@@ -114,8 +114,8 @@ From MASTER ASGARD to ASGARD
 ================================== =============
 Direction                          Port                                  
 ================================== =============
-From Master ASGARD v2 to ASGARD v2 5443/tcp 
-From Master ASGARD v2 to ASGARD v1 9443/tcp 
+From MASTER ASGARD v2 to ASGARD v2 5443/tcp 
+From MASTER ASGARD v2 to ASGARD v1 9443/tcp 
 ================================== =============
 
 You cannot manage ASGARD v2 systems from a MASTER ASGARD v1.

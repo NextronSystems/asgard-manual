@@ -7,7 +7,7 @@ Setup a New ESX VM and Mount the ISO
 
 Create a new VM with your virtualization software. In this case, we will use VMWare ESX managed through a VMWare VCenter.
 
-The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (64 bits) as target version. It is recommended to upload the ASGARD or Master ASGARD ISO to an accessible datastore and mount the same to your newly created VM. 
+The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (64 bits) as target version. It is recommended to upload the ASGARD or MASTER ASGARD ISO to an accessible datastore and mount the same to your newly created VM. 
 
 .. figure:: ../images/image4.png
    :target: ../images/image4.png
@@ -178,16 +178,16 @@ Login to the ASGARD Web interface with user ``admin`` and password ``admin``.
 
 The admin user has limited/restricted access to some sections to ensure the correct audit of certain actions. In order to access restricted functions which require an audit please create an user with the corresponding rights under ``Settings`` > ``Users``.
 
-.. figure:: ../images/image25.png
-   :target: ../images/image25.png
+.. figure:: ../images/login-screen.png
+   :target: ../images/login-screen.png
    :alt: image-20200608151827256
 
    Login Screen
 
 Click on ``User Settings`` and update your password. 
 
-.. figure:: ../images/image26.png
-   :target: ../images/image26.png
+.. figure:: ../images/changing-the-password.png
+   :target: ../images/changing-the-password.png
    :alt: image-20200608151909509
 
    Changing the Password
