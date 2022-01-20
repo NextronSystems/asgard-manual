@@ -117,4 +117,4 @@ Once the script has been executed the ASGARD service should be restarted.
 
 You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
 
-You should now install again the agents on the endpoints , they should now be communicating correctly back to ASGARD. Remember to review the network requirements section to ensure all needed ports are open from the endpoint to the ASGARD Management Center.
+You should now install the agents on the endpoints again. They should be communicating correctly back to ASGARD by now. Remember to review the network requirements section to ensure all needed ports are open to the ASGARD Management Center from the endpoint.
