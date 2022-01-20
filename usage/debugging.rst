@@ -4,13 +4,13 @@ Debugging
 Agent Communication Errors
 --------------------------
 
-Edit the file ``C:\Windows\System32\asgard2-agent\asgard2-agent.yaml`` and set the value of ``write_log`` to true.
+Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true. The file can be found in ``C:\Windows\System32\asgard2-agent\`` or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
 
 .. code::
 
    write_log: true
 
-After making these changes, restart the ASGARD service. You can then find log entries and possible error messages in the file ``C:\Windows\System32\asgard2-agent\asgard2-agent.log``
+After making these changes, restart the ASGARD service. You can then find log entries and possible error messages in the file ``asgard2-agent.log`` in the same directory as the configuration file.
 
 Note: The value is set to ``false`` by default, because the agent doesn't rotate or compress these logs. Leaving that value on ``true`` could cause that file to grow very big and use a significant amount of disk space. We recommend resetting it after the debugging session.
 
@@ -117,4 +117,4 @@ Once the script has been executed the ASGARD service should be restarted.
 
 You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
 
-You should now install again the agents on the endpoints , they should now be communicating correctly back to ASGARD. Remember to review the network requirements section to ensure all needed ports are open from the endpoint to the ASGARD Management Center.
+You should now install the agents on the endpoints again. They should be communicating correctly back to ASGARD by now. Remember to review the network requirements section to ensure all needed ports are open to the ASGARD Management Center from the endpoint.
