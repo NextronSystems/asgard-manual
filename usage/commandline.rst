@@ -176,9 +176,9 @@ You can use the ``asgard-restore`` command to restore a backup.
 
 .. code:: bash
 
-   $ asgard2-restore``
+   $ asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
-   $ asgard2-restore`` ``/var/lib/nextron/asgard2/backups/20200427-1553.tar
+   $ asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
    Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
    done.
    etc/nextron/asgard2/
