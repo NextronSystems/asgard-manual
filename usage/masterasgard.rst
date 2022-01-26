@@ -102,9 +102,9 @@ Service Control lists the asset with an installed service controller. An asset i
 
 .. figure:: ../images/master-service-controller.png
    :target: ../_images/master-service-controller.png
-   :alt: Example: Service Controller listed in MASTER ASGARD but managed by ASGARD
+   :alt: Example: Service Controller listed in ASGARD but managed by MASTER ASGARD
 
-   Example: Service Controller listed in MASTER ASGARD but managed by ASGARD
+   Example: Service Controller listed in ASGARD but managed by MASTER ASGARD
 
 Evidence Collection 
 -------------------

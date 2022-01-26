@@ -609,12 +609,10 @@ If an ASGARD update comes with a new service controller version, you need to upd
 .. note::
     If you don't see the **Update Agent** module, you need to enable **Show Advanced Tasks** in ``Settings`` > ``Advanced``
 
+Sigma
+^^^^^
 
-
-LogWatcher Service
-^^^^^^^^^^^^^^^^^^
-
-The LogWatcher real-time service monitors the Windows Event Log using predefined rules in the Sigma format and creates an alert that is forwarded to ASGARD Analysis Cockpit if a match was found.
+LogWatcher, as well as Aurora, are using Sigma in order to define their detections. The Sigma rule management is shared between the two services. But each service has its own configuration that defines which rules are actually used on the assets.
 
 What is Sigma
 ~~~~~~~~~~~~~
@@ -624,6 +622,81 @@ From the `project website <https://github.com/SigmaHQ/sigma>`_:
     Sigma is a generic and open signature format that allows you to describe relevant log events in a straightforward manner. The rule format is very flexible, easy to write and applicable to any type of log file. The main purpose of this project is to provide a structured form in which researchers or analysts can describe their once developed detection methods and make them shareable with others.
 
     Sigma is for log files what `Snort <https://www.snort.org/>`_ is for network traffic and `YARA <https://github.com/VirusTotal/yara>`_ is for files.
+
+Creating a Ruleset
+""""""""""""""""""
+
+Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
+
+.. figure:: ../images/sc-create-ruleset.png
+   :target: ../_images/sc-create-ruleset.png
+   :alt: Create a Ruleset
+
+   Create a Ruleset
+
+After creating a ruleset, go to ``Service Control`` > ``Sigma`` > ``Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
+
+.. figure:: ../images/sc-add-to-ruleset.png
+   :target: ../_images/sc-add-to-ruleset.png
+   :alt: Add a Rule to Rulesets
+
+   Add a Rule to Rulesets
+
+.. note::
+    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma`` > ``Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
+
+    .. figure:: ../images/sc-uncommitted-changes.png
+       :target: ../_images/sc-uncommitted-changes.png
+       :alt: Uncommitted Changes Indicator
+    
+       Uncommitted Changes Indicator
+
+Choosing which Rules to activate
+""""""""""""""""""""""""""""""""
+
+It is not advised to enable all available rules on an asset. We suggest to start with all "critical" and then advance to all "high" rules. We already provide a default ruleset for those two levels for you to use. "Medium" rules should not be enabled in bulk or "low"/"informational" at all . Single medium rules, which increase an organisation's detection coverage and do not trigger a bigger number of false positives can be added to the active configuration, but should be tested rule by rule.
+
+In order to easily add rules to a ruleset you can use the column filters to select the desired rules and add the bulk to a ruleset. As an example you can add all rules of level "critical" to a ruleset:
+
+    .. figure:: ../images/sc-choose-rules1.png
+       :target: ../_images/sc-choose-rules1.png
+       :alt: Add all critical rules to a ruleset
+    
+       Add All Critical Rules to a Ruleset
+
+Another great way to pivot the Sigma rule database is the usage of MITRE ATT&CK® IDs.
+
+    .. figure:: ../images/sc-choose-rules2.png
+       :target: ../_images/sc-choose-rules2.png
+       :alt: Search by MITRE ATT&CK® ID
+    
+       Search by MITRE ATT&CK® ID
+
+Or you can just search the title or description field of the rules. You can also search the rule itself using the "Rule" column. (the "Rule" column is not shown by default and has to be added using the gear wheel button).
+
+    .. figure:: ../images/sc-choose-rules3.png
+       :target: ../_images/sc-choose-rules3.png
+       :alt: Search by Rule Title or Description
+    
+       Search by Rule Title or Description
+       
+Adding Custom Rules
+"""""""""""""""""""
+
+Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma`` > ``Rules`` > ``Upload Rules``.
+
+    .. figure:: ../images/sc-custom-rule.png
+       :target: ../_images/sc-custom-rule.png
+       :alt: Adding Custom Rules
+    
+       Adding Custom Rules
+
+
+
+LogWatcher Service
+^^^^^^^^^^^^^^^^^^
+
+The LogWatcher real-time service monitors the Windows Event Log using predefined rules in the Sigma format and creates an alert that is forwarded to ASGARD Analysis Cockpit if a match was found.
 
 Prerequisites
 ~~~~~~~~~~~~~
@@ -698,73 +771,50 @@ Go to ``Service Control`` > ``LogWatcher`` > ``Configurations`` > ``Add Configur
 
 If you have not configured a ruleset yet, you need to do so beforehand.
 
-Creating a Ruleset
-""""""""""""""""""
+Aurora
+^^^^^^
 
-Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
+- Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
+- It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
+- It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
+- It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
 
-.. figure:: ../images/sc-create-ruleset.png
-   :target: ../_images/sc-create-ruleset.png
-   :alt: Create a Ruleset
+Its documentation can be found at `aurora-agent-manual.nextron-systems.com <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
 
-   Create a Ruleset
 
-After creating a ruleset, go to ``Service Control`` > ``Sigma`` > ``Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
+Overview
+~~~~~~~~
+Under ``Service Control`` > ``Aurora`` > ``Asset View`` the overview of all assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
-.. figure:: ../images/sc-add-to-ruleset.png
-   :target: ../_images/sc-add-to-ruleset.png
-   :alt: Add a Rule to Rulesets
+.. figure:: ../images/sc-aurora-asset-view.png
+   :target: ../_images/sc-aurora-asset-view.png
+   :alt: Aurora Asset View
 
-   Add a Rule to Rulesets
+   Aurora Asset View
 
-.. note::
-    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma`` > ``Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
+Enable Service for an Asset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To assign the Aurora service to an asset, navigate to ``Service Control`` > ``Aurora`` > ``Asset View``, select the asset's checkbox and choose ``Assign Configuration``. Then choose the desired service configuration by clicking ``Assign``.
 
-    .. figure:: ../images/sc-uncommitted-changes.png
-       :target: ../_images/sc-uncommitted-changes.png
-       :alt: Uncommitted Changes Indicator
-    
-       Uncommitted Changes Indicator
+.. figure:: ../images/sc-aurora-assign-configuration.png
+   :target: ../_images/sc-aurora-assign-configuration.png
+   :alt: Assign Aurora Service
 
-Choosing which Rules to activate
-""""""""""""""""""""""""""""""""
+   Assign Aurora Service
 
-It is not advised to enable all available rules on an asset. We suggest to start with all "critical" rules. Only then advancing to the "high" rules. "Medium" rules should not be enabled in bulk or "low"/"informational" at all . Single medium rules, which increase an organisation's detection coverage and do not trigger a bigger number of false positives can be added to the active configuration, but should be tested rule by rule.
+Next choose the assets with the checkbox and enable them using the ``Enable`` button or select the play button action on single assets.
 
-In order to easily add rules to a ruleset you can use the column filters to select the desired rules and add the bulk to a ruleset. As an example you can add all rules of level "critical" to a ruleset:
 
-    .. figure:: ../images/sc-choose-rules1.png
-       :target: ../_images/sc-choose-rules1.png
-       :alt: Add all critical rules to a ruleset
-    
-       Add All Critical Rules to a Ruleset
+Creating a Custom Service Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuration``, enter a name and add the rulesets that should apply for this service configuration. No rulesets is a viable option, if you only want to use the non-sigma matching modules. You don't need to edit any other option as sane defaults are given.
 
-Another great way to pivot the sigma rule database is the usage of MITRE ATT&CK® IDs.
+.. figure:: ../images/sc-aurora-custom-configuration.png
+   :target: ../_images/sc-aurora-custom-configuration.png
+   :alt: Create a Custom Aurora Configuration
 
-    .. figure:: ../images/sc-choose-rules2.png
-       :target: ../_images/sc-choose-rules2.png
-       :alt: Search by MITRE ATT&CK® ID
-    
-       Search by MITRE ATT&CK® ID
+   Create a Custom Aurora Configuration
 
-Or you can just search the title or description field of the rules (the description column is not shown by default and has to be added using the ``Columns`` button).
-
-    .. figure:: ../images/sc-choose-rules3.png
-       :target: ../_images/sc-choose-rules3.png
-       :alt: Search by Rule Title or Description
-    
-       Search by Rule Title or Description
-       
-Adding Custom Rules
-"""""""""""""""""""
-
-Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma`` > ``Rules`` > ``Upload Rules``.
-
-    .. figure:: ../images/sc-custom-rule.png
-       :target: ../_images/sc-custom-rule.png
-       :alt: Adding Custom Rules
-    
-       Adding Custom Rules
 
 Evidence Collection 
 -------------------
