@@ -13,7 +13,7 @@ Additionally, ASGARD is configured to serve a maximum of 100 concurrent asset co
 
 Requests that exceed the limits will receive an answer from ASGARD to repeat the request after N seconds, where N is calculated based on the current load.
 
-This factory preset behavior insures your ASGARD stays stable and responsive even if your ASGARD’s system resources are limited. Furthermore, you most likely can't overload your network or firewalls with high numbers of requests or downloads.
+This factory preset behavior insures your ASGARD stays stable and responsive even if your ASGARD's system resources are limited. Furthermore, you most likely can't overload your network or firewalls with high numbers of requests or downloads.
 
 In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asgard.conf`` and restart the ASGARD service.
 
@@ -38,9 +38,9 @@ While temporary stream overloads are quite normal, connection overloads should n
 
 ASGARD will indicate an overload with the "Connection Overload line" and the "Stream Overload line" within the graphs in the overview section (see picture below). If an ASGARD is in an overload situation it will postpone connections and streams but will not lose or drop tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
-.. figure:: ../images/overview.png
-   :target: ../_images/overview.png
-   :alt: image28
+.. figure:: ../images/asset-connections-and-streams.png
+   :target: ../_images/asset-connections-and-streams.png
+   :alt: Asset Connections and Asset Streams
 
    Asset Connections and Asset Streams 
 
@@ -76,7 +76,7 @@ If this is the first agent update performed on this ASGARD you might need to ena
 Then you need to run the ``Update Agent`` module. You can do this on a per asset basis by running a playbook from ``Asset Management`` or create a ``New Group Task`` from ``Response Control``, which is the preferred way. You can roll-out the update in batches by providing labels for each stage or not select any label to perform the update on all assets.
 
 .. figure:: ../images/example-group-task-for-agent-update.png
-   :target: ../images/example-group-task-for-agent-update.png
+   :target: ../_images/example-group-task-for-agent-update.png
    :alt: Example Group Task for Agent Update
 
    Example Group Task for Agent Update
@@ -87,13 +87,21 @@ Then you need to run the ``Update Agent`` module. You can do this on a per asset
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You need to update the agent installer as well, so that newly added assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`chapter 6.4 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
+You need to update the agent installer as well, so that newly added assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`section Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
 If you use the default installer without any modifications you can run the following command to update the agent installers:
 
 .. code::
 
    sudo asgard2-repacker
+
+Or you can execute the agent installer update from within the WebUI at ``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
+
+.. figure:: ../images/asgard2-repacker.png
+   :target: ../_images/asgard2-repacker.png
+   :alt: GUI Execute asgard2-repacker
+
+   Execute asgard2-repacker from the WebUI
 
 Creating Custom Agent Installer
 -------------------------------
@@ -205,7 +213,7 @@ Remote Console on connected endpoints can be disabled centrally by creating the 
    $ sudo touch /etc/nextron/asgard2/disable_console
 
 
-To reenable Remote Console simply remove the created file
+To re-enable Remote Console simply remove the created file
 
 .. code:: bash
 

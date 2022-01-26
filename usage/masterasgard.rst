@@ -91,7 +91,7 @@ The only differences are:
 IOC Management
 --------------
 
-Since ASGARD version 2.11 the IOC Management is a subcategory found in ``Scan Control`` > ``IOC Management`` (:ref:`see Custom IOCs <usage/administration:Integrating Custom IOCs>`) or ``Scan Control`` > ``MISP Signatures`` (:ref:`see IOCs through MISP <usage/administration:Integrating IOCs through MISP>`). 
+Since ASGARD version 2.11 the IOC Management is a subcategory found in ``Scan Control`` > ``IOC Management`` (:ref:`see Custom IOCs <usage/administration:Integrating Custom IOCs>`) or ``Scan Control`` > ``MISP`` (:ref:`see IOCs through MISP <usage/administration:Integrating IOCs through MISP>`). 
 
 On MASTER ASGARD you can manage IOCs exactly like on ASGARD. The only limitation is that IOCs in MASTER ASGARD and ASGARD are isolated. That means if you want to use the IOCs from MASTER ASGARD, you need to initiate the scan from MASTER ASGARD and if you want to use the IOCs from ASGARD, you need to initiate the scan from ASGARD. In general we suggest to manage IOCs in MASTER ASGARD for maximum flexibility.
 

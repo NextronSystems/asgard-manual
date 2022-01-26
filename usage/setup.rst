@@ -7,7 +7,7 @@ Setup a New ESX VM and Mount the ISO
 
 Create a new VM with your virtualization software. In this case, we will use VMWare ESX managed through a VMWare VCenter.
 
-The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (64 bits) as target version. It is recommended to upload the ASGARD or MASTER ASGARD ISO to an accessible datastore and mount the same to your newly created VM. 
+The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (64 bits) as target version. It is recommended to upload the ASGARD or MASTER ASGARD ISO to an accessible data store and mount the same to your newly created VM. 
 
 .. figure:: ../images/image4.png
    :target: ../images/image4.png
@@ -25,7 +25,7 @@ The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (
    :target: ../images/image7.png
    :alt: image-20200605124044071
 
-Please make sure to select a suitable v-switch or physical interface that reflects the IP address scheme you are planning to use for the new ASGARD.s
+Please make sure to select a suitable v-switch or physical interface that reflects the IP address scheme you are planning to use for the new ASGARD.
 
 Navigate through the installer
 ------------------------------
@@ -149,7 +149,7 @@ Installation is complete, you are ready to log into the web-based GUI.
 Change IP Address
 -----------------
 
-ASGARD’s IP can be changed in **/etc/network/interfaces**. The IP is configured with the address variable.
+ASGARD's IP can be changed in **/etc/network/interfaces**. The IP is configured with the address variable.
 
 .. code:: bash
 
@@ -169,7 +169,7 @@ First steps in the VM
 Change Password at the Command Line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Login to ASGARD and type passwd in order to change the password for the default user ``nextron``. The default password is ``nextron``.
+Login to ASGARD and type ``passwd`` in order to change the password for the default user ``nextron``. The default password is ``nextron``.
 
 Change Password for the web-based Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,7 +180,7 @@ The admin user has limited/restricted access to some sections to ensure the corr
 
 .. figure:: ../images/login-screen.png
    :target: ../images/login-screen.png
-   :alt: image-20200608151827256
+   :alt: Login Screen
 
    Login Screen
 
@@ -188,6 +188,6 @@ Click on ``User Settings`` and update your password.
 
 .. figure:: ../images/changing-the-password.png
    :target: ../images/changing-the-password.png
-   :alt: image-20200608151909509
+   :alt: Changing the Password
 
    Changing the Password

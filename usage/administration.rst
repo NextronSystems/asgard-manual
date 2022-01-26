@@ -30,35 +30,54 @@ It also includes the current resource consumption (disk, CPU and memory) and lis
    The THOR version numbers may be missing in a new installation. THOR is not included in the installed packages. THOR is downloaded automatically after the installation and should show up not later than one hour after installation. 
 
 
-.. figure:: ../images/overview.png
-   :target: ../_images/overview.png
-   :alt: image-20200608152043704
+.. figure:: ../images/overview1.png
+   :target: ../_images/overview1.png
+   :alt: Overview Top Half
 
-   Overview
+   Overview Top Half
 
-The logs section shows the latest and most relevant logs. Complete logs can be found at ``/var/lib/nextron/asgard2/log``
+.. figure:: ../images/overview2.png
+   :target: ../_images/overview2.png
+   :alt: Overview Bottom Half
+
+   Overview Bottom Half
+
+The logs section shows the latest and most relevant logs. Complete logs can be found at ``/var/lib/nextron/asgard2/log``.
 
 
 .. figure:: ../images/logs-section.png
    :target: ../_images/logs-section.png
-   :alt: image-20200608152111447
+   :alt: Logs Section
 
    Logs Section
+
+Available logs and their content:
+
+- Audit: Containing user login/-off, changes done over the UI
+- ASGARD Management Center: Overall status of the MC, general errors and warnings
+- ASGARD Agent and Service Controller: Status of the agents deployed on assets
+- THOR via Syslog: Received syslog events of THOR scans. Partial results if a scan did not complete.
+- Aurora: All Aurora events
+- Aurora Response Actions: Only response action events of Aurora
+- Aurora Simulated Response Actions: Only simulated response action events of Aurora
+- LogWatcher: All LogWatcher events
+- Diagnostic Pack: Button for generating and downloading a diagnostic pack that may be asked for by support
+
+
 
 ASGARD Agent Deployment
 -----------------------
 
 In order to register a new endpoint to the ASGARD Management Center, download and install the ASGARD agent on the system you want to register. 
 
-The ASGARD agent can be downloaded from ASGARD directly through the button ``Download ASGARD Agent``. A list of available agents for various operating systems appears. 
+The ASGARD agent can be directly downloaded from the ASGARD login screen through the button ``Download Agent Installers``. A list of available agents for various operating systems appears. 
 
 
-.. figure:: ../images/download-asgard-agent.png
-   :target: ../_images/download-asgard-agent.png
-   :alt: image-20200608152814596
+.. figure:: ../images/login-screen.png
+   :target: ../_images/login-screen.png
+   :alt: Download Agent Installers from Login Screen
 
-   Download ASGARD Agent
-
+   Download Agent Installers from Login Screen
 
 .. figure:: ../images/agents-overview.png
    :target: ../_images/agents-overview.png
@@ -110,7 +129,7 @@ By clicking the control buttons in the Actions column, you can start a new scan,
 Column Visibility
 ^^^^^^^^^^^^^^^^^
 
-Users can select various columns and adjust their view according to their needs.
+Users can select various columns and adjust their view according to their needs by clicking the gear wheel in the top right corner of any table.
 
 .. figure:: ../images/available-columns-in-asset-management.png
    :target: ../_images/available-columns-in-asset-management.png
@@ -179,7 +198,7 @@ Please keep in mind, that we have already optimized THOR to use the most relevan
 
 For more details please refer to the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_. Only use the scan templates if you want to deviate from the default for a reason.
 
-Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates" - permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (see user management section for details).
+Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates"-permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (See section :ref:`User Management<usage/administration:User Management>` for details).
 
 .. figure:: ../images/scan-templates-overview.png
    :target: ../_images/scan-templates-overview.png
@@ -195,7 +214,7 @@ In order to create a scan template, navigate to "Scan Control" > "Scan Templates
 
    Add Scan Template
 
-After choosing a scanner you will find the most frequently used options on the top of this page in the "Favorite Flags" category. View all THOR options by clicking on the other categories. By clicking on the star symbols you can also edit your favorites. 
+After choosing a scanner you will find the most frequently used options on the top of this page in the "Favorite Flags" category. View all THOR options by clicking on the other categories or quickly search for known flags in the search bar. By clicking on the star symbols you can also edit your personal favorites. 
 
 .. figure:: ../images/scan-flags.png
    :target: ../_images/scan-flags.png
@@ -203,7 +222,9 @@ After choosing a scanner you will find the most frequently used options on the t
 
    Scan Flags
 
-By checking the "Default" box, you can make this scan template the default template for every new scan. Not Checking the "Enforce" box restricts this scan template from being used by any ASGARD user with the "ForceStandardArgs" restriction set. After clicking the "Add" button on the bottom of the template page, an overview of all existing scan templates is shown. 
+By checking the "Default" box, you can make this scan template the default template for every new scan. There can only be one default template at a time and selecting the box will uncheck a previous default, if set.
+Checking the "Restricted" flag will make the template restricted, meaning only a restricted set of users can use the template for scans. The set of users consists of all users who do not have the "ForceStandardArgs" restriction set. (By default this are all users who are not member of the group "Operator Level 1").
+After clicking the "Add" button on the bottom of the template page, an overview of all existing scan templates is shown. 
 
 .. figure:: ../images/image39.png
    :target: ../_images/image39.png
@@ -229,9 +250,9 @@ Just click on the "THOR" button in the Action column in the Asset Management vie
 
    Scan Control - Scan Creation
 
-Within this form, you can choose the max. runtime, module, scanner, scan flags, signatures and template can be selected.
+Within this form, you can choose the maximum runtime, module, scanner, scan flags, signatures and template can be selected.
 
-After the desired parameters have been set, the scan can be started by clicking the ``Add Task`` button.
+After the desired parameters have been set, the scan can be started by clicking the ``Add Scan`` button.
 
 Stopping a Single Scan
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -251,7 +272,7 @@ After the scan completion, you can download the scan results via the download bu
 
 The download button has the following options: 
 
-* Download THOR Log (the text log file)
+* Download Scan Result (the THOR text log file)
 * Download HTML Report (as \*.gz compressed file; available for successful scans only)
 * Show HTML Report (opens another tab with the HTML report)
 
@@ -287,11 +308,11 @@ Here you can define which assets will be affected by the group scan. In case mor
 
 **Limit** 
 
-ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
+ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan or enter ``0`` for no limit. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
 
 **Rate**
 
-The number of scans per minute that a scan should run. This is where the network load can be controlled. Additionally, it is recommended to use this parameter in virtualized and oversubscribed environments in order to limit the number of parallel scans on your endpoints.
+The number of scans per minute that are issued by ASGARD. This is where the network load can be controlled. Additionally, it is recommended to use this parameter in virtualized and oversubscribed environments in order to limit the number of parallel scans on your endpoints.
 
 **Expires**
 
@@ -318,9 +339,11 @@ In addition, information can be found about the chosen scanner, the chosen param
 
 The Status field can have the following values: 
 
-**Started:** Scan is started, ASGARD will issue scans with the given parameters
+**Paused:** The group scan has not yet started. Either click play or wait for the scheduled start date (the job will start in a 5 minute window around the scheduled time).
 
-**Stopped:** No additional scan jobs are being issued. All single scans that are currently running will continue to do so.
+**Active:** Scan is started, ASGARD will issue scans with the given parameters.
+
+**Inactive:** No additional scan jobs are being issued. All single scans that are currently running will continue to do so.
 
 **Completed:** The group scan is completed. No further scan jobs will be issued.
 
@@ -335,13 +358,13 @@ Starting a Scheduled Group Scan
 The Scheduled Group Scan section shows all scans that are to run on a frequent basis along with their periodicity. All group scans that have been started through the scheduler will show up on top of the Group Scan section the moment they are started. New scheduled tasks can be created by clicking the ``Add Scheduled Group Scan`` button.
 
 .. figure:: ../images/scan-control-scheduled-group-scan.png
-   :target: ../_images/image49.png
+   :target: ../_images/scan-control-scheduled-group-scan.png
    :alt: image-20200608154452406
 
    Scan Control – Scheduled Group Scan 
 
 .. figure:: ../images/scan-control-new-scheduled-group-scan.png
-   :target: ../_images/image48.png
+   :target: ../_images/scan-control-new-scheduled-group-scan.png
    :alt: image-20200608154442195
 
    Scan Control – New Scheduled Group Scan 
@@ -362,10 +385,10 @@ Aside from information about the group scan in the "Details" tab, there is a gra
 Integrating Custom IOCs
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The tab "IOC management" gives you the opportunity to easily integrate custom signatures into your scans. 
+The tab "IOC Management" gives you the opportunity to easily integrate custom signatures into your scans. 
 
-In order to create your own custom IOC Group, navigate to ``Scan Control`` > ``IOC Management`` > ``IOC Groups``
-and click ``Add IOC Group`` in the upper right corner. Select a name, a description and a ruleset for your IOC Group.
+In order to create your own custom IOC Group, navigate to ``Scan Control`` > ``IOC Management`` > ``IOCs``
+and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
 
 .. figure:: ../images/add-ioc-group.png
    :target: ../_images/add-ioc-group.png
@@ -390,7 +413,7 @@ However, you can also click the ``Add IOC(s)`` button to add some IOCs manually.
 
    Add IOCs
 
-You can add those IOC Groups to Rulesets which can be generated in the ``Scan Control`` > ``IOC Management`` > ``Ruleset`` tab by clicking the 
+You can add those IOC Groups to IOC Rulesets which can be generated in the ``Scan Control`` > ``IOC Management`` > ``IOC Rulesets`` tab by clicking the 
 ``Add Ruleset`` button in the upper right corner. Select name and description and click the 
 ``Add Ruleset`` button.
 
@@ -400,7 +423,7 @@ You can add those IOC Groups to Rulesets which can be generated in the ``Scan Co
 
    Add Ruleset
 
-After that click on an entry in the table to expand this entry. There you get information about all IOC Groups which have been added to this ruleset. Additionally you can add or remove IOC Groups by clicking one of the three buttons shown below.
+After that, click on an entry in the table to expand it. There you get information about all IOC Groups which have been added to this ruleset. Additionally you can add or remove selected IOC Groups in ``IOC Management: IOCs`` by clicking one of the three buttons shown below.
 
 .. figure:: ../images/add-remove-ioc-group.png
    :target: ../_images/add-remove-ioc-group.png
@@ -421,7 +444,7 @@ Please note, ASGARD does not provide a syntax check for your IOC files. Should T
 Integrating IOCs through MISP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ASGARD provides an easy to use interface for integrating IOCs from a connected MISP into THOR scans. In order to add rules from a MISP, navigate to "Scan Control > MISP Signatures > Events", select the IOCs and add them to the desired ruleset by using the button in the upper right corner. 
+ASGARD provides an easy to use interface for integrating IOCs from a connected MISP into THOR scans. In order to add rules from a MISP, navigate to ``Scan Control`` > ``MISP`` > ``MISP Events``, select the IOCs and add them to the desired ruleset by using the button in the upper right corner. 
 
 Contrary to the custom IOC handling, there is no default ruleset for MISP. You must create at least one ruleset (see tab "MISP Rulesets") before you can add MISP rules.
 
@@ -432,7 +455,7 @@ Contrary to the custom IOC handling, there is no default ruleset for MISP. You m
 
    MISP events 
 
-In order to create a ruleset, click ``Add MISP Ruleset`` in the "Scan Control > MISP Signatures > Rulset" tab. Select a name and the type of IOCs you want to use in this ruleset. By default, all types are selected, but there may be reasons for deselecting certain categories. For example, filename IOCs tend to cause false positives and may be deselected for that reason. The picture below shows the dialogue for adding a MISP ruleset.
+In order to create a ruleset, click ``Add MISP Ruleset`` in the ``Scan Control`` > ``MISP`` > ``MISP Rulsets`` tab. Select a name and the type of IOCs you want to use in this ruleset. By default, all types are selected, but there may be reasons for deselecting certain categories. For example, filename IOCs tend to cause false positives and may be deselected for that reason. The picture below shows the dialogue for adding a MISP ruleset.
 
 .. figure:: ../images/addon-a-new-misp-rulset.png
    :target: ../_images/addon-a-new-misp-rulset.png
@@ -463,7 +486,7 @@ In order to open a remote shell on an endpoint, open the Asset Management sectio
 
    Opening a Remote Shell from the Asset View
 
-Depending on your configuration it may take between 10 seconds and 10 minutes for the remote shell to open. Please note that all actions within the remote shell are recorded and can be audited. All shells open with root privileges or system privileges.
+Depending on your configuration it may take between 10 seconds and 10 minutes for the remote shell to open. Please note that all actions within the remote shell are recorded and can be audited. All shells open with root or system privileges.
 
 .. figure:: ../images/remote-shell.png
    :target: ../_images/remote-shell.png
@@ -471,7 +494,7 @@ Depending on your configuration it may take between 10 seconds and 10 minutes fo
 
    Remote Shell
 
-In order to replay a remote console session, navigate to `Response Control`, select the task that represents your session and click the play button. 
+In order to replay a remote console session, navigate to ``Response Control``, expand the task that represents your session, select the ``Console Log`` tab and click the play button in the bottom row.
 
 .. figure:: ../images/replay-remote-shell-session.png
    :target: ../_images/replay-remote-shell-session.png
@@ -479,7 +502,7 @@ In order to replay a remote console session, navigate to `Response Control`, sel
 
    Replay Remote Shell Session
 
-ASGARD users can only see their own remote shell session. Only users with the `RemoteConsoleProtocol` permission are able to replay all sessions from all users.
+ASGARD users can only see their own remote shell session. Only users with the ``RemoteConsoleProtocol`` permission are able to replay all sessions from all users.
 
 Response Control with pre-defined playbooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -523,7 +546,7 @@ Nextron provides additional playbooks via ASGARD updates.
 Response Control for Groups of Systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Response functions for groups of systems can be defined in the "Group Tasks"` tab or the "New Scheduled Group Task" tab.
+Response functions for groups of systems can be defined in the ``Group Tasks`` tab or the ``New Scheduled Group Task`` tab.
 
 .. figure:: ../images/execute-playbook-on-group-of-endpoints.png
    :target: ../_images/execute-playbook-on-group-of-endpoints.png
@@ -535,7 +558,7 @@ Response Control with custom playbooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can add your own custom playbook by clicking the ``Add Playbook`` button in the 
-"Response Control > Playbooks" tab. 
+``Response Control`` > ``Playbooks`` tab. 
 
 .. figure:: ../images/add-custom-playbook.png
    :target: ../_images/add-custom-playbook.png
@@ -559,7 +582,7 @@ You can have up to 16 entries in each playbook that are executed in a row. Every
 Service Control
 ---------------
 
-Service Control is ASGARD's way of deploying real-time services on endpoints.
+Service Control is ASGARD's way of deploying real-time services on endpoints. Currently there exist the LogWatcher and (experimental!) Aurora service. To use any of those two, the service controller has to be installed on an asset.
 
 Service Controller Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -642,32 +665,30 @@ This chapter explains how to configure LogWatcher using Sigma rules.
 Overview
 """"""""
 
-Under ``Service Control`` -> ``Services`` the Overview of all Assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
+Under ``Service Control`` > ``LogWatcher`` > ``Asset View`` the overview of all assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
-.. figure:: ../images/sc-overview.png
-   :target: ../_images/sc-overview.png
-   :alt: Assets with installed Service Controller
+.. figure:: ../images/sc-logwatcher-overview.png
+   :target: ../_images/sc-logwatcher-overview.png
+   :alt: LogWatcher Assets View
 
-   Assets with installed Service Controller
+   LogWatcher Asset View
 
 Enable Service for an Asset
 """""""""""""""""""""""""""
-To enable the LogWatcher service for an asset, navigate to ``Service Control`` > ``Services``, select the asset's checkbox and choose ``Change Configuration``. Then choose the desired service configuration by clicking ``Use``.
+To enable the LogWatcher service for an asset, navigate to ``Service Control`` > ``LogWatcher`` > ``Asset View``, select the asset's checkbox and choose ``Assign Configuration``. Then choose the desired service configuration by clicking ``Assign``.
 
-.. figure:: ../images/sc-change-configuration.png
-   :target: ../_images/sc-change-configuration.png
+.. figure:: ../images/sc-logwatcher-change-configuration.png
+   :target: ../_images/sc-logwatcher-change-configuration.png
    :alt: Enable a Service Configuration
 
    Enable a Service Configuration
 
-If you have not configured a service yet, you need to do so beforehand.
-
-Creating a Service Configuration
-""""""""""""""""""""""""""""""""
+Creating a Custom Service Configuration
+"""""""""""""""""""""""""""""""""""""""
 
 A service configuration is used to group assets of similar type and assign them a set of rules (in form of rulesets). 
 
-Go to ``Service Control`` > ``Service Configurations`` > ``Create Service Configuration``, enter a name, choose the **LogWatcher** service type and add the rulesets that should apply for this service configuration (i.e. group of assets).
+Go to ``Service Control`` > ``LogWatcher`` > ``Configurations`` > ``Add Configuration``, enter a name and add the rulesets that should apply for this service configuration (i.e. group of assets).
 
 .. figure:: ../images/sc-service-configuration.png
    :target: ../_images/sc-service-configuration.png
@@ -680,7 +701,7 @@ If you have not configured a ruleset yet, you need to do so beforehand.
 Creating a Ruleset
 """"""""""""""""""
 
-Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma: Rulesets`` > ``Create Ruleset``. 
+Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
 
 .. figure:: ../images/sc-create-ruleset.png
    :target: ../_images/sc-create-ruleset.png
@@ -688,7 +709,7 @@ Rulesets are used to group rules to manageable units. As an asset can only have 
 
    Create a Ruleset
 
-After creating a ruleset, go to ``Service Control`` > ``Sigma: Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Rulesets``. A rule can be assigned to multiple rulesets.
+After creating a ruleset, go to ``Service Control`` > ``Sigma`` > ``Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
 
 .. figure:: ../images/sc-add-to-ruleset.png
    :target: ../_images/sc-add-to-ruleset.png
@@ -697,7 +718,7 @@ After creating a ruleset, go to ``Service Control`` > ``Sigma: Rules`` to choose
    Add a Rule to Rulesets
 
 .. note::
-    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma: Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
+    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma`` > ``Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
 
     .. figure:: ../images/sc-uncommitted-changes.png
        :target: ../_images/sc-uncommitted-changes.png
@@ -737,7 +758,7 @@ Or you can just search the title or description field of the rules (the descript
 Adding Custom Rules
 """""""""""""""""""
 
-Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma: Rules`` > ``Add Rules``.
+Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma`` > ``Rules`` > ``Upload Rules``.
 
     .. figure:: ../images/sc-custom-rule.png
        :target: ../_images/sc-custom-rule.png
@@ -756,7 +777,7 @@ ASGARD provides two forms of collected evidence:
 1. Playbook output (file or memory collection, command output)
 2. Sample quarantine (sent by THOR via Bifrost protocol during the scan)
 
-All collected evidence can be downloaded in the "Collected Evidence" section.
+All collected evidence can be downloaded in the ``Collected Evidence`` section.
 
 .. figure:: ../images/collected-evidence-list.png
    :target: ../_images/collected-evidence-list.png
@@ -767,7 +788,7 @@ All collected evidence can be downloaded in the "Collected Evidence" section.
 Bifrost Quarantine
 ^^^^^^^^^^^^^^^^^^
 
-If Bifrost is used with your THOR scans, all collected samples show up here. You will need the "ResponseControl" permission in order to view or download the samples. See section ``User Roles`` within the ``User Management`` section for details.
+If Bifrost is used with your THOR scans, all collected samples show up here. You will need the "ResponseControl" permission in order to view or download the samples. See section :ref:`Roles<usage/administration:Roles>` and :ref:`Rights<usage/administration:Rights>` for details.
 
 
 .. figure:: ../images/bifrost-collections.png
@@ -779,18 +800,19 @@ If Bifrost is used with your THOR scans, all collected samples show up here. You
 Generate Download Links
 -----------------------
 
-The ``Downloads`` section lets you create and download a full THOR package including scanner, custom IOCs and MISP rulesets along with a valid license for a specific host. This package can then be used for systems that cannot be equipped with an ASGARD agent for some reason. For example, this can be used on air gapped networks. Copy the package to a USB stick or a CD ROM and use it where needed.
+The ``Downloads`` section lets you create and download a full THOR package including scanner, custom IOCs and MISP rulesets along with a valid license for a specific host. This package can then be used for systems that cannot be equipped with an ASGARD agent for some reason. For example, this can be used on air gapped networks. Copy the package to a flash drive or CD ROM and use it where needed.
 
+You can choose to disable the download token altogether using ``Disable Download Token``. If disabled, anyone with network access can download and issue licenses, which may lead to unwanted exhaustion of the ASGARD license pool. You can reset the download token by disabling and then re-enabling it using ``New Download Token``.
 
 .. figure:: ../images/download-thor-package.png
    :target: ../_images/download-thor-package.png
    :alt: Generate THOR Package Download Link
 
-   Download THOR package and license workstation named 'myhost123'
+   Download THOR package and license workstation named 'WIN-CLI-DE-1234'
 
 While selecting different options in the form, the download link changes.
 
-After you have generated a download tokane and have selected the correct scanner, operating system and target hostname (not FQDN), you can copy the download link and use it to retrieve a full scanner package including a license file for that host. These download links can be sent to administrators or team members that don’t have access to ASGARD management center. Remember that the recipients of that link still need to be able to reach ASGARD’s web server port (443/tcp). The token can be used to download THOR or a THOR license whithout an ASGARD account. Attention: If you disable the token, anybody can download THOR from this ASGARD or can generate licenses.
+After you have generated a download token and have selected the correct scanner, operating system and target hostname (not FQDN), you can copy the download link and use it to retrieve a full scanner package including a license file for that host. These download links can be sent to administrators or team members that don’t have access to ASGARD management center. Remember that the recipients of that link still need to be able to reach ASGARD's web server port (443/tcp). The token can be used to download THOR or a THOR license without an ASGARD account. Attention: If you disable the token, anybody can download THOR from this ASGARD or can generate licenses.
 
 .. note::
    The scanner package will not contain a license file if you don’t set a hostname in the ``Target Hostname`` field. If you have an Incident Response license, you must provide it separately.
@@ -826,13 +848,13 @@ You can use that URL in Bash or PowerShell scripts to automate scans on systems 
 .. code:: powershell 
 
    $Type = "server"
-   $Download_Url = "https://asgard2.nextron:8443/api/v0/downloads/thor/thor10-win?hostname=$($Hostname)&type=$($Type)&iocs=%5B%22default%22%5D&misps=%5B%222%22%5D&token=fQku7OKvDal2SMub4pv2QJOCCDL9P7dh5h"
+   $Download_Url = "https://asgard2.nextron:8443/api/v1/downloads/thor?os=windows&type=$($Type)&scanner=thor10%4010.6&signatures=signatures&hostname=$($Hostname)&token=$($Token)"
 
 
 Licensing
 ---------
 
-ASGARD requires an Issuer-License in order to scan systems. The Issuer-License contains the number of asset-, server- and workstation systems that can be scanned with ASGARD Management Center. 
+ASGARD requires an Issuer-License in order to scan systems. The Issuer-License contains the number of asset-, server- and workstation systems that can be scanned with ASGARD Management Center as well as the Aurora or LogWatcher service licenses.
 
 ASGARD will automatically issue a valid single-license for a particular system during its initial THOR scan. 
 
@@ -873,9 +895,9 @@ Updates
 ASGARD Updates
 ^^^^^^^^^^^^^^
 
-ASGARD will search for ASGARD updates on a daily basis. Available updates will automatically be shown in the section "Updates". 
+ASGARD will search for ASGARD updates on a daily basis. Available updates will automatically be shown in the section ``Updates``. 
 
-As soon as an ASGARD update is available, a button ``Install Update`` appears. Clicking this button will start the update process. The ASGARD service will be restarted and the user will be forced to re-login. 
+As soon as an ASGARD update is available, a button ``Upgrade from ... to ...`` appears. Clicking this button will start the update process. The ASGARD service will be restarted and the user will be forced to re-login. Generally update MASTER ASGARD before the connected ASGARDs.
 
 .. figure:: ../images/updating-asgard.png
    :target: ../_images/updating-asgard.png
@@ -886,7 +908,7 @@ As soon as an ASGARD update is available, a button ``Install Update`` appears. C
 Updates of THOR and THOR Signatures
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, ASGARD will search for signature updates and THOR updates on an hourly basis. These updates will be set to active automatically. Therefore, a triggered scan will always employ the current THOR version and current signature version. You may disable or modify the automatic THOR and Signature updates by deleting or modifying the entries in this section. In the screenshot below no automatically updates are configured.
+By default, ASGARD will search for signature updates and THOR updates on an hourly basis. These updates will be set to active automatically. Therefore, a triggered scan will always employ the current THOR version and current signature version. You may disable or modify the automatic THOR and Signature updates by deleting or modifying the entries in this section.
 
 .. figure:: ../images/automatic-scanner-and-signature-updates.png
    :target: ../_images/automatic-scanner-and-signature-updates.png
@@ -899,16 +921,16 @@ It is possible to intentionally scan with an old scanner version by clicking on 
 Please be aware, that this is a global setting and will affect all scans!
 
 
-.. figure:: ../images/image73-1592213332299.png
-   :target: ../_images/image73-1592213332299.png
-   :alt: image73
+.. figure:: ../images/select-scanner-version-manually.png
+   :target: ../_images/select-scanner-version-manually.png
+   :alt: Selecting a Scanner Version manually
 
-   Selecting a Scanner version manually
+   Selecting a Scanner Version manually
 
 Agent Updates
 ^^^^^^^^^^^^^
 
-If an asset or an gent can be update, there will be a notice shown in the "Update > Agents" tab.
+If an asset or an gent can be update, there will be a notice shown in the ``Updates`` > ``Agents`` tab.
 
 .. figure:: ../images/update-agent.png
    :target: ../_images/update-agent.png
@@ -988,7 +1010,7 @@ Restrictions
    :header-rows: 1
 
    * - ForceStandardArgs
-   * - Creat and start scans with predefined arguments or scan templates that are not restricted
+   * - Create and start scans with predefined arguments or scan templates that are not restricted
 
 .. list-table:: 
    :header-rows: 1
@@ -1023,7 +1045,7 @@ First check if your LDAP server is reachable by ASGARD by clicking "Test Connect
    Configure the LDAP Server
 
 Then check the bind user you want to use for ASGARD. Read permissions on the bind user are sufficient.
-To find out the distinguished name you can use an LDAP browser or query using the Powershell AD module command ``Get-ADUser <username>``.
+To find out the distinguished name you can use an LDAP browser or query using the PowerShell AD module command ``Get-ADUser <username>``.
 
 .. figure:: ../images/ldap-bind.png
    :target: ../_images/ldap-bind.png
@@ -1171,7 +1193,7 @@ For Details on how to automatically forward to a sandbox system please refer to 
 Link Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^
 
-In order to connect to an Analysis Cockpit, enter the respective hostname of the Analysis Cockpit (use the same FQDN used during installation of the Analysis Cockpit) in the field ``Analysis Cockpit``, enter the one-time code, choose the type and click ``Connect``. 
+In order to connect to an Analysis Cockpit, enter the respective hostname of the Analysis Cockpit (use the same FQDN used during installation of the Analysis Cockpit) in the field ``FQDN``, enter the one-time code, choose the type and click ``Update Analysis Cockpit``. 
 
 .. figure:: ../images/linking-the-analysis-cockpit.png
    :target: ../_images/linking-the-analysis-cockpit.png
@@ -1179,17 +1201,17 @@ In order to connect to an Analysis Cockpit, enter the respective hostname of the
 
    Linking the Analysis Cockpit 
 
-The Cockpit’s API key can be found on the right side of the Analysis Cockpit's ``Overview`` page.
+The Cockpit's API key can be found at ``Settings`` > ``ASGARDs`` > ``Connect ASGARD``.
 
-.. figure:: ../images/image86-1592214154933.png
-   :target: ../_images/image86-1592214154933.png
-   :alt: image86
+.. figure:: ../images/settings-ac.png
+   :target: ../_images/settings-ac.png
+   :alt: Analysis Cockpit API Key
 
    Analysis Cockpit API Key
 
-ASGARD must be able to connect to the Analysis Cockpit on port 443/TCP for a successful integration. Once connected, the Cockpit will show up in ASGARDs overview section along with the "last synced date" (lower left corner). 
+ASGARD must be able to connect to the Analysis Cockpit on port 443/TCP for a successful integration. Once connected, the Cockpit will show up in ASGARDs ``System Status`` > ``Overview`` section together with the other connectivity tests. 
 
-Please wait up to five minutes for the status to change on ASGARD’s system status page. It will change from ``Not linked`` to ``Online``.
+Please wait up to five minutes for the status to change on ASGARD's system status page. It will change from ``Not linked`` to ``Online``.
 
 .. figure:: ../images/connectivity-status.png
    :target: ../_images/connectivity-status.png
@@ -1202,7 +1224,7 @@ Link MISP
 
 In order to connect to a MISP navigate to the ``Settings > Link MISP`` tab.
 
-Insert the MISP’s address along with the API Key and click ``Connect``.
+Insert the MISP's address along with the API Key and click ``Connect``.
 
 
 .. figure:: ../images/linking-a-misp-to-asgard.png
@@ -1211,7 +1233,7 @@ Insert the MISP’s address along with the API Key and click ``Connect``.
 
    Linking a MISP to ASGARD
 
-The MISP connectivity status is shown in the ``Overview`` section. Please allow five minutes for the connection status to show green and MISP rules to show up in the ``IOC Management`` section.
+The MISP connectivity status is shown in the ``Overview`` section. Please allow five minutes for the connection status to show green and MISP rules to show up in the ``Scan Control`` > ``MISP`` > ``MISP Events`` section.
 
 
 .. figure:: ../images/connectivity-status.png
@@ -1247,12 +1269,9 @@ In order to control your ASGARD with a MASTER ASGARD, you must generate a One-Ti
 Advanced
 ^^^^^^^^
 
-The Advanced tab lets you specify additional global settings. The session timeout for web-based UI can be configured. Default is 24 hours. If ``Show Advanced Tasks`` is set, ASGARD will show system maintenance jobs (e.g. update ASGARD Agent on endpoints) within the response control section. 
+The Advanced tab lets you specify additional global settings. The session timeout for web-based UI can be configured. Default is one hour. If ``Show Advanced Tasks`` is set, ASGARD will show system maintenance jobs (e.g. update ASGARD Agent on endpoints) within the response control section. 
 
 Inactive assets can be hidden in the Asset Management Section by setting a suitable threshold for ``Hide inactive Assets``. 
-
-Finally, the download for THOR packages can be protected with a token. If unprotected, anybody can request a THOR package with a valid license for a particular host just by sending a https request with the hostname included (for Details see :ref:`chapter 4.10 Generate Download Links <usage/administration:Generate Download Links>`). This may lead to unwanted exhaustion of the ASGARD license pool. 
-
 
 .. figure:: ../images/advanced-settings.png
    :target: ../_images/advanced-settings.png
@@ -1279,7 +1298,7 @@ API Key
 
 This section also allows you to set and modify an API key. 
 
-Note that currently an API key always has the access rights of the user context in which it has been generated. If you want to create a restricted API key, add a new restricted user and generate an API key in the new user’s context.  
+Note that currently an API key always has the access rights of the user context in which it has been generated. If you want to create a restricted API key, add a new restricted user and generate an API key in the new user's context.  
 
 Uninstall ASGARD Agents 
 -----------------------

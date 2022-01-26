@@ -25,7 +25,7 @@ ASGARD supports using a standard http proxy for the entire Agent to ASGARD commu
 Hardware Requirements
 ---------------------
 
-ASGARDs hardware requirements depend on the number of connected endpoints and also on the intended use. For example, you should consider using bigger hard disks if you are planning to use Bifrost or ASGARD’s evidence collection feature extensively.
+ASGARDs hardware requirements depend on the number of connected endpoints and also on the intended use. For example, you should consider using bigger hard disks if you are planning to use Bifrost or ASGARD's evidence collection feature extensively.
 
 .. list-table::
    :header-rows: 1

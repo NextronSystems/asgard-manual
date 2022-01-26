@@ -27,7 +27,7 @@ Right click your CA >> All Tasks >> Submit new request
 
    certsrv – Submit new request 
 
-Locate and open the signing request file we’ve saved in previous steps
+Locate and open the signing request file we've saved in previous steps
 
 
 .. figure:: ../images/image98-1592779570330.PNG
@@ -165,17 +165,17 @@ Use Case 2 - CSR Signing with an OpenSSL Based CA
 
 In order to avoid security warnings* on some browsers, the CA signing process needs to ensure to copy all Subject Alternative Name (SAN) from the CSR to the signed Certificate.
 
-One way of including all extensions from the CSR to the new certificate, is via the openssl.cnf file, by setting the copy_extensions attribute to copy.
+One way of including all extensions from the CSR to the new certificate, is via the ``openssl.cnf`` file, by setting the copy_extensions attribute to copy.
 
 Example:
 
-[ CA_default ]
+.. code:: none
 
-[…]
-
-copy_extensions = copy
-
-[…]
+    [ CA_default ]
+    
+    […]
+    copy_extensions = copy
+    […]
 
 * These security warnings are result of an incomplete signing process where requested attributes from the CSR are not included in the signed certificates
 
@@ -190,7 +190,9 @@ Prepare the CA certificate, CA private key and the certificate signing request
 
 Execute/adapt following command:
 
-openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
+.. code:: none
+
+    openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
 
 
 .. figure:: ../images/image114-1592780053516.PNG
@@ -199,7 +201,7 @@ openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard
 
    Certificate signing command
 
-Enter the passphrase for your CA’s private key
+Enter the passphrase for your CA's private key
 
 
 .. figure:: ../images/image114-1592780409148.PNG
@@ -341,6 +343,8 @@ Check that the new agent has been transferred to the old ASGARD version 1.x Serv
 
    Listing of agents on ASGARD version 1.x
 
+.. _Sign the new agents:
+
 Sign the new agents in order to be able to distribute them via GRR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -396,7 +400,7 @@ Install the new ASGARD2 Agent
 
 In order to install the new agent, we will need to expand the ``Administrative`` folder and select ``Launch Binary``.
 
-We will be requested to put in a binary, please use the binary name we gathered/created in step 7.2.2.2.4. and click Launch.
+We will be requested to put in a binary, please use the binary name we gathered/created in step `Sign the new agents`_ and click Launch.
 
 .. figure:: ../images/image125-1592781654614.PNG
    :target: ../_images/image125-1592781654614.PNG
@@ -439,7 +443,7 @@ Save this script in your ASGARDv1 and sign/upload it to GRR as described in poin
 
 Please bear in mind that the above script will work only for Ubuntu/Debian systems and needs to be adapted for ``Redhat/CentOS systems``.
 
-macOS Hosts
+MacOS Hosts
 """""""""""
 
 For migrating macOS hosts please create a shell script and follow the above procedure to deploy it.
@@ -494,12 +498,12 @@ This section will cover frequent questions regarding the migration.
 Will there be any problem in running both agents (v1, v2) at the same time?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are no known issues running both agents at the same time. The new ASGARD v2 agent is more lightweight and performant. The expected RAM utilization in idle mode demonstrated in our tests put the new agent in a very good position, consuming only 1 MB.
+There are no known issues running both agents at the same time. The new ASGARD v2 agent is more lightweight and has better performance. The expected RAM utilization in idle mode demonstrated in our tests put the new agent in a very good position, consuming only 1 MB.
 
 Will I need more resources for my new ASGARD v2 server?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please refer to the ASGARD v2 manual for specific sizing. The overall tests performed highlight that both server and agents are more performant which will allow more agent management per ASGARD (compared to version 1).
+Please refer to the ASGARD v2 manual for specific sizing. The overall tests performed highlight that both server and agents have better performance which will allow more agent management per ASGARD (compared to version 1).
 
 Can I import my memory dumps and file collections made on ASGARD v1?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -516,7 +520,7 @@ Starting with macOS BIG SUR (v11.0), Apple requires software developers
 to notarize applications.
 
 Due to the nature of the asgard2-agent installer, which is generated on
-installation time, making it unique for each new installation, it’s
+installation time, making it unique for each new installation, it's
 currently not possible to notarize the same.
 
 This document aims to describe possible workarounds intending to be a
@@ -545,7 +549,7 @@ command line
 1. Download the asgard2-agent from the ASGARD Management Center Agent
    Download page for macOS (.pkg extension). This page can be located
    under the following URL:
-   https://\ *YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers
+   ``https://*YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers``
 2. | Deactivate macOS security mechanism (Gatekeeper) launching a
      terminal session:
    | **sudo spctl --master-disable**
@@ -568,4 +572,4 @@ You can verify the state of the protection mechanism with this command:
 
 On a system with re-activated Gatekeeper output has to be:
 
-assessments enabled
+``assessments enabled``
