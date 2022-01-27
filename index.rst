@@ -16,6 +16,7 @@ Welcome to ASGARD's documentation!
    usage/setup
    usage/administration
    usage/masterasgard
+   usage/maintenance
    usage/commandline
    usage/known-issues
    usage/debugging
