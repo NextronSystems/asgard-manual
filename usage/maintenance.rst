@@ -19,7 +19,7 @@ The following files are safe to delete. They are not needed for ASGARD to operat
 
 - ``/var/lib/nextron/asgard2/log/*.gz``
 
-They are only kept on the system if needed for further processing. E.g. saving/sending the log files to another system or keeping the THOR scan-results for backup reasons. If you do not need or plan to use those, they can be deleted. If you are unsure make a copy to another system before deleting them.
+They are only kept on the system if needed for further processing. E.g. saving/sending the log files to another system. If you do not need or plan to use those, they can be deleted. If you are unsure make a copy to another system before deleting them.
 
 - ``/var/lib/nextron/asgard2/downloads/*`` (except current day)
 
