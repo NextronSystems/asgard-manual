@@ -169,7 +169,7 @@ One way of including all extensions from the CSR to the new certificate, is via 
 
 Example:
 
-.. code:: none
+.. code-block:: none
 
     [ CA_default ]
     
@@ -190,7 +190,7 @@ Prepare the CA certificate, CA private key and the certificate signing request
 
 Execute/adapt following command:
 
-.. code:: none
+.. code-block:: none
 
     openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
 

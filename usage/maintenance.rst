@@ -40,7 +40,7 @@ If you use Bifrost, the collected files are not deleted by default. If dated fil
 The listed files are the results of THOR scans (scan-results), Tasks except Scans (generic-results) and the sessions of remote consoles (remote-console).
 They are not needed for ASGARD to function, but the data is viewed and available for download in ASGARD. This means deleting these files will not break ASGARD, but you lose the information provided by the files. If you need the disk space and cannot increase the disk, we suggest to delete these files older than a given date, that you no longer need. This can be done with a find-remove combination using the command line:
 
-.. code:: none
+.. code-block:: none
 
    find /var/lib/nextron/asgard2/<directory> -mtime +<days> -print0 | xargs -0 -r rm
 
