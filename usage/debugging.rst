@@ -1,8 +1,11 @@
 Debugging
 =============
 
-Agent Communication Errors
---------------------------
+Agent Debugging
+---------------
+
+Internal Agent Debugging
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true. The file can be found in ``C:\Windows\System32\asgard2-agent\`` or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
 
@@ -13,6 +16,51 @@ Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true.
 After making these changes, restart the ASGARD service. You can then find log entries and possible error messages in the file ``asgard2-agent.log`` in the same directory as the configuration file.
 
 Note: The value is set to ``false`` by default, because the agent doesn't rotate or compress these logs. Leaving that value on ``true`` could cause that file to grow very big and use a significant amount of disk space. We recommend resetting it after the debugging session.
+
+Go Debug Logging
+~~~~~~~~~~~~~~~~
+
+On Windows, open the cmd.exe as Administrator. Set some environment variables.
+
+.. code:: winbatch 
+
+   set GRPC_GO_LOG_SEVERITY_LEVEL=info
+   set GODEBUG=http2debug=2
+
+Navgiate into the agent's program directory and start it to see all output messages.
+
+.. code:: winbatch 
+
+   sc stop asgard2-agent
+   cd C:\Windows\system32\asgard2-agent\
+   asgard2-agent.exe
+
+Interrupt the agent with ``CTRL+C``. Don't forget to start the Windows service after the debugging session. 
+
+.. code:: winbatch
+
+   sc start asgard2-agent
+
+On Linux, open a shell as root (sudo). 
+
+.. code:: bash
+
+   export GRPC_GO_LOG_SEVERITY_LEVEL=info
+   export GODEBUG=http2debug=2
+
+Navgiate into the agent's program directory and start it to see all output messages.
+
+.. code:: bash 
+
+   systemctl stop asgard2-agent
+   cd /var/lib/asgard2-agent/
+   ./asgard2-agent
+
+Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service after the debugging session. 
+
+.. code:: bash 
+
+   systemctl start asgard2-agent
 
 SSL Interception
 ----------------
