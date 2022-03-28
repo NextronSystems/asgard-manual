@@ -1404,3 +1404,17 @@ Uninstall ASGARD Agents on macOS
 
    sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
    sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
+
+Uninstall ASGARD Service Controller
+----------------------------------- 
+
+.. note::
+   The command contains names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
+
+If you want to uninstall the ASGARD Service Controller and Agent, see section :ref:`Uninstall ASGARD Agents<usage/administration:Uninstall ASGARD Agents>`.
+
+If you only want to uninstall the ASGARD Service Controller execute:
+
+.. code:: winbatch
+
+    C:\Windows\System32\asgard2-agent\asgard2-agent_sc.exe -uninstall
