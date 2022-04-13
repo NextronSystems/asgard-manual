@@ -22,6 +22,9 @@ After uploading, the license details are displayed.
 System Status
 -------------
 
+Status Overview
+^^^^^^^^^^^^^^^
+
 The initial system status page provides a summary of the most important system components. 
 
 It also includes the current resource consumption (disk, CPU and memory) and lists the currently installed ASGARD software version along with available versions of THOR. Additionally, the connection status to the update servers, MASTER ASGARD and Cockpit are shown with a graph that shows asset connections and asset streams.
@@ -42,6 +45,22 @@ It also includes the current resource consumption (disk, CPU and memory) and lis
 
    Overview Bottom Half
 
+Diagnostics
+^^^^^^^^^^^
+
+The diagnostics sub menu shows the periodically performed checks and their status. Clicking the magnifying glass icon shows details of the performed check. If a check failed it gives a detailed error message and hints on which steps typically help in resolving the issue.
+
+.. figure:: ../images/diagnostics.png
+   :target: ../_images/diagnostics.png
+   :alt: Overview Over Periodic Diagnostic Checks
+
+   Overview Over Periodic Diagnostic Checks
+
+The traffic light on the left menu always shows if any of those checks failed by showing a warning or error (i.e. yellow or red light) and you can click the status to view the diagnostics page as a pop-up.
+
+Logs
+^^^^
+
 The logs section shows the latest and most relevant logs. Complete logs can be found at ``/var/lib/nextron/asgard2/log``.
 
 
@@ -53,15 +72,16 @@ The logs section shows the latest and most relevant logs. Complete logs can be f
 
 Available logs and their content:
 
-- Audit: Containing user login/-off, changes done over the UI
-- ASGARD Management Center: Overall status of the MC, general errors and warnings
-- ASGARD Agent and Service Controller: Status of the agents deployed on assets
+- Audit: Containing user login/-off, changes done over the UI.
+- ASGARD Management Center: Overall status of the MC, general errors and warnings.
+- ASGARD Agent and Service Controller: Status of the agents deployed on assets.
 - THOR via Syslog: Received syslog events of THOR scans. Partial results if a scan did not complete.
-- Aurora: All Aurora events
-- Aurora Response Actions: Only response action events of Aurora
-- Aurora Simulated Response Actions: Only simulated response action events of Aurora
-- LogWatcher: All LogWatcher events
-- Diagnostic Pack: Button for generating and downloading a diagnostic pack that may be asked for by support
+- Aurora: All Aurora events:
+- Aurora Event Producers: The top 10 of event producing processes per endpoint.
+- Aurora Response Actions: Only response action events of Aurora:
+- Aurora Simulated Response Actions: Only simulated response action events of Aurora.
+- LogWatcher: All LogWatcher events.
+- Diagnostic Pack: Button for generating and downloading a diagnostic pack that may be asked for by support.
 
 
 
@@ -96,7 +116,7 @@ In the requests tab, select the agents you want ASGARD to manage and click ``Acc
 
    Accepting ASGARD Agent Requests
 
-A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see :ref:`chapter 6.1 Performance Tuning <usage/commandline:Performance Tuning>` for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
+A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see :ref:`section Performance Tuning <usage/commandline:Performance Tuning>` for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
 
 Asset Management
 ----------------
@@ -192,7 +212,7 @@ Scan templates are the most convenient way to make use of THOR's rich set of sca
 
 Imagine you want to use dedicated scan options for different system groups (e.g. Linux Servers, Domain Controllers, Workstations, etc.) and make sure to use exactly the same set of scan options every time you scan a particular group of systems. With ASGARD you can now add a scan template for every group.
 
-A popular use case for scan templates is providing additional resource control – for example telling THOR to set the lowest process priority for itself and never use more that 50% of a single CPU. 
+A popular use case for scan templates is providing additional resource control – for example telling THOR to set the lowest process priority for itself and never use more than 50% of CPU. 
 
 Please keep in mind, that we have already optimized THOR to use the most relevant scan options for a particular system (based on type, numbers of CPUs and system resources) and a comprehensive resource control is enabled by default. 
 
@@ -200,21 +220,17 @@ For more details please refer to the `THOR manual <https://thor-manual.nextron-s
 
 Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates"-permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (See section :ref:`User Management<usage/administration:User Management>` for details).
 
+By clicking the ``Import Scan Template`` button you can import a previously exported scan template.
+
 .. figure:: ../images/scan-templates-overview.png
    :target: ../_images/scan-templates-overview.png
    :alt: image-20200608153256353
 
    Scan Templates Overview
 
-In order to create a scan template, navigate to "Scan Control" > "Scan Templates" and click the "Add Scan Template" button. The "Add Scan Template" dialogue appears. After choosing a scanner you will find the most frequently used options on the top of this page in the "Favorite Flags" category. You can view all THOR options by clicking on the other categories.
+In order to create a scan template, navigate to ``Scan Control`` > ``Scan Templates`` and click the ``Add Scan Template`` button. The ``Add Scan Template`` dialogue appears. The current THOR scanner version is chosen for you by default but can be changed if needed.
 
-.. figure:: ../images/add-scan-template.png
-   :target: ../_images/add-scan-template.png
-   :alt: image-20200608153228887
-
-   Add Scan Template
-
-After choosing a scanner you will find the most frequently used options on the top of this page in the "Favorite Flags" category. View all THOR options by clicking on the other categories or quickly search for known flags in the search bar. By clicking on the star symbols you can also edit your personal favorites. 
+After choosing or changing a scanner you will find the most frequently used options on the top of this page in the "Favorite Flags" category. View all THOR options by clicking on the other categories or quickly search for known flags in the search bar. By clicking on the star symbols you can also edit your personal favorites. 
 
 .. figure:: ../images/scan-flags.png
    :target: ../_images/scan-flags.png
@@ -224,15 +240,7 @@ After choosing a scanner you will find the most frequently used options on the t
 
 By checking the "Default" box, you can make this scan template the default template for every new scan. There can only be one default template at a time and selecting the box will uncheck a previous default, if set.
 Checking the "Restricted" flag will make the template restricted, meaning only a restricted set of users can use the template for scans. The set of users consists of all users who do not have the "ForceStandardArgs" restriction set. (By default this are all users who are not member of the group "Operator Level 1").
-After clicking the "Add" button on the bottom of the template page, an overview of all existing scan templates is shown. 
-
-.. figure:: ../images/image39.png
-   :target: ../_images/image39.png
-   :alt: image-20200608153244186
-
-   Restricting Scan Templates
-
-By clicking the ``Import Scan Template`` button and choosing a file you can import a scan template.
+After clicking the "Add Template" button on the bottom of the template page, an overview of all existing scan templates is shown. 
 
 Scan a Single System
 ^^^^^^^^^^^^^^^^^^^^
@@ -272,7 +280,8 @@ After the scan completion, you can download the scan results via the download bu
 
 The download button has the following options: 
 
-* Download Scan Result (the THOR text log file)
+* Download Scan Result as TXT (the THOR text log file)
+* Download Scan Result as JSON (only available if it was started with the ``--json`` flag)
 * Download HTML Report (as \*.gz compressed file; available for successful scans only)
 * Show HTML Report (opens another tab with the HTML report)
 
@@ -382,95 +391,20 @@ Further information about a group scan can be observed from the detail page of t
 
 Aside from information about the group scan in the "Details" tab, there is a graph that shows the number of assets started and how many assets have already completed the scan in the "Charts" tab. In the "Tasks" tab you get information about the scanned assets.
 
-Integrating Custom IOCs
-^^^^^^^^^^^^^^^^^^^^^^^
+THOR Excludes and False-Positive Filters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The tab "IOC Management" gives you the opportunity to easily integrate custom signatures into your scans. 
+In THOR you can define `directory and file excludes <https://thor-manual.nextron-systems.com/en/latest/usage/configuration.html#files-and-directories>`_ and `false positive filters <https://thor-manual.nextron-systems.com/en/latest/usage/configuration.html#false-positives>`_. With ASGARD 2.13+ these features can be globally defined in ASGARD at ``Scan Control`` > ``THOR Config``.
 
-In order to create your own custom IOC Group, navigate to ``Scan Control`` > ``IOC Management`` > ``IOCs``
-and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
+.. figure:: ../images/scan-exclude-and-fp.png
+   :target: ../_images/scan-exclude-and-fp.png
+   :alt: Scan Control - Global Directory Exclude and FP Filtering
 
-.. figure:: ../images/add-ioc-group.png
-   :target: ../_images/add-ioc-group.png
-   :alt: image-20200608160335401
+   Scan Control - Global Directory Exclude and FP Filtering
 
-   Add IOC Group
-
-To add IOCs to this group, just click the entry in the table and two blue buttons will show up. You can click the ``Import IOCs`` button to import your own signatures in any of THOR’s IOC formats (e.g. files for keyword IOCs, YARA Files and SIGMA files). Refer to the 
-`THOR manual (custom signatures) <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_ for a complete list and file formats. Browse to the file you want to add and click upload. This adds your IOC file to the default ruleset. 
-
-.. figure:: ../images/import-iocs.png
-   :target: ../_images/import-iocs.png
-   :alt: image-20200608160335401
-
-   Import IOCs
-
-However, you can also click the ``Add IOC(s)`` button to add some IOCs manually. Select the type, score and description, enter some values and click the ``Add IOC`` button.
-
-.. figure:: ../images/add-ioc.png
-   :target: ../_images/add-ioc.png
-   :alt: image-20200608160335401
-
-   Add IOCs
-
-You can add those IOC Groups to IOC Rulesets which can be generated in the ``Scan Control`` > ``IOC Management`` > ``IOC Rulesets`` tab by clicking the 
-``Add Ruleset`` button in the upper right corner. Select name and description and click the 
-``Add Ruleset`` button.
-
-.. figure:: ../images/add-ruleset.png
-   :target: ../_images/add-ruleset.png
-   :alt: image-20200608160335401
-
-   Add Ruleset
-
-After that, click on an entry in the table to expand it. There you get information about all IOC Groups which have been added to this ruleset. Additionally you can add or remove selected IOC Groups in ``IOC Management: IOCs`` by clicking one of the three buttons shown below.
-
-.. figure:: ../images/add-remove-ioc-group.png
-   :target: ../_images/add-remove-ioc-group.png
-   :alt: image-20200608160335401
-
-   Buttons to Add/Remove IOC Groups
-
-Those rulesets can be selected in the "Custom Signature" field while creating a new scan job. If a ruleset is selected, the scan will include all custom IOCs included in IOC Groups which have been added to this ruleset. You can also select more than one ruleset.
-
-.. figure:: ../images/select-ruleset.png
-   :target: ../_images/select-ruleset.png
-   :alt: image-20200608160335401
-
-   Select Ruleset while creating a scan job
-
-Please note, ASGARD does not provide a syntax check for your IOC files. Should THOR be unable to parse your IOC files for the scan, THOR will skip the particular file with syntax issues and send an error message in the scan log. All other files with correct syntax will be used for scanning. THOR will report files that can be parsed and are used for scanning in the scan log. 
-
-Integrating IOCs through MISP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ASGARD provides an easy to use interface for integrating IOCs from a connected MISP into THOR scans. In order to add rules from a MISP, navigate to ``Scan Control`` > ``MISP`` > ``MISP Events``, select the IOCs and add them to the desired ruleset by using the button in the upper right corner. 
-
-Contrary to the custom IOC handling, there is no default ruleset for MISP. You must create at least one ruleset (see tab "MISP Rulesets") before you can add MISP rules.
-
-
-.. figure:: ../images/misp-events.png
-   :target: ../_images/misp-events.png
-   :alt: image-20200608160546503
-
-   MISP events 
-
-In order to create a ruleset, click ``Add MISP Ruleset`` in the ``Scan Control`` > ``MISP`` > ``MISP Rulsets`` tab. Select a name and the type of IOCs you want to use in this ruleset. By default, all types are selected, but there may be reasons for deselecting certain categories. For example, filename IOCs tend to cause false positives and may be deselected for that reason. The picture below shows the dialogue for adding a MISP ruleset.
-
-.. figure:: ../images/addon-a-new-misp-rulset.png
-   :target: ../_images/addon-a-new-misp-rulset.png
-   :alt: image-20200608160621066
-
-   Adding a new MISP ruleset
-
-In order to use a MISP ruleset in a scan: Add the ruleset in the ``MISP Signatures`` field when creating your scan.
-
-
-.. figure:: ../images/adding-a-misp-rulset-to-a-scan.png
-   :target: ../_images/adding-a-misp-rulset-to-a-scan.png
-   :alt: image-20200608160636062
-
-   Adding a MISP Ruleset to a Scan 
+.. warning::
+   Be careful not to use too broad filters or excludes as this might cripple THOR's detection capabilities, if
+   done incorrectly.
 
 Response Control
 ----------------
@@ -504,7 +438,7 @@ In order to replay a remote console session, navigate to ``Response Control``, e
 
 ASGARD users can only see their own remote shell session. Only users with the ``RemoteConsoleProtocol`` permission are able to replay all sessions from all users.
 
-Response Control with pre-defined playbooks
+Response Control with Pre-Defined Playbooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In addition to controlling THOR scans, ASGARD Management Center contains extensive response functions. Through ASGARD, you can start or stop processes, modify and delete files or registry entries, quarantine endpoints, collect triage packages and execute literally any command on connected systems. All with one click and executed on one endpoint or groups of endpoints.
@@ -534,7 +468,7 @@ ASGARD ships with pre-defined playbooks for the following tasks:
 * Collect full triage pack (Windows only)
 * Isolate endpoint (Windows only)
 * Collect system memory
-* Collect file
+* Collect file / directory
 * Collect directory
 * Execute command and collect stdout and stderr
 
@@ -554,7 +488,7 @@ Response functions for groups of systems can be defined in the ``Group Tasks`` t
 
    Execute Playbook on Group of Endpoints
 
-Response Control with custom playbooks
+Response Control with Custom Playbooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can add your own custom playbook by clicking the ``Add Playbook`` button in the 
@@ -567,7 +501,16 @@ You can add your own custom playbook by clicking the ``Add Playbook`` button in 
    Add Custom Playbook
 
 This lets you define a name and a description for your playbook. After clicking the ``Add Playbook`` button, 
-click on your new playbook and start adding steps by clicking the ``Add Step`` button.
+click on the ``Edit steps of this playbook`` action. 
+
+.. figure:: ../images/custom-playbook-edit-steps.png
+   :target: ../_images/custom-playbook-edit-steps.png
+   :alt: Playbook Action Items
+
+   Playbook Action Items
+
+This opens the side pane in which single playbook steps
+can be added using the ``Add Step`` button.
 
 
 .. figure:: ../images/add-playbook-entry.png
@@ -576,13 +519,22 @@ click on your new playbook and start adding steps by clicking the ``Add Step`` b
 
    Add Playbook Entry
 
-You can have up to 16 entries in each playbook that are executed in a row. Every entry can be either "download something from ASGARD to the endpoint", "execute a command line" or "Upload something from the endpoint to ASGARD". If you run a command line the stdout and stderr are reported back to ASGARD. 
+If you need custom files for your playbook (scripts, configurations, binaries, etc.) you can select local files to be uploaded to ASGARD during the creation of the playbook step (by selecting "Upload New File" in the file drop-down). You can manage these files at ``Response Control`` > ``Playbook Files`` and upload or update files using the ``Upload Playbook File`` button.
+
+.. figure:: ../images/playbook-files.png
+   :target: ../_images/playbook-files.png
+   :alt: Manage Playbook Files
+
+   Manage Playbook Files
+
+
+You can have up to 16 steps in each playbook that are executed sequentially. Every step can be either "download something from ASGARD to the endpoint", "execute a command line" or "upload something from the endpoint to ASGARD". If you run a command line the stdout and stderr are reported back to ASGARD. 
 
 
 Service Control
 ---------------
 
-Service Control is ASGARD's way of deploying real-time services on endpoints. Currently there exist the LogWatcher and (experimental!) Aurora service. To use any of those two, the service controller has to be installed on an asset.
+Service Control is ASGARD's way of deploying real-time services on endpoints. Currently there exist the Aurora and the LogWatcher service. To use any of those two, the service controller has to be installed on an asset.
 
 Service Controller Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -626,7 +578,7 @@ From the `project website <https://github.com/SigmaHQ/sigma>`_:
 Creating a Ruleset
 """"""""""""""""""
 
-Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. To create a ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
+Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. There exist default rulesets for high and critical Sigma rules. If you want to create a custom ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
 
 .. figure:: ../images/sc-create-ruleset.png
    :target: ../_images/sc-create-ruleset.png
@@ -634,7 +586,7 @@ Rulesets are used to group rules to manageable units. As an asset can only have 
 
    Create a Ruleset
 
-After creating a ruleset, go to ``Service Control`` > ``Sigma`` > ``Rules`` to choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
+If you have chosen that new Sigma rules should be added automatically they are added now. If you didn't you now need to add the desired rules manually by going to ``Service Control`` > ``Sigma`` > ``Rules``. Choose the rules that should be added to this ruleset by selecting the checkboxes and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
 
 .. figure:: ../images/sc-add-to-ruleset.png
    :target: ../_images/sc-add-to-ruleset.png
@@ -643,13 +595,13 @@ After creating a ruleset, go to ``Service Control`` > ``Sigma`` > ``Rules`` to c
    Add a Rule to Rulesets
 
 .. note::
-    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma`` > ``Rulesets`` and performing the **Commit and Push** action (gear wheels). The need for committing and pushing is indicated in the *Uncommitted Changes* column.
+    You need to commit and push your changes after editing a ruleset. ASGARD has to restart the service controller to read new configurations. In order to prevent multiple restarts in the case of a user performing several configuration changes in succession, the user has to initiate the reloading of the new configuration by going to ``Service Control`` > ``Sigma`` > ``Rulesets`` and performing the **Compile ruleset** action (gear wheels). The need for compiling is indicated in the *Uncompiled Changes* column.
 
     .. figure:: ../images/sc-uncommitted-changes.png
        :target: ../_images/sc-uncommitted-changes.png
-       :alt: Uncommitted Changes Indicator
+       :alt: Uncompiled Changes Indicator
     
-       Uncommitted Changes Indicator
+       Uncompiled Changes Indicator
 
 Choosing which Rules to activate
 """"""""""""""""""""""""""""""""
@@ -696,7 +648,7 @@ Custom rules can be added using the sigma format complying with the `specificati
 LogWatcher Service
 ^^^^^^^^^^^^^^^^^^
 
-The LogWatcher real-time service monitors the Windows Event Log using predefined rules in the Sigma format and creates an alert that is forwarded to ASGARD Analysis Cockpit if a match was found.
+The LogWatcher real-time service monitors the Windows Event Log using predefined rules in the Sigma format and creates an alert that is forwarded to ASGARD Analysis Cockpit if a match was found. The LogWatcher service is no longer shown by default on newly installed ASGARDs. To enable it go to ``Settings`` > ``Advanced`` and enable the ``Show LogWatcher`` checkbox.
 
 Prerequisites
 ~~~~~~~~~~~~~
@@ -738,13 +690,15 @@ This chapter explains how to configure LogWatcher using Sigma rules.
 Overview
 """"""""
 
-Under ``Service Control`` > ``LogWatcher`` > ``Asset View`` the overview of all assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
+Under ``Service Control`` > ``LogWatcher`` > ``Asset View (Deployed)`` the overview of all assets with an installed LogWatcher is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
 .. figure:: ../images/sc-logwatcher-overview.png
    :target: ../_images/sc-logwatcher-overview.png
    :alt: LogWatcher Assets View
 
    LogWatcher Asset View
+
+Analogous you can see an overview of all assets without an installed LogWatcher under ``Service Control`` > ``LogWatcher`` > ``Asset View (Not Deployed)``.
 
 Enable Service for an Asset
 """""""""""""""""""""""""""
@@ -784,7 +738,7 @@ Its documentation can be found at `aurora-agent-manual.nextron-systems.com <http
 
 Overview
 ~~~~~~~~
-Under ``Service Control`` > ``Aurora`` > ``Asset View`` the overview of all assets with an installed service controller is shown. Clicking on the entry opens a drop-down menu with details and additional information.
+Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview of all assets with installed Aurora is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
 .. figure:: ../images/sc-aurora-asset-view.png
    :target: ../_images/sc-aurora-asset-view.png
@@ -792,17 +746,22 @@ Under ``Service Control`` > ``Aurora`` > ``Asset View`` the overview of all asse
 
    Aurora Asset View
 
-Enable Service for an Asset
+Deploy Aurora on Asset
+~~~~~~~~~~~~~~~~~~~~~~
+
+Analogous you can see an overview of all assets without Aurora installed under ``Service Control`` > ``Aurora`` > ``Asset View (Not Deployed)`` and install Aurora using the ``Deploy Aurora`` button.
+
+Change Service for an Asset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To assign the Aurora service to an asset, navigate to ``Service Control`` > ``Aurora`` > ``Asset View``, select the asset's checkbox and choose ``Assign Configuration``. Then choose the desired service configuration by clicking ``Assign``.
+To change the Aurora configuration of an asset, navigate to ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)``, select the asset's checkbox and choose ``Change Aurora Configuration``. Then choose the desired service configuration by clicking ``Assign and Restart``.
 
 .. figure:: ../images/sc-aurora-assign-configuration.png
    :target: ../_images/sc-aurora-assign-configuration.png
-   :alt: Assign Aurora Service
+   :alt: Change Aurora Service Configuration
 
-   Assign Aurora Service
+   Change Aurora Service Configuration
 
-Next choose the assets with the checkbox and enable them using the ``Enable`` button or select the play button action on single assets.
+If you want to enable or disable the Aurora service on an asset, select it with the checkbox and use the ``Enable`` or ``Disable`` button or select the play or stop action icon on single assets.
 
 
 Creating a Custom Service Configuration
@@ -815,6 +774,97 @@ Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuratio
 
    Create a Custom Aurora Configuration
 
+IOC Management
+--------------
+
+Integrating Custom IOCs
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The menu ``IOC Management`` gives you the opportunity to easily integrate custom signatures into your scans. 
+
+In order to create your own custom IOC Group, navigate to ``IOC Management`` > ``IOCs``
+and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
+
+.. figure:: ../images/add-ioc-group.png
+   :target: ../_images/add-ioc-group.png
+   :alt: image-20200608160335401
+
+   Add IOC Group
+
+To add IOCs to this group, use the ``Show and edit IOCs in this IOC group`` action. A side pane opens where you can click the ``Import IOCs`` button to import your own signatures in any of THOR’s IOC formats as files (e.g. files for keyword IOCs, YARA files and SIGMA files). Refer to the  
+`THOR manual (custom signatures) <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_ for a complete list and file formats. Browse to the file you want to add and click upload. This adds your IOC file to the default ruleset. 
+
+.. figure:: ../images/import-iocs.png
+   :target: ../_images/import-iocs.png
+   :alt: image-20200608160335401
+
+   Imported IOCs Overview
+
+However, you can also click the ``Add IOC(s)`` button to add some IOCs interactively. Select the type, score and description, enter some values and click the ``Add IOC`` button.
+
+.. figure:: ../images/add-ioc.png
+   :target: ../_images/add-ioc.png
+   :alt: image-20200608160335401
+
+   Add IOCs
+
+You can add those IOC Groups to IOC Rulesets which can be created in the ``IOC Management`` > ``IOC Rulesets`` tab by clicking the 
+``Add Ruleset`` button in the upper right corner. Select name and description and click the 
+``Add Ruleset`` button.
+
+.. figure:: ../images/add-ruleset.png
+   :target: ../_images/add-ruleset.png
+   :alt: image-20200608160335401
+
+   Add Ruleset
+
+After that, click on an entry in the table to expand it. There you get information about all IOC Groups which have been added to this ruleset. Additionally you can add or remove selected IOC Groups in ``IOC Management: IOCs`` by clicking one of the three buttons shown below.
+
+.. figure:: ../images/add-remove-ioc-group.png
+   :target: ../_images/add-remove-ioc-group.png
+   :alt: image-20200608160335401
+
+   Buttons to Add/Remove IOC Groups
+
+Those rulesets can be selected in the "Custom Signature" field while creating a new scan job. If a ruleset is selected, the scan will include all custom IOCs included in IOC Groups which have been added to this ruleset. You can also select more than one ruleset.
+
+.. figure:: ../images/select-ruleset.png
+   :target: ../_images/select-ruleset.png
+   :alt: image-20200608160335401
+
+   Select Ruleset while creating a scan job
+
+
+Integrating IOCs through MISP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ASGARD provides an easy to use interface for integrating IOCs from a connected MISP into THOR scans. In order to add rules from a MISP, navigate to ``IOC Management`` > ``MISP`` > ``MISP Events``, select the IOCs and add them to the desired ruleset by using the button in the upper right corner. 
+
+There is no default ruleset for MISP. You must create at least one ruleset (see tab "MISP Rulesets") before you can add MISP rules.
+
+
+.. figure:: ../images/misp-events.png
+   :target: ../_images/misp-events.png
+   :alt: image-20200608160546503
+
+   MISP events 
+
+In order to create a ruleset, click ``Add MISP Ruleset`` in the ``IOC Management`` > ``MISP`` > ``MISP Rulsets`` tab. Select a name and the type of IOCs you want to use in this ruleset. By default, all types are selected, but there may be reasons for deselecting certain categories. For example, filename IOCs tend to cause false positives and may be deselected for that reason. The picture below shows the dialogue for adding a MISP ruleset. Enable **Auto Generate** in order to automatically compile new MISP events into the ruleset, when they arrive.
+
+.. figure:: ../images/addon-a-new-misp-rulset.png
+   :target: ../_images/addon-a-new-misp-rulset.png
+   :alt: image-20200608160621066
+
+   Adding a new MISP ruleset
+
+In order to use a MISP ruleset in a scan: Add the ruleset in the ``MISP Signatures`` field when creating your scan.
+
+
+.. figure:: ../images/adding-a-misp-rulset-to-a-scan.png
+   :target: ../_images/adding-a-misp-rulset-to-a-scan.png
+   :alt: image-20200608160636062
+
+   Adding a MISP Ruleset to a Scan 
 
 Evidence Collection 
 -------------------
@@ -884,9 +934,9 @@ Note that you may have to adjust the `type` field to get the correct license typ
 
 .. code:: bash
    
-   .../thor10-win?hostname=mywinserver1&type=server...
-   .../thor10-win?hostname=mywinwks1&type=client...
-   .../thor10-linux?hostname=mylinuxsrv1&type=server...
+   .../thor?os=windows&type=server&scanner=thor10%40latest&hostname=mywinserver...
+   .../thor?os=windows&type=workstation&scanner=thor10%40latest&hostname=mywinwks1...
+   .../thor?os=linux&type=server&scanner=thor10%40latest&hostname=mylinuxsrv1...
 
 Use Case 3 - Use the URL in Scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -926,7 +976,7 @@ In addition, ASGARD can create single-licenses that can be used for agentless sc
 
 The following systems require a workstation license in order to be scanned: 
 
-* Windows 7 / 8 / 10
+* Windows 7 / 8 / 10 / 11
 * Mac OS
 
 The following systems require a server license in order to be scanned:
@@ -980,7 +1030,7 @@ Please be aware, that this is a global setting and will affect all scans!
 Agent Updates
 ^^^^^^^^^^^^^
 
-If an asset or an gent can be update, there will be a notice shown in the ``Updates`` > ``Agents`` tab.
+If an asset or an agent can be update, there will be a notice shown in the ``Updates`` > ``Agents`` tab.
 
 .. figure:: ../images/update-agent.png
    :target: ../_images/update-agent.png
@@ -1000,7 +1050,7 @@ Access user management via ``Settings`` > ``Users``. This section allows adminis
 
    Add User Account
 
-Editing a user account does not require a password although the fields are shown in the dialogue.
+Editing a user account does not require a password although the fields are shown in the dialogue. An initial password has to be provided for user creation, though.
 
 Access the user roles in ``Settings`` > ``Roles``. 
 
@@ -1026,32 +1076,39 @@ Rights
 .. list-table:: 
    :header-rows: 1
 
-   * - Admin
+   * - Administrator
    * - Unrestricted
 
 .. list-table:: 
    :header-rows: 1
 
-   * - ManageScanTemplates
+   * - Manage Scan Templates
    * - Allows scan templates management
 
 .. list-table:: 
    :header-rows: 1
 
-   * - ResponseControl
-   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - RemoteConsole
+   * - Remote Console
    * - Connect to endsystems via remote console
 
 .. list-table:: 
    :header-rows: 1
 
-   * - RemoteConsoleProtocol
+   * - View Remote Console Log
    * - Review the recordings of all remote console sessions
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Response Control
+   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Service Control
+   * - User can manage services on endpoint, e.g. Aurora or LogWatcher
+
 
 Restrictions 
 ^^^^^^^^^^^^
@@ -1059,19 +1116,19 @@ Restrictions
 .. list-table:: 
    :header-rows: 1
 
-   * - ForceStandardArgs
-   * - Create and start scans with predefined arguments or scan templates that are not restricted
+   * - Force Scan Template
+   * - Force user to use predefined scan templates that are not restricted
 
 .. list-table:: 
    :header-rows: 1
 
-   * - NoInactiveAssets
+   * - No Inactive Assets
    * - Cannot view inactive assets in asset management.
 
 .. list-table:: 
    :header-rows: 1
 
-   * - NoTaskStart
+   * - No Task Start
    * - Cannot start scans or task (playbooks)
 
 .. list-table:: 
@@ -1132,9 +1189,6 @@ This is done in the right column by using the ``Add LDAP Role`` feature.
    LDAP Group to ASGARD Role Mapping
 
 .. note::
-    All local users, except the built-in **admin** user, get disabled when LDAP is configured.
-
-.. note::
     Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**. (LDAP users cannot use said features).
 
 Other Settings
@@ -1149,7 +1203,7 @@ Syslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forw
    :target: ../_images/configure-syslog-forwarding.png
    :alt: Syslog Forwarding
 
-   Configure Syslog forwarding
+   Configure Syslog Forwarding
 
 The following log sources can be forwarded individually:
 
@@ -1165,7 +1219,7 @@ The following log sources can be forwarded individually:
    * - Agent Log
      - All ASGARD agent activities
    * - THOR Log
-     - THOR scan results (available if scan config has ``Syslog to ASGARD`` enabled) 
+     - THOR scan results (available if scan config has ``Send Syslog to ASGARD`` enabled) 
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1178,17 +1232,18 @@ Instead of using the pre-installed self-signed TLS Certificate, users can upload
 
    Generate a Certificate Signing Request (CSR)
 
+In order to achieve the best possible compatibility with the most common browsers, we recommend using the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
+
+Please note that generating a CSR on the command line is not supported.   
+
+The generated CSR can be used to generate a TLS Certificate. Subsequently, this TLS Certificate can be uploaded in the ``Settings`` > ``TLS`` section.
+
 .. figure:: ../images/upload-tls-certificate.png
    :target: ../_images/upload-tls-certificate.png
    :alt: image80
 
    Upload a TLS Certificate
 
-In order to achieve the best possible compatibility with the most common browsers, we recommend using the system’s FQDN in both fields ``Common Name`` AND ``Hostnames``.
-
-Please note that the generating a CSR on the command line is not supported.   
-
-This CSR can be used to generate a TLS Certificate. Subsequently, this TLS Certificate can be uploaded in the ``Settings`` > ``TLS`` section.
 
 Manage Services
 ^^^^^^^^^^^^^^^
@@ -1212,7 +1267,7 @@ The current NTP configuration can be found in the NTP sub-section.
 
    NTP configuration
 
-A Source Pool or Source Server can be removed by clicking the ``X`` button. To create a new Source Pool or Source Server, click ``Add NTP Source`` in the upper right corner. 
+A Source Pool or Source Server can be removed by clicking the delete action. To create a new Source Pool or Source Server, click ``Add NTP Source`` in the upper right corner. 
 
 Settings for Bifrost
 ^^^^^^^^^^^^^^^^^^^^
@@ -1283,7 +1338,7 @@ Insert the MISP's address along with the API Key and click ``Connect``.
 
    Linking a MISP to ASGARD
 
-The MISP connectivity status is shown in the ``Overview`` section. Please allow five minutes for the connection status to show green and MISP rules to show up in the ``Scan Control`` > ``MISP`` > ``MISP Events`` section.
+The MISP connectivity status is shown in the ``Overview`` section. Please allow five minutes for the connection status to show green and MISP rules to show up in the ``IOC Management`` > ``MISP`` > ``MISP Events`` section.
 
 
 .. figure:: ../images/connectivity-status.png
