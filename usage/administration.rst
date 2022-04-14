@@ -577,7 +577,7 @@ From the `project website <https://github.com/SigmaHQ/sigma>`_:
     Sigma is for log files what `Snort <https://www.snort.org/>`_ is for network traffic and `YARA <https://github.com/VirusTotal/yara>`_ is for files.
 
 Creating a Ruleset
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 Rulesets are used to group rules to manageable units. As an asset can only have one service configuration, rulesets are used to determine which rules are used in which service configuration. There exist default rulesets for high and critical Sigma rules. If you want to create a custom ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
 
@@ -605,7 +605,7 @@ If you have chosen that new Sigma rules should be added automatically they are a
        Uncompiled Changes Indicator
 
 Choosing which Rules to activate
-""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is not advised to enable all available rules on an asset. We suggest to start with all "critical" and then advance to all "high" rules. We already provide a default ruleset for those two levels for you to use. "Medium" rules should not be enabled in bulk or "low"/"informational" at all . Single medium rules, which increase an organisation's detection coverage and do not trigger a bigger number of false positives can be added to the active configuration, but should be tested rule by rule.
 
@@ -634,7 +634,7 @@ Or you can just search the title or description field of the rules. You can also
        Search by Rule Title or Description
        
 Adding Custom Rules
-"""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~
 
 Custom rules can be added using the sigma format complying with the `specification <https://github.com/SigmaHQ/sigma/wiki/Specification>`_. You can upload single files or a ZIP compressed archive. This can be done at ``Service Control`` > ``Sigma`` > ``Rules`` > ``Upload Rules``.
 
@@ -644,6 +644,146 @@ Custom rules can be added using the sigma format complying with the `specificati
     
        Adding Custom Rules
 
+Rule and Response Updates
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If new rules or rule updates are provides by the Aurora signatures, the updates have to be applied by the user manually in order to be affecting Aurora agents managed by ASGARD. An indicator is shown in the WebUI and the rules changes can be reviewed and applied at ``Service Control`` > ``Sigma`` > ``Rule Updates``. 
+
+    .. figure:: ../images/sigma-rule-updates.png
+       :target: ../_images/sigma-rule-updates.png
+       :alt: Sigma Rule Updates for Aurora
+    
+       Sigma Rule Updates for Aurora
+
+Clicking on the ``Update`` button in the "Update Available" column opens a diff view in which the changes are shown and where the user can apply or discard the changes. If you do not need to review each single change, you can apply all changes using the ``Update All Rules`` button.
+
+Analogous the updates of response actions can be viewed and applied at ``Service Control`` > ``Sigma`` > ``Response Updates``.
+
+How to activate Responses
+~~~~~~~~~~~~~~~~~~~~~~~~~
+As a fail safe and for administration purposes, responses are generally only simulated if not explicitly set to active.
+This has to be done on different levels:
+
+- Service configuration level
+- Ruleset configuration level (on updates)
+- Ruleset rule level
+
+If on one level a rule is simulated, it will not execute the response actions but only generate a log line that describes the action that would have been performed. You can see an overview of the state of all responses in the ``Service Control`` > ``Aurora`` > ``Configurations`` menu.
+
+
+    .. figure:: ../images/sc-aurora-configuration-response-overview.png
+       :target: ../_images/sc-aurora-configuration-response-overview.png
+       :alt: Aurora Configuration Response Action Overview
+    
+       Aurora Configuration Response Action Overview
+
+(1) indicates whether responses are activated on configuration level. Edit the configuration to change it.
+(2) indicates how many rules are only simulated in that ruleset (or in sum).
+(3) indicates  how many rules have active responses in that ruleset (or in sum)
+
+To change the status of a response in the ruleset click the ruleset link. You can view all simulated or all active responses. Us the checkbox and the button in the upper right to switch the response status of the rules between active and simulated.
+
+    .. figure:: ../images/sc-aurora-ruleset-responses.png
+       :target: ../_images/sc-aurora-ruleset-responses.png
+       :alt: Response Configuration in Rulesets
+    
+       Response Configuration in Rulesets
+
+In addition the default response mode of a ruleset is important for the behaviour of response updates. It can be seen at ``Service Control`` > ``Sigma`` > ``Rulesets`` in the "Default Response Mode" column.
+
+    .. figure:: ../images/sigma-ruleset-default-response-mode.png
+       :target: ../_images/sigma-ruleset-default-response-mode.png
+       :alt: Ruleset Default Response Mode
+    
+       Ruleset Default Response Mode
+
+If "Simulation" is selected, response actions of new and updated rules will be put in simulation mode. If "Active" is selected, new rules will automatically be put in active mode and updated rules will not change their current response mode.
+
+
+Aurora
+^^^^^^
+
+- Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
+- It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
+- It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
+- It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
+
+Its documentation can be found at `aurora-agent-manual.nextron-systems.com <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
+
+
+Overview
+~~~~~~~~
+Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview of all assets with installed Aurora is shown. Clicking on the entry opens a drop-down menu with details and additional information.
+
+.. figure:: ../images/sc-aurora-asset-view.png
+   :target: ../_images/sc-aurora-asset-view.png
+   :alt: Aurora Asset View
+
+   Aurora Asset View
+
+Deploy Aurora on Asset
+~~~~~~~~~~~~~~~~~~~~~~
+
+Analogous you can see an overview of all assets without Aurora installed under ``Service Control`` > ``Aurora`` > ``Asset View (Not Deployed)`` and install Aurora using the ``Deploy Aurora`` button.
+
+Change Service for an Asset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To change the Aurora configuration of an asset, navigate to ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)``, select the asset's checkbox and choose ``Change Aurora Configuration``. Then choose the desired service configuration by clicking ``Assign and Restart``.
+
+.. figure:: ../images/sc-aurora-assign-configuration.png
+   :target: ../_images/sc-aurora-assign-configuration.png
+   :alt: Change Aurora Service Configuration
+
+   Change Aurora Service Configuration
+
+If you want to enable or disable the Aurora service on an asset, select it with the checkbox and use the ``Enable`` or ``Disable`` button or select the play or stop action icon on single assets.
+
+
+Creating a Custom Service Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuration``, enter a name and add the rulesets that should apply for this service configuration. No rulesets is a viable option, if you only want to use the non-sigma matching modules. You don't need to edit any other option as sane defaults are given.
+
+.. figure:: ../images/sc-aurora-custom-configuration.png
+   :target: ../_images/sc-aurora-custom-configuration.png
+   :alt: Create a Custom Aurora Configuration
+
+   Create a Custom Aurora Configuration
+
+Process Excludes
+~~~~~~~~~~~~~~~~~~
+
+If Aurora uses too much CPU cycles, the most common reason is a heavy event producer on the system (e.g. anti virus or communication software). In order to analyse the issue and define process exclusions, go to ``Service Control`` > ``Aurora`` > ``Process Excludes``
+
+.. figure:: ../images/aurora-process-exclusion.png
+   :target: ../_images/aurora-process-exclusion.png
+   :alt: Define Aurora Process Exclusion
+
+   Define Aurora Process Exclusion
+
+An overview over the top event producing processes is given on the bottom of the section. Another possibility is to :ref:`collect diagnostic packs of systems<usage/debugging:Aurora Diagnostics Pack>` in question and look in the ``status.txt`` at the event statistics by process.
+
+False Positive Filters
+~~~~~~~~~~~~~~~~~~~~~~
+If needed, false positives can be globally filtered on all Aurora agents at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is recommended to filter false positives at ``Servce Control`` > ``Sigma`` > ``Rules`` and filter the false positives on a rule level using the "edit false positive" action (funnel icon). If this is not possible, because you need a quick fix and multiple rules are affected, the global false positive filter can help.
+
+.. figure:: ../images/aurora-global-fp-filter.png
+   :target: ../_images/aurora-global-fp-filter.png
+   :alt: Define Global Aurora False Positive Filters
+
+   Define Global Aurora False Positive Filters
+
+.. warning::
+   A too permissive filter will greatly reduce Aurora's detection and response capabilities.
+
+Response Action Logs
+~~~~~~~~~~~~~~~~~~~~
+You can view an overview and the logs of the Aurora response and simulated response actions under ``Service Control`` > ``Aurora`` > ``Response Action Logs``.
+
+.. figure:: ../images/aurora-response-action-logs.png
+   :target: ../_images/aurora-response-action-logs.png
+   :alt: Aurora Response Action Logs
+
+   Aurora Response Action Logs
 
 
 LogWatcher Service
@@ -726,54 +866,6 @@ Go to ``Service Control`` > ``LogWatcher`` > ``Configurations`` > ``Add Configur
 
 If you have not configured a ruleset yet, you need to do so beforehand.
 
-Aurora
-^^^^^^
-
-- Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
-- It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
-- It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
-- It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
-
-Its documentation can be found at `aurora-agent-manual.nextron-systems.com <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
-
-
-Overview
-~~~~~~~~
-Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview of all assets with installed Aurora is shown. Clicking on the entry opens a drop-down menu with details and additional information.
-
-.. figure:: ../images/sc-aurora-asset-view.png
-   :target: ../_images/sc-aurora-asset-view.png
-   :alt: Aurora Asset View
-
-   Aurora Asset View
-
-Deploy Aurora on Asset
-~~~~~~~~~~~~~~~~~~~~~~
-
-Analogous you can see an overview of all assets without Aurora installed under ``Service Control`` > ``Aurora`` > ``Asset View (Not Deployed)`` and install Aurora using the ``Deploy Aurora`` button.
-
-Change Service for an Asset
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To change the Aurora configuration of an asset, navigate to ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)``, select the asset's checkbox and choose ``Change Aurora Configuration``. Then choose the desired service configuration by clicking ``Assign and Restart``.
-
-.. figure:: ../images/sc-aurora-assign-configuration.png
-   :target: ../_images/sc-aurora-assign-configuration.png
-   :alt: Change Aurora Service Configuration
-
-   Change Aurora Service Configuration
-
-If you want to enable or disable the Aurora service on an asset, select it with the checkbox and use the ``Enable`` or ``Disable`` button or select the play or stop action icon on single assets.
-
-
-Creating a Custom Service Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuration``, enter a name and add the rulesets that should apply for this service configuration. No rulesets is a viable option, if you only want to use the non-sigma matching modules. You don't need to edit any other option as sane defaults are given.
-
-.. figure:: ../images/sc-aurora-custom-configuration.png
-   :target: ../_images/sc-aurora-custom-configuration.png
-   :alt: Create a Custom Aurora Configuration
-
-   Create a Custom Aurora Configuration
 
 IOC Management
 --------------
