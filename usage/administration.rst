@@ -470,6 +470,7 @@ ASGARD ships with pre-defined playbooks for the following tasks:
 * Collect system memory
 * Collect file / directory
 * Collect directory
+* Collect Aurora diagnostics pack
 * Execute command and collect stdout and stderr
 
 Nextron provides additional playbooks via ASGARD updates.
