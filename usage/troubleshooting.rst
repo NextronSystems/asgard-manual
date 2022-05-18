@@ -1,5 +1,5 @@
-Debugging
-=============
+Troubleshooting
+===============
 
 Agent Debugging
 ---------------
@@ -61,6 +61,13 @@ Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service aft
 .. code:: bash 
 
    systemctl start asgard2-agent
+
+Aurora Diagnostics Pack
+~~~~~~~~~~~~~~~~~~~~~~~
+
+If Aurora does not behave like it should, e.g. using more resources than you expected, you can create a diagnostics pack for our support to help in troubleshooting the issue. This can be conveniently done using the playbook ``[Default] Create and Collect Aurora Agent Diagnostics Pack (Windows)``.
+
+It can be run from ``Asset Management`` > ``Response Action`` (Play button) or from ``Response Control`` > ``Tasks`` > ``Add Task`` or if needed as a group task. The resulting ``diagnostics.zip`` can be downloaded from the third step in the ``Playbook Result`` tab of the expanded task.
 
 SSL Interception
 ----------------

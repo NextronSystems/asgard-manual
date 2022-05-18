@@ -39,5 +39,5 @@ You also need the ``--insecure`` curl flag, if you are using the self-signed cer
 
 Status
 ~~~~~~
-Work in progress.
+Resolved in ASGARD 2.13.5+
 

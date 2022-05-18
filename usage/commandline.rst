@@ -108,6 +108,20 @@ Creating Custom Agent Installer
 
 ASGARD supports creation of custom installers. Custom installers can be configured in a way that agents show up with a preset label or with a preset proxy configuration.
 
+Creating Custom Agent Installer From GUI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Go to ``Downloads`` > ``Agent Installers`` > ``Add Agent Installer``. Edit the properties of the desired installer and generate the installer by clicking ``Add Agent Installers``. The installers are available at the downloads page besides the default installers, so best use an affix as distinction.
+
+.. figure:: ../images/custom-agent-installer.png
+   :target: ../_images/custom-agent-installer.png
+   :alt: Custom Agent Installer from the WebUI
+
+   Custom Agent Installer from the WebUI
+
+Creating Custom Agent Installer From CLI (deprecated)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 In order to create your custom ASGARD agent, save the current agents stored in ``/var/lib/nextron/asgard2/installer/`` to a directory of your choosing and run ``sudo asgard2-repacker`` with one or more of the following flags:
 
 ``-labels string``

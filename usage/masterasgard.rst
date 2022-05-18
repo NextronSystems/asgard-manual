@@ -91,8 +91,6 @@ The only differences are:
 IOC Management
 --------------
 
-Since ASGARD version 2.11 the IOC Management is a subcategory found in ``Scan Control`` > ``IOC Management`` (:ref:`see Custom IOCs <usage/administration:Integrating Custom IOCs>`) or ``Scan Control`` > ``MISP`` (:ref:`see IOCs through MISP <usage/administration:Integrating IOCs through MISP>`). 
-
 On MASTER ASGARD you can manage IOCs exactly like on ASGARD. The only limitation is that IOCs in MASTER ASGARD and ASGARD are isolated. That means if you want to use the IOCs from MASTER ASGARD, you need to initiate the scan from MASTER ASGARD and if you want to use the IOCs from ASGARD, you need to initiate the scan from ASGARD. In general we suggest to manage IOCs in MASTER ASGARD for maximum flexibility.
 
 Service Control
@@ -121,7 +119,7 @@ Updates
 
 The ``Updates`` section contains a tab in which upgrades for ASGARD can be installed. 
 
-A second tab named ``Scanners and Signatures`` gives you an overview of the used scanner and signature versions on all connected ASGARDs. 
+A third tab named ``THOR and Signatures`` gives you an overview of the used scanner and signature versions on all connected ASGARDs. 
 
 .. figure:: ../images/master-asgard-scanner-updates.png
    :target: ../_images/master-asgard-scanner-updates.png
@@ -152,6 +150,6 @@ However, many API endpoints contain a field in which users select the correspond
 
 .. figure:: ../images/master-api1.png
    :target: ../_images/master-api1.png
-   :alt: MASTER ASGARD API Specialty
+   :alt: MASTER ASGARD API Peculiarity
 
-   MASTER ASGARD API Specialty
+   MASTER ASGARD API Peculiarity
