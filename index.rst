@@ -19,7 +19,7 @@ Welcome to ASGARD's documentation!
    usage/maintenance
    usage/commandline
    usage/known-issues
-   usage/debugging
+   usage/troubleshooting
    usage/appendix
 
 
