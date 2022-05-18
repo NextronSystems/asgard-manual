@@ -174,6 +174,9 @@ You should now be able to reach the ASGARD Server under the new FQDN. Navigate t
 
 You should now install the agents on the endpoints again. They should be communicating correctly back to ASGARD by now. Remember to review the network requirements section to ensure all needed ports are open to the ASGARD Management Center from the endpoint.
 
+ASGARD Errors
+-------------
+
 ASGARD noticed that the THOR scan failed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
