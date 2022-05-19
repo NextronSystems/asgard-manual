@@ -91,7 +91,7 @@ From ASGARD to Analysis Cockpit
 ================================================= ================
 Description                                       Ports 
 ================================================= ================
-Asset Synchronization, Log- and Sample forwarding 443/tcp
+Asset Synchronization, Log- and Sample forwarding 7443/tcp
 Syslog forwarder (optional)                       514/tcp, 514/udp
 ================================================= ================
 
