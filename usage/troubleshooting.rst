@@ -194,3 +194,33 @@ The most likely reason for this error is an Antivirus interaction. The Antivirus
 Solution: 
 
 Configure an Antivirus exclusion for THOR. See :ref:`section <usage/requirements:Antivirus or EDR Exclusions>` for more details.
+
+Resetting TLS/SSL Certificates
+------------------------------
+
+Web GUI: Regenerate the Self-Signed Certificate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ASGARD ships with a self-signed certificate for its web interface that expires after 182 days. If you do not use your own CA infrastructure and want to renew the certificate or want to revert from a broken state, you can recreate a self-signed certificate. To do so log in using SSH and execute:
+
+.. code:: bash
+
+   sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
+
+You need to restart ASGARD in order for the changes to take effect.
+
+.. code:: bash
+
+   sudo systemctl restart asgard2.service
+
+Regenerate ASGARD Server Certififcate Agent Communication 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to reset the certificate that ASGARD uses to communicate with the agents, use the following commands. The agent should immediately trust the new certificate, as it was generated using the CA they already trust. 
+
+.. code:: bash 
+
+   su asgard2 -s /bin/sh <<'EOF'
+   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=ASGARD Management Center" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
+   openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
+   EOF

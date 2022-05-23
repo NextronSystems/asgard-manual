@@ -28,7 +28,6 @@ The files in this folder are only generated for temporary downloading files from
 Potentially Unneeded / Dated Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 - Bifrost quarantined files
 
 If you use Bifrost, the collected files are not deleted by default. If dated files are no longer needed, you can define a retention period at ``Settings`` > ``Bifrost``.
@@ -45,19 +44,3 @@ They are not needed for ASGARD to function, but the data is viewed and available
    find /var/lib/nextron/asgard2/<directory> -mtime +<days> -print0 | xargs -0 -r rm
 
 Where ``<directory>`` is one of ``scan-results/*.gz``, ``generic-results/*`` or ``remote-console/protocol/*`` and ``<days>`` the number of days you want to keep. Files and folders older than ``<days>`` days will be deleted.
-
-Regenerate the Self-Signed Certificate
---------------------------------------
-
-ASGARD ships with a self-signed certificate for its web interface that expires after 182 days. If you do not use your own CA infrastructure and want to renew the certificate or want to revert from a broken state, you can recreate a self-signed certificate. To do so log in using SSH and execute:
-
-.. code:: bash
-
-   sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
-
-You need to restart ASGARD in order for the changes to take effect.
-
-.. code:: bash
-
-   sudo systemctl restart asgard2.service
-
