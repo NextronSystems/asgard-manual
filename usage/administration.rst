@@ -806,7 +806,7 @@ If you want to enable the blocking capabilities of Aurora, we suggest to enable 
 
 You can test the response functionality by entering the command
 
-.. code:: none
+.. code-block:: none
 
    rundll32.exe AuroraFunctionTest.dll StartW
 
