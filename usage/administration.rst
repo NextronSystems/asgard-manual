@@ -121,8 +121,8 @@ A registered agent will poll to the ASGARD Management Center at a given interval
 Asset Management
 ----------------
 
-Overview
-^^^^^^^^
+Asset Overview
+^^^^^^^^^^^^^^
 
 Management of all endpoints registered with ASGARD can be performed in Asset Management. The assets will be presented as a table with an individual ASGARD ID, their IP addresses and host names.
 
@@ -681,7 +681,7 @@ If on one level a rule is simulated, it will not execute the response actions bu
 (2) indicates how many rules are only simulated in that ruleset (or in sum).
 (3) indicates  how many rules have active responses in that ruleset (or in sum)
 
-To change the status of a response in the ruleset click the ruleset link. You can view all simulated or all active responses. Us the checkbox and the button in the upper right to switch the response status of the rules between active and simulated.
+To change the status of a response in the ruleset click the ruleset link. You can view all simulated or all active responses. Use the checkbox and the button in the upper right to switch the response status of the rules between active and simulated.
 
     .. figure:: ../images/sc-aurora-ruleset-responses.png
        :target: ../_images/sc-aurora-ruleset-responses.png
@@ -711,8 +711,8 @@ Aurora
 Its documentation can be found at `aurora-agent-manual.nextron-systems.com <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
 
 
-Overview
-~~~~~~~~
+Aurora Overview
+~~~~~~~~~~~~~~~
 Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview of all assets with installed Aurora is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
 .. figure:: ../images/sc-aurora-asset-view.png
@@ -760,7 +760,7 @@ If Aurora uses too much CPU cycles, the most common reason is a heavy event prod
 
    Define Aurora Process Exclusion
 
-An overview over the top event producing processes is given on the bottom of the section. Another possibility is to :ref:`collect diagnostic packs of systems<usage/debugging:Aurora Diagnostics Pack>` in question and look in the ``status.txt`` at the event statistics by process.
+An overview over the top event producing processes is given on the bottom of the section. Another possibility is to :ref:`collect diagnostic packs of systems<usage/troubleshooting:Aurora Diagnostics Pack>` in question and look in the ``status.txt`` at the event statistics by process.
 
 False Positive Filters
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -784,6 +784,41 @@ You can view an overview and the logs of the Aurora response and simulated respo
    :alt: Aurora Response Action Logs
 
    Aurora Response Action Logs
+
+Best Practices for Managing Aurora
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Install the ASGARD agent on the asset (see :ref:`section ASGARD Agent Deployment<usage/administration:ASGARD Agent Deployment>`)
+2. Install the ASGARD service controller on the asset (see :ref:`section Service Controller Installation<usage/administration:Service Controller Installation>`)
+3. Deploy the Aurora Service on the asset using the ``[Default] Standard configuration with critical and high Sigma rules`` configuration (see :ref:`section Deploy Aurora on Asset<usage/administration:Deploy Aurora on Asset>`)
+
+.. figure:: ../images/aurora-best-practices-service-deployed.png
+   :target: ../_images/aurora-best-practices-service-deployed.png
+   :alt: Aurora Service Successfully Deployed
+
+   Aurora Service Successfully Deployed
+
+If you want to enable the blocking capabilities of Aurora, we suggest to enable our included responses:
+
+1. See the overview at ``Service Control`` > ``Aurora`` > ``Configurations``. The ``Effective Rules and Response`` row shows how many responses are active. By default no responses are active. See :ref:`section How to activate Responses<usage/administration:How to activate Responses>` on how to activate responses.
+2. Do not directly activate the responses in production environments. Monitor your environment for at least a month with simulated responses to verify that no false positive matches occur.
+3. In larger environments use different configurations and rulesets for different environments. As an example you can test changes to the configuration in a test environment, before adapting the changes for the production environment.
+
+You can test the response functionality by entering the command
+
+.. code:: none
+
+   rundll32.exe AuroraFunctionTest.dll StartW
+
+on the command line of an asset. As a result you should see following message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
+
+.. figure:: ../images/aurora-best-practices-example-response.png
+   :target: ../_images/aurora-best-practices-example-response.png
+   :alt: Aurora Service Successfully Deployed
+
+   Aurora Simulated Response Action 
+
+More tests are available from the `Function Tests section of the Aurora manual <https://aurora-agent-manual.nextron-systems.com/en/latest/usage/function-tests.html>`_. Those tests only generate detection events but no responses. If your ASGARD Management Center is connected to an Analysis Cockpit, you can see the detection events at ``Events`` > ``Aurora Events`` or in the Windows EventLog of the asset.
 
 
 LogWatcher Service
@@ -828,8 +863,8 @@ Operation
 ~~~~~~~~~
 This chapter explains how to configure LogWatcher using Sigma rules.
 
-Overview
-""""""""
+LogWatcher Overview
+"""""""""""""""""""
 
 Under ``Service Control`` > ``LogWatcher`` > ``Asset View (Deployed)`` the overview of all assets with an installed LogWatcher is shown. Clicking on the entry opens a drop-down menu with details and additional information.
 
