@@ -189,6 +189,11 @@ If you have to create a more specific list that can use wildcards, use the follo
     - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
     - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
+        - Especially: %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor.exe
+        - And/Or: %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor64.exe
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\ (and all sub folders)
+        - Especially: %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent.exe
+        - And/Or: %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent-64.exe
 - For Linux:
     - /usr/sbin/asgard2-agent-service
     - /var/lib/asgard2-agent/asgard2-agent
@@ -224,14 +229,19 @@ On-Access Scan:
     - generic.exe
     - asgard2-agent.exe
     - asgard2-agent-service.exe
+    - aurora-agent-64.exe
+    - aurora-agent.exe
 - Exclusions (include subfolders):
     - %SYSTEMROOT%\\System32\\asgard2-agent\\
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\
 - Access Protection:
     - thor.exe
     - thor64.exe
     - interrogate.exe
     - generic.exe
+    - aurora-agent.exe
+    - aurora-agent-64.exe
     - asgard2-agent.exe
     - asgard2-agent-service.exe
     - asgard2-agent-windows-amd64.exe
@@ -239,6 +249,9 @@ On-Access Scan:
     - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\*
     - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\**\\*
     - C:\\Windows\\Temp\\asgard2-agent\\*
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\*
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\**\\*
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*
     - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\*
     - %SYSTEMROOT%\\System32\\asgard2-agent\\*
 
@@ -260,3 +273,5 @@ EDR Exclusions:
     - C:\\Windows\\System32\\asgard2-agent\\**\\;
     - C:\\Windows\\Temp\\asgard2-agent\\;
     - C:\\Windows\\Temp\\asgard2-agent\\**\\;
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\;
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\**\\;
