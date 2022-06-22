@@ -41,3 +41,24 @@ Status
 ~~~~~~
 Resolved in ASGARD 2.13.5+
 
+AMC#002: Aurora False Positive Filters Cleared After Saving
+-----------------------------------------------------------
+If the global Aurora false positive filter at ``Service Control`` > ``Aurora`` > ``False Positive Filters``
+is used, the text box is empty/cleared after saving and refreshing the page.
+
+Workaround
+~~~~~~~~~~
+If the false positive tuning you want to achieve is only affecting one rule, the best place to
+tune it is a single rule false positive tuning at ``Service Control`` > ``Sigma`` > ``Rules`` and choosing
+the "Edit false positives filters of this rule" action.
+
+If you need global false positive filter, you can edit the file ``/var/lib/nextron/asgard2/products/aurora-config/false-positives.cfg``
+directly via the ASGARD command line. In order for the changes to take effect it is important
+**NOT** to click the ``Service Control`` > ``Aurora`` > ``False Positive Filters`` > ``Save`` button.
+
+Instead go to ``Service Control`` > ``Aurora`` > ``Configurations`` and edit the configuration of the assets that need the false positive
+filter. To do so just open the configuration using the edit action and saving without any modifications using the "Save Configuration and Restart Aurora Agents" button. This will use the false positive filter defined in the file via CLI and restarts the assets to use the new configuration.
+
+Status
+~~~~~~
+Open. Will be fixed in the next release.
