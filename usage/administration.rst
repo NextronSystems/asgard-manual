@@ -652,7 +652,7 @@ multiple options to tackle that issue.
 
     If you want to review the tuned rules: To filter for all rules containing a custom false positive tuning, you have to add the "Filters" column to your view (gear wheels icon) and show all non-empty rows by using the ``NOT -`` column filter.
 
-3. If the rule is adding too much noise and tuning is not sensible, you can remove the rule from the ruleset for a subset of your machines (maybe you need to define and use a separate rulesets for that use-case) or you can disable the rule altogether. This is done using the "Disable this rule" action of the rule. Disabling the rule affects the rule in all rulesets.
+3. If the rule is adding too much noise and tuning is not sensible, you can remove the rule from the ruleset for a subset of your machines (maybe you need to define and use a separate ruleset for that use-case) or you can disable the rule altogether. This is done using the "Disable this rule" action of the rule. Disabling the rule affects the rule in all rulesets.
 
 After tuning a rule, the rulesets using that rule have to be re-compiled at ``Service Control`` > ``Sigma`` > ``Rulesets``.
        
