@@ -632,6 +632,29 @@ Or you can just search the title or description field of the rules. You can also
        :alt: Search by Rule Title or Description
     
        Search by Rule Title or Description
+
+False Positive Tuning of Sigma Rules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Not every environment is the same. It is expected that some rules will trigger false positive matches in your environment. You have
+multiple options to tackle that issue.
+
+1. If it is a general false positive, probably not only occurring in your environment, consider reporting it at as a `Github issue <https://github.com/SigmaHQ/sigma/issues>`_ or `e-mail to us (rules@nextron-systems.com) <mailto:rules@nextron-systems.com>`_. We will take care of the tuning for you and your peers.
+2. If the false positive is specific to your environment you can tune single Sigma rules at ``Service Control`` > ``Sigma`` > ``Rules``, filter for the rule in question and choose the "Edit false positive filters of this rule" action. Here you can do simple rule tunings on your own. By clicking the "Add False Positive Filter" button you can add single lines that filter the event for false positives (i.e. they are OR-connected meaning: "Do not match the event if any of those lines matches). They are applied on top of the rule logic and persist automatic rule updates.
+
+    .. figure:: ../images/sigma-rules-fp-tuning.png
+       :target: ../_images/sigma-rules-fp-tuning.png
+       :alt: Example of the false positive tuning of a Sigma rule
+    
+       Example of the false positive tuning of a Sigma rule
+
+    To see the resulting rule you can click the "Show Preview" button or look at the "Compiled Rule" row in the rule's drop down menu.
+
+    If you want to review the tuned rules: To filter for all rules containing a custom false positive tuning, you have to add the "Filters" column to your view (gear wheels icon) and show all non-empty rows by using the ``NOT -`` column filter.
+
+3. If the rule is adding too much noise and tuning is not sensible, you can remove the rule from the ruleset for a subset of your machines (maybe you need to define and use a separate rulesets for that use-case) or you can disable the rule altogether. This is done using the "Disable this rule" action of the rule. Disabling the rule affects the rule in all rulesets.
+
+After tuning a rule, the rulesets using that rule have to be re-compiled at ``Service Control`` > ``Sigma`` > ``Rulesets``.
        
 Adding Custom Rules
 ~~~~~~~~~~~~~~~~~~~
@@ -764,7 +787,7 @@ An overview over the top event producing processes is given on the bottom of the
 
 False Positive Filters
 ~~~~~~~~~~~~~~~~~~~~~~
-If needed, false positives can be globally filtered on all Aurora agents at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is recommended to filter false positives at ``Servce Control`` > ``Sigma`` > ``Rules`` and filter the false positives on a rule level using the "edit false positive" action (funnel icon). If this is not possible, because you need a quick fix and multiple rules are affected, the global false positive filter can help.
+If needed, false positives can be globally filtered on all Aurora agents at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is recommended to filter false positives at ``Servce Control`` > ``Sigma`` > ``Rules`` and filter the false positives on a rule level using the "edit false positive" action (funnel icon). For more details :ref:`see section False Positive Filters of Sigma Rules <usage/administration:False Positive Tuning of Sigma Rules>`. If this is not possible, because you need a quick fix and multiple rules are affected, the global false positive filter can help.
 
 .. figure:: ../images/aurora-global-fp-filter.png
    :target: ../_images/aurora-global-fp-filter.png
