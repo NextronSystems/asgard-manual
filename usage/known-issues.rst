@@ -68,14 +68,14 @@ AMC#003: Error on newly installed Management Center
 
 You just installed an ASGARD Management Center and get error messages such as
     
-.. code:: none
+.. code-block:: none
 
     Error: Something went wrong
     c is null
 
 or
 
-.. code:: none
+.. code-block:: none
 
     Error: Something went wrong
     Cannot read properties of null (reading 'forEach')
@@ -92,5 +92,5 @@ You can either wait for ASGARD to download the THOR packages automatically (chec
 initiate a download of THOR packages and signatures manually by clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
 
 Status
-~~~~~
+~~~~~~
 Open.
