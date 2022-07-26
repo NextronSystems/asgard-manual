@@ -62,3 +62,35 @@ filter. To do so just open the configuration using the edit action and saving wi
 Status
 ~~~~~~
 Open. Will be fixed in the next release.
+
+AMC#003: Error on newly installed Management Center
+---------------------------------------------------
+
+You just installed an ASGARD Management Center and get error messages such as
+    
+.. code:: none
+
+    Error: Something went wrong
+    c is null
+
+or
+
+.. code:: none
+
+    Error: Something went wrong
+    Cannot read properties of null (reading 'forEach')
+
+This happens if you want to initiate THOR scans or access THOR scan settings
+before ASGARD was able to download the THOR packages from our update servers.
+
+Workaround
+~~~~~~~~~~
+Make sure ASGARD is able to access our update servers (see ``System Status``: Connectivity Test or ``System Status`` > ``Diagnostics``
+and that you have imported a valid license (see ``Licensing``).
+
+You can either wait for ASGARD to download the THOR packages automatically (check at ``Updates`` > ``THOR and Signatures``) or
+initiate a download of THOR packages and signatures manually by clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
+
+Status
+------
+Open.
