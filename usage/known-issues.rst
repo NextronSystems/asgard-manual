@@ -92,5 +92,5 @@ You can either wait for ASGARD to download the THOR packages automatically (chec
 initiate a download of THOR packages and signatures manually by clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
 
 Status
-------
+~~~~~
 Open.
