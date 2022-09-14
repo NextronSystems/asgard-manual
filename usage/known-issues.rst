@@ -94,3 +94,23 @@ initiate a download of THOR packages and signatures manually by clicking the "Ma
 Status
 ~~~~~~
 Open.
+
+AMC#004: RPM Packages do not have a compatible architecture
+-----------------------------------------------------------
+
+Some Linux systems return this error message when installing the RPM packages of the ASGARD agents. 
+
+.. code-block:: none
+
+    Depsolve Error occured: \n Problem: conflicting requests\n  - package asgard2-agent-1-1.0.0.amd64 does not have a compatible architecture.
+
+The issue is known and can be ignored. The installation completes successfull regardless of this error message. 
+
+Workaround
+~~~~~~~~~~
+No workaround required. Regardless of the message the package installation completes successfully. You can try using ``rpm -i`` instead of yum to avoid the message.
+
+Status
+~~~~~~
+
+Under investigation. We are planning to provide fixes but have to test if the fix would cause problems with older installations. (upgrades, legacy issues)
