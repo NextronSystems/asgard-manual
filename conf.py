@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'ASGARD Manual'
-copyright = '2020, Stephan Kaiser, Florian Roth'
-author = 'Stephan Kaiser, Florian Roth'
+copyright = '2022, Nextron Systems'
+author = 'Stephan Kaiser, Florian Roth, Christian Burkard'
 
 
 # -- General configuration ---------------------------------------------------
