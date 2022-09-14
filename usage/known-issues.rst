@@ -114,3 +114,26 @@ Status
 ~~~~~~
 
 Under investigation. We are planning to provide fixes but have to test if the fix would cause problems with older installations. (upgrades, legacy issues)
+
+AMC#005: Basename Missing Operand after SSH Login
+-------------------------------------------------
+
+After logging into ASGARD Management Center via SSH right after installing the base system, the following message can appear: 
+
+.. code-block:: none
+
+    basename: missing operand
+    Try 'basename --help' for more information
+
+It is caused by a unhandled condition in the MOTD (message of the day) script that evaluates the version of the scanners and signatures. After installing ASGARD it takes some minutes to retrieve and install all scanners from the update servers.
+
+The issue is known and can be ignored.
+
+Workaround
+~~~~~~~~~~
+No workaround required. The issue solves itself after the download of the scanner and signature packages. 
+
+Status
+~~~~~~
+
+Fixed in next ASGARD version. 
