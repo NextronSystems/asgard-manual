@@ -108,7 +108,19 @@ The issue is known and can be ignored. The installation completes successfull re
 
 Workaround
 ~~~~~~~~~~
-No workaround required. Regardless of the message the package installation completes successfully. You can try using ``rpm -i`` instead of yum to avoid the message.
+No workaround required. Regardless of the message the package installation completes successfully.
+
+You can avoid the error messages using this command: 
+
+.. code-block:: bash 
+
+    yum install --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
+
+For an unattended installation (no user interaction) use:
+
+.. code-block:: bash
+
+    yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
 Status
 ~~~~~~
