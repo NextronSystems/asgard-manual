@@ -53,6 +53,8 @@ Please note, that some response actions, such as collecting triage packs or coll
 
 There are no requirements pertaining to the CPU as scans can be scheduled in a way that THOR reduces its own process priority and limits its CPU usage to a configurable percentage.
 
+Supported operating systems are the ones `supported by THOR <https://thor-manual.nextron-systems.com/en/latest/usage/requirements.html#supported>`__. Not supported are the operating systems with limited or special THOR support.
+
 Network Requirements
 --------------------
 
