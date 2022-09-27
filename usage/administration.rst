@@ -1135,6 +1135,10 @@ The following systems require a server license in order to be scanned:
 * All Microsoft Windows server systems
 * All Linux systems
 
+A license will be returned to the pool and available for another host after not being used for three months. This is true for any license type (Asset/Server/Workstation/Aurora/...).
+
+The licenses are hostname based except for asset licenses. Asset licenses are issued for each accepted asset as soon as a response action is performed (playbook or remote console access).
+
 Provide an THOR Incident Response License (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
