@@ -122,6 +122,60 @@ For an unattended installation (no user interaction) use:
 
     yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
+There are rare cases where the package installation should be automated and the command line flags are not an option. In this cases it is possible to perform the ASGARD agent installation manually. This requires to collect some files from ASGARD and move them to the asset that should be connected.
+
+.. code-block:: bash
+
+    # For 64-bit systems
+    /var/lib/nextron/asgard2/templates/linux/asgard2-agent-amd64
+    /var/lib/nextron/asgard2/templates/linux/client-amd64
+
+    # For 32-bit systems
+    /var/lib/nextron/asgard2/templates/linux/asgard2-agent-386
+    /var/lib/nextron/asgard2/templates/linux/client-386
+
+    # For all systems
+    /etc/nextron/asgard2/ca.pem
+    /etc/nextron/asgard2/client.yaml
+
+These files have to be located on the target asset as follows
+
+.. code-block:: bash
+
+    # Preparation if it is a first time installation
+    mkdir -p /var/lib/asgard2-agent/
+
+    # For 64-bit systems
+    mv asgard2-agent-amd64 /usr/sbin/asgard2-agent-service
+    mv client-amd64 /var/lib/asgard2-agent/asgard2-agent
+
+    # For 32-bit systems
+    mv asgard2-agent-386 /usr/sbin/asgard2-agent-service
+    mv client-386 /var/lib/asgard2-agent/asgard2-agent
+
+    # For all systems
+    mv ca.pem /var/lib/asgard2-agent/ca.pem
+    mv client.yaml /var/lib/asgard2-agent/asgard2-agent.yaml
+
+    # Make sure access rights in the file system are secure
+    chown -R root:root /var/lib/asgard2-agent
+    chmod -R g-rwx /var/lib/asgard2-agent
+    chmod -R o-rwx /var/lib/asgard2-agent
+
+Afterwards the installation is done by running:
+
+.. code-block:: bash
+
+    /var/lib/asgard2-agent/asgard2-agent -install
+
+To uninstall the ASGARD agent without using the RPM package the following steps can be used:
+
+.. code-block:: bash
+
+    /var/lib/asgard2-agent/asgard2-agent -uninstall
+    rm /usr/sbin/asgard2-agent-service
+    rm -Rf /var/lib/asgard2-agent/
+
 Status
 ~~~~~~
 
