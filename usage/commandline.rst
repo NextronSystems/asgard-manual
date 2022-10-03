@@ -63,6 +63,13 @@ All logs will be rotated monthly for up to 14 months and zipped after one month.
 
 Please copy the oldest log packages to another directory or to a dedicated log server in case you require longer retention periods. **Do not modify the built-in rotation settings** as this might interfere with ASGARD updates!
 
+Scan Logs
+^^^^^^^^^
+
+ASGARD will store all scan logs under ``/var/lib/nextron/asgard2/scan-results``
+
+All Scans will generate two files, ``thor-<ID>.txt.gz`` and ``thor-report-<ID>.html.gz``. The first file will be the raw THOR Scan Log(s) and the second file will be the HTML Report(s). The numeric value in the file name is the Scan-ID, which can be found in the the Scan Control view. Please make sure to enable the ``ID`` column, since it is not enabled in the default view.
+
 Agent and Agent Installer Update
 --------------------------------
 
