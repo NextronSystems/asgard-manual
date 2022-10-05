@@ -106,8 +106,8 @@ Some Linux systems return this error message when installing the RPM packages of
 
 The issue is known and can be ignored. The installation completes successfull regardless of this error message. 
 
-Workaround
-~~~~~~~~~~
+Workaround 1
+~~~~~~~~~~~~
 No workaround required. Regardless of the message the package installation completes successfully.
 
 You can avoid the error messages using this command: 
@@ -122,6 +122,33 @@ For an unattended installation (no user interaction) use:
 
     yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
+Workaround 2
+~~~~~~~~~~~~
+You can build a new RPM package and use it for automated installations.
+
+Log into the Asgard server which should be used by the clients to connect to and execute the following steps:
+
+.. code-block:: bash
+
+    sudo -u asgard2 -s # Open a shell with the access rights of the asgard2 user
+    rpmbuild --target x86_64 --buildroot /var/lib/nextron/asgard2/templates/rpm/BUILDROOT/x86_64 -bb /var/lib/nextron/asgard2/templates/rpm/SPECS/asgard2-agent-amd64.spec
+
+Use the following file instead of the RPM from the Agent Download section in the Asgard UI:
+
+``/var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm``
+
+When using ``scp`` to transfer the file from the server, you will need to copy the file to a directoy that is accessible by the ``nextron`` user. You also need to change the file permissions. One possibility to achive this is to use the following commands:
+
+.. code-block:: bash
+
+    exit # close the session of the asgard2 user if still open
+    sudo cp /var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm /home/nextron/
+    sudo chown nextron:nextron /home/nextron/asgard2-agent-1-1.0.0.x86_64.rpm
+
+The resulting RPM should no longer cause the described "unsupported architecture" error message when it is used with ``yum`` or ``dnf``.
+
+Workaround 3
+~~~~~~~~~~~~
 There are rare cases where the package installation should be automated and the command line flags are not an option. In this cases it is possible to perform the ASGARD agent installation manually. This requires to collect some files from ASGARD and move them to the asset that should be connected.
 
 .. code-block:: bash
