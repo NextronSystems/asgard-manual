@@ -166,6 +166,8 @@ ASGARD's IP can be changed in **/etc/network/interfaces**. The IP is configured 
 
 Important: There might be a case where the name of the network adaptor (in this example: ``ens32``) can vary.
 
+The new IP can be applied with the command **sudo systemctl restart networking**
+
 First steps in the VM
 ---------------------
 
