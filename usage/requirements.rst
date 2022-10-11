@@ -298,7 +298,7 @@ On Linux
    $ sha256sum -c nextron-universal-installer.iso.sha256
    nextron-universal-installer.iso: OK
 
-or in windows command prompt
+or in Windows command prompt
 
 .. code-block:: bat
 
