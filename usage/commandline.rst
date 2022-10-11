@@ -70,7 +70,7 @@ ASGARD will store all scan logs under ``/var/lib/nextron/asgard2/scan-results``
 
 All Scans will generate two files, ``thor-<ID>.txt.gz`` and ``thor-report-<ID>.html.gz``. The first file will be the raw THOR Scan Log(s) and the second file will be the HTML Report(s). The numeric value in the file name is the Scan-ID, which can be found in the the Scan Control view. Please make sure to enable the ``ID`` column, since it is not enabled in the default view.
 
-For Scans which were started with the ``--json`` flag, log files are named ``thor-<ID>.json.gz``.
+For Scans which were started with the ``--json`` flag, log files are additionally placed in the scan-results directory and are named ``thor-<ID>.json.gz``.
 Please keep in mind, those JSON logfiles are not being transfered to any connected Analysis Cockpit.
 
 Agent and Agent Installer Update
