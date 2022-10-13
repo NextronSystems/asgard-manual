@@ -423,7 +423,7 @@ The ``--syslog`` value is constructed of the following arguments:
      - Description
      - Value
    * - server
-     - The receiving server, ``%asgard-host%`` is the Asgard which issued the Scan to the Agent
+     - The receiving server, ``%asgard-host%`` is the ASGARD which issued the Scan for the Agent
      -
    * - port
      - Port number
@@ -441,7 +441,7 @@ Examples:
 * ``rsyslog-forwarder.dom.int:514:JSON:TCP``
 * ``arcsight.dom.int:514:CEF:UDP``
 
-If you chose to use the ``--syslog`` flag, please make sure that the necessary ports are allowed within your network/firewall. If you decide to send the logs via syslog to the Asgard, please have a look at the :ref:`usage/administration:Rsyslog Forwarding`.
+If you chose to use the ``--syslog`` flag, please make sure that the necessary ports are allowed within your network/firewall. If you decide to send the logs via syslog to ASGARD, please have a look at the :ref:`usage/administration:Rsyslog Forwarding`.
 
 Response Control
 ----------------
