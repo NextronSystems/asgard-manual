@@ -83,8 +83,6 @@ Available logs and their content:
 - LogWatcher: All LogWatcher events.
 - Diagnostic Pack: Button for generating and downloading a diagnostic pack that may be asked for by support.
 
-
-
 ASGARD Agent Deployment
 -----------------------
 
@@ -116,7 +114,7 @@ In the requests tab, select the agents you want ASGARD to manage and click ``Acc
 
    Accepting ASGARD Agent Requests
 
-A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see :ref:`section Performance Tuning <usage/commandline:Performance Tuning>` for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
+A registered agent will poll to the ASGARD Management Center at a given interval between 10 seconds and 600 seconds – depending on the number of connected endpoints (see :ref:`usage/commandline:Performance Tuning` for details). If ASGARD has scheduled a task for the endpoint (for example: run THOR scan) it will be executed directly after the poll.
 
 Asset Management
 ----------------
@@ -218,7 +216,7 @@ Please keep in mind, that we have already optimized THOR to use the most relevan
 
 For more details please refer to the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_. Only use the scan templates if you want to deviate from the default for a reason.
 
-Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates"-permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (See section :ref:`User Management<usage/administration:User Management>` for details).
+Scan templates are protected from being modified by ASGARD users without the "Manage Scan Templates"-permission and can also be restricted from being used by ASGARD users in case the flag "ForceStandardArgs" is set for this user. (See section :ref:`usage/administration:User Management` for details).
 
 By clicking the ``Import Scan Template`` button you can import a previously exported scan template.
 
@@ -405,6 +403,43 @@ In THOR you can define `directory and file excludes <https://thor-manual.nextron
 .. warning::
    Be careful not to use too broad filters or excludes as this might cripple THOR's detection capabilities, if
    done incorrectly.
+
+Syslog Forwarding
+^^^^^^^^^^^^^^^^^
+
+To configure syslog forwarding of logs, you can set the ``--syslog`` flag during scans. You have multiple options as to where you can send the logs. Please see :ref:`usage/administration:Rsyslog Forwarding`.
+
+.. figure:: ../images/set-syslog-flag.png
+   :target: ../_images/set-syslog-flag.png
+   :alt: Syslog Forwarding via --syslog flag
+
+The ``--syslog`` value is constructed of the following arguments:
+
+.. list-table:: --syslog arguments 
+   :header-rows: 1
+   :widths: 17, 50, 33
+
+   * - Argument
+     - Description
+     - Value
+   * - server
+     - The receiving server, ``%asgard-host%`` is the Asgard which issued the Scan to the Agent
+     -
+   * - port
+     - Port number
+     -
+   * - syslogtype
+     - Type of syslog format, valid formarts are:
+     - DEFAULT, CEF, JSON, SYSLOGJSON, SYSLOGKV
+   * - sockettype
+     - optional, defaul is ``UDP``
+     - UDP, TCP, TCPTLS
+
+Examples:
+
+* ``172.16.20.10:514:SYSLOGKV:TCP``
+* ``rsyslog-forwarder.dom.int:514:JSON:TCP``
+* ``arcsight.dom.int:514:CEF:UDP``
 
 Response Control
 ----------------
@@ -787,7 +822,7 @@ An overview over the top event producing processes is given on the bottom of the
 
 False Positive Filters
 ~~~~~~~~~~~~~~~~~~~~~~
-If needed, false positives can be globally filtered on all Aurora agents at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is recommended to filter false positives at ``Servce Control`` > ``Sigma`` > ``Rules`` and filter the false positives on a rule level using the "edit false positive" action (funnel icon). For more details :ref:`see section False Positive Filters of Sigma Rules <usage/administration:False Positive Tuning of Sigma Rules>`. If this is not possible, because you need a quick fix and multiple rules are affected, the global false positive filter can help.
+If needed, false positives can be globally filtered on all Aurora agents at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is recommended to filter false positives at ``Servce Control`` > ``Sigma`` > ``Rules`` and filter the false positives on a rule level using the "edit false positive" action (funnel icon). For more details see :ref:`usage/administration:False Positive Tuning of Sigma Rules`. If this is not possible, because you need a quick fix and multiple rules are affected, the global false positive filter can help.
 
 .. figure:: ../images/aurora-global-fp-filter.png
    :target: ../_images/aurora-global-fp-filter.png
@@ -811,9 +846,9 @@ You can view an overview and the logs of the Aurora response and simulated respo
 Best Practices for Managing Aurora
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Install the ASGARD agent on the asset (see :ref:`section ASGARD Agent Deployment<usage/administration:ASGARD Agent Deployment>`)
-2. Install the ASGARD service controller on the asset (see :ref:`section Service Controller Installation<usage/administration:Service Controller Installation>`)
-3. Deploy the Aurora Service on the asset using the ``[Default] Standard configuration with critical and high Sigma rules`` configuration (see :ref:`section Deploy Aurora on Asset<usage/administration:Deploy Aurora on Asset>`)
+1. Install the ASGARD agent on the asset (see :ref:`usage/administration:ASGARD Agent Deployment`)
+2. Install the ASGARD service controller on the asset (see :ref:`usage/administration:Service Controller Installation`)
+3. Deploy the Aurora Service on the asset using the ``[Default] Standard configuration with critical and high Sigma rules`` configuration (see :ref:`usage/administration:Deploy Aurora on Asset`)
 
 .. figure:: ../images/aurora-best-practices-service-deployed.png
    :target: ../_images/aurora-best-practices-service-deployed.png
@@ -823,7 +858,7 @@ Best Practices for Managing Aurora
 
 If you want to enable the blocking capabilities of Aurora, we suggest to enable our included responses:
 
-1. See the overview at ``Service Control`` > ``Aurora`` > ``Configurations``. The ``Effective Rules and Response`` row shows how many responses are active. By default no responses are active. See :ref:`section How to activate Responses<usage/administration:How to activate Responses>` on how to activate responses.
+1. See the overview at ``Service Control`` > ``Aurora`` > ``Configurations``. The ``Effective Rules and Response`` row shows how many responses are active. By default no responses are active. See :ref:`usage/administration:How to activate Responses` on how to activate responses.
 2. Do not directly activate the responses in production environments. Monitor your environment for at least a month with simulated responses to verify that no false positive matches occur.
 3. In larger environments use different configurations and rulesets for different environments. As an example you can test changes to the configuration in a test environment, before adapting the changes for the production environment.
 
@@ -1039,7 +1074,7 @@ All collected evidence can be downloaded in the ``Collected Evidence`` section.
 Bifrost Quarantine
 ^^^^^^^^^^^^^^^^^^
 
-If Bifrost is used with your THOR scans, all collected samples show up here. You will need the "ResponseControl" permission in order to view or download the samples. See section :ref:`Roles<usage/administration:Roles>` and :ref:`Rights<usage/administration:Rights>` for details.
+If Bifrost is used with your THOR scans, all collected samples show up here. You will need the "ResponseControl" permission in order to view or download the samples. See section :ref:`usage/administration:Roles` and :ref:`usage/administration:Rights` for details.
 
 
 .. figure:: ../images/bifrost-collections.png
@@ -1349,16 +1384,14 @@ This is done in the right column by using the ``Add LDAP Role`` feature.
 Other Settings
 --------------
 
-Syslog Forwarding
-^^^^^^^^^^^^^^^^^
+Rsyslog Forwarding
+^^^^^^^^^^^^^^^^^^
 
-Syslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add Rsyslog Forwarding``. 
+Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add Rsyslog Forwarding``. This option will take effect once you created a Scan with the ``--syslog`` flag set and Agents are sending logs to the Asgard. Please see :ref:`usage/administration:Syslog Forwarding`
 
-.. figure:: ../images/configure-syslog-forwarding.png
-   :target: ../_images/configure-syslog-forwarding.png
-   :alt: Syslog Forwarding
-
-   Configure Syslog Forwarding
+.. figure:: ../images/configure-rsyslog-forwarding.png
+   :target: ../_images/configure-rsyslog-forwarding.png
+   :alt: Rsyslog Forwarding
 
 The following log sources can be forwarded individually:
 
@@ -1374,7 +1407,9 @@ The following log sources can be forwarded individually:
    * - Agent Log
      - All ASGARD agent activities
    * - THOR Log
-     - THOR scan results (available if scan config has ``Send Syslog to ASGARD`` enabled) 
+     - THOR scan results (available if scan config has ``Send Syslog to ASGARD`` enabled)
+
+
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1621,7 +1656,7 @@ Uninstall ASGARD Service Controller
 .. note::
    The command contains names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
 
-If you want to uninstall the ASGARD Service Controller and Agent, see section :ref:`Uninstall ASGARD Agents<usage/administration:Uninstall ASGARD Agents>`.
+If you want to uninstall the ASGARD Service Controller and Agent, see section :ref:`usage/administration:Uninstall ASGARD Agents`.
 
 If you only want to uninstall the ASGARD Service Controller execute:
 
