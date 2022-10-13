@@ -67,7 +67,7 @@ From ASGARD Agent to ASGARD Server
 Description                  Ports 
 ============================ ================
 Agent / Server communication 443/tcp 
-Syslog forwarder             514/tcp, 514/udp
+Syslog forwarder (optional)  514/tcp, 514/udp
 ============================ ================
 
 From Management Workstation to ASGARD Server
