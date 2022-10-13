@@ -1387,7 +1387,7 @@ Other Settings
 Rsyslog Forwarding
 ^^^^^^^^^^^^^^^^^^
 
-Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add Rsyslog Forwarding``. This option will take effect once you created a Scan with the ``--syslog`` flag set and Agents are sending logs to the Asgard. Please see :ref:`usage/administration:Syslog Forwarding`
+Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add Rsyslog Forwarding``. Please see :ref:`usage/administration:Syslog Forwarding` for further details regarding the Scan Control.
 
 .. figure:: ../images/configure-rsyslog-forwarding.png
    :target: ../_images/configure-rsyslog-forwarding.png
