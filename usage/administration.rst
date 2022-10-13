@@ -407,7 +407,7 @@ In THOR you can define `directory and file excludes <https://thor-manual.nextron
 Syslog Forwarding
 ^^^^^^^^^^^^^^^^^
 
-To configure syslog forwarding of logs, you can set the ``--syslog`` flag during scans. You have multiple options as to where you can send the logs. Please see :ref:`usage/administration:Rsyslog Forwarding`.
+To configure syslog forwarding of logs, you can set the ``--syslog`` flag during scans. You have multiple options as to where you can send the logs.
 
 .. figure:: ../images/set-syslog-flag.png
    :target: ../_images/set-syslog-flag.png
@@ -440,6 +440,8 @@ Examples:
 * ``172.16.20.10:514:SYSLOGKV:TCP``
 * ``rsyslog-forwarder.dom.int:514:JSON:TCP``
 * ``arcsight.dom.int:514:CEF:UDP``
+
+If you chose to use the ``--syslog`` flag, please make sure that the necessary ports are allowed within your network/firewall. If you decide to send the logs via syslog to the Asgard, please have a look at the :ref:`usage/administration:Rsyslog Forwarding`.
 
 Response Control
 ----------------
@@ -1387,7 +1389,7 @@ Other Settings
 Rsyslog Forwarding
 ^^^^^^^^^^^^^^^^^^
 
-Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding for local log source click ``Add Rsyslog Forwarding``. Please see :ref:`usage/administration:Syslog Forwarding` for further details regarding the Scan Control.
+Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``. To add a forwarding configuration for local log sources, click ``Add Rsyslog Forwarding``.
 
 .. figure:: ../images/configure-rsyslog-forwarding.png
    :target: ../_images/configure-rsyslog-forwarding.png
@@ -1407,9 +1409,7 @@ The following log sources can be forwarded individually:
    * - Agent Log
      - All ASGARD agent activities
    * - THOR Log
-     - THOR scan results (available if scan config has ``Send Syslog to ASGARD`` enabled)
-
-
+     - THOR scan results (available if scan config has ``Syslog to ASGARD`` enabled, see :ref:`usage/administration:Syslog Forwarding`)
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
