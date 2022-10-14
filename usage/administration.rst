@@ -1380,9 +1380,6 @@ This is done in the right column by using the ``Add LDAP Role`` feature.
 
    LDAP Group to ASGARD Role Mapping
 
-.. note::
-    Enabling LDAP authentication disables personal API keys, password changes and 2FA for all user accounts except **admin**. (LDAP users cannot use said features).
-
 Other Settings
 --------------
 
