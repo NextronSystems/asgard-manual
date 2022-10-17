@@ -424,7 +424,7 @@ The ``--syslog`` value is constructed of the following arguments:
      - Value
    * - server
      - The receiving server, ``%asgard-host%`` is the ASGARD which issued the Scan for the Agent
-     -
+     - FQDN or IP of remote host [1]_
    * - port
      - Port number
      -
@@ -434,6 +434,8 @@ The ``--syslog`` value is constructed of the following arguments:
    * - sockettype
      - optional, defaul is ``UDP``
      - UDP, TCP, TCPTLS
+
+.. [1] The remote Host can be ASGARD with rsyslog forwarding or any other syslog capable system.
 
 Examples:
 

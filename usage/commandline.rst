@@ -63,6 +63,35 @@ All logs will be rotated monthly for up to 14 months and zipped after one month.
 
 Please copy the oldest log packages to another directory or to a dedicated log server in case you require longer retention periods. **Do not modify the built-in rotation settings** as this might interfere with ASGARD updates!
 
+ASGARD will also store all logs forwarded via syslog (``--syslog`` flag and value ``%asgard-host``) under ``/var/lib/nextron/asgard2/log/``. The logs will always be stored here, even if you have :ref:`usage/administration:Rsyslog Forwarding` activated.
+
+The log files will be stored with the following names:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 50, 25, 25
+
+   * - Log
+     - Name
+     - Rsyslog
+   * - Audit
+     - asgard-audit.log
+     - Audit Log [1]_
+   * - ASGARD Management Center
+     - asgard.log
+     - ASGARD Log [1]_
+   * - Agent Agent and Service Controller
+     - agent.log
+     - Agent Log [1]_
+   * - THOR via Syslog
+     - scan.log
+     - THOR Log [1]_
+   * - THOR via Syslog (Scan Start, Licensing, Completion only)
+     - subscan.log
+     - THOR Log [1]_
+
+.. [1] This is the **Type** you can select in :ref:`usage/administration:Rsyslog Forwarding`.
+
 Scan Logs
 ^^^^^^^^^
 
