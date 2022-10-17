@@ -435,7 +435,7 @@ The ``--syslog`` value is constructed of the following arguments:
      - optional, defaul is ``UDP``
      - UDP, TCP, TCPTLS
 
-.. [1] The remote Host can be ASGARD with rsyslog forwarding or any other syslog capable system.
+.. [1] The remote Host can be ASGARD or any other syslog capable system.
 
 Examples:
 
