@@ -57,9 +57,9 @@ The "Busy Streams" line indicates the number of streams currently active. As you
 Managing Logs
 -------------
 
-ASGARD will store all logs under ``/var/lib/nextron/asgard2/log``
+ASGARD will store all logs under ``/var/lib/nextron/asgard2/log/``
 
-All logs will be rotated monthly for up to 14 months and zipped after one month.
+All logs in this directory will be rotated and automatically cleared after 14 months, please see :ref:`usage/maintenance:Log Rotation and Retention` for more information.
 
 Please copy the oldest log packages to another directory or to a dedicated log server in case you require longer retention periods. **Do not modify the built-in rotation settings** as this might interfere with ASGARD updates!
 

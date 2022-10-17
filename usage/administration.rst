@@ -1398,6 +1398,7 @@ The following log sources can be forwarded individually:
 
 .. list-table:: Available Log Sources 
    :header-rows: 1
+   :widths: 25, 75
 
    * - Log
      - Description
