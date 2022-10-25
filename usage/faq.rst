@@ -48,4 +48,4 @@ In some environments, Aurora might generate a high amount of False Positives. Th
 Tuning False Positives
 ----------------------
 
-If you want to tune a Sigma Rule to avoid False Positives in your environment, you can do this within the Service Control menu of your Management Center. Navigate to ``Service Control`` > ``Sigma > Rules``. Here you can see all the Sigma rules in your Management Center.
+To tune a False Positive, please see :ref:`usage/administration:False Positive Tuning of Sigma Rules`

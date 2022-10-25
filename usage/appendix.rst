@@ -12,117 +12,117 @@ Use Case 1 - CSR Signing with a Microsoft Based CA
 Open the Certificate Authority snap-in within Windows Server
 
 
-.. figure:: ../images/image96-1592779517437.PNG
-   :target: ../_images/image96-1592779517437.PNG
-   :alt: image96
+.. figure:: ../images/certsrv1.png
+   :target: ../_images/certsrv1.png
+   :alt: certsrv – Microsoft Certification Authority Main Page
 
    certsrv – Microsoft Certification Authority Main Page
 
 Right click your CA >> All Tasks >> Submit new request
 
 
-.. figure:: ../images/image97-1592779543622.PNG
-   :target: ../_images/image97-1592779543622.PNG
-   :alt: image97
+.. figure:: ../images/certsrv2.png
+   :target: ../_images/certsrv2.png
+   :alt: certsrv – Submit new request
 
    certsrv – Submit new request 
 
 Locate and open the signing request file we've saved in previous steps
 
 
-.. figure:: ../images/image98-1592779570330.PNG
-   :target: ../_images/image98-1592779570330.PNG
-   :alt: image98
+.. figure:: ../images/certsrv3.png
+   :target: ../_images/certsrv3.png
+   :alt: certsrv – Locate the CSR to be signed
 
    certsrv – Locate the CSR to be signed
 
 Navigate to the "Pending Requests" within your CA snap-in and right click the imported CSR >> All Tasks >> Issue
 
 
-.. figure:: ../images/image99-1592779592031.PNG
-   :target: ../_images/image99-1592779592031.PNG
-   :alt: image99
+.. figure:: ../images/certsrv4.png
+   :target: ../_images/certsrv4.png
+   :alt: certsrv – Issue the certificate
 
    certsrv – Issue the certificate
 
 Once the certificate has been issued, it will be located under "Issued Certificates"
 
 
-.. figure:: ../images/image100-1592779613345.PNG
-   :target: ../_images/image100-1592779613345.PNG
-   :alt: image100
+.. figure:: ../images/certsrv5.png
+   :target: ../_images/certsrv5.png
+   :alt: certsrv – Locate issued certificate
 
    certsrv – Locate issued certificate
 
 Right click on the issued certificate and click open
 
 
-.. figure:: ../images/image101-1592779635500.PNG
-   :target: ../_images/image101-1592779635500.PNG
-   :alt: image101
+.. figure:: ../images/certsrv6.png
+   :target: ../_images/certsrv6.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Inspect the information of the Certificate and continue to the next step, if the presented data is correct.
 
 
-.. figure:: ../images/image102-1592779659675.PNG
-   :target: ../_images/image102-1592779659675.PNG
-   :alt: image102
+.. figure:: ../images/certsrv7.png
+   :target: ../_images/certsrv7.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Check that the generated certificate has a status of OK
 
 
-.. figure:: ../images/image103-1592779677963.PNG
-   :target: ../_images/image103-1592779677963.PNG
-   :alt: image103
+.. figure:: ../images/certsrv8.png
+   :target: ../_images/certsrv8.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Navigate to the Details tab and click "Copy to File…"
 
 
-.. figure:: ../images/image104-1592779709611.PNG
-   :target: ../_images/image104-1592779709611.PNG
-   :alt: image104
+.. figure:: ../images/certsrv9.png
+   :target: ../_images/certsrv9.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 On the Certificate Export Wizard – click Next 
 
 
-.. figure:: ../images/image105-1592779746116.PNG
-   :target: ../_images/image105-1592779746116.PNG
-   :alt: image105
+.. figure:: ../images/certsrv10.png
+   :target: ../_images/certsrv10.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Select Base-64 encoded X.509(.CER) and click Next
 
 
-.. figure:: ../images/image106-1592779787793.PNG
-   :target: ../_images/image106-1592779787793.PNG
-   :alt: image106
+.. figure:: ../images/certsrv11.png
+   :target: ../_images/certsrv11.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Choose an output location and click Next
 
 
-.. figure:: ../images/image107-1592779811770.PNG
-   :target: ../_images/image107-1592779811770.PNG
-   :alt: image107
+.. figure:: ../images/certsrv12.png
+   :target: ../_images/certsrv12.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
 Click Finish - Once the confirmation message box pops up, click OK
 
 
-.. figure:: ../images/image108-1592779836816.PNG
-   :target: ../_images/image108-1592779836816.PNG
-   :alt: image108
+.. figure:: ../images/certsrv13.png
+   :target: ../_images/certsrv13.png
+   :alt: certsrv – Export certificate
 
    certsrv – Export certificate
 
@@ -133,7 +133,7 @@ On the bottom of the page click "Upload TLS Certificate" and select the exported
 
 .. figure:: ../images/upload-tls-certificate.png
    :target: ../_images/upload-tls-certificate.png
-   :alt: image109
+   :alt: ASGARD Certificate Import
 
    ASGARD Certificate Import
 
@@ -143,7 +143,7 @@ Navigate to Settings >> Services and restart the "ASGARD 2 Service" by clicking 
                                 
 .. figure:: ../images/asgard-service-restart.png
    :target: ../_images/asgard-service-restart.png
-   :alt: image111
+   :alt: ASGARD service restart
 
    ASGARD service restart
 
@@ -152,9 +152,9 @@ Please take into consideration that it could take a few minutes until the ASGARD
 After the service has been successfully restarted, the installed certificate is shown in the browser.
 
 
-.. figure:: ../images/image112-1592779946243.PNG
-   :target: ../_images/image112-1592779946243.PNG
-   :alt: image112
+.. figure:: ../images/asgard-cert-check.png
+   :target: ../_images/iasgard-cert-check.png
+   :alt: ASGARD certificate installation check
 
    ASGARD certificate installation check
 
@@ -182,9 +182,9 @@ Example:
 Prepare the CA certificate, CA private key and the certificate signing request
 
 
-.. figure:: ../images/image113-1592780033777.PNG
-   :target: ../_images/image113-1592780033777.PNG
-   :alt: image113
+.. figure:: ../images/csr1.png
+   :target: ../_images/csr1.png
+   :alt: CSR and signing Certificates preparation
 
    CSR and signing Certificates preparation
 
@@ -195,45 +195,45 @@ Execute/adapt following command:
     openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
 
 
-.. figure:: ../images/image114-1592780053516.PNG
-   :target: ../_images/image114-1592780053516.PNG
-   :alt: image114
+.. figure:: ../images/csr2.png
+   :target: ../_images/csr2.png
+   :alt: Certificate signing command
 
    Certificate signing command
 
 Enter the passphrase for your CA's private key
 
 
-.. figure:: ../images/image114-1592780409148.PNG
-   :target: ../_images/image114-1592780409148.PNG
-   :alt: image114
+.. figure:: ../images/csr3.png
+   :target: ../_images/csr3.png
+   :alt: Signing procedure
 
    Signing procedure
 
 Confirm that the data contained in the CSR is accurate and confirm the signing of the request to the CA.
 
 
-.. figure:: ../images/image115-1592780495344.PNG
-   :target: ../_images/image115-1592780495344.PNG
-   :alt: image115
+.. figure:: ../images/csr4.png
+   :target: ../_images/csr4.png
+   :alt: Signing procedure – Checking data is accurate
 
    Signing procedure – Checking data is accurate
 
 Once confirmed commit the changes to your local DB.
 
 
-.. figure:: ../images/image116-1592780535412.PNG
-   :target: ../_images/image116-1592780535412.PNG
-   :alt: image116
+.. figure:: ../images/csr5.png
+   :target: ../_images/csr5.png
+   :alt: Signing procedure – Committing changes
 
    Signing procedure – Committing changes
 
 As a result, the signed certificate will be available with the indicated filename.
 
 
-.. figure:: ../images/image117-1592780573153.PNG
-   :target: ../_images/image117-1592780573153.PNG
-   :alt: image117
+.. figure:: ../images/csr6.png
+   :target: ../_images/csr6.png
+   :alt: Signing procedure – Locating the generated certificate
 
    Signing procedure – Locating the generated certificate
 
@@ -300,9 +300,9 @@ Identify the system to be migrated
 Connect to your ASGARD Management Center version 1.x and identify the system you plan to migrate.
 
 
-.. figure:: ../images/image118-1592780923238.PNG
-   :target: ../_images/image118-1592780923238.PNG
-   :alt: image118
+.. figure:: ../images/migrate1.png
+   :target: ../_images/migrate1.png
+   :alt: Overview of Assets
 
    Overview of Assets
 
@@ -328,18 +328,18 @@ You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ , thi
 
 ``sudo scp /var/lib/nextron/asgard2/installer/asgard2-agent-windows-amd64.exe bsk@yourasgardv1.domain:/home/bsk``
 
-.. figure:: ../images/image119-1592781151667.PNG
-   :target: ../_images/image119-1592781151667.PNG
-   :alt: image119
+.. figure:: ../images/migrate2.png
+   :target: ../_images/migrate2.png
+   :alt: New agent distribution to old ASGARD v1.x Server
 
    New agent distribution to old ASGARD v1.x Server
 
 Check that the new agent has been transferred to the old ASGARD version 1.x Server
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. figure:: ../images/image120-1592781225253.PNG
-   :target: ../_images/image120-1592781225253.PNG
-   :alt: image120
+.. figure:: ../images/migrate3.png
+   :target: ../_images/migrate3.png
+   :alt:  Listing of agents on ASGARD version 1.x
 
    Listing of agents on ASGARD version 1.x
 
@@ -354,8 +354,9 @@ Sign the new agents in order to be able to distribute them via GRR
    
 Please modify any variable data from the above command. 
 
-.. figure:: ../images/image121-1592781407468.PNG
-   :target: ../_images/image121-1592781407468.PNG
+.. figure:: ../images/migrate4.png
+   :target: ../_images/migrate4.png
+   :alt: Signing of executable(s)
 
    Signing of executable(s)
 
@@ -369,9 +370,9 @@ Open your ASGARD version 1.x web interface and navigate to the Response Control.
 Once you reach the Response Control Section (GRR) please navigate to the top right corner (settings gear) and switch to the Advanced Mode. Apply the settings.
 
 
-.. figure:: ../images/image122-1592781510132.PNG
-   :target: ../_images/image122-1592781510132.PNG
-   :alt: image122
+.. figure:: ../images/migrate5.png
+   :target: ../_images/migrate5.png
+   :alt: GRR Advanced Mode
 
    GRR Advanced Mode
 
@@ -381,17 +382,18 @@ Asset Selection
 Navigate to the ``Asset List`` section on the left menu and select the asset you want to migrate. A click on the asset will select it.
 
 
-.. figure:: ../images/image123-1592781576771.PNG
-   :target: ../_images/image123-1592781576771.PNG
-   :alt: image123
+.. figure:: ../images/migrate6.png
+   :target: ../_images/migrate6.png
+   :alt: Asset List view
 
    Asset List view
 
 Once the asset has been selected (clicking on it), navigate to the ``Start new flows`` section, located on the left menu.
 
-.. figure:: ../images/image124-1592781606020.PNG
-   :target: ../_images/image124-1592781606020.PNG
-   :alt: image124
+.. figure:: ../images/migrate7.png
+   :target: ../_images/migrate7.png
+   :alt: Start new flow
+
 
    Start new flow
 
@@ -402,27 +404,27 @@ In order to install the new agent, we will need to expand the ``Administrative``
 
 We will be requested to put in a binary, please use the binary name we gathered/created in step `Sign the new agents`_ and click Launch.
 
-.. figure:: ../images/image125-1592781654614.PNG
-   :target: ../_images/image125-1592781654614.PNG
-   :alt: image125
+.. figure:: ../images/migrate8.png
+   :target: ../_images/migrate8.png
+   :alt: Launch Binary
 
    Launch Binary
 
 The used binary name was extracted from step 7.2.2.2.4. In this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
 
-.. figure:: ../images/image126-1592781692011.PNG
-   :target: ../_images/image126-1592781692011.PNG
-   :alt: image126
+.. figure:: ../images/migrate9.png
+   :target: ../_images/migrate9.png
+   :alt: Confirmation after launching the binary
 
    Confirmation after launching the binary
 
 After approximately 10 minutes, the binary will be executed and installed on the selected system. The status can be retrieved by navigating to the ``Manage launched flows`` section on the left menu.
 
-.. figure:: ../images/image127-1592781717058.PNG
-   :target: ../_images/image127-1592781717058.PNG
-   :alt: image127
+.. figure:: ../images/migrate10.png
+   :target: ../_images/migrate10.png
+   :alt: Manage launched flows
 
-   Manage launched flows.
+   Manage launched flows
 
 Linux Hosts
 """""""""""
@@ -477,7 +479,7 @@ Log into ASGARD version 2.x and navigate to the Asset Management – Requests.
 
 .. figure:: ../images/asset-management-requests.png
    :target: ../_images/asset-management-requests.png
-   :alt: image128
+   :alt: Asset Management (Requests)
 
    Asset Management (Requests)
 
@@ -486,7 +488,7 @@ Select the migrated system and click on the top right on Accept. This should pla
 
 .. figure:: ../images/asset-management-assets-view.png
    :target: ../_images/asset-management-assets-view.png
-   :alt: image129
+   :alt: Asset Management (Assets View)
 
    Asset Management (Assets View)
 
@@ -546,29 +548,24 @@ Install asgard2-agent Using the Command-Line
 This section describes the installation of the asgard2-agent using the
 command line
 
-1. Download the asgard2-agent from the ASGARD Management Center Agent
-   Download page for macOS (.pkg extension). This page can be located
-   under the following URL:
-   ``https://*YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers``
-2. | Deactivate macOS security mechanism (Gatekeeper) launching a
-     terminal session:
-   | **sudo spctl --master-disable**
-3. Close the terminal
+1. | Download the asgard2-agent from the ASGARD Management Center Agent Download page for macOS (.pkg extension). This page can be located under the following URL:
+   | ``https://*YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers``
+2. | Deactivate macOS security mechanism (Gatekeeper) launching a terminal session:
+   | ``sudo spctl --master-disable``
+3. | Close the terminal
 4. | Install asgard2-agent
-   | **sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg
-     -target /**
-5. Close the terminal
+   | ``sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg
+     -target /``
+5. | Close the terminal
 6. | Reactivate macOS security mechanism
-   | **sudo spctl --master-enable**
+   | ``sudo spctl --master-enable``
 
 Optional: Check the State of the Gatekeeper Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can verify the state of the protection mechanism with this command:
-
-.. code:: bash
   
-   spctl --status
+``spctl --status``
 
 On a system with re-activated Gatekeeper output has to be:
 

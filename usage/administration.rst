@@ -13,7 +13,7 @@ Login to ASGARD, navigate to ``Licensing``, click
 
 .. figure:: ../images/install-a-license.png
    :target: ../_images/install-a-license.png
-   :alt: image-20200608152010548
+   :alt: Install a License
 
    Install a license
 
@@ -99,7 +99,7 @@ The ASGARD agent can be directly downloaded from the ASGARD login screen through
 
 .. figure:: ../images/agents-overview.png
    :target: ../_images/agents-overview.png
-   :alt: image-20200608152828507
+   :alt: Agents Overview
 
    Agents Overview
 
@@ -110,7 +110,7 @@ In the requests tab, select the agents you want ASGARD to manage and click ``Acc
 
 .. figure:: ../images/accepting-asgard-agent-requests.png
    :target: ../_images/accepting-asgard-agent-requests.png
-   :alt: image-20200608152952182
+   :alt: Accepting ASGARD Agent Requests
 
    Accepting ASGARD Agent Requests
 
@@ -127,7 +127,7 @@ Management of all endpoints registered with ASGARD can be performed in Asset Man
 
 .. figure:: ../images/asset-view.png
    :target: ../_images/asset-view.png
-   :alt: image-20200608153056012
+   :alt: Asset View
 
    Asset View
 
@@ -222,7 +222,7 @@ By clicking the ``Import Scan Template`` button you can import a previously expo
 
 .. figure:: ../images/scan-templates-overview.png
    :target: ../_images/scan-templates-overview.png
-   :alt: image-20200608153256353
+   :alt: Scan Templates
 
    Scan Templates Overview
 
@@ -232,7 +232,7 @@ After choosing or changing a scanner you will find the most frequently used opti
 
 .. figure:: ../images/scan-flags.png
    :target: ../_images/scan-flags.png
-   :alt: image-20200608153228887
+   :alt: Scan Flags
 
    Scan Flags
 
@@ -252,7 +252,7 @@ Just click on the "THOR" button in the Action column in the Asset Management vie
 
 .. figure:: ../images/scan-control-scan-creation.png
    :target: ../_images/scan-control-scan-creation.png
-   :alt: image-20200608153403808
+   :alt: Scan Control - Scan Creation
 
    Scan Control - Scan Creation
 
@@ -267,7 +267,7 @@ To stop a single scan, navigate to the "Single Scans" tab in Scan Control sectio
 
 .. figure:: ../images/stopping-a-single-scan.png
    :target: ../_images/stopping-a-single-scan.png
-   :alt: image-20200608153951250
+   :alt: Stopping Single Scans
 
    Stopping a Single Scan
 
@@ -285,7 +285,7 @@ The download button has the following options:
 
 .. figure:: ../images/download-scan-results.png
    :target: ../_images/download-scan-results.png
-   :alt: Download Scan Results
+   :alt: Scan Control - Download Scan Results
 
    Scan Control - Download Scan Results
 
@@ -299,37 +299,32 @@ A scan for a group of systems can be created in the "Scan Control > Group Scans"
 
 .. figure:: ../images/scan-control-create-group-scan.png
    :target: ../_images/scan-control-create-group-scan.png
-   :alt: image-20200608154115029
+   :alt: Scan Control – Create Group Scan
 
    Scan Control – Create Group Scan
 
 As with the single scans, various parameters can be set. Aside from the already mentioned parameters, the following parameters can be set:
 
-**Description**
+.. list-table::
+   :header-rows: 1
+   :widths: 20, 80
 
-Freely selectable name for the group scan.
+   * - Parameter
+     - Value
+   * - **Description**
+     - Freely selectable name for the group scan.
+   * - **Asset Labels**
+     - Here you can define which assets will be affected by the group scan. In case more than one label is chosen: An asset must have at least one chosen label attached to it to be affected by the scan. If no label is selected, all known assets will be scanned.
+   * - **Limit**
+     - ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan or enter ``0`` for no limit. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
+   * - **Rate**
+     - The number of scans per minute that are issued by ASGARD. This is where the network load can be controlled. Additionally, it is recommended to use this parameter in virtualized and oversubscribed environments in order to limit the number of parallel scans on your endpoints.
+   * - **Expires**
+     - After this time frame, no scan orders will be issued to the connected agents. 
+   * - **Scheduled Start**
+     - Select a date for a scheduled start of the scan.
 
-**Asset Labels**
-
-Here you can define which assets will be affected by the group scan. In case more than one label is chosen: An asset must have at least one chosen label attached to it to be affected by the scan. If no label is selected, all known assets will be scanned.
-
-**Limit** 
-
-ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan or enter ``0`` for no limit. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
-
-**Rate**
-
-The number of scans per minute that are issued by ASGARD. This is where the network load can be controlled. Additionally, it is recommended to use this parameter in virtualized and oversubscribed environments in order to limit the number of parallel scans on your endpoints.
-
-**Expires**
-
-After this time frame, no scan orders will be issued to the connected agents. 
-
-**Scheduled Start**
-
-Select a date for a scheduled start of the scan.
-
-After the group scan has been saved or saved and started, you will automatically be forwarded to the list of grouped scans. 
+After the group scan has been ``Saved`` or ``Saved and Started``, you will automatically be forwarded to the list of grouped scans. 
 
 List of all Group Scans
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -338,7 +333,7 @@ The list of all group scans contains, among other items, the unique Scan-ID and 
 
 .. figure:: ../images/scan-control-group-scans-list.png
    :target: ../_images/scan-control-group-scans-list.png
-   :alt: image-20200608154224747
+   :alt: Group Scans - List
 
    Scan Control – Group Scans – List
 
@@ -366,13 +361,13 @@ The Scheduled Group Scan section shows all scans that are to run on a frequent b
 
 .. figure:: ../images/scan-control-scheduled-group-scan.png
    :target: ../_images/scan-control-scheduled-group-scan.png
-   :alt: image-20200608154452406
+   :alt: Scan Control – Scheduled Group Scan 
 
    Scan Control – Scheduled Group Scan 
 
 .. figure:: ../images/scan-control-new-scheduled-group-scan.png
    :target: ../_images/scan-control-new-scheduled-group-scan.png
-   :alt: image-20200608154442195
+   :alt: Scan Control – New Scheduled Group Scan
 
    Scan Control – New Scheduled Group Scan 
 
@@ -383,7 +378,7 @@ Further information about a group scan can be observed from the detail page of t
 
 .. figure:: ../images/scan-control-group-scans-details.png
    :target: ../_images/scan-control-group-scans-details.png
-   :alt: image-20200608154545029
+   :alt: Scan Control – Group Scans – Details
 
    Scan Control – Group Scans – Details
 
@@ -455,7 +450,7 @@ In order to open a remote shell on an endpoint, open the Asset Management sectio
 
 .. figure:: ../images/opening-a-remote-shell-from-the-asset-view.png
    :target: ../_images/opening-a-remote-shell-from-the-asset-view.png
-   :alt: image-20200608154926650
+   :alt: Opening a Remote Shell from the Asset View
 
    Opening a Remote Shell from the Asset View
 
@@ -463,7 +458,7 @@ Depending on your configuration it may take between 10 seconds and 10 minutes fo
 
 .. figure:: ../images/remote-shell.png
    :target: ../_images/remote-shell.png
-   :alt: image-20200608154959812
+   :alt: Remote Shell
 
    Remote Shell
 
@@ -471,7 +466,7 @@ In order to replay a remote console session, navigate to ``Response Control``, e
 
 .. figure:: ../images/replay-remote-shell-session.png
    :target: ../_images/replay-remote-shell-session.png
-   :alt: image-20200608155013219
+   :alt: Replay Remote Shell Session
 
    Replay Remote Shell Session
 
@@ -487,7 +482,7 @@ It is also possible to download specific suspicious files. You can transfer a su
 
 .. figure:: ../images/built-in-playbooks.png
    :target: ../_images/built-in-playbooks.png
-   :alt: image-20200608155058550
+   :alt: Built-in Playbooks
 
    Built-in Playbooks
 
@@ -495,7 +490,7 @@ To execute a predefined response action on a single endpoint, navigate to the As
 
 .. figure:: ../images/execute-playbook-on-single-endpoint.png
    :target: ../_images/execute-playbook-on-single-endpoint.png
-   :alt: image-20200608155132686
+   :alt: Execute Playbook on Single Endpoint
 
    Execute Playbook on Single Endpoint
 
@@ -524,7 +519,7 @@ Response functions for groups of systems can be defined in the ``Group Tasks`` t
 
 .. figure:: ../images/execute-playbook-on-group-of-endpoints.png
    :target: ../_images/execute-playbook-on-group-of-endpoints.png
-   :alt: image-20200608155449158
+   :alt: Execute Playbook on Group of Endpoints
 
    Execute Playbook on Group of Endpoints
 
@@ -536,7 +531,7 @@ You can add your own custom playbook by clicking the ``Add Playbook`` button in 
 
 .. figure:: ../images/add-custom-playbook.png
    :target: ../_images/add-custom-playbook.png
-   :alt: image-20200608160106096
+   :alt: Add Custom Playbook
 
    Add Custom Playbook
 
@@ -555,7 +550,7 @@ can be added using the ``Add Step`` button.
 
 .. figure:: ../images/add-playbook-entry.png
    :target: ../_images/add-playbook-entry.png
-   :alt: image-20200608160150424
+   :alt: Add Playbook Entry
 
    Add Playbook Entry
 
@@ -977,7 +972,7 @@ and click ``Add IOC Group`` in the upper right corner. Select a name and optiona
 
 .. figure:: ../images/add-ioc-group.png
    :target: ../_images/add-ioc-group.png
-   :alt: image-20200608160335401
+   :alt: Add IOC Group
 
    Add IOC Group
 
@@ -986,7 +981,7 @@ To add IOCs to this group, use the ``Show and edit IOCs in this IOC group`` acti
 
 .. figure:: ../images/import-iocs.png
    :target: ../_images/import-iocs.png
-   :alt: image-20200608160335401
+   :alt: Imported IOCs Overview
 
    Imported IOCs Overview
 
@@ -994,7 +989,7 @@ However, you can also click the ``Add IOC(s)`` button to add some IOCs interacti
 
 .. figure:: ../images/add-ioc.png
    :target: ../_images/add-ioc.png
-   :alt: image-20200608160335401
+   :alt: Add IOCs
 
    Add IOCs
 
@@ -1004,7 +999,7 @@ You can add those IOC Groups to IOC Rulesets which can be created in the ``IOC M
 
 .. figure:: ../images/add-ruleset.png
    :target: ../_images/add-ruleset.png
-   :alt: image-20200608160335401
+   :alt: Add Ruleset
 
    Add Ruleset
 
@@ -1012,7 +1007,7 @@ After that, click on an entry in the table to expand it. There you get informati
 
 .. figure:: ../images/add-remove-ioc-group.png
    :target: ../_images/add-remove-ioc-group.png
-   :alt: image-20200608160335401
+   :alt: Buttons to Add/Remove IOC Groups
 
    Buttons to Add/Remove IOC Groups
 
@@ -1020,7 +1015,7 @@ Those rulesets can be selected in the "Custom Signature" field while creating a 
 
 .. figure:: ../images/select-ruleset.png
    :target: ../_images/select-ruleset.png
-   :alt: image-20200608160335401
+   :alt: Select Ruleset while creating a scan job
 
    Select Ruleset while creating a scan job
 
@@ -1035,7 +1030,7 @@ There is no default ruleset for MISP. You must create at least one ruleset (see 
 
 .. figure:: ../images/misp-events.png
    :target: ../_images/misp-events.png
-   :alt: image-20200608160546503
+   :alt: MISP events
 
    MISP events 
 
@@ -1043,7 +1038,7 @@ In order to create a ruleset, click ``Add MISP Ruleset`` in the ``IOC Management
 
 .. figure:: ../images/addon-a-new-misp-rulset.png
    :target: ../_images/addon-a-new-misp-rulset.png
-   :alt: image-20200608160621066
+   :alt: Adding a new MISP ruleset
 
    Adding a new MISP ruleset
 
@@ -1052,7 +1047,7 @@ In order to use a MISP ruleset in a scan: Add the ruleset in the ``MISP Signatur
 
 .. figure:: ../images/adding-a-misp-rulset-to-a-scan.png
    :target: ../_images/adding-a-misp-rulset-to-a-scan.png
-   :alt: image-20200608160636062
+   :alt: Adding a MISP Ruleset to a Scan
 
    Adding a MISP Ruleset to a Scan 
 
@@ -1083,9 +1078,9 @@ If Bifrost is used with your THOR scans, all collected samples show up here. You
 
 .. figure:: ../images/bifrost-collections.png
    :target: ../_images/bifrost-collections.png
-   :alt: image-20200608160703244
+   :alt: Bifrost Collections
 
-   Bifrost Collections 
+   Bifrost Collections
 
 Generate Download Links
 -----------------------
@@ -1152,7 +1147,7 @@ The screenshot below shows the licensing section of an ASGARD.
 
 .. figure:: ../images/asgard-licensing.png
    :target: ../_images/asgard-licensing.png
-   :alt: image70
+   :alt: ASGARD licensing
 
    ASGARD licensing
 
@@ -1160,7 +1155,7 @@ In addition, ASGARD can create single-licenses that can be used for agentless sc
 
 .. figure:: ../images/generate-licenses.png
    :target: ../_images/generate-licenses.png
-   :alt: image70
+   :alt: Generate licenses
 
    Generate licenses
 
@@ -1193,7 +1188,7 @@ As soon as an ASGARD update is available, a button ``Upgrade from ... to ...`` a
 
 .. figure:: ../images/updating-asgard.png
    :target: ../_images/updating-asgard.png
-   :alt: image71
+   :alt: Updating ASGARD
 
    Updating ASGARD
 
@@ -1204,7 +1199,7 @@ By default, ASGARD will search for signature updates and THOR updates on an hour
 
 .. figure:: ../images/automatic-scanner-and-signature-updates.png
    :target: ../_images/automatic-scanner-and-signature-updates.png
-   :alt: image73
+   :alt: Automatic Scanner and Signature Updates
 
    Automatic Scanner and Signature Updates
 
@@ -1226,7 +1221,7 @@ If an asset or an agent can be update, there will be a notice shown in the ``Upd
 
 .. figure:: ../images/update-agent.png
    :target: ../_images/update-agent.png
-   :alt: image73
+   :alt: Update Agent
 
    Update Agent
 
@@ -1238,7 +1233,7 @@ Access user management via ``Settings`` > ``Users``. This section allows adminis
 
 .. figure:: ../images/add-user-account.png
    :target: ../_images/add-user-account.png
-   :alt: Add User
+   :alt: Add User Account
 
    Add User Account
 
@@ -1416,7 +1411,7 @@ Instead of using the pre-installed self-signed TLS Certificate, users can upload
 
 .. figure:: ../images/generate-csr.png
    :target: ../_images/generate-csr.png
-   :alt: image80
+   :alt: Generate a Certificate Signing Request (CSR)
 
    Generate a Certificate Signing Request (CSR)
 
@@ -1428,7 +1423,7 @@ The generated CSR can be used to generate a TLS Certificate. Subsequently, this 
 
 .. figure:: ../images/upload-tls-certificate.png
    :target: ../_images/upload-tls-certificate.png
-   :alt: image80
+   :alt: Upload a TLS Certificate
 
    Upload a TLS Certificate
 
@@ -1464,7 +1459,7 @@ Bifrost allows you to automatically upload suspicious files to your ASGARD durin
 
 .. figure:: ../images/settings-for-bifrost.png
    :target: ../_images/settings-for-bifrost.png
-   :alt: image83
+   :alt: Settings for Bifrost
 
    Settings for Bifrost
 
@@ -1490,7 +1485,7 @@ In order to connect to an Analysis Cockpit, enter the respective hostname of the
 
 .. figure:: ../images/linking-the-analysis-cockpit.png
    :target: ../_images/linking-the-analysis-cockpit.png
-   :alt: image85
+   :alt: Linking the Analysis Cockpit
 
    Linking the Analysis Cockpit 
 
@@ -1522,7 +1517,7 @@ Insert the MISP's address along with the API Key and click ``Connect``.
 
 .. figure:: ../images/linking-a-misp-to-asgard.png
    :target: ../_images/linking-a-misp-to-asgard.png
-   :alt: image88
+   :alt: Linking a MISP to ASGARD
 
    Linking a MISP to ASGARD
 
@@ -1531,7 +1526,7 @@ The MISP connectivity status is shown in the ``Overview`` section. Please allow 
 
 .. figure:: ../images/connectivity-status.png
    :target: ../_images/connectivity-status.png
-   :alt: image87
+   :alt: MISP connectivity status
 
    MISP connectivity status
 
@@ -1543,7 +1538,7 @@ In this dialogue, you can add or modify ASGARDs proxy configuration. Please note
 
 .. figure:: ../images/change-proxy-settings.png
    :target: ../_images/change-proxy-settings.png
-   :alt: image89
+   :alt: Change Proxy Settings
 
    Change Proxy Settings
 
@@ -1555,7 +1550,7 @@ In order to control your ASGARD with a MASTER ASGARD, you must generate a One-Ti
 
 .. figure:: ../images/link-master-asgard.png
    :target: ../_images/link-master-asgard.png
-   :alt: image90
+   :alt: Link MASTER ASGARD
 
    Link MASTER ASGARD
 
@@ -1568,7 +1563,7 @@ Inactive assets can be hidden in the Asset Management Section by setting a suita
 
 .. figure:: ../images/advanced-settings.png
    :target: ../_images/advanced-settings.png
-   :alt: image91
+   :alt: Advanced Settings
 
    Advanced Settings
 
@@ -1582,7 +1577,7 @@ To change your password, navigate to the ``User Settings`` section.
 
 .. figure:: ../images/changing-your-password.png
    :target: ../_images/changing-your-password.png
-   :alt: image92
+   :alt: Changing your password
 
    Changing your password
 

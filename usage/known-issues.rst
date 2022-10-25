@@ -11,8 +11,9 @@ Since ASGARD 2.12.8 the API documentation is not showing the API key in example 
     ~~~~~~~~~~~~~~~
     add after source is known
 
-Workaround
-~~~~~~~~~~
+AMC#001: Workaround
+~~~~~~~~~~~~~~~~~~~
+
 You need to manually add ``-H 'Authorization: <your-API-key>'`` to your queries.
 
 Example with API endpoint ``/playbooks/search``:
@@ -37,17 +38,20 @@ Example with API endpoint ``/playbooks/search``:
 
 You also need the ``--insecure`` curl flag, if you are using the self-signed certificate that ASGARD shipped with.
 
-Status
-~~~~~~
+AMC#001: Status
+~~~~~~~~~~~~~~~
+
 Resolved in ASGARD 2.13.5+
 
 AMC#002: Aurora False Positive Filters Cleared After Saving
 -----------------------------------------------------------
+
 If the global Aurora false positive filter at ``Service Control`` > ``Aurora`` > ``False Positive Filters``
 is used, the text box is empty/cleared after saving and refreshing the page.
 
-Workaround
-~~~~~~~~~~
+AMC#002: Workaround
+~~~~~~~~~~~~~~~~~~~
+
 If the false positive tuning you want to achieve is only affecting one rule, the best place to
 tune it is a single rule false positive tuning at ``Service Control`` > ``Sigma`` > ``Rules`` and choosing
 the "Edit false positives filters of this rule" action.
@@ -59,8 +63,9 @@ directly via the ASGARD command line. In order for the changes to take effect it
 Instead go to ``Service Control`` > ``Aurora`` > ``Configurations`` and edit the configuration of the assets that need the false positive
 filter. To do so just open the configuration using the edit action and saving without any modifications using the "Save Configuration and Restart Aurora Agents" button. This will use the false positive filter defined in the file via CLI and restarts the assets to use the new configuration.
 
-Status
-~~~~~~
+AMC#002: Status
+~~~~~~~~~~~~~~~
+
 Open. Will be fixed in the next release.
 
 AMC#003: Error on newly installed Management Center
@@ -83,16 +88,18 @@ or
 This happens if you want to initiate THOR scans or access THOR scan settings
 before ASGARD was able to download the THOR packages from our update servers.
 
-Workaround
-~~~~~~~~~~
+AMC#003: Workaround
+~~~~~~~~~~~~~~~~~~~
+
 Make sure ASGARD is able to access our update servers (see ``System Status``: Connectivity Test or ``System Status`` > ``Diagnostics``
 and that you have imported a valid license (see ``Licensing``).
 
 You can either wait for ASGARD to download the THOR packages automatically (check at ``Updates`` > ``THOR and Signatures``) or
 initiate a download of THOR packages and signatures manually by clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
 
-Status
-~~~~~~
+AMC#003: Status
+~~~~~~~~~~~~~~~
+
 Open.
 
 AMC#004: RPM Packages do not have a compatible architecture
@@ -106,8 +113,9 @@ Some Linux systems return this error message when installing the RPM packages of
 
 The issue is known and can be ignored. The installation completes successfull regardless of this error message. 
 
-Workaround 1
-~~~~~~~~~~~~
+AMC#004: Workaround 1
+~~~~~~~~~~~~~~~~~~~~~
+
 No workaround required. Regardless of the message the package installation completes successfully.
 
 You can avoid the error messages using this command: 
@@ -122,8 +130,9 @@ For an unattended installation (no user interaction) use:
 
     yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
-Workaround 2
-~~~~~~~~~~~~
+AMC#004: Workaround 2
+~~~~~~~~~~~~~~~~~~~~~
+
 You can build a new RPM package and use it for automated installations.
 
 Log into the Asgard server which should be used by the clients to connect to and execute the following steps:
@@ -147,8 +156,9 @@ When using ``scp`` to transfer the file from the server, you will need to copy t
 
 The resulting RPM should no longer cause the described "unsupported architecture" error message when it is used with ``yum`` or ``dnf``.
 
-Workaround 3
-~~~~~~~~~~~~
+AMC#004: Workaround 3
+~~~~~~~~~~~~~~~~~~~~~
+
 There are rare cases where the package installation should be automated and the command line flags are not an option. In this cases it is possible to perform the ASGARD agent installation manually. This requires to collect some files from ASGARD and move them to the asset that should be connected.
 
 .. code-block:: bash
@@ -203,8 +213,8 @@ To uninstall the ASGARD agent without using the RPM package the following steps 
     rm /usr/sbin/asgard2-agent-service
     rm -Rf /var/lib/asgard2-agent/
 
-Status
-~~~~~~
+AMC#004: Status
+~~~~~~~~~~~~~~~
 
 Under investigation. We are planning to provide fixes but have to test if the fix would cause problems with older installations. (upgrades, legacy issues)
 
@@ -222,11 +232,12 @@ It is caused by a unhandled condition in the MOTD (message of the day) script th
 
 The issue is known and can be ignored.
 
-Workaround
-~~~~~~~~~~
+AMC#005: Workaround
+~~~~~~~~~~~~~~~~~~~
+
 No workaround required. The issue solves itself after the download of the scanner and signature packages. 
 
-Status
-~~~~~~
+AMC#005: Status
+~~~~~~~~~~~~~~~
 
 Fixed in next ASGARD version. 

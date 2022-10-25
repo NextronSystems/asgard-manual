@@ -38,17 +38,17 @@ While temporary stream overloads are quite normal, connection overloads should n
 
 ASGARD will indicate an overload with the "Connection Overload line" and the "Stream Overload line" within the graphs in the overview section (see picture below). If an ASGARD is in an overload situation it will postpone connections and streams but will not lose or drop tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
-.. figure:: ../images/asset-connections-and-streams.png
-   :target: ../_images/asset-connections-and-streams.png
+.. figure:: ../images/asset-connections-and-streams1.png
+   :target: ../_images/asset-connections-and-streams1.png
    :alt: Asset Connections and Asset Streams
 
    Asset Connections and Asset Streams 
 
 Stream overloads can happen temporarily (e.g. if you schedule a grouped scan or grouped task with an unlimited rate). The picture below shows such a normal overload situation that was caused by starting a grouped scan with an unlimited rate. This is the expected behavior. ASGARD will manage the load automatically and postpone streams until the load has returned to normal.
 
-.. figure:: ../images/image95-1592778455357.png
-   :target: ../_images/image95-1592778455357.png
-   :alt: image95
+.. figure:: ../images/asset-connections-and-streams2.png
+   :target: ../_images/asset-connections-and-streams2.png
+   :alt: Asset Streams in an overload situation
 
    Asset Streams in an overload situation
 
