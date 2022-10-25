@@ -443,7 +443,7 @@ Examples:
 * ``rsyslog-forwarder.dom.int:514:JSON:TCP``
 * ``arcsight.dom.int:514:CEF:UDP``
 
-If you chose to use the ``--syslog`` flag, please make sure that the necessary ports are allowed within your network/firewall. If you decide to send the logs via syslog to ASGARD, please have a look at the :ref:`usage/administration:Rsyslog Forwarding`.
+If you choose to use the ``--syslog`` flag, please make sure that the necessary ports are allowed within your network/firewall. If you decide to send the logs via syslog to ASGARD, please have a look at the :ref:`usage/administration:Rsyslog Forwarding`.
 
 Response Control
 ----------------

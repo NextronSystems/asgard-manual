@@ -20,6 +20,7 @@ Welcome to ASGARD's documentation!
    usage/commandline
    usage/known-issues
    usage/troubleshooting
+   usage/faq
    usage/appendix
 
 
