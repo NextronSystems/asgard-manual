@@ -42,8 +42,8 @@ ASGARDs hardware requirements depend on the number of connected endpoints and al
 
 .. [1] THOR and AURORA count as individual endpoints in this calculation. AURORA is more demanding than THOR. This results in a maximum of 200/4000/10000 endpoints if THOR **and** AURORA are installed on each endpoint.
 
-Broker Network
-^^^^^^^^^^^^^^
+Broker Network (WIP)
+^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :header-rows: 1
