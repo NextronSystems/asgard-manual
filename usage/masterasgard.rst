@@ -9,15 +9,20 @@ Since MASTER ASGARD version 2, you install a MASTER ASGARD by promoting a bare A
 Hardware Requirements for MASTER ASGARD
 ---------------------------------------
 
-MASTER ASGARD has the following hardware requirements.
+MASTER ASGARD has the following hardware requirements:
 
-=================== =======
-Component           Value
-=================== =======
-System memory       16 GB
-Hard disk           1 TB 
-CPU Cores           8
-=================== =======
+.. list-table::
+   :header-rows: 1
+   :widths: 50, 50
+
+   * - Component
+     - Value
+   * - System Memory
+     - 16 GB
+   * - Hard Disk
+     - 1 TB
+   * - CPU Cores
+     - 8
 
 License Management
 ------------------
@@ -33,17 +38,22 @@ Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER ASGARD
 .. note::
    After upgrading an ASGARD to a MASTER ASGARRD, all previous information and settings on that system will be lost. Don't upgrade ASGARD systems with connected endpoints, but only newly installed systems. 
 
-Default Password Web GUI
-^^^^^^^^^^^^^^^^^^^^^^^^
+Default Credentials
+^^^^^^^^^^^^^^^^^^^
 
-User: ``admin``
-Password: ``admin`` 
+.. list-table::
+   :header-rows: 1
+   :widths: 25, 25, 50
 
-Default Password Console
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-User: ``nextron`` 
-Password: ``nextron``
+   * - Interface
+     - Username
+     - Password
+   * - Web UI
+     - admin
+     - admin
+   * - CLI/SSH
+     - nextron
+     - `manually set during system installation`
 
 Link ASGARD Systems with MASTER ASGARD 
 --------------------------------------

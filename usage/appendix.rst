@@ -545,20 +545,36 @@ place and are re-activated after performing the described actions.
 Install asgard2-agent Using the Command-Line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section describes the installation of the asgard2-agent using the
-command line
+This section describes the installation of the asgard2-agent using the command line
 
-1. | Download the asgard2-agent from the ASGARD Management Center Agent Download page for macOS (.pkg extension). This page can be located under the following URL:
-   | ``https://*YOURASGARD.INTERNAL.DOMAIN*:8443/agent-installers``
-2. | Deactivate macOS security mechanism (Gatekeeper) launching a terminal session:
-   | ``sudo spctl --master-disable``
-3. | Close the terminal
-4. | Install asgard2-agent
-   | ``sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg
-     -target /``
-5. | Close the terminal
-6. | Reactivate macOS security mechanism
-   | ``sudo spctl --master-enable``
+1. 
+  Download the asgard2-agent from the ASGARD Management Center Agent Download page for macOS (.pkg extension). This page can be located under the following URL:
+
+
+  * :samp:`https://<ASGARD-FQDN>:8443/agent-installers`
+
+2. 
+  Deactivate macOS security mechanism (Gatekeeper) launching a terminal session:
+
+
+  * ``sudo spctl --master-disable``
+
+3. 
+  Close the terminal
+
+4.
+  Install asgard2-agent
+
+  * ``sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg -target /``
+
+5. 
+  Close the terminal
+
+6.
+  Reactivate macOS security mechanism
+
+
+  * ``sudo spctl --master-enable``
 
 Optional: Check the State of the Gatekeeper Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

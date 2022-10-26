@@ -339,15 +339,22 @@ The list of all group scans contains, among other items, the unique Scan-ID and 
 
 In addition, information can be found about the chosen scanner, the chosen parameters, the start and completion times and the affected assets (defined by labels). Additional columns can be added by clicking on "Column Visibility".
 
-The Status field can have the following values: 
+The Status field can have the following values:
 
-**Paused:** The group scan has not yet started. Either click play or wait for the scheduled start date (the job will start in a 5 minute window around the scheduled time).
+.. list-table::
+   :header-rows: 1
+   :widths: 20, 80
 
-**Active:** Scan is started, ASGARD will issue scans with the given parameters.
-
-**Inactive:** No additional scan jobs are being issued. All single scans that are currently running will continue to do so.
-
-**Completed:** The group scan is completed. No further scan jobs will be issued.
+   * - Status
+     - Value
+   * - **Paused**
+     - The group scan has not yet started. Either click play or wait for the scheduled start date (the job will start in a 5 minute window around the scheduled time).
+   * - **Active**
+     - Scan is started, ASGARD will issue scans with the given parameters.
+   * - **Inactive**
+     - No additional scan jobs are being issued. All single scans that are currently running will continue to do so.
+   * - **Completed**
+     - The group scan is completed. No further scan jobs will be issued.
 
 Starting a Group Scan
 ~~~~~~~~~~~~~~~~~~~~~
@@ -606,9 +613,12 @@ What is Sigma
 
 From the `project website <https://github.com/SigmaHQ/sigma>`_:
 
-    Sigma is a generic and open signature format that allows you to describe relevant log events in a straightforward manner. The rule format is very flexible, easy to write and applicable to any type of log file. The main purpose of this project is to provide a structured form in which researchers or analysts can describe their once developed detection methods and make them shareable with others.
+.. highlights::
 
-    Sigma is for log files what `Snort <https://www.snort.org/>`_ is for network traffic and `YARA <https://github.com/VirusTotal/yara>`_ is for files.
+   `Sigma is a generic and open signature format that allows you to describe relevant log events in a straightforward manner. The rule format is very flexible, easy to write and applicable to any type of log file. The main purpose of this project is to provide a structured form in which researchers or analysts can describe their once developed detection methods and make them shareable with others.`
+
+   `Sigma is for log files what` `Snort <https://www.snort.org/>`_ `is for network traffic and` `YARA <https://github.com/VirusTotal/yara>`_ `is for files.`
+
 
 Creating a Ruleset
 ~~~~~~~~~~~~~~~~~~
@@ -1262,67 +1272,42 @@ Rights
 
 .. list-table:: 
    :header-rows: 1
+   :widths: 30, 70
 
+   * - Role
+     - Permissions
    * - Administrator
-   * - Unrestricted
-
-.. list-table:: 
-   :header-rows: 1
-
+     - Unrestricted
    * - Manage Scan Templates
-   * - Allows scan templates management
-
-.. list-table:: 
-   :header-rows: 1
-
+     - Allows scan templates management
    * - Remote Console
-   * - Connect to endsystems via remote console
-
-.. list-table:: 
-   :header-rows: 1
-
+     - Connect to endsystems via remote console
    * - View Remote Console Log
-   * - Review the recordings of all remote console sessions
-
-.. list-table:: 
-   :header-rows: 1
-
+     - Review the recordings of all remote console sessions
    * - Response Control
-   * - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
-
-.. list-table:: 
-   :header-rows: 1
-
+     - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
    * - Service Control
-   * - User can manage services on endpoint, e.g. Aurora or LogWatcher
-
+     - User can manage services on endpoint, e.g. Aurora or LogWatcher
 
 Restrictions 
 ^^^^^^^^^^^^
 
 .. list-table:: 
    :header-rows: 1
+   :widths: 30, 70
 
-   * - Force Scan Template
-   * - Force user to use predefined scan templates that are not restricted
+   * - Role
+     - Restrictions
+   * - Force Scan Template [2]_
+     - Force user to use predefined scan templates that are not restricted
+   * - No Inactive Assets [2]_
+     - Cannot view inactive assets in asset management.
+   * - No Task Start [2]_
+     - Cannot start scans or task (playbooks)
+   * - Readonly [2]_
+     - Can't change anything, can't run scans or response tasks. Used to generate read-only API keys
 
-.. list-table:: 
-   :header-rows: 1
-
-   * - No Inactive Assets
-   * - Cannot view inactive assets in asset management.
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - No Task Start
-   * - Cannot start scans or task (playbooks)
-
-.. list-table:: 
-   :header-rows: 1
-
-   * - Readonly
-   * - Can't change anything, can't run scans or response tasks. Used to generate read-only API keys
+.. [2] Restricted Roles have a yellow font in the UI
 
 LDAP Configuration
 ^^^^^^^^^^^^^^^^^^

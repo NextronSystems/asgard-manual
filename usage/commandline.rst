@@ -19,15 +19,22 @@ In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asga
 
 The default values are: 
 
-================== ==============
-Value              Description 
-================== ==============
-LoadConnMax=100    Max. concurrent „Busy Connections"
-LoadStreamMax=25   Max. concurrent „Busy Streams"
-PingRateMin=10     Polling Rate with 0 connected Assets (seconds)
-PingRateMax=600    Polling Rate with 25000 connected Assets (seconds)
-PingRateFast=5     Polling Rate for Assets in Fast Ping Mode (seconds)
-================== ==============
+.. list-table::
+   :header-rows: 1
+   :widths: 35, 65
+
+   * - Value
+     - Description
+   * - LoadConnMax=100
+     - Max. concurrent „Busy Connections"
+   * - LoadStreamMax=25
+     - Max. concurrent „Busy Streams"
+   * - PingRateMin=10
+     - Polling Rate with 0 connected Assets (seconds)
+   * - PingRateMax=600
+     - Polling Rate with 25000 connected Assets (seconds)
+   * - PingRateFast=5
+     - Polling Rate for Assets in Fast Ping Mode (seconds)
 
 These values should work fine in most scenarios – regardless of the size of the installation. However, you may want to decrease PingRateMax in order to achieve a better responsiveness of your ASGARD infrastructure. 
 
