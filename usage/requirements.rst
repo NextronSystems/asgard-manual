@@ -42,45 +42,6 @@ ASGARDs hardware requirements depend on the number of connected endpoints and al
 
 .. [1] THOR and AURORA count as individual endpoints in this calculation. AURORA is more demanding than THOR. This results in a maximum of 200/4000/10000 endpoints if THOR **and** AURORA are installed on each endpoint.
 
-Broker Network (WIP)
-^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :widths: 18, 25, 57
-
-   * - Role
-     - Connected Endpoints
-     - Minimum  Hardware Requirements
-   * - Broker
-     - up to 500
-     - System memory: 4 GB, Hard disk: 500 GB, CPU Cores: 2
-   * - Broker
-     - up to 10,000
-     - System memory: 8 GB, Hard disk: 1TB, CPU Cores: 4
-   * - Broker
-     - up to 25,000
-     - System memory: 16 GB, Hard disk: 1TB SSD (min 100 MB/s), CPU Cores: 4
-   * - Gatekeeper
-     - up to 500
-     - System memory: 4 GB, Hard disk: 500 GB, CPU Cores: 2
-   * - Gatekeeper
-     - up to 10,000
-     - System memory: 8 GB, Hard disk: 1TB, CPU Cores: 4
-   * - Gatekeeper
-     - up to 25,000
-     - System memory: 16 GB, Hard disk: 1TB SSD (min 100 MB/s), CPU Cores: 4
-   * - Lobby
-     - up to 500
-     - System memory: 4 GB, Hard disk: 500 GB, CPU Cores: 2
-   * - Lobby
-     - up to 10,000
-     - System memory: 8 GB, Hard disk: 1TB, CPU Cores: 4
-   * - Lobby
-     - up to 25,000
-     - System memory: 16 GB, Hard disk: 1TB SSD (min 100 MB/s), CPU Cores: 4
-
-
 Agent Requirements
 ------------------
 
