@@ -213,31 +213,43 @@ Backup and Restore
 
 Backup
 ^^^^^^
-The command ``asgard-backup`` can be used to generate a backup of all configurations, assets, tags, user accounts, tasks etc. except:
+The command ``asgard2-backup`` can be used to generate a backup of all configurations, assets, tags, user accounts, tasks etc. except:
 
 * Log files (ASGARD, THOR)
 * Playbook results (collected evidence)
 * Quarantined samples (Bifrost)
 
-.. code:: bash 
+.. code:: none 
 
-   $ asgard2-backup
+   $ sudo asgard2-backup
    Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
    tar: Removing leading '/' from member names
    tar: Removing leading '/' from hard link targets
    Removing old backups (keeping the 5 most recent files)...
    done.
 
-Restore
-^^^^^^^
-
-You can use the ``asgard-restore`` command to restore a backup.
+If you want to transfer the backup to a different system, make sure to copy the ``.tar`` file to the home directory of the ``nextron`` user and change the permissions:
 
 .. code:: bash
 
-   $ asgard2-restore
+   $ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
+   $ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
+   $ ls -l
+   total 596496
+   -rw-r--r-- 1 nextron nextron 309217280 Nov  1 12:01 20200427-1553.tar
+
+After this is done, you can use ``scp`` or any other available tool to transfer the backup file to a different system.
+
+Restore
+^^^^^^^
+
+You can use the ``asgard2-restore`` command to restore a backup.
+
+.. code:: none
+
+   $ sudo asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
-   $ asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
+   $ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
    Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
    done.
    etc/nextron/asgard2/
