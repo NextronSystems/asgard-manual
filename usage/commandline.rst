@@ -226,7 +226,7 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 * Playbook results (collected evidence)
 * Quarantined samples (Bifrost)
 
-.. code:: none 
+.. code:: bash 
 
    $ sudo asgard2-backup
    Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
@@ -252,7 +252,7 @@ Restore
 
 You can use the ``asgard2-restore`` command to restore a backup.
 
-.. code:: none
+.. code:: bash
 
    $ sudo asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
