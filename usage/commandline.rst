@@ -135,9 +135,9 @@ You need to update the agent installer as well, so that newly added assets will 
 
 If you use the default installer without any modifications you can run the following command to update the agent installers:
 
-.. code::
+.. code:: console
 
-   sudo asgard2-repacker
+   nextron@asgard~$ sudo asgard2-repacker
 
 Or you can execute the agent installer update from within the WebUI at ``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
 
@@ -180,7 +180,9 @@ Proxies to be used by agents comma separated list, e.g. ``[proxy1.nextron:3128,p
 
 Example: In order to create an installer for servers that initially show up in ASGARD with the label ``SQL-Servers`` use:
 
-``# sudo asgard2-repacker -label SQL-Servers``
+.. code:: console
+
+   nextron@asgard~$ sudo asgard2-repacker -label SQL-Servers
 
 Your newly generated agents will show up in ``/var/lib/nextron/asgard2/installer`` and will immediately be available for download from the login page. You can store multiple custom agents under ``/var/lib/nextron/asgard2/installer/``. In this case all agents will be available for download from ASGARDs login page.
 
@@ -188,15 +190,17 @@ You can obfuscate the default asgard2-agent name with a custom one. The chosen n
 
 ``-name string``
 
-E.g. ``sudo asgard2-repacker -name javax``
+.. code:: console
+
+   nextron@asgard~$ sudo asgard2-repacker -name javax
 
 This command will create a new agent for all operating systems. This is specially designed for cases where an agent obfuscation is required.
 
 An installed agent with the name "javax" would look like this:
 
-.. code-block:: bash
+.. code-block:: console
 
-   systemctl status javax
+   nextron@asgard~$ systemctl status javax
    javax.service
    Loaded: loaded (/etc/systemd/system/javax.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2020-xx-xx 16:47:22 CET; 5s ago
@@ -211,9 +215,9 @@ Admin User Password Reset
 
 If you've lost the password of the local ``admin`` user (Web GUI) but still have access the system via SSH, you can reset it via command line using the following command. 
 
-.. code-block:: bash 
+.. code-block:: console 
 
-   sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
+   nextron@asgard~$ sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
 
 This resets the password to ``admin``. You should then change that password immediately. 
 
@@ -228,9 +232,9 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 * Playbook results (collected evidence)
 * Quarantined samples (Bifrost)
 
-.. code:: bash 
+.. code:: console 
 
-   $ sudo asgard2-backup
+   nextron@asgard~$ sudo asgard2-backup
    Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
    tar: Removing leading '/' from member names
    tar: Removing leading '/' from hard link targets
@@ -239,11 +243,11 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 
 If you want to transfer the backup to a different system, make sure to copy the ``.tar`` file to the home directory of the ``nextron`` user and change the permissions:
 
-.. code:: bash
+.. code:: console
 
-   $ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
-   $ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
-   $ ls -l
+   nextron@asgard~$ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
+   nextron@asgard~$ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
+   nextron@asgard~$ ls -l
    total 596496
    -rw-r--r-- 1 nextron nextron 309217280 Nov  1 12:01 20200427-1553.tar
 
@@ -254,11 +258,11 @@ Restore
 
 You can use the ``asgard2-restore`` command to restore a backup.
 
-.. code:: bash
+.. code:: console
 
-   $ sudo asgard2-restore
+   nextron@asgard~$ sudo asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
-   $ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
+   nextron@asgard~$ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
    Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
    done.
    etc/nextron/asgard2/
@@ -275,20 +279,23 @@ You can use the ``asgard2-restore`` command to restore a backup.
    24 bytes copied, 3.2337e-05 s, 742 kB/s
    Starting services... Created symlink /etc/systemd/system/multi-user.target.wants/asgard2.service → lib/systemd/system/asgard2.service. done.
 
+.. note::
+   The version of the ASGARD were the backup will be restored should be the same as the version which was present while the backup was created. If you need an older version of ASGARD, please contact our support team.
+
 
 Disable Remote Console Globally
 -------------------------------
 Remote Console on connected endpoints can be disabled centrally by creating the following file. 
 
-.. code:: bash
+.. code:: console
 
-   $ sudo touch /etc/nextron/asgard2/disable_console
+   nextron@asgard~$ sudo touch /etc/nextron/asgard2/disable_console
 
 
 To re-enable Remote Console simply remove the created file
 
-.. code:: bash
+.. code:: console
 
-   $ sudo rm /etc/nextron/asgard2/disable_console
+   nextron@asgard~$ sudo rm /etc/nextron/asgard2/disable_console
 
 
