@@ -69,6 +69,38 @@ If Aurora does not behave like it should, e.g. using more resources than you exp
 
 It can be run from ``Asset Management`` > ``Response Action`` (Play button) or from ``Response Control`` > ``Tasks`` > ``Add Task`` or if needed as a group task. The resulting ``diagnostics.zip`` can be downloaded from the third step in the ``Playbook Result`` tab of the expanded task.
 
+Duplicate Assets Remediation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, you need to fix the issue to avoid unwanted behavior of this asset.
+
+.. figure:: ../images/troubleshooting-duplicate-assets.png
+   :target: ../_images/troubleshooting-duplicate-assets.png
+   :alt: Troubleshooting Duplicate Assets
+
+   Troubleshooting Duplicate Assets
+
+To do this, follow these steps:
+
+1. Connect to the duplicate Asset
+2. Navigate into the configuration directory of the ASGARD Agent
+
+   - Linux (as root user): ``/var/lib/asgard2-agent/``
+   - Windows (as administrative user): ``C:\Windows\System32\asgard2-agent\``
+3. Edit the configuration file ``asgard2-agent.yaml``
+
+   - Remove the value from ``token``
+   - Set ``registered`` to ``false``
+
+   .. figure:: ../images/troubleshooting-remove-registration.png
+      :target: ../_images/troubleshooting-remove-registration.png
+      :alt: Remove Registration Token of Agent
+4. Restart the ASGARD2 Agent Service
+
+   - Linux: ``sudo systemctl restart asgard2-agent.service``
+   - Windows: press the ``windows key + r`` and type ``services.msc``. Find the ``asgard2-agent`` service and restart it.
+5. Your duplicate asset should now be gone and waiting for approval in ``Asset Requests`` (this might take a few minutes)
+
 SSL Interception
 ----------------
 

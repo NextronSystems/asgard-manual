@@ -119,6 +119,15 @@ A registered agent will poll to the ASGARD Management Center at a given interval
 Asset Management
 ----------------
 
+In the ``Asset Management`` view you can see all the connected ASGARD agents. New assets will be placed under ``Asset Requests`` and need a manual approval before being able to connect to your ASGARD (for auto accept see :ref:`usage/administration:Advanced`).
+
+If the ``Duplicate Assets`` view is visible, you should try to remediate the issues in a timely manner, since this might cause unwanted side effects on the duplicate hosts.
+
+.. warning::
+   Assets in the ``Duplicate Assets`` view indicate, that one or more agents are running on multiple endsystems. This might be caused by cloning a system with an already installed ASGARD 2 Agent. Undesirable side effects of duplicate assets are alternating hostnames and tasks that fail immediately.
+
+For remediation please see :ref:`usage/troubleshooting:Duplicate Assets Remediation`
+
 Asset Overview
 ^^^^^^^^^^^^^^
 
@@ -252,6 +261,19 @@ You can search for Assets in your ASGARD with the Asset Query. This allows you t
 
 .. note::
    Optionally: You can also create group tasks with an asset query instead of labels
+
+Asset Migration
+^^^^^^^^^^^^^^^
+
+You can move an asset from one ASGARD to another via the Maintenance Module of Response Control. To do this, navigate to ``Asset Management`` and select the assets you want to migrate. Alternatively you can navigate to ``Response Control`` and add a new task.
+You can now Click the ``Add Task`` button to open the Task Menu. Choose the ``Maintenance`` Module and then the ``Move asset to another ASGARD`` Type. You have to upload an agent installer from the ASGARD you want to migrate the asset to.
+
+.. figure:: ../images/master-asgard-move-asset.png
+   :target: ../images/master-asgard-move-asset.png
+   :alt: MASTER ASGARD Move Asset
+
+.. note::
+   The target OS or Arch of the installer doesn't matter, we will only use the installers configuration data.
 
 Delete Assets
 ^^^^^^^^^^^^^
