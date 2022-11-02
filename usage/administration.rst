@@ -126,7 +126,7 @@ If the ``Duplicate Assets`` view is visible, you should try to remediate the iss
 .. warning::
    Assets in the ``Duplicate Assets`` view indicate, that one or more agents are running on multiple endsystems. This might be caused by cloning a system with an already installed ASGARD 2 Agent. Undesirable side effects of duplicate assets are alternating hostnames and tasks that fail immediately.
 
-For remediation please see :ref:`usage/troubleshooting:Duplicate Assets Remediation`
+For remediation please see :ref:`usage/troubleshooting:Duplicate Assets Remediation`.
 
 Asset Overview
 ^^^^^^^^^^^^^^
