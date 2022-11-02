@@ -163,6 +163,8 @@ Go to ``Downloads`` > ``Agent Installers`` > ``Add Agent Installer``. Edit the p
 
    Custom Agent Installer from the WebUI
 
+You can also delete old Agent Installers which are not needed anymore. Just select the Installer(s) and Click the ``Delete`` button in the top right corner.
+
 Creating Custom Agent Installer From CLI (deprecated)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

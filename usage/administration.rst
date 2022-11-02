@@ -200,8 +200,84 @@ The import function processes the values in the columns ``Add Labels ...`` and `
 
    Asset Labling via CSV
 
+Asset Query
+^^^^^^^^^^^
+
+You can search for Assets in your ASGARD with the Asset Query. This allows you to write more complex queries to search for assets.
+
+.. flat-table::
+   :header-rows: 1
+   :widths: 30, 70
+
+   * - Operator
+     - Example
+   * - :rspan:`1` **Equals**
+     - hostname = "win10-dev"
+   * - cpu_count = 1
+   * - **Contains**
+     - hostname contains "win"
+   * - **Begins With**
+     - hostname begins with "win"
+   * - **Ends With**
+     - hostname ends with "dev"
+   * - :rspan:`5` **Numerical Comparison**
+     - total_memory >= 4 GB
+   * - last_seen < 3 days ago (assets that have not been seen since 3 days)
+   * - last_seen > 1 hour ago (assets that have been seen in the last hour)
+   * - last_scan_completed < 2022-08-17 (assets that have not been scanned since 2022-08-17)
+   * - last_scan_completed < 2022-08-17 15:00:00 (assets that have not been scanned since 2022-08-17 15:00:00)
+   * - last_scan_completed is never
+   * - **Boolean**
+     - is_domain_controller is true
+   * - :rspan:`1` **Not**
+     - not hostname contains "win"
+   * - not hostname ends with "dev"
+   * - **And**
+     - hostname contains "win" and not hostname ends with "dev"
+   * - **Or**
+     - hostname begins with "dev" or hostname ends with "dev"
+   * - **Nested**
+     - hostname ends with "dev" and (hostname contains "win" or hostname contains "lin")
+   * - :rspan:`1` **Set / Not Set**
+     - labels is set (assets that have at least one label)
+   * - labels is not set (assets that have no labels)
+   * - **Regular Expression**
+     - hostname matches "^[a-z0-9]{(0,6)}$"
+   * - :rspan:`2` **Pattern**
+     - **Use _ to match any single character and % to match an arbitrary number of characters, including zero characters.**
+   * -  arch like "a__64" (matches amd64 and arm64, but not aarch64)
+   * -  arch like "%64" (all 64 bit systems, e.g. amd64, arm64, aarch64 or ppc64)
+   * - **IP Range**
+     - interfaces = "172.28.30.1/24"
+
+.. note::
+   Optionally: You can also create group tasks with an asset query instead of labels
+
+Delete Assets
+^^^^^^^^^^^^^
+
+Deleting Assets will remove the assets from the ``Active Only`` asset view and will invalidate the authentication for these assets.
+
+To delete an asset, go to the ``Asset Management`` View and mark the assets you want to delete. Click the ``Delete Assets`` Button on the top right corner. Confirm that you want to delete the asset.
+
+To see all the deleted assets, change your view from ``Active Only`` to ``Deleted Only``.
+
+.. warning::
+   Deleted assets can no longer communicate with the ASGARD. Please use with caution.
+
+.. figure:: ../images/asset-view-deleted-assets.png
+   :target: ../_images/asset-view-deleted-assets.png
+   :alt: Deleted Assets
+
+   Deleted Assets View
+
 Scan Control
 ------------
+
+The Scan Control in your ASGARD allows you to run different kind of Scans on one or multiple assets. Additionally, you can create Scan Templates to use with new Scans, so the different options don't need to be configured for every new scan.
+False-Positive Filters can be set to exclude certain files from scan results, or even whole directories can be excluded.
+
+Your ASGARD will also take care of THOR scans which stopped (e.g. the asset rebooted or lost connection to your ASGARD during a scan), so that a scan will not fail if the asset is temporarily offline.
 
 Managing Scan Templates
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -260,6 +336,19 @@ Within this form, you can choose the maximum runtime, module, scanner, scan flag
 
 After the desired parameters have been set, the scan can be started by clicking the ``Add Scan`` button.
 
+Create a Single Scan for multiple Assets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to run a Single Scan - instead of a Group Scan - on multiple Assets, you can do this by navigating to the ``Asset Management`` View and select the assets you want to scan.
+
+Click the ``Add Scan`` button in the top right corner and fill in the scan options. This will create a Single Scan for each asset.
+
+.. figure:: ../images/asset-management-multiple-single-scan.png
+   :target: ../_images/asset-management-multiple-single-scan.png
+   :alt: Scan Control - Multiple Single Scans
+
+   Scan Control - Multiple Single Scans
+
 Stopping a Single Scan
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -313,8 +402,8 @@ As with the single scans, various parameters can be set. Aside from the already 
      - Value
    * - **Description**
      - Freely selectable name for the group scan.
-   * - **Asset Labels**
-     - Here you can define which assets will be affected by the group scan. In case more than one label is chosen: An asset must have at least one chosen label attached to it to be affected by the scan. If no label is selected, all known assets will be scanned.
+   * - **Scan Target**
+     - Here you can define which assets will be affected by the group scan. You can either use the ``Simple`` target option, which uses labels, or you can use the ``Advanced`` target options, which makes use of labels or asset queries. Leaving this option empty will scan all assets.
    * - **Limit**
      - ASGARD will not send additional scans to the agents when the client limit is reached. Therefore you need to set a limit higher than the number of hosts you want to scan or enter ``0`` for no limit. If you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
    * - **Rate**
@@ -505,7 +594,8 @@ In this example, we collect a full triage package.
 
 ASGARD ships with pre-defined playbooks for the following tasks:
 
-
+* Collect ASGARD Agent Log
+* Create and Collect Aurora Agent Diagnostics Pack (Windows only)
 * Collect full triage pack (Windows only)
 * Isolate endpoint (Windows only)
 * Collect system memory
@@ -572,6 +662,17 @@ If you need custom files for your playbook (scripts, configurations, binaries, e
 
 You can have up to 16 steps in each playbook that are executed sequentially. Every step can be either "download something from ASGARD to the endpoint", "execute a command line" or "upload something from the endpoint to ASGARD". If you run a command line the stdout and stderr are reported back to ASGARD. 
 
+Change the Asset(s) Proxy
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can change the Proxy Settings on your Assets via the Response Control. To do this, select the asset(s) and click ``Add Task`` in the top right corner.
+Next, set the Module to ``Maintenance`` and the Maintenance Type to ``Configure the asset's proxy``. You can now set your proxy. Multiple proxies can be set, though only one FQDN/IP-Address per field can be set.
+
+.. figure:: ../images/response-control-proxy.png
+   :target: ../_images/response-control-proxy.png
+   :alt: Change/Set an assets Proxy
+
+   Change/Set an assets Proxy
 
 Service Control
 ---------------
@@ -1251,6 +1352,8 @@ Editing a user account does not require a password although the fields are shown
 
 Access the user roles in ``Settings`` > ``Roles``. 
 
+You can download a list of all users in csv Format.
+
 Roles
 ^^^^^
 
@@ -1387,7 +1490,11 @@ The following log sources can be forwarded individually:
    * - Agent Log
      - All ASGARD agent activities
    * - THOR Log
-     - THOR scan results (available if scan config has ``Syslog to ASGARD`` enabled, see :ref:`usage/administration:Syslog Forwarding`)
+     - THOR scan results
+   * - Thor Log (Realtime)
+     - The THOR (Realtime) logs are the same logs as THOR logs, except that they are collected via udp syslog instead of https. To forward THOR logs in realtime, you have to configure your scans to forward syslog to ASGARD, see :ref:`usage/administration:Syslog Forwarding`). Make sure the necessary firewall rules are in place to allow the asset to communicate with the ASGARD.
+   * - Aurora Log
+     - Aurora Logs
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1461,7 +1568,7 @@ In order to automatically collect suspicious files, you have to create a scan wi
 
 This will collect all files with a score of 60 or higher and make them available for download in ASGARDs ``Collected Files`` section.
 
-For Details on how to automatically forward to a sandbox system please refer to the Analysis Cockpit manual.
+For Details on how to automatically forward to a sandbox system please refer to the `Analysis Cockpit Manual <https://analysis-cockpit-manual.nextron-systems.com/en/latest>`_ .
 
 Link Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^

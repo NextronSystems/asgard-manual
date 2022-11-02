@@ -98,6 +98,19 @@ The only differences are:
 * ASGARD column shows to which ASGARD system the endpoint is connected
 * Only CSV export is allow (asset labeling via CSV import is unavailable)
 
+Agent Migration
+^^^^^^^^^^^^^^^
+
+You can move an asset from one ASGARD to another via your Master ASGARD. To do this, navigate to ``Asset Management`` and select the assets you want to migrate.
+You can now Click the ``Add Task`` button to open the Task Menu. Choose the ``Maintenance`` Module and then the ``Move asset to another ASGARD`` Type. You have to upload an agent installer from the ASGARD you want to migrate the asset to.
+
+.. figure:: ../images/master-asgard-move-asset.png
+   :target: ../images/master-asgard-move-asset.png
+   :alt: MASTER ASGARD Move Asset
+
+.. note::
+   The target OS or Arch of the installer doesn't matter, we will only use the installers configuration data.
+
 IOC Management
 --------------
 
@@ -122,7 +135,13 @@ All collected evidence is available in MASTER ASGARD's ``Evidence Collection`` s
 Download Section 
 ----------------
 
-The ``Downloads`` section of MASTER ASGARD doesn't contain scanner packages since the scanners get downloaded and maintained on each of the connected ASGARD servers only. 
+The ``Downloads`` section of MASTER ASGARD allows to generate and download Agent Installers on all your connected ASGARDs. This allows for a central management of the Installers.
+
+.. figure:: ../images/master-asgard-download-section.png
+   :target: ../_images/master-asgard-download-section.png
+   :alt: Example: Download Section in ASGARD but managed by MASTER ASGARD
+
+   Example: Download Section in ASGARD but managed by MASTER ASGARD
 
 Updates
 -------
