@@ -22,45 +22,48 @@ Go Debug Logging
 
 On Windows, open the cmd.exe as Administrator. Set some environment variables.
 
-.. code:: winbatch 
+.. code:: doscon 
 
-   set GRPC_GO_LOG_SEVERITY_LEVEL=info
-   set GODEBUG=http2debug=2
+   C:\Windows\system32>set GRPC_GO_LOG_SEVERITY_LEVEL=info
+   C:\Windows\system32>set GODEBUG=http2debug=2
 
 Navgiate into the agent's program directory and start it to see all output messages.
 
-.. code:: winbatch 
+.. code:: doscon 
 
-   sc stop asgard2-agent
-   cd C:\Windows\system32\asgard2-agent\
-   asgard2-agent.exe
+   C:\Windows\system32>sc stop asgard2-agent
+   C:\Windows\system32>cd C:\Windows\system32\asgard2-agent\
+   C:\Windows\system32\asgard2-agent>asgard2-agent.exe
 
 Interrupt the agent with ``CTRL+C``. Don't forget to start the Windows service after the debugging session. 
 
-.. code:: winbatch
+.. code:: doscon
 
-   sc start asgard2-agent
+   C:\Windows\system32\asgard2-agent>sc start asgard2-agent
 
 On Linux, open a shell as root (sudo). 
 
-.. code:: bash
+.. code:: console
 
-   export GRPC_GO_LOG_SEVERITY_LEVEL=info
-   export GODEBUG=http2debug=2
+   nextron@asgard~$ sudo su -
+   [sudo] password for nextron: 
+   root@asgard:~# 
+   root@asgard:~# export GRPC_GO_LOG_SEVERITY_LEVEL=info
+   root@asgard:~# export GODEBUG=http2debug=2
 
 Navgiate into the agent's program directory and start it to see all output messages.
 
-.. code:: bash 
+.. code:: console 
 
-   systemctl stop asgard2-agent
-   cd /var/lib/asgard2-agent/
-   ./asgard2-agent
+   root@asgard:~# systemctl stop asgard2-agent
+   root@asgard:~# cd /var/lib/asgard2-agent/
+   root@asgard:/var/lib/asgard2-agent# ./asgard2-agent
 
 Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service after the debugging session. 
 
-.. code:: bash 
+.. code:: console 
 
-   systemctl start asgard2-agent
+   root@asgard:/var/lib/asgard2-agent# systemctl start asgard2-agent
 
 Aurora Diagnostics Pack
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,7 +75,7 @@ It can be run from ``Asset Management`` > ``Response Action`` (Play button) or f
 Duplicate Assets Remediation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, you need to fix the issue to avoid unwanted behavior of this asset.
+If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, you need to fix the issue to avoid unwanted behavior of this asset. To fix the issue, you need to uninstall the current ASGARD agent and redeploy a fresh copy.
 
 .. figure:: ../images/troubleshooting-duplicate-assets.png
    :target: ../_images/troubleshooting-duplicate-assets.png
@@ -80,26 +83,13 @@ If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, yo
 
    Troubleshooting Duplicate Assets
 
-To do this, follow these steps:
+- To uninstall the ASGARD agent, please follow the instructions in :ref:`usage/administration:Uninstall ASGARD Agents`.
+- To install the ASGARD agent, please follow the instructions in :ref:`usage/administration:ASGARD Agent Deployment`.
 
-1. Connect to the duplicate Asset
-2. Navigate into the configuration directory of the ASGARD Agent
+It is also recommended to redeploy the ASGARD Service Controller.
 
-   - Linux (as root user): ``/var/lib/asgard2-agent/``
-   - Windows (as administrative user): ``C:\Windows\System32\asgard2-agent\``
-3. Edit the configuration file ``asgard2-agent.yaml``
-
-   - Remove the value from ``token``
-   - Set ``registered`` to ``false``
-
-   .. figure:: ../images/troubleshooting-remove-registration.png
-      :target: ../_images/troubleshooting-remove-registration.png
-      :alt: Remove Registration Token of Agent
-4. Restart the ASGARD2 Agent Service
-
-   - Linux: ``sudo systemctl restart asgard2-agent.service``
-   - Windows: press the ``windows key + r`` and type ``services.msc``. Find the ``asgard2-agent`` service and restart it.
-5. Your duplicate asset should now be gone and waiting for approval in ``Asset Requests`` (this might take a few minutes)
+- To uninstall the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Uninstall ASGARD Service Controller`.
+- To install the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Service Controller Installation`
 
 SSL Interception
 ----------------
@@ -147,15 +137,15 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
 * Connect via SSH to the system.
 
- .. code:: bash
+ .. code:: console
 
-   ssh nextron@YOURASGARDSERVER
+   user@somehost~$ ssh nextron@YOURASGARDSERVER
 
 * Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
 
- .. code:: bash
+ .. code:: console
 
-   nano fix-fqdn.sh
+   nextron@asgard~$ nano fix-fqdn.sh
 
  Change the HOST and DOMAIN variable , make sure that the resulting FQDN is resolvable by the endpoints you deploy the agent to later.
 
@@ -183,24 +173,24 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
 * Give the created script execution permissions
 
- .. code:: bash
+ .. code:: console
 
-   chmod +x fix-fqdn.sh
+   nextron@asgard~$ chmod +x fix-fqdn.sh
 
 
 * Execute the script
 
- .. code:: bash
+ .. code:: console
 
-   sudo ./fix-fqdn.sh
+   nextron@asgard~$ sudo ./fix-fqdn.sh
 
 Once the script has been executed the ASGARD service should be restarted.
 
 * Restart the service
 
- .. code:: bash
+ .. code:: console
 
-   sudo systemctl restart asgard2
+   nextron@asgard~$ sudo systemctl restart asgard2
 
 You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
 
@@ -214,7 +204,7 @@ ASGARD noticed that the THOR scan failed
 
 In some cases THOR fails to complete its scan and ASGARD reports the following error. 
 
-.. code:: bash 
+.. code:: 
 
    ASGARD noticed that the THOR scan failed 
 
@@ -235,24 +225,24 @@ Web GUI: Regenerate the Self-Signed Certificate
 
 ASGARD ships with a self-signed certificate for its web interface that expires after 182 days. If you do not use your own CA infrastructure and want to renew the certificate or want to revert from a broken state, you can recreate a self-signed certificate. To do so log in using SSH and execute:
 
-.. code:: bash
+.. code:: console
 
-   sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
+   nextron@asgard~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
 
 You need to restart ASGARD in order for the changes to take effect.
 
-.. code:: bash
+.. code:: console
 
-   sudo systemctl restart asgard2.service
+   nextron@asgard~$ sudo systemctl restart asgard2.service
 
 Regenerate ASGARD Server Certififcate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to reset the certificate that ASGARD uses to communicate with the agents, use the following commands. The agent should immediately trust the new certificate, as it was generated using the CA they already trust. 
 
-.. code:: bash 
+.. code:: console 
 
-   su asgard2 -s /bin/sh <<'EOF'
+   nextron@asgard~$ su asgard2 -s /bin/sh <<'EOF'
    openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=ASGARD Management Center" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
    openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
    EOF

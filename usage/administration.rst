@@ -996,9 +996,9 @@ If you want to enable the blocking capabilities of Aurora, we suggest to enable 
 
 You can test the response functionality by entering the command
 
-.. code-block:: none
+.. code:: doscon
 
-   rundll32.exe AuroraFunctionTest.dll StartW
+   C:\Users\user>rundll32.exe AuroraFunctionTest.dll StartW
 
 on the command line of an asset. As a result you should see following message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
 
@@ -1713,13 +1713,13 @@ The following listings contain commands to uninstall ASGARD Agents on endpoints.
 Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: batch
+.. code:: doscon
 
-   sc stop asgard2-agent
-   sc delete asgard2-agent
-   sc stop asgard2-agent_sc
-   sc delete asgard2-agent_sc
-   del /F /Q C:\Windows\System32\asgard2-agent
+   C:\Windows\system32>sc stop asgard2-agent
+   C:\Windows\system32>sc delete asgard2-agent
+   C:\Windows\system32>sc stop asgard2-agent_sc
+   C:\Windows\system32>sc delete asgard2-agent_sc
+   C:\Windows\system32>del /F /Q C:\Windows\System32\asgard2-agent
 
 .. note::
    Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
@@ -1729,33 +1729,33 @@ Uninstall ASGARD Agents on Linux
 
 RPMs via ``yum``
 
-.. code:: bash 
+.. code:: console 
 
-   yum remove 'asgard2-agent*'
+   user@host:~$ sudo yum remove 'asgard2-agent*'
 
 DPKGs via ``apt-get`` 
 
-.. code:: bash 
+.. code:: console 
 
-   apt-get remove 'asgard2-agent*'
+   user@host:~$ sudo apt-get remove 'asgard2-agent*'
 
 Manual uninstall
 
-.. code:: bash
+.. code:: console
 
-   /usr/sbin/asgard2-agent-amd64 stop
-   /usr/sbin/asgard2-agent-amd64 uninstall
-   rm -rf /usr/sbin/asgard2-agent-amd64
-   rm -rf /var/tmp/nextron/asgard2-agent
-   rm -rf /var/lib/nextron/asgard2-agent
+   root@host:~# /usr/sbin/asgard2-agent-amd64 stop
+   root@host:~# /usr/sbin/asgard2-agent-amd64 uninstall
+   root@host:~# rm -rf /usr/sbin/asgard2-agent-amd64
+   root@host:~# rm -rf /var/tmp/nextron/asgard2-agent
+   root@host:~# rm -rf /var/lib/nextron/asgard2-agent
 
 Uninstall ASGARD Agents on macOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: bash 
+.. code:: console 
 
-   sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
-   sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
+   user@mac:~$ sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
+   user@mac:~$ sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
 
 Uninstall ASGARD Service Controller
 ----------------------------------- 
@@ -1767,6 +1767,6 @@ If you want to uninstall the ASGARD Service Controller and Agent, see section :r
 
 If you only want to uninstall the ASGARD Service Controller execute:
 
-.. code:: winbatch
+.. code:: doscon
 
-    C:\Windows\System32\asgard2-agent\asgard2-agent_sc.exe -uninstall
+    C:\Windows\system32>C:\Windows\System32\asgard2-agent\asgard2-agent_sc.exe -uninstall

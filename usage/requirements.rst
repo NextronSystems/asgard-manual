@@ -328,18 +328,17 @@ Extract the ZIP and check the sha256 hash:
 
 On Linux
 
-.. code-block:: bash
+.. code:: console
 
-   $ sha256sum -c nextron-universal-installer.iso.sha256
+   user@host:~$ sha256sum -c nextron-universal-installer.iso.sha256
    nextron-universal-installer.iso: OK
 
 or in Windows command prompt
 
-.. code-block:: bat
+.. code:: doscon
 
     C:\Users\user\Desktop\asgard2-installer>type nextron-universal-installer.iso.sha256
     efccb4df0a95aa8e562d42707cb5409b866bd5ae8071c4f05eec6a10778f354b  nextron-universal-installer.iso
-
     C:\Users\user\Desktop\asgard2-installer>certutil -hashfile nextron-universal-installer.iso SHA256
     SHA256 hash of nextron-universal-installer.iso:
     efccb4df0a95aa8e562d42707cb5409b866bd5ae8071c4f05eec6a10778f354b
@@ -347,11 +346,11 @@ or in Windows command prompt
 
 or in powerhsell
 
-.. code-block:: powershell
+.. code:: ps1con
 
-    PS C:\Users\user\Desktop\asgard2-installer> type .\nextron-universal-installer.iso.sha256
+    PS C:\Users\user\Desktop\asgard2-installer>type .\nextron-universal-installer.iso.sha256
     efccb4df0a95aa8e562d42707cb5409b866bd5ae8071c4f05eec6a10778f354b  nextron-universal-installer.iso
-    PS C:\Users\user\Desktop\asgard2-installer> Get-FileHash .\nextron-universal-installer.iso
+    PS C:\Users\user\Desktop\asgard2-installer>Get-FileHash .\nextron-universal-installer.iso
 
     Algorithm       Hash                                                                   Path
     ---------       ----                                                                   ----
@@ -364,18 +363,18 @@ Extract the ZIP, `download the public signature <https://www.nextron-systems.com
 
 On Linux
 
-.. code-block:: bash
+.. code:: console
 
-    $ wget https://www.nextron-systems.com/certs/codesign.pem
-    $ openssl dgst -sha256 -verify codesign.pem -signature nextron-universal-installer.iso.sig nextron-universal-installer.iso
+    user@host:~$ wget https://www.nextron-systems.com/certs/codesign.pem
+    user@host:~$ openssl dgst -sha256 -verify codesign.pem -signature nextron-universal-installer.iso.sig nextron-universal-installer.iso
     Verified OK
 
 or in powershell
 
-.. code-block:: powershell
+.. code:: ps1con
 
-    C:\Users\user\Desktop\asgard2-installer> Invoke-WebRequest -Uri https://www.nextron-systems.com/certs/codesign.pem -OutFile codesign.pem
-    C:\Users\user\Desktop\asgard2-installer>"C:\Program Files\OpenSSL-Win64\bin\openssl.exe" dgst -sha256 -verify codesign.pem -signature nextron-universal-installer.iso.sig nextron-universal-installer.iso
+    PS C:\Users\user\Desktop\asgard2-installer>Invoke-WebRequest -Uri https://www.nextron-systems.com/certs/codesign.pem -OutFile codesign.pem
+    PS C:\Users\user\Desktop\asgard2-installer>"C:\Program Files\OpenSSL-Win64\bin\openssl.exe" dgst -sha256 -verify codesign.pem -signature nextron-universal-installer.iso.sig nextron-universal-installer.iso
     Verified OK 
 
 .. note::

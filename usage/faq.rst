@@ -5,7 +5,7 @@ Scheduled Scans do not run at the correct time
 ----------------------------------------------
 In some cases the timezone during the installation of the server image might not be correct. To see if you have this problem in your current installation, please log into your server and execute the following command:
 
-.. code::
+.. code:: console
 
     nextron@asgard:~$ timedatectl
                    Local time: Mon 2022-10-24 09:52:03 BST
@@ -22,7 +22,7 @@ List all the timezones with ``timedatectl list-timezones``. If you want to searc
 
 Now that you have the correct timezone you can set it the following way:
 
-.. code::
+.. code:: console
 
 	nextron@asgard:~$ sudo timedatectl set-timezone Europe/Prague
 	nextron@asgard:~$ timedatectl
