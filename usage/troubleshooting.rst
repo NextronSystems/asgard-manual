@@ -89,7 +89,7 @@ If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, yo
 It is also recommended to redeploy the ASGARD Service Controller.
 
 - To uninstall the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Uninstall ASGARD Service Controller`.
-- To install the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Service Controller Installation`
+- To install the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Service Controller Installation`. You need to wait a few minutes until the asset is connected to your ASGARD before you continue with this step. Please note that you might need to accept the ``Asset Request``.
 
 SSL Interception
 ----------------
