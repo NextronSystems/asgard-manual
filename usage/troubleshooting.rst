@@ -45,7 +45,7 @@ On Linux, open a shell as root (sudo).
 
 .. code:: console
 
-   nextron@asgard~$ sudo su -
+   nextron@asgard:~$ sudo su -
    [sudo] password for nextron: 
    root@asgard:~# 
    root@asgard:~# export GRPC_GO_LOG_SEVERITY_LEVEL=info
@@ -139,13 +139,13 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
  .. code:: console
 
-   user@somehost~$ ssh nextron@YOURASGARDSERVER
+   user@somehost:~$ ssh nextron@YOURASGARDSERVER
 
 * Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
 
  .. code:: console
 
-   nextron@asgard~$ nano fix-fqdn.sh
+   nextron@asgard:~$ nano fix-fqdn.sh
 
  Change the HOST and DOMAIN variable , make sure that the resulting FQDN is resolvable by the endpoints you deploy the agent to later.
 
@@ -175,14 +175,14 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
  .. code:: console
 
-   nextron@asgard~$ chmod +x fix-fqdn.sh
+   nextron@asgard:~$ chmod +x fix-fqdn.sh
 
 
 * Execute the script
 
  .. code:: console
 
-   nextron@asgard~$ sudo ./fix-fqdn.sh
+   nextron@asgard:~$ sudo ./fix-fqdn.sh
 
 Once the script has been executed the ASGARD service should be restarted.
 
@@ -190,7 +190,7 @@ Once the script has been executed the ASGARD service should be restarted.
 
  .. code:: console
 
-   nextron@asgard~$ sudo systemctl restart asgard2
+   nextron@asgard:~$ sudo systemctl restart asgard2
 
 You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
 
@@ -227,13 +227,13 @@ ASGARD ships with a self-signed certificate for its web interface that expires a
 
 .. code:: console
 
-   nextron@asgard~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
+   nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
 
 You need to restart ASGARD in order for the changes to take effect.
 
 .. code:: console
 
-   nextron@asgard~$ sudo systemctl restart asgard2.service
+   nextron@asgard:~$ sudo systemctl restart asgard2.service
 
 Regenerate ASGARD Server Certififcate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -242,7 +242,7 @@ In order to reset the certificate that ASGARD uses to communicate with the agent
 
 .. code:: console 
 
-   nextron@asgard~$ su asgard2 -s /bin/sh <<'EOF'
+   nextron@asgard:~$ su asgard2 -s /bin/sh <<'EOF'
    openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=ASGARD Management Center" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
    openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
    EOF

@@ -137,7 +137,7 @@ If you use the default installer without any modifications you can run the follo
 
 .. code:: console
 
-   nextron@asgard~$ sudo asgard2-repacker
+   nextron@asgard:~$ sudo asgard2-repacker
 
 Or you can execute the agent installer update from within the WebUI at ``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
 
@@ -182,7 +182,7 @@ Example: In order to create an installer for servers that initially show up in A
 
 .. code:: console
 
-   nextron@asgard~$ sudo asgard2-repacker -label SQL-Servers
+   nextron@asgard:~$ sudo asgard2-repacker -label SQL-Servers
 
 Your newly generated agents will show up in ``/var/lib/nextron/asgard2/installer`` and will immediately be available for download from the login page. You can store multiple custom agents under ``/var/lib/nextron/asgard2/installer/``. In this case all agents will be available for download from ASGARDs login page.
 
@@ -192,7 +192,7 @@ You can obfuscate the default asgard2-agent name with a custom one. The chosen n
 
 .. code:: console
 
-   nextron@asgard~$ sudo asgard2-repacker -name javax
+   nextron@asgard:~$ sudo asgard2-repacker -name javax
 
 This command will create a new agent for all operating systems. This is specially designed for cases where an agent obfuscation is required.
 
@@ -200,7 +200,7 @@ An installed agent with the name "javax" would look like this:
 
 .. code-block:: console
 
-   nextron@asgard~$ systemctl status javax
+   nextron@asgard:~$ systemctl status javax
    javax.service
    Loaded: loaded (/etc/systemd/system/javax.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2020-xx-xx 16:47:22 CET; 5s ago
@@ -217,7 +217,7 @@ If you've lost the password of the local ``admin`` user (Web GUI) but still have
 
 .. code-block:: console 
 
-   nextron@asgard~$ sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
+   nextron@asgard:~$ sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
 
 This resets the password to ``admin``. You should then change that password immediately. 
 
@@ -234,7 +234,7 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 
 .. code:: console 
 
-   nextron@asgard~$ sudo asgard2-backup
+   nextron@asgard:~$ sudo asgard2-backup
    Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
    tar: Removing leading '/' from member names
    tar: Removing leading '/' from hard link targets
@@ -245,9 +245,9 @@ If you want to transfer the backup to a different system, make sure to copy the 
 
 .. code:: console
 
-   nextron@asgard~$ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
-   nextron@asgard~$ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
-   nextron@asgard~$ ls -l
+   nextron@asgard:~$ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
+   nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
+   nextron@asgard:~$ ls -l
    total 596496
    -rw-r--r-- 1 nextron nextron 309217280 Nov  1 12:01 20200427-1553.tar
 
@@ -260,9 +260,9 @@ You can use the ``asgard2-restore`` command to restore a backup.
 
 .. code:: console
 
-   nextron@asgard~$ sudo asgard2-restore
+   nextron@asgard:~$ sudo asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
-   nextron@asgard~$ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
+   nextron@asgard:~$ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
    Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
    done.
    etc/nextron/asgard2/
@@ -289,13 +289,13 @@ Remote Console on connected endpoints can be disabled centrally by creating the 
 
 .. code:: console
 
-   nextron@asgard~$ sudo touch /etc/nextron/asgard2/disable_console
+   nextron@asgard:~$ sudo touch /etc/nextron/asgard2/disable_console
 
 
 To re-enable Remote Console simply remove the created file
 
 .. code:: console
 
-   nextron@asgard~$ sudo rm /etc/nextron/asgard2/disable_console
+   nextron@asgard:~$ sudo rm /etc/nextron/asgard2/disable_console
 
 
