@@ -9,7 +9,7 @@ Internal Agent Debugging
 
 Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true. The file can be found in ``C:\Windows\System32\asgard2-agent\`` or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
 
-.. code::
+.. code-block::
 
    write_log: true
 
@@ -22,14 +22,14 @@ Go Debug Logging
 
 On Windows, open the cmd.exe as Administrator. Set some environment variables.
 
-.. code:: doscon 
+.. code-block:: doscon 
 
    C:\Windows\system32>set GRPC_GO_LOG_SEVERITY_LEVEL=info
    C:\Windows\system32>set GODEBUG=http2debug=2
 
 Navgiate into the agent's program directory and start it to see all output messages.
 
-.. code:: doscon 
+.. code-block:: doscon 
 
    C:\Windows\system32>sc stop asgard2-agent
    C:\Windows\system32>cd C:\Windows\system32\asgard2-agent\
@@ -37,13 +37,13 @@ Navgiate into the agent's program directory and start it to see all output messa
 
 Interrupt the agent with ``CTRL+C``. Don't forget to start the Windows service after the debugging session. 
 
-.. code:: doscon
+.. code-block:: doscon
 
    C:\Windows\system32\asgard2-agent>sc start asgard2-agent
 
 On Linux, open a shell as root (sudo). 
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo su -
    [sudo] password for nextron: 
@@ -53,7 +53,7 @@ On Linux, open a shell as root (sudo).
 
 Navgiate into the agent's program directory and start it to see all output messages.
 
-.. code:: console 
+.. code-block:: console 
 
    root@asgard:~# systemctl stop asgard2-agent
    root@asgard:~# cd /var/lib/asgard2-agent/
@@ -61,7 +61,7 @@ Navgiate into the agent's program directory and start it to see all output messa
 
 Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service after the debugging session. 
 
-.. code:: console 
+.. code-block:: console 
 
    root@asgard:/var/lib/asgard2-agent# systemctl start asgard2-agent
 
@@ -96,7 +96,7 @@ SSL Interception
 
 Using a web proxy with TLS/SSL interception will break the installation routine and shows this error:
 
-.. code::
+.. code-block::
 
    Certificate verification failed: The certificate is NOT trusted. The certificate issuer is unknown.  Could not handshake: Error in the certificate verification.
 
@@ -123,7 +123,7 @@ The most important problem is that ASGARD Agents that install on end systems wil
 Errors that appear in these cases 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: 
+.. code-block:: 
 
    Apr 23 12:07:12 debian10-dev/10.10.30.118 ASGARD_AGENT: Error: could not run: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: x509: certificate is valid for wrong-fqdn, not asgard.nextron.internal"
 
@@ -137,19 +137,19 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
 * Connect via SSH to the system.
 
- .. code:: console
+ .. code-block:: console
 
    user@somehost:~$ ssh nextron@YOURASGARDSERVER
 
 * Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
 
- .. code:: console
+ .. code-block:: console
 
    nextron@asgard:~$ nano fix-fqdn.sh
 
  Change the HOST and DOMAIN variable , make sure that the resulting FQDN is resolvable by the endpoints you deploy the agent to later.
 
- .. code:: bash
+ .. code-block:: bash
 
    #!/bin/bash
    # VARIABLES
@@ -173,14 +173,14 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
 * Give the created script execution permissions
 
- .. code:: console
+ .. code-block:: console
 
    nextron@asgard:~$ chmod +x fix-fqdn.sh
 
 
 * Execute the script
 
- .. code:: console
+ .. code-block:: console
 
    nextron@asgard:~$ sudo ./fix-fqdn.sh
 
@@ -188,7 +188,7 @@ Once the script has been executed the ASGARD service should be restarted.
 
 * Restart the service
 
- .. code:: console
+ .. code-block:: console
 
    nextron@asgard:~$ sudo systemctl restart asgard2
 
@@ -204,7 +204,7 @@ ASGARD noticed that the THOR scan failed
 
 In some cases THOR fails to complete its scan and ASGARD reports the following error. 
 
-.. code:: 
+.. code-block:: 
 
    ASGARD noticed that the THOR scan failed 
 
@@ -225,13 +225,13 @@ Web GUI: Regenerate the Self-Signed Certificate
 
 ASGARD ships with a self-signed certificate for its web interface that expires after 182 days. If you do not use your own CA infrastructure and want to renew the certificate or want to revert from a broken state, you can recreate a self-signed certificate. To do so log in using SSH and execute:
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
 
 You need to restart ASGARD in order for the changes to take effect.
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo systemctl restart asgard2.service
 
@@ -240,7 +240,7 @@ Regenerate ASGARD Server Certififcate Agent Communication
 
 In order to reset the certificate that ASGARD uses to communicate with the agents, use the following commands. The agent should immediately trust the new certificate, as it was generated using the CA they already trust. 
 
-.. code:: console 
+.. code-block:: console 
 
    nextron@asgard:~$ su asgard2 -s /bin/sh <<'EOF'
    openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=ASGARD Management Center" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr

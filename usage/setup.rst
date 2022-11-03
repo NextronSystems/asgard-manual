@@ -144,11 +144,11 @@ Change IP Address
 
 ASGARD's IP can be changed in **/etc/network/interfaces**. The IP is configured with the address variable.
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo vi /etc/network/interfaces
 
-.. code::
+.. code-block::
 
    auto ens32
    iface ens32 inet static

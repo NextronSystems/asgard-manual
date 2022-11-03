@@ -20,18 +20,18 @@ Example with API endpoint ``/playbooks/search``:
 
     Non-working curl example:
 
-    .. code::
+    .. code-block:: console
 
-       curl -X 'GET' \
+       user@host:~$ curl -X 'GET' \
          'https://asgard.local:8443/api/v1/playbooks/search?limit=1' \
          -H 'accept: application/json'
 
 
     Working curl example:
 
-    .. code::
+    .. code-block:: console
 
-       curl -X 'GET' \
+       user@host:~$ curl -X 'GET' \
          'https://asgard.local:8443/api/v1/playbooks/search?limit=1' \
          -H 'accept: application/json' \
          -H 'Authorization: <your-API-key>'
@@ -120,15 +120,15 @@ No workaround required. Regardless of the message the package installation compl
 
 You can avoid the error messages using this command: 
 
-.. code-block:: bash 
+.. code-block:: console 
 
-    yum install --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
+    user@host:~$ sudo yum install --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
 For an unattended installation (no user interaction) use:
 
-.. code-block:: bash
+.. code-block:: console
 
-    yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
+    user@host:~$ sudo yum install -y --forcearch amd64 ./asgard2-agent-linux-amd64.rpm
 
 AMC#004: Workaround 2
 ~~~~~~~~~~~~~~~~~~~~~
@@ -137,10 +137,10 @@ You can build a new RPM package and use it for automated installations.
 
 Log into the Asgard server which should be used by the clients to connect to and execute the following steps:
 
-.. code-block:: bash
+.. code-block:: console
 
-    sudo -u asgard2 -s # Open a shell with the access rights of the asgard2 user
-    rpmbuild --target x86_64 --buildroot /var/lib/nextron/asgard2/templates/rpm/BUILDROOT/x86_64 -bb /var/lib/nextron/asgard2/templates/rpm/SPECS/asgard2-agent-amd64.spec
+    nextron@asgard:~$ sudo -u asgard2 -s # Open a shell with the access rights of the asgard2 user
+    asgard2@asgard:~$ rpmbuild --target x86_64 --buildroot /var/lib/nextron/asgard2/templates/rpm/BUILDROOT/x86_64 -bb /var/lib/nextron/asgard2/templates/rpm/SPECS/asgard2-agent-amd64.spec
 
 Use the following file instead of the RPM from the Agent Download section in the Asgard UI:
 
@@ -148,11 +148,11 @@ Use the following file instead of the RPM from the Agent Download section in the
 
 When using ``scp`` to transfer the file from the server, you will need to copy the file to a directoy that is accessible by the ``nextron`` user. You also need to change the file permissions. One possibility to achive this is to use the following commands:
 
-.. code-block:: bash
+.. code-block:: console
 
-    exit # close the session of the asgard2 user if still open
-    sudo cp /var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm /home/nextron/
-    sudo chown nextron:nextron /home/nextron/asgard2-agent-1-1.0.0.x86_64.rpm
+    asgard2@asgard:~$ exit # close the session of the asgard2 user if still open
+    nextron@asgard:~$ sudo cp /var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm /home/nextron/
+    nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/asgard2-agent-1-1.0.0.x86_64.rpm
 
 The resulting RPM should no longer cause the described "unsupported architecture" error message when it is used with ``yum`` or ``dnf``.
 
@@ -201,17 +201,17 @@ These files have to be located on the target asset as follows
 
 Afterwards the installation is done by running:
 
-.. code-block:: bash
+.. code-block:: console
 
-    /var/lib/asgard2-agent/asgard2-agent -install
+    user@host:~$ sudo /var/lib/asgard2-agent/asgard2-agent -install
 
 To uninstall the ASGARD agent without using the RPM package the following steps can be used:
 
-.. code-block:: bash
+.. code-block:: console
 
-    /var/lib/asgard2-agent/asgard2-agent -uninstall
-    rm /usr/sbin/asgard2-agent-service
-    rm -Rf /var/lib/asgard2-agent/
+    user@host:~# sudo /var/lib/asgard2-agent/asgard2-agent -uninstall
+    user@host:~# sudo rm /usr/sbin/asgard2-agent-service
+    user@host:~# sudo rm -Rf /var/lib/asgard2-agent/
 
 AMC#004: Status
 ~~~~~~~~~~~~~~~

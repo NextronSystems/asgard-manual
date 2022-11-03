@@ -348,7 +348,7 @@ Check that the new agent has been transferred to the old ASGARD version 1.x Serv
 Sign the new agents in order to be able to distribute them via GRR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. code:: bash
+.. code-block:: bash
 
    sudo grr_config_updater upload_exe --file asgard2-agent-windows-amd64.exe --dest_path aff4:/yourasgardv1.domain/asgard2-agent-windows-amd64.exe --platform windows --arch amd64
    
@@ -433,7 +433,7 @@ For migrating Linux hosts please create a shell script and follow the above proc
 
 An example shell script for Debian based systems could look like this:
 
-.. code:: bash 
+.. code-block:: bash 
 
    #!/bin/bash
    cd /tmp
@@ -452,7 +452,7 @@ For migrating macOS hosts please create a shell script and follow the above proc
 
 An example shell script for macOS based systems could look like this:
 
-.. code:: bash
+.. code-block:: bash
 
    #!/bin/bash
    cd /tmp

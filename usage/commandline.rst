@@ -135,7 +135,7 @@ You need to update the agent installer as well, so that newly added assets will 
 
 If you use the default installer without any modifications you can run the following command to update the agent installers:
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-repacker
 
@@ -180,7 +180,7 @@ Proxies to be used by agents comma separated list, e.g. ``[proxy1.nextron:3128,p
 
 Example: In order to create an installer for servers that initially show up in ASGARD with the label ``SQL-Servers`` use:
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-repacker -label SQL-Servers
 
@@ -190,7 +190,7 @@ You can obfuscate the default asgard2-agent name with a custom one. The chosen n
 
 ``-name string``
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-repacker -name javax
 
@@ -232,7 +232,7 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 * Playbook results (collected evidence)
 * Quarantined samples (Bifrost)
 
-.. code:: console 
+.. code-block:: console 
 
    nextron@asgard:~$ sudo asgard2-backup
    Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
@@ -243,7 +243,7 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
 
 If you want to transfer the backup to a different system, make sure to copy the ``.tar`` file to the home directory of the ``nextron`` user and change the permissions:
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
    nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
@@ -258,7 +258,7 @@ Restore
 
 You can use the ``asgard2-restore`` command to restore a backup.
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-restore
    Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
@@ -287,14 +287,14 @@ Disable Remote Console Globally
 -------------------------------
 Remote Console on connected endpoints can be disabled centrally by creating the following file. 
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo touch /etc/nextron/asgard2/disable_console
 
 
 To re-enable Remote Console simply remove the created file
 
-.. code:: console
+.. code-block:: console
 
    nextron@asgard:~$ sudo rm /etc/nextron/asgard2/disable_console
 
