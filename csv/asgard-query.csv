@@ -1,0 +1,21 @@
+Key;Column Name
+arch;Arch
+client;Agent Version
+client_sc;Service Controller Version
+first_seen;First Seen
+fqdn;FQDN
+hostname;Hostname
+id;ID
+interfaces;Network Interfaces
+is_domain_controller;DC
+labels;Labels
+last_scan_completed;Last Scan Completed
+last_seen_agent;Last Seen Agent
+last_seen;Last Seen
+last_seen_sc;Last Seen Service Controller
+nextping;Fast Poll
+ping_interval;Poll Interval
+system;OS
+total_memory;Total Memory
+uptime;Uptime
+version;OS Version

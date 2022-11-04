@@ -29,8 +29,7 @@ author = 'Stephan Kaiser, Florian Roth, Christian Burkard'
 # ones.
 extensions = [
     'recommonmark',
-    'sphinx.ext.autosectionlabel',
-    'linuxdoc.rstFlatTable'
+    'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

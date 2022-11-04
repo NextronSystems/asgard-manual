@@ -214,53 +214,71 @@ Asset Query
 
 You can search for Assets in your ASGARD with the Asset Query. This allows you to write more complex queries to search for assets.
 
-.. flat-table::
+.. list-table::
    :header-rows: 1
    :widths: 30, 70
 
    * - Operator
      - Example
-   * - :rspan:`1` **Equals**
+   * - **Equals**
      - hostname = "win10-dev"
-   * - cpu_count = 1
+   * - **Equals** 
+     - cpu_count = 1
    * - **Contains**
      - hostname contains "win"
    * - **Begins With**
      - hostname begins with "win"
    * - **Ends With**
      - hostname ends with "dev"
-   * - :rspan:`5` **Numerical Comparison**
+   * - **Numerical Comparison**
      - total_memory >= 4 GB
-   * - last_seen < 3 days ago (assets that have not been seen since 3 days)
-   * - last_seen > 1 hour ago (assets that have been seen in the last hour)
-   * - last_scan_completed < 2022-08-17 (assets that have not been scanned since 2022-08-17)
-   * - last_scan_completed < 2022-08-17 15:00:00 (assets that have not been scanned since 2022-08-17 15:00:00)
-   * - last_scan_completed is never
+   * - **Numerical Comparison**
+     - last_seen < 3 days ago (assets that have not been seen since 3 days)
+   * - **Numerical Comparison**
+     - last_seen > 1 hour ago (assets that have been seen in the last hour)
+   * - **Numerical Comparison**
+     - last_scan_completed < 2022-08-17 (assets that have not been scanned since 2022-08-17)
+   * - **Numerical Comparison**
+     - last_scan_completed < 2022-08-17 15:00:00 (assets that have not been scanned since 2022-08-17 15:00:00)
+   * - **Numerical Comparison**
+     - last_scan_completed is never
    * - **Boolean**
      - is_domain_controller is true
-   * - :rspan:`1` **Not**
+   * - **Not**
      - not hostname contains "win"
-   * - not hostname ends with "dev"
+   * - **Not**
+     - not hostname ends with "dev"
    * - **And**
      - hostname contains "win" and not hostname ends with "dev"
    * - **Or**
      - hostname begins with "dev" or hostname ends with "dev"
    * - **Nested**
      - hostname ends with "dev" and (hostname contains "win" or hostname contains "lin")
-   * - :rspan:`1` **Set / Not Set**
+   * - **Set / Not Set**
      - labels is set (assets that have at least one label)
-   * - labels is not set (assets that have no labels)
+   * - **Set / Not Set**
+     - labels is not set (assets that have no labels)
    * - **Regular Expression**
      - hostname matches "^[a-z0-9]{(0,6)}$"
-   * - :rspan:`2` **Pattern**
+   * - **Pattern**
      - **Use _ to match any single character and % to match an arbitrary number of characters, including zero characters.**
-   * -  arch like "a__64" (matches amd64 and arm64, but not aarch64)
-   * -  arch like "%64" (all 64 bit systems, e.g. amd64, arm64, aarch64 or ppc64)
+   * - **Pattern**
+     -  arch like "a__64" (matches amd64 and arm64, but not aarch64)
+   * - **Pattern**
+     -  arch like "%64" (all 64 bit systems, e.g. amd64, arm64, aarch64 or ppc64)
    * - **IP Range**
      - interfaces = "172.28.30.1/24"
 
 .. note::
    Optionally: You can also create group tasks with an asset query instead of labels
+
+The following keys for the asset query are available:
+
+.. csv-table::
+     :file: ../csv/asgard-query.csv
+     :widths: 50, 50
+     :delim: ;
+     :header-rows: 1
 
 Asset Migration
 ^^^^^^^^^^^^^^^
