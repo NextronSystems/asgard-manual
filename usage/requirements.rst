@@ -189,6 +189,11 @@ DNS
 
 ASGARD needs to be able to resolve internal and external IP addresses.
 
+.. warning:: 
+  Please make sure that you install your ASGARD with a **domain name** (see `the following image <../_images/setup_network7.png>`_). If you do not set the Domain Name and install the ASGARD package, your clients won't be able to connect to your ASGARD.
+
+  All components you install should have a proper domain name configured to avoid issues further during the configuration.
+
 Antivirus or EDR Exclusions
 ---------------------------
 

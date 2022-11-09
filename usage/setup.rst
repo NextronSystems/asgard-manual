@@ -88,7 +88,7 @@ If DHCP is available, network parameters will be configured automatically. Witho
    :alt: Configure the network
 
 .. warning::
-   **Important:** Make sure that the combination of hostname and domain creates an FQDN that can be resolved from the endsystems on which you intend to install the ASGARD agents. If you've configured a FQDN (hostname + domain) that cannot be resolved on the clients, no agent will be able to find and reconnect to the ASGARD server. 
+   **Important:** Make sure that the combination of hostname and domain creates an FQDN that can be resolved from the endsystems on which you intend to install the ASGARD agents. If you've configured a FQDN (hostname + domain) that cannot be resolved on the clients, no agent will be able to find and connect to the ASGARD server. 
 
 .. figure:: ../images/setup_network7.png
    :target: ../_images/setup_network7.png
