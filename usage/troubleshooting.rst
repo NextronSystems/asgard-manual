@@ -247,6 +247,17 @@ In order to reset the certificate that ASGARD uses to communicate with the agent
    openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
    EOF
 
+Admin User Password Reset 
+-------------------------
+
+If you've lost the password of the local ``admin`` user (Web GUI) but still have access the system via SSH, you can reset it via command line using the following command. 
+
+.. code-block:: console 
+
+   nextron@asgard:~$ sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
+
+This resets the password to ``admin``. You should then change that password immediately.
+
 Reset Multi Factor Authentication for a specific user
 -----------------------------------------------------
 
