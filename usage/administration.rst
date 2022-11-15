@@ -1732,6 +1732,7 @@ Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: doscon
+   :linenos:
 
    C:\Windows\system32>sc stop asgard2-agent
    C:\Windows\system32>sc delete asgard2-agent

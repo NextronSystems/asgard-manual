@@ -1,6 +1,57 @@
 Appendix
 ========
 
+Deploy ASGARD Agents via SCCM
+-----------------------------
+
+To deploy the ASGARD Agent (or any other .exe installer) via SCCM, you have to write a Powershell script with a few conditions to mark an installation correctly as successfull or failed.
+
+Please refer to Microsoft's `"Create applications in Configuration Manager" <https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods>`_ .
+
+.. code-block:: powershell
+   :linenos:
+
+   # Get current directory
+   $scriptpath = $MyInvocation.MyCommand.Path
+   $dir = Split-Path $scriptpath
+
+   # Run the installer
+   $installer = "asgard2-agent-windows-amd64.exe"
+   Start-Process -Wait -FilePath "$dir\$installer" -WorkingDirectory $dir -WindowStyle Hidden -PassThru
+
+   # Timeout just to make sure the service is up and running
+   Timeout /T 15
+
+   # If the service exists, the script writes console output and exits with code 0
+   # If the service does not exist, the script writes an error output and exits with code 1
+   # See https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods
+   
+   $servicename = "asgard2-agent"
+   if (Get-Service -Name $servicename -ErrorAction SilentlyContinue) {
+      Write-Host "ASGARD Agent installed"
+      exit 0
+   } else {
+      $Host.UI.WriteErrorLine("ASGARD Agent not installed")
+      exit 1
+   }
+
+.. warning::
+   This is just an example script which should work with SCCM. If you encounter any problems, refer to the link provided above for additional information.
+
+SCCM Applications can also use a script to detect the Deployment. You can use this part of the script to detect if the installation was successful:
+
+.. code-block:: powershell
+   :linenos:
+
+   $servicename = "asgard2-agent"
+   if (Get-Service -Name $servicename -ErrorAction SilentlyContinue) {
+      Write-Host "ASGARD Agent installed"
+      exit 0
+   } else {
+      $Host.UI.WriteErrorLine("ASGARD Agent not installed")
+      exit 1
+   }
+
 Install TLS certificates on ASGARD and MASTER ASGARD
 ----------------------------------------------------
 
