@@ -139,10 +139,10 @@ The output should look like the screenshot below with status ``Active``.
 
 Installation is complete, you are ready to log into the web-based GUI.
 
-Change IP Address
------------------
+Changing the IP-Address
+-----------------------
 
-ASGARD's IP can be changed in **/etc/network/interfaces**. The IP is configured with the address variable.
+ASGARD's IP-Address can be changed in **/etc/network/interfaces**. The IP is configured with the address variable.
 
 .. code-block:: console
 
