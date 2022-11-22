@@ -2,9 +2,14 @@
 MASTER ASGARD
 =============
 
-MASTER ASGARD is a single central management console that can control all of your ASGARD systems. It is meant to centrally manage controlled scans on all your ASGARD systems. MASTER ASGARD also provides one central point of management for your Response Playbooks, Evidence Collection and IOC Management. 
+MASTER ASGARD is a single central management console that can control all of your ASGARD systems.
+It is meant to centrally manage controlled scans on all your ASGARD systems.
+MASTER ASGARD also provides one central point of management for your Response Playbooks, Evidence Collection and IOC Management. 
 
-Since MASTER ASGARD version 2, you install a MASTER ASGARD by promoting a bare ASGARD system with the installation of a special license. After the MASTER ASGARD license installation many functions offer additional options. However from that moment onwards, your MASTER ASGARD controls all endpoints connected to all linked ASGARD systems. 
+Since MASTER ASGARD version 2, you install a MASTER ASGARD by promoting a
+bare ASGARD system with the installation of a special license. After the MASTER ASGARD license
+installation many functions offer additional options. However from that moment onwards, your
+MASTER ASGARD controls all endpoints connected to all linked ASGARD systems. 
 
 Hardware Requirements for MASTER ASGARD
 ---------------------------------------
@@ -32,7 +37,7 @@ Once you connect ASGARD systems with MASTER ASGARD, the licensing sections on co
 Setting up MASTER ASGARD
 ------------------------
 
-The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center. 
+The setup procedure for MASTER ASGARD is identical to the setup procedure for ASGARD Management Center, see :ref:`usage/setup:setup guide`.
 Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER ASGARD v2 through a special license upload.
 
 .. note::
