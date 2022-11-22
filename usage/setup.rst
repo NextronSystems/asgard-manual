@@ -1,9 +1,9 @@
 
-Quick Setup Guide
-=================
+Setup Guide
+===========
 
-Setup a New ESX VM and Mount the ISO
-------------------------------------
+Set up a New ESX VM and Mount the ISO
+-------------------------------------
 
 Create a new VM with your virtualization software. In this case, we will use VMWare ESX managed through a VMWare VCenter.
 
