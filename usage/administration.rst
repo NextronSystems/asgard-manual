@@ -1162,7 +1162,13 @@ After that, click on an entry in the table to expand it. There you get informati
 
    Buttons to Add/Remove IOC Groups
 
-Those rulesets can be selected in the "Custom Signature" field while creating a new scan job. If a ruleset is selected, the scan will include all custom IOCs included in IOC Groups which have been added to this ruleset. You can also select more than one ruleset.
+Scan only with Custom IOCs
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Those rulesets can be selected in the "IOC Rulesets" field while creating a new scan job.
+If a ruleset is selected, the scan will include all custom IOCs included in IOC Groups which have been added to this ruleset. You can also select more than one ruleset.
+
+The THOR scan would be performed with the default settings and the custom ruleset, the default signatures would not be applied.
 
 .. figure:: ../images/select-ruleset.png
    :target: ../_images/select-ruleset.png
@@ -1170,6 +1176,8 @@ Those rulesets can be selected in the "Custom Signature" field while creating a 
 
    Select Ruleset while creating a scan job
 
+.. note::
+   To scan exclusively with the custom ruleset, the flag  `--customonly <https://thor-manual.nextron-systems.com/en/latest/usage/flags.html#feature-extras>`_ must be set.
 
 Integrating IOCs through MISP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
