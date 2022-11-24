@@ -105,6 +105,9 @@ The ASGARD agent can be directly downloaded from the ASGARD login screen through
 
 After installation, the endpoints will connect to ASGARD, register automatically and appear in the Asset Management Section in the tab ``Requests``. Please allow two or three minutes for systems to show up. The agents use the hostname to connect to ASGARD, ensure that your endpoints can resolve and reach the ASGARD hostname.
 
+.. note::
+   Full administrative privileges are required for the ASGARD agent and THOR to operate properly.
+
 In the requests tab, select the agents you want ASGARD to manage and click ``Accept``. After that, the endpoint shows up in the asset tab and is now ready to be managed or scanned.
 
 
