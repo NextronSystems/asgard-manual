@@ -239,3 +239,23 @@ AMC#005: Status
 ~~~~~~~~~~~~~~~
 
 Fixed in next ASGARD version. 
+
+
+AMC#006: Nested LDAP Groups not working
+---------------------------------------
+
+Using nested groups in your LDAP/AD will result in no users because the query will fail.
+
+AMC#006: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+Change your LDAP GroupFilter to the following:
+
+.. code-block:: none
+    
+    (&(objectCategory=group)(objectClass=group)(member:1.2.840.113556.1.4.1941:=%s))
+
+AMC#006: Status
+~~~~~~~~~~~~~~~
+
+Fixed in next ASGARD version.
