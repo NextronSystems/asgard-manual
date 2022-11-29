@@ -101,7 +101,7 @@ Asset Management in MASTER ASGARD is very similar to the asset management in ASG
 The only differences are:
 
 * ASGARD column shows to which ASGARD system the endpoint is connected
-* Only CSV export is allow (asset labeling via CSV import is unavailable)
+* Only CSV export is allowed (asset labeling via CSV import is unavailable)
 
 IOC Management
 --------------
