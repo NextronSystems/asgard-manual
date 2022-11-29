@@ -63,7 +63,7 @@ Default Credentials
 Link ASGARD Systems with MASTER ASGARD 
 --------------------------------------
 
-On your ASGARD server, got to ``Settings`` > ``MASTER ASGARD``, generate a one-time code and copy it. 
+On your ASGARD server, go to ``Settings`` > ``MASTER ASGARD``, generate a one-time code and copy it. 
 
 .. figure:: ../images/link-master1.png
    :target: ../_images/link-master1.png
