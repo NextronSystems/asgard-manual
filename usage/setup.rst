@@ -59,6 +59,10 @@ The installation Process is started by clicking on ASGARD Graphical install. The
 
 If DHCP is available, network parameters will be configured automatically. Without DHCP, ASGARD drops into the manual network configuration dialogue. 
 
+Without DHCP, ASGARD proceeds with the manual network configuration dialogue.
+
+Network Configuration
+---------------------
 
 .. figure:: ../images/setup_network1.png
    :target: ../_images/setup_network1.png
@@ -94,9 +98,17 @@ If DHCP is available, network parameters will be configured automatically. Witho
    :target: ../_images/setup_network7.png
    :alt: Configure the network
 
+Choosing a password
+-------------------
+
 .. figure:: ../images/setup_password.png
    :target: ../_images/setup_password.png
    :alt: Set up users and passwords
+
+   Choosing a password for the ``nextron`` user
+
+Partitioning the Hard Disk
+--------------------------
 
 .. figure:: ../images/setup_disks1.png
    :target: ../_images/setup_disks1.png
@@ -108,15 +120,19 @@ Finally, write your configuration to the disk by selecting "Yes" and clicking "C
    :target: ../_images/setup_disks2.png
    :alt: Partition disks
 
-If you are using a proxy to access the internet, enter the proxy details in the next step. Please note, **Internet connectivity is required** for the next step – the installation of the ASGARD service. 
+Proxy Configuration
+-------------------
 
+If you are using a proxy to access the internet, enter the proxy details in the next step. Please note, **Internet connectivity is required** for the next step – the installation of the ASGARD service. 
 
 .. figure:: ../images/setup_proxy.png
    :target: ../_images/setup_proxy.png
    :alt: Finish the installation
 
+The base installation is now complete. In the next step we will install the ASGARD service. For this step **Internet connectivity is required**.
 
-The base installation is now complete. In the next step we’ll install the ASGARD service. For this step **Internet connectivity is required**.
+Install the ASGARD Management Center Services
+---------------------------------------------
 
 Use SSH to connect to the appliance using the user ``nextron`` and the password you specified during the installation (if you were using an old ISO to install the base system, the password is ``nextron``). Now you can run the following command: 
 
@@ -163,16 +179,16 @@ The new IP can be applied with the command **sudo systemctl restart networking**
 First steps in the VM
 ---------------------
 
-Change Password at the Command Line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Change the Command Line Password
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Login to ASGARD and type ``passwd`` in order to change the password for the default user ``nextron``. The default password is ``nextron``.
 
 .. warning::
-   This step is not necessary if you used the new installer ISO, since the password will be already set during installation.
+   This step is not necessary if you used the new installer ISO, since the password will be already set during installation (see :ref:`usage/setup:choosing a password`)
 
-Change Password for the web-based Interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Change the Web Password
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Login to the ASGARD Web interface with user ``admin`` and password ``admin``.
 
