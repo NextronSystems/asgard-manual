@@ -1729,7 +1729,10 @@ API Key
 
 This section also allows you to set and modify an API key. 
 
-Note that currently an API key always has the access rights of the user context in which it has been generated. If you want to create a restricted API key, add a new restricted user and generate an API key in the new user's context.  
+Note that currently an API key always has the access rights of the
+user context in which it has been generated. If you want to create a
+restricted API key, add a new restricted user and generate an API key
+in the new user's context.  
 
 Uninstall ASGARD Agents 
 -----------------------
@@ -1737,10 +1740,15 @@ Uninstall ASGARD Agents
 The following listings contain commands to uninstall ASGARD Agents on endpoints. 
 
 .. note::
-   The commands contain names used by the default installer packages. In cases in which you've generated custom installer packages with a custom service and binary name, adjust the commands accordingly. 
+   The commands contain names used by the default installer packages.
+   In cases in which you've generated custom installer packages with
+   a custom service and binary name, adjust the commands accordingly. 
 
 Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You need administrative privileges to remove the ASGARD Agent from Windows.
+Open a command prompt with administrative privileges and run the following commands:
 
 .. code-block:: doscon
    :linenos:
@@ -1749,7 +1757,8 @@ Uninstall ASGARD Agents on Windows
    C:\Windows\system32>sc delete asgard2-agent
    C:\Windows\system32>sc stop asgard2-agent_sc
    C:\Windows\system32>sc delete asgard2-agent_sc
-   C:\Windows\system32>del /F /Q C:\Windows\System32\asgard2-agent
+   C:\Windows\system32>rmdir /S /Q C:\Windows\System32\asgard2-agent
+   C:\Windows\system32>rmdir /S /Q C:\ProgramData\thor
 
 .. note::
    Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
@@ -1762,12 +1771,14 @@ RPMs via ``yum``
 .. code-block:: console 
 
    user@host:~$ sudo yum remove 'asgard2-agent*'
+   user@host:~$ sudo rm -rf /var/lib/thor
 
-DPKGs via ``apt-get`` 
+DPKGs via ``apt-get``
 
 .. code-block:: console 
 
    user@host:~$ sudo apt-get remove 'asgard2-agent*'
+   user@host:~$ sudo rm -rf /var/lib/thor
 
 Manual uninstall
 
@@ -1778,6 +1789,7 @@ Manual uninstall
    root@host:~# rm -rf /usr/sbin/asgard2-agent-amd64
    root@host:~# rm -rf /var/tmp/nextron/asgard2-agent
    root@host:~# rm -rf /var/lib/nextron/asgard2-agent
+   root@host:~# rm -rf /var/lib/thor
 
 Uninstall ASGARD Agents on macOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1786,6 +1798,7 @@ Uninstall ASGARD Agents on macOS
 
    user@mac:~$ sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
    user@mac:~$ sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
+   user@mac:~$ sudo rm -rf /var/lib/thor
 
 Uninstall ASGARD Service Controller
 ----------------------------------- 
