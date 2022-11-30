@@ -214,13 +214,17 @@ Use Case 2 - CSR Signing with an OpenSSL Based CA
 
 **Important**
 
-In order to avoid security warnings* on some browsers, the CA signing process needs to ensure to copy all Subject Alternative Name (SAN) from the CSR to the signed Certificate.
+In order to avoid security warnings [1]_ on some browsers, the CA signing
+process needs to ensure to copy all Subject Alternative Name (SAN) from the CSR to the signed Certificate.
 
-One way of including all extensions from the CSR to the new certificate, is via the ``openssl.cnf`` file, by setting the copy_extensions attribute to copy.
+One way of including all extensions from the CSR to the new certificate,
+is via the ``openssl.cnf`` file, by setting the ``copy_extensions`` attribute to copy.
 
 Example:
 
 .. code-block:: none
+   :linenos:
+   :emphasize-lines: 4
 
     [ CA_default ]
     
@@ -228,10 +232,11 @@ Example:
     copy_extensions = copy
     […]
 
-* These security warnings are result of an incomplete signing process where requested attributes from the CSR are not included in the signed certificates
+.. [1]
+   These security warnings are result of an incomplete signing process
+   where requested attributes from the CSR are not included in the signed certificates
 
 Prepare the CA certificate, CA private key and the certificate signing request
-
 
 .. figure:: ../images/csr1.png
    :target: ../_images/csr1.png
@@ -288,7 +293,7 @@ As a result, the signed certificate will be available with the indicated filenam
 
    Signing procedure – Locating the generated certificate
 
-As a last step, the generated certificate can be imported following the Certificate Import steps.
+As a last step, the generated certificate can be imported following the :ref:`usage/administration:tls certificate installation` steps.
 
 Agent Migration from ASGARD v1 to v2
 ------------------------------------

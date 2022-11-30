@@ -950,8 +950,9 @@ To change the Aurora configuration of an asset, navigate to ``Service Control`` 
 If you want to enable or disable the Aurora service on an asset, select it with the checkbox and use the ``Enable`` or ``Disable`` button or select the play or stop action icon on single assets.
 
 
-Creating a Custom Service Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a Custom Aurora Service Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuration``, enter a name and add the rulesets that should apply for this service configuration. No rulesets is a viable option, if you only want to use the non-sigma matching modules. You don't need to edit any other option as sane defaults are given.
 
 .. figure:: ../images/sc-aurora-custom-configuration.png
@@ -1097,8 +1098,8 @@ To enable the LogWatcher service for an asset, navigate to ``Service Control`` >
 
    Enable a Service Configuration
 
-Creating a Custom Service Configuration
-"""""""""""""""""""""""""""""""""""""""
+Creating a Custom Logwatcher Service Configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 A service configuration is used to group assets of similar type and assign them a set of rules (in form of rulesets). 
 
