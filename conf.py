@@ -67,5 +67,5 @@ smartquotes = False
 
 # Use :ref: for subsections
 autosectionlabel_prefix_document = True
-autosectionlabel_maxdepth = 4
+autosectionlabel_maxdepth = 5
 
