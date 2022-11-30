@@ -129,58 +129,144 @@ Used for THOR updates:
 - update1.nextron-systems.com
 - update2.nextron-systems.com
 
-We do not support setups in which the CA of the intercepting proxy is used on our ASGARD appliances. 
+We do not support setups in which the CA of the intercepting proxy
+is used on our ASGARD appliances. 
 
 Using Hostname instead of FQDN 
 ------------------------------
 
-The most common error is to define a simple hostname instead of a valid FQDN during installation. This happens in cases in which no domain name has been set in the setup step named "Configure the network". 
+The most common error is to define a simple hostname instead of a valid
+FQDN during installation. This happens in cases in which no domain name
+has been set in the setup step named "Configure the network". 
 
 This leads to a variety of different problems. 
 
-The most important problem is that ASGARD Agents that install on end systems will never be able to resolve and connect to the ASGARD server. 
+The most important problem is that ASGARD Agents that install on end
+systems will never be able to resolve and connect to the ASGARD server. 
 
 Errors that appear in these cases 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: 
+.. code-block:: none
 
-   Apr 23 12:07:12 debian10-dev/10.10.30.118 ASGARD_AGENT: Error: could not run: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: x509: certificate is valid for wrong-fqdn, not asgard.nextron.internal"
+   Apr 23 12:07:12 debian10-dev/10.10.30.118 ASGARD_AGENT: Error:
+   could not run: rpc error: code = Unavailable desc = connection
+   error: desc = "transport: authentication handshake failed: x509:
+   certificate is valid for wrong-fqdn, not asgard.nextron.internal"
 
 How to Fix an unset or wrong FQDN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The FQDN is set at installation time and is composed by the hostname and the domain name. The ASGARD Agents require a resolvable FQDN to correctly operate and connect to the ASGARD Server.
-One of the processes which are executed at installation time include the integration of the FQDN we set during installation into our agents. If we incorrectly set the FQDN or we leave any of those values empty , the agents will fail to connect to ASGARD.
+The FQDN is set at installation time and is composed by the hostname
+and the domain name. The ASGARD Agents require a resolvable FQDN to
+correctly operate and connect to the ASGARD Server.
+One of the processes which are executed at installation time include
+the integration of the FQDN we set during installation into our agents.
+If we incorrectly set the FQDN or we leave any of those values empty,
+the agents will fail to connect to ASGARD.
 
-With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal certificates and rebuild the agents.
+With this fix we'll set a new FQDN for the ASGARD Server, recreate
+the internal certificates and rebuild the agents.
 
-* Connect via SSH to the system.
+.. warning:: 
+   The used FQDN in this manual is just an example. Please use the
+   FQDN of your domain.
+
+Set a valid FQDN
+^^^^^^^^^^^^^^^^
+
+To set a valid FQDN for your ASGARD Management Center server, follow the steps below.
+We are assuming that your ASGARD Management Center has already a FQDN assigned
+via your local DNS servers and is resolvable.
+
+Connect via SSH to the ASGARD Management Center:
+
+.. code-block:: console
+
+  user@somehost:~$ ssh nextron@asgard-mc.example.org
+
+Edit the hosts file. Please be careful with the changes in this file,
+as this might make your system unusable!
+
+.. code-block:: console
+
+   nextron@asgard-mc:~$ sudoedit /etc/hosts
+   [sudo] password for nextron: 
+
+You need to change the following line (**do not change the IP-Address!**):
+
+.. code-block:: none
+   :linenos:
+   :emphasize-lines: 2
+
+   127.0.0.1       localhost
+   172.16.0.20     asgard-mc
+
+   # The following lines are desirable for IPv6 capable hosts
+   ::1     localhost ip6-localhost ip6-loopback
+   ff02::1 ip6-allnodes
+   ff02::2 ip6-allrouters
+
+To this (values are examples, please change accordingly!)
+
+.. code-block:: none
+   :linenos:
+   :emphasize-lines: 2
+
+   127.0.0.1       localhost
+   172.16.0.20     asgard-mc.example.org asgard-mc
+
+   # The following lines are desirable for IPv6 capable hosts
+   ::1     localhost ip6-localhost ip6-loopback
+   ff02::1 ip6-allnodes
+   ff02::2 ip6-allrouters
+
+.. note:: 
+   If you did not set a static IP-Address for your ASGARD Management Center
+   server, your IP-Address in the second line of the file might be ``127.0.1.1``.
+   This is due to your server using DHCP. It is adviced that you are using a 
+   static IP-Address. To change this, please see :ref:`usage/setup:changing the ip-address`.
+
+You can verify if the changes worked. Run the following commands and see the difference
+in the output:
+
+.. code-block:: console
+
+   nextron@asgard-mc:~$ hostname --fqdn
+   asgard-mc.example.org
+   nextron@asgard-mc:~$ hostname
+   asgard-mc
+
+If the first command shows the FQDN and the second one the hostname without domain,
+your changes were set up correctly and you can continue to the next step.
+
+Recreate the TLS Certificate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We need to recreate the TLS certificate to make the Agent communication possible again.
+
+Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
 
  .. code-block:: console
 
-   user@somehost:~$ ssh nextron@YOURASGARDSERVER
+   nextron@asgard-mc:~$ nano fix-fqdn.sh
 
-* Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
+Change the ``HOST`` and ``DOMAIN`` variable (marked lines), make sure that the resulting
+``FQDN`` is resolvable by the endpoints on which you deploy the agent to later.
+The FQDN should be identical to the value we set earlier in our ``hosts`` file.
 
- .. code-block:: console
-
-   nextron@asgard:~$ nano fix-fqdn.sh
-
- Change the HOST and DOMAIN variable , make sure that the resulting FQDN is resolvable by the endpoints you deploy the agent to later.
-
- .. code-block:: bash
+.. code-block:: bash
+   :linenos:
+   :emphasize-lines: 4-5
 
    #!/bin/bash
    # VARIABLES
    ############################################
-   HOST="asgard"
-   DOMAIN="internaldomain.net"
+   HOST="asgard-mc"
+   DOMAIN="example.org"
    FQDN=$HOST.$DOMAIN
    CLIENTCERTVALIDITY=36500
    ############################################
-   hostnamectl set-hostname "$FQDN"
-
    openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
 
    openssl req -newkey rsa:4096 -nodes -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
@@ -189,32 +275,29 @@ With this fix we'll set a new FQDN for the ASGARD Server , recreate the internal
 
    asgard2-repacker -host $FQDN
 
-* After changing the variables to the desired values , save the file. This can be done in "nano" pressing CTRL + X and confirming the changes
+After changing the variables to the desired values, save the file.
+In ``nano`` this can be done in by pressing ``CTRL + X`` and confirming the changes with ``y``.
 
-* Give the created script execution permissions
+Give the created script execution permissions and execute it:
 
- .. code-block:: console
+.. code-block:: console
 
-   nextron@asgard:~$ chmod +x fix-fqdn.sh
-
-
-* Execute the script
-
- .. code-block:: console
-
-   nextron@asgard:~$ sudo ./fix-fqdn.sh
+   nextron@asgard-mc:~$ chmod +x fix-fqdn.sh
+   nextron@asgard-mc:~$ sudo ./fix-fqdn.sh
 
 Once the script has been executed the ASGARD service should be restarted.
 
-* Restart the service
+.. code-block:: console
 
- .. code-block:: console
+   nextron@asgard-mc:~$ sudo systemctl restart asgard2.service
 
-   nextron@asgard:~$ sudo systemctl restart asgard2
+You should now be able to reach the ASGARD Server under the new FQDN.
+Navigate to ``https://<YOUR-FQDN>:8443``, which reflects the FQDN we set earlier.
 
-You should now be able to reach the ASGARD Server under the new FQDN. Navigate to ``https://FQDN:8443`` being the FQDN the one you defined earlier in the script.
-
-You should now install the agents on the endpoints again. They should be communicating correctly back to ASGARD by now. Remember to review the network requirements section to ensure all needed ports are open to the ASGARD Management Center from the endpoint.
+You should now install the agents on the endpoints again. They
+should be communicating correctly back to ASGARD by now. Remember
+to review the network requirements section to ensure all needed ports
+are open to the ASGARD Management Center from your endpoints.
 
 ASGARD Errors
 -------------
