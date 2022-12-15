@@ -164,7 +164,7 @@ ASGARD's IP-Address can be changed in **/etc/network/interfaces**. The IP is con
 
    nextron@asgard:~$ sudo vi /etc/network/interfaces
 
-.. code-block::
+.. code-block:: none
 
    auto ens32
    iface ens32 inet static

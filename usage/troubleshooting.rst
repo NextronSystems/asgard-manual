@@ -29,7 +29,7 @@ Internal Agent Debugging
 
 Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true. The file can be found in ``C:\Windows\System32\asgard2-agent\`` or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
 
-.. code-block::
+.. code-block:: none
 
    write_log: true
 
@@ -307,7 +307,7 @@ ASGARD noticed that the THOR scan failed
 
 In some cases THOR fails to complete its scan and ASGARD reports the following error. 
 
-.. code-block:: 
+.. code-block:: none
 
    ASGARD noticed that the THOR scan failed 
 
