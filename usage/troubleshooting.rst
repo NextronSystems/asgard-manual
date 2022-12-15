@@ -116,7 +116,7 @@ SSL Interception
 
 Using a web proxy with TLS/SSL interception will break the installation routine and shows this error:
 
-.. code-block::
+.. code-block:: none
 
    Certificate verification failed: The certificate is NOT trusted. The certificate issuer is unknown.  Could not handshake: Error in the certificate verification.
 
