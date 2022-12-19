@@ -176,6 +176,23 @@ Important: There might be a case where the name of the network adaptor (in this 
 
 The new IP can be applied with the command **sudo systemctl restart networking**
 
+Verifying DNS Settings
+^^^^^^^^^^^^^^^^^^^^^^
+
+To verify if ASGARD is using the correct DNS Server, you can inspect the file ``/etc/resolv.conf``:
+
+.. code-block:: console
+
+   nextron@asgard:~$ cat /etc/resolv.conf 
+   search example.org
+   nameserver 172.16.200.2
+
+If you see errors in this configuration, you can change it with the following command:
+
+.. code-block:: console
+
+   nextron@asgard:~$ sudoedit /etc/resolv.conf
+
 First steps in the VM
 ---------------------
 
