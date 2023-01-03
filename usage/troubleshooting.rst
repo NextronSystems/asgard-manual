@@ -415,6 +415,15 @@ of ``1``, this means the user has Two Factor Authentication enabled).
 .. code-block:: console
 
    nextron@asgard:~$ sudo mysql asgard --execute "select name,tfa_valid from users;"
+   +----------+-----------+
+   | name     | tfa_valid |
+   +----------+-----------+
+   | admin    |         1 |
+   | john     |         0 |
+   | rickroll |         1 |
+   +----------+-----------+
+
+This command will also allow you to verify if the ``UPDATE`` command was successful (``tfa_valid`` should be ``0``).
 
 Scheduled Scans do not run at the correct time
 ----------------------------------------------

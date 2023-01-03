@@ -1758,7 +1758,7 @@ will see the option to ``Use Two Factor Authentication``.
 
 After clicking the button, you will be presented with a QR
 code for your authenticator app of your choice.
-Alternatively, you can see the secret key as well. You will need
+Alternatively, you can use the secret key. You will need
 to verify the 6-digit token and click ``Validate Two Factor Authentication``
 to enable 2FA.
 
@@ -1766,7 +1766,8 @@ to enable 2FA.
    :target: ../_images/user_verify_2fa.png
    :alt: Verify 2FA
 
-Your will be logged out of your current session if the validation was successful.
+.. note:: 
+   You will be logged out of your current session if the validation was successful.
 
 Disable Two Factor Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
