@@ -1392,7 +1392,11 @@ If an asset or an agent can be update, there will be a notice shown in the ``Upd
 User Management
 ---------------
 
-Access user management via ``Settings`` > ``Users``. This section allows administrators to add or edit user accounts.
+Access user management via ``Settings`` > ``Users``. This section
+allows administrators to add or edit user accounts.
+
+The field ``2FA`` in the overview indicates if a
+user has ``Two Factor Authentication`` enabled or not.
 
 .. figure:: ../images/add-user-account.png
    :target: ../_images/add-user-account.png
@@ -1400,16 +1404,20 @@ Access user management via ``Settings`` > ``Users``. This section allows adminis
 
    Add User Account
 
-Editing a user account does not require a password although the fields are shown in the dialogue. An initial password has to be provided for user creation, though.
+Editing a user account does not require a password although
+the fields are shown in the dialogue. An initial password
+has to be provided for user creation, though.
 
 Access the user roles in ``Settings`` > ``Roles``. 
 
-You can download a list of all users in csv Format.
+You can download a list of all users in CSV format.
 
 Roles
 ^^^^^
 
-By default, ASGARD ships with the following pre-configured user roles. The pre-configured roles can be modified or deleted. The ASGARD role model is fully configurable.
+By default, ASGARD ships with the following pre-configured
+user roles. The pre-configured roles can be modified or
+deleted. The ASGARD role model is fully configurable.
 
 
 .. figure:: ../images/user-roles-factory-default.png
@@ -1724,6 +1732,55 @@ To change your password, navigate to the ``User Settings`` section.
    :alt: Changing your password
 
    Changing your password
+
+Two Factor Authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are currently using the ``Time-based One-time Password (TOTP)``
+algorithm for two factor authentication. We recommend
+one of the following mobile apps for 2FA:
+
+   - Google Authenticator
+   - Microsoft Authenticator
+   - Twilio Authy
+   - iOS built-in Password Manager (iOS 15 or newer)
+
+Enable Two Factor Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To enable Two Factor Authentication, navigate to ``User Settings`` >
+``Two Factor Authentication``. If 2FA is not enabled, you
+will see the option to ``Use Two Factor Authentication``.
+
+.. figure:: ../images/user_enable_2fa.png
+   :target: ../_images/user_enable_2fa.png
+   :alt: Enable 2FA
+
+After clicking the button, you will be presented with a QR
+code for your authenticator app of your choice.
+Alternatively, you can see the secret key as well. You will need
+to verify the 6-digit token and click ``Validate Two Factor Authentication``
+to enable 2FA.
+
+.. figure:: ../images/user_verify_2fa.png
+   :target: ../_images/user_verify_2fa.png
+   :alt: Verify 2FA
+
+Your will be logged out of your current session if the validation was successful.
+
+Disable Two Factor Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To disable 2FA, navigate to ``User Settings`` > ``Two Factor Authentication``
+and click ``Deactivate Two Factor Authentication``.
+
+.. figure:: ../images/user_deactivate_2fa.png
+   :target: ../_images/user_deactivate_2fa.png
+   :alt: Deactivate 2FA
+
+.. note:: 
+   If a user is unable to log into ASGARD to disable their own 2FA,
+   follow the instructions at :ref:`usage/troubleshooting:reset two factor authentication for a specific user`
 
 API Key
 ^^^^^^^
