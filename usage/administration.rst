@@ -1722,6 +1722,8 @@ Inactive assets can be hidden in the Asset Management Section by setting a suita
 User Settings
 -------------
 
+The following settings will only affect the currently logged in user.
+
 Changing your password
 ^^^^^^^^^^^^^^^^^^^^^^
 
