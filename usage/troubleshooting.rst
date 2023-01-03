@@ -4,7 +4,9 @@ Troubleshooting
 Diagnostic Pack
 ---------------
 
-The diagnostic package is an archive generated on ASGARD server to help Nextron support engineers with the debugging of your problem. It contains the system configuration and log data of an ASGARD instance. 
+The diagnostic package is an archive generated on ASGARD server to help
+Nextron support engineers with the debugging of your problem. It contains
+the system configuration and log data of an ASGARD instance. 
 
 You can generate a Diagnostic Package in ``Systems Status > Tab: Logs > Diagnostics Package``. 
 
@@ -19,7 +21,8 @@ You can generate a Diagnostic Package in ``Systems Status > Tab: Logs > Diagnost
 The package can have a size that cannot be shared via Email. In this case you can either
 
 1. ask us for an upload link (secure file sharing) or
-2. remove big log files from the package (e.g. the file ``./var/lib/nextron/asgard2/log/agent-access.log`` is often responsible for 97% of the package size)
+2. remove big log files from the package (e.g. the file ``./var/lib/nextron/asgard2/log/agent-access.log``
+   is often responsible for 97% of the package size)
 
 Agent Debugging
 ---------------
@@ -27,15 +30,22 @@ Agent Debugging
 Internal Agent Debugging
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log`` to true. The file can be found in ``C:\Windows\System32\asgard2-agent\`` or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
+Edit the file ``asgard2-agent.yaml`` and set the value of ``write_log``
+to true. The file can be found in ``C:\Windows\System32\asgard2-agent\``
+or ``/var/lib/asgard2-agent/`` for Windows and Linux/macOS, respectively.
 
 .. code-block:: none
 
    write_log: true
 
-After making these changes, restart the ASGARD service. You can then find log entries and possible error messages in the file ``asgard2-agent.log`` in the same directory as the configuration file.
+After making these changes, restart the ASGARD service. You can then
+find log entries and possible error messages in the file ``asgard2-agent.log``
+in the same directory as the configuration file.
 
-Note: The value is set to ``false`` by default, because the agent doesn't rotate or compress these logs. Leaving that value on ``true`` could cause that file to grow very big and use a significant amount of disk space. We recommend resetting it after the debugging session.
+Note: The value is set to ``false`` by default, because the agent
+doesn't rotate or compress these logs. Leaving that value on ``true``
+could cause that file to grow very big and use a significant amount
+of disk space. We recommend resetting it after the debugging session.
 
 Go Debug Logging
 ~~~~~~~~~~~~~~~~
@@ -88,14 +98,22 @@ Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service aft
 Aurora Diagnostics Pack
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-If Aurora does not behave like it should, e.g. using more resources than you expected, you can create a diagnostics pack for our support to help in troubleshooting the issue. This can be conveniently done using the playbook ``[Default] Create and Collect Aurora Agent Diagnostics Pack (Windows)``.
+If Aurora does not behave like it should, e.g. using more resources
+than you expected, you can create a diagnostics pack for our support
+to help in troubleshooting the issue. This can be conveniently done
+using the playbook ``[Default] Create and Collect Aurora Agent Diagnostics Pack (Windows)``.
 
-It can be run from ``Asset Management`` > ``Response Action`` (Play button) or from ``Response Control`` > ``Tasks`` > ``Add Task`` or if needed as a group task. The resulting ``diagnostics.zip`` can be downloaded from the third step in the ``Playbook Result`` tab of the expanded task.
+It can be run from ``Asset Management`` > ``Response Action`` (Play button)
+or from ``Response Control`` > ``Tasks`` > ``Add Task`` or if needed
+as a group task. The resulting ``diagnostics.zip`` can be downloaded
+from the third step in the ``Playbook Result`` tab of the expanded task.
 
 Duplicate Assets Remediation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, you need to fix the issue to avoid unwanted behavior of this asset. To fix the issue, you need to uninstall the current ASGARD agent and redeploy a fresh copy.
+If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
+you need to fix the issue to avoid unwanted behavior of this asset. To
+fix the issue, you need to uninstall the current ASGARD agent and redeploy a fresh copy.
 
 .. figure:: ../images/troubleshooting-duplicate-assets.png
    :target: ../_images/troubleshooting-duplicate-assets.png
@@ -108,8 +126,10 @@ If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``, yo
 
 It is also recommended to redeploy the ASGARD Service Controller.
 
-- To uninstall the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Uninstall ASGARD Service Controller`.
-- To install the ASGARD Service Controller, please follow the instructions in :ref:`usage/administration:Service Controller Installation`. You need to wait a few minutes until the asset is connected to your ASGARD before you continue with this step. Please note that you might need to accept the ``Asset Request``.
+- To uninstall the ASGARD Service Controller, please follow the
+  instructions in :ref:`usage/administration:Uninstall ASGARD Service Controller`.
+- To install the ASGARD Service Controller, please follow the
+  instructions in :ref:`usage/administration:Service Controller Installation`. You need to wait a few minutes until the asset is connected to your ASGARD before you continue with this step. Please note that you might need to accept the ``Asset Request``.
 
 SSL Interception
 ----------------
@@ -326,7 +346,11 @@ Resetting TLS/SSL Certificates
 Web GUI: Regenerate the Self-Signed Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ASGARD ships with a self-signed certificate for its web interface that expires after 182 days. If you do not use your own CA infrastructure and want to renew the certificate or want to revert from a broken state, you can recreate a self-signed certificate. To do so log in using SSH and execute:
+ASGARD ships with a self-signed certificate for its web interface
+that expires after 182 days. If you do not use your own CA
+infrastructure and want to renew the certificate or want to revert
+from a broken state, you can recreate a self-signed certificate.
+To do so log in using SSH and execute:
 
 .. code-block:: console
 
@@ -341,7 +365,10 @@ You need to restart ASGARD in order for the changes to take effect.
 Regenerate ASGARD Server Certififcate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to reset the certificate that ASGARD uses to communicate with the agents, use the following commands. The agent should immediately trust the new certificate, as it was generated using the CA they already trust. 
+In order to reset the certificate that ASGARD uses to communicate
+with the agents, use the following commands. The agent should
+immediately trust the new certificate, as it was generated using
+the CA they already trust. 
 
 .. code-block:: console 
 
@@ -428,7 +455,9 @@ This command will also allow you to verify if the ``UPDATE`` command was success
 Scheduled Scans do not run at the correct time
 ----------------------------------------------
 
-In some cases the timezone during the installation of the server image might not be correct. To see if you have this problem in your current installation, please log into your server and execute the following command:
+In some cases the timezone during the installation of the server
+image might not be correct. To see if you have this problem in your
+current installation, please log into your server and execute the following command:
 
 .. code-block:: console
 
@@ -443,7 +472,8 @@ In some cases the timezone during the installation of the server image might not
 
 If you see that the **Time zone** is incorrect, follow the next steps to correct it.
 
-List all the timezones with ``timedatectl list-timezones``. If you want to search for a specific Country/City, you can use grep, e.g. ``timedatectl list-timezones | grep Prague``.
+List all the timezones with ``timedatectl list-timezones``. If you want
+to search for a specific Country/City, you can use grep, e.g. ``timedatectl list-timezones | grep Prague``.
 
 Now that you have the correct timezone you can set it the following way:
 
@@ -467,4 +497,9 @@ Please reboot the system after the changes have been made.
 Aurora is generating too many False Positives
 ---------------------------------------------
 
-In some environments, Aurora might generate a high amount of False Positives. This should never be the case, since Aurora should only alert on very few and mostly important findings. Most likely a rule is matching on the environment and generates too many false positives. To circumvent this, you can disable the rule and set a filter later on. For Tuning, please see :ref:`usage/administration:False Positive Tuning of Sigma Rules`.
+In some environments, Aurora might generate a high amount of False
+Positives. This should never be the case, since Aurora should only
+alert on very few and mostly important findings. Most likely a rule
+is matching on the environment and generates too many false positives.
+To circumvent this, you can disable the rule and set a filter later on.
+For Tuning, please see :ref:`usage/administration:False Positive Tuning of Sigma Rules`.

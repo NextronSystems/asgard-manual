@@ -4,7 +4,8 @@ Known Issues
 AMC#001: API Documentation Curl Examples Not Working
 ----------------------------------------------------
 
-Since ASGARD 2.12.8 the API documentation is not showing the API key in example queries as it should and did.
+Since ASGARD 2.12.8 the API documentation is not showing the API key
+in example queries as it should and did.
 
 ..
     Source of Issue
@@ -36,7 +37,8 @@ Example with API endpoint ``/playbooks/search``:
          -H 'accept: application/json' \
          -H 'Authorization: <your-API-key>'
 
-You also need the ``--insecure`` curl flag, if you are using the self-signed certificate that ASGARD shipped with.
+You also need the ``--insecure`` curl flag, if you are using the self-signed
+certificate that ASGARD shipped with.
 
 AMC#001: Status
 ~~~~~~~~~~~~~~~
@@ -46,7 +48,9 @@ Resolved in ASGARD 2.13.5+
 AMC#002: Aurora False Positive Filters Cleared After Saving
 -----------------------------------------------------------
 
-If the global Aurora false positive filter at ``Service Control`` > ``Aurora`` > ``False Positive Filters`` is used, the text box is empty/cleared after saving and refreshing the page.
+If the global Aurora false positive filter at ``Service Control`` >
+``Aurora`` > ``False Positive Filters`` is used, the text box is
+empty/cleared after saving and refreshing the page.
 
 AMC#002: Workaround
 ~~~~~~~~~~~~~~~~~~~
@@ -55,11 +59,18 @@ If the false positive tuning you want to achieve is only affecting one rule, the
 tune it is a single rule false positive tuning at ``Service Control`` > ``Sigma`` > ``Rules`` and choosing
 the "Edit false positives filters of this rule" action.
 
-If you need global false positive filter, you can edit the file ``/var/lib/nextron/asgard2/products/aurora-config/false-positives.cfg``
+If you need global false positive filter, you can edit the file
+``/var/lib/nextron/asgard2/products/aurora-config/false-positives.cfg``
 directly via the ASGARD command line. In order for the changes to take effect it is important
 **NOT** to click the ``Service Control`` > ``Aurora`` > ``False Positive Filters`` > ``Save`` button.
 
-Instead go to ``Service Control`` > ``Aurora`` > ``Configurations`` and edit the configuration of the assets that need the false positive filter. To do so just open the configuration using the edit action and saving without any modifications using the "Save Configuration and Restart Aurora Agents" button. This will use the false positive filter defined in the file via CLI and restarts the assets to use the new configuration.
+Instead go to ``Service Control`` > ``Aurora`` > ``Configurations``
+and edit the configuration of the assets that need the false
+positive filter. To do so just open the configuration using
+the edit action and saving without any modifications using the
+"Save Configuration and Restart Aurora Agents" button. This will
+use the false positive filter defined in the file via CLI and
+restarts the assets to use the new configuration.
 
 AMC#002: Status
 ~~~~~~~~~~~~~~~
@@ -89,11 +100,14 @@ before ASGARD was able to download the THOR packages from our update servers.
 AMC#003: Workaround
 ~~~~~~~~~~~~~~~~~~~
 
-Make sure ASGARD is able to access our update servers (see ``System Status``: Connectivity Test or ``System Status`` > ``Diagnostics``
+Make sure ASGARD is able to access our update servers
+(see ``System Status``: Connectivity Test or ``System Status`` > ``Diagnostics``
 and that you have imported a valid license (see ``Licensing``).
 
-You can either wait for ASGARD to download the THOR packages automatically (check at ``Updates`` > ``THOR and Signatures``) or
-initiate a download of THOR packages and signatures manually by clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
+You can either wait for ASGARD to download the THOR packages
+automatically (check at ``Updates`` > ``THOR and Signatures``) or
+initiate a download of THOR packages and signatures manually by
+clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
 
 AMC#003: Status
 ~~~~~~~~~~~~~~~
@@ -103,7 +117,8 @@ Open.
 AMC#004: RPM Packages do not have a compatible architecture
 -----------------------------------------------------------
 
-Some Linux systems return this error message when installing the RPM packages of the ASGARD agents. 
+Some Linux systems return this error message when installing
+the RPM packages of the ASGARD agents. 
 
 .. code-block:: none
 
@@ -133,7 +148,8 @@ AMC#004: Workaround 2
 
 You can build a new RPM package and use it for automated installations.
 
-Log into the Asgard server which should be used by the clients to connect to and execute the following steps:
+Log into the Asgard server which should be used by the clients to
+connect to and execute the following steps:
 
 .. code-block:: console
 
@@ -144,7 +160,10 @@ Use the following file instead of the RPM from the Agent Download section in the
 
 ``/var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm``
 
-When using ``scp`` to transfer the file from the server, you will need to copy the file to a directoy that is accessible by the ``nextron`` user. You also need to change the file permissions. One possibility to achive this is to use the following commands:
+When using ``scp`` to transfer the file from the server, you will
+need to copy the file to a directoy that is accessible by the
+``nextron`` user. You also need to change the file permissions.
+One possibility to achive this is to use the following commands:
 
 .. code-block:: console
 
@@ -152,12 +171,17 @@ When using ``scp`` to transfer the file from the server, you will need to copy t
     nextron@asgard:~$ sudo cp /var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm /home/nextron/
     nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/asgard2-agent-1-1.0.0.x86_64.rpm
 
-The resulting RPM should no longer cause the described "unsupported architecture" error message when it is used with ``yum`` or ``dnf``.
+The resulting RPM should no longer cause the described "unsupported
+architecture" error message when it is used with ``yum`` or ``dnf``.
 
 AMC#004: Workaround 3
 ~~~~~~~~~~~~~~~~~~~~~
 
-There are rare cases where the package installation should be automated and the command line flags are not an option. In this cases it is possible to perform the ASGARD agent installation manually. This requires to collect some files from ASGARD and move them to the asset that should be connected.
+There are rare cases where the package installation should be
+automated and the command line flags are not an option. In this
+cases it is possible to perform the ASGARD agent installation
+manually. This requires to collect some files from ASGARD and
+move them to the asset that should be connected.
 
 .. code-block:: bash
 
@@ -214,26 +238,32 @@ To uninstall the ASGARD agent without using the RPM package the following steps 
 AMC#004: Status
 ~~~~~~~~~~~~~~~
 
-Under investigation. We are planning to provide fixes but have to test if the fix would cause problems with older installations. (upgrades, legacy issues)
+Under investigation. We are planning to provide fixes but have
+to test if the fix would cause problems with older installations. (upgrades, legacy issues)
 
 AMC#005: Basename Missing Operand after SSH Login
 -------------------------------------------------
 
-After logging into ASGARD Management Center via SSH right after installing the base system, the following message can appear: 
+After logging into ASGARD Management Center via SSH right
+after installing the base system, the following message can appear: 
 
 .. code-block:: none
 
     basename: missing operand
     Try 'basename --help' for more information
 
-It is caused by a unhandled condition in the MOTD (message of the day) script that evaluates the version of the scanners and signatures. After installing ASGARD it takes some minutes to retrieve and install all scanners from the update servers.
+It is caused by a unhandled condition in the MOTD (message of
+the day) script that evaluates the version of the scanners and
+signatures. After installing ASGARD it takes some minutes to
+retrieve and install all scanners from the update servers.
 
 The issue is known and can be ignored.
 
 AMC#005: Workaround
 ~~~~~~~~~~~~~~~~~~~
 
-No workaround required. The issue solves itself after the download of the scanner and signature packages. 
+No workaround required. The issue solves itself after the
+download of the scanner and signature packages. 
 
 AMC#005: Status
 ~~~~~~~~~~~~~~~

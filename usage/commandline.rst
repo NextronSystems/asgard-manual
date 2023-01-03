@@ -7,15 +7,26 @@ Performance Tuning
 Overview
 ^^^^^^^^
 
-The ASGARD agent polls the ASGARD server frequently for new tasks to execute. The default polling interval depends on the number of connected endpoints. In larger environments the polling interval increases dynamically up to 10 minutes for a configuration with 25.000 endpoints connected to a single ASGARD. 
+The ASGARD agent polls the ASGARD server frequently for new tasks to execute.
+The default polling interval depends on the number of connected endpoints. In
+larger environments the polling interval increases dynamically up to 10 minutes
+for a configuration with 25.000 endpoints connected to a single ASGARD. 
 
-Additionally, ASGARD is configured to serve a maximum of 100 concurrent asset connections and 25 concurrent asset streams. Asset connections are short polls from the agent such as answering the question "do you have a new task for me?". Asset streams are intense polls such as downloading THOR to the agent or uploading scan results back to ASGARD. 
+Additionally, ASGARD is configured to serve a maximum of 100 concurrent asset
+connections and 25 concurrent asset streams. Asset connections are short polls
+from the agent such as answering the question "do you have a new task for me?".
+Asset streams are intense polls such as downloading THOR to the agent or
+uploading scan results back to ASGARD. 
 
-Requests that exceed the limits will receive an answer from ASGARD to repeat the request after N seconds, where N is calculated based on the current load.
+Requests that exceed the limits will receive an answer from ASGARD to repeat the
+request after N seconds, where N is calculated based on the current load.
 
-This factory preset behavior insures your ASGARD stays stable and responsive even if your ASGARD's system resources are limited. Furthermore, you most likely can't overload your network or firewalls with high numbers of requests or downloads.
+This factory preset behavior insures your ASGARD stays stable and responsive even if your
+ASGARD's system resources are limited. Furthermore, you most likely can't overload your
+network or firewalls with high numbers of requests or downloads.
 
-In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asgard.conf`` and restart the ASGARD service.
+In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asgard.conf``
+and restart the ASGARD service.
 
 The default values are: 
 
@@ -36,14 +47,21 @@ The default values are:
    * - PingRateFast=5
      - Polling Rate for Assets in Fast Ping Mode (seconds)
 
-These values should work fine in most scenarios – regardless of the size of the installation. However, you may want to decrease PingRateMax in order to achieve a better responsiveness of your ASGARD infrastructure. 
+These values should work fine in most scenarios – regardless of the size
+of the installation. However, you may want to decrease PingRateMax
+in order to achieve a better responsiveness of your ASGARD infrastructure. 
 
 Overloading ASGARD
 ^^^^^^^^^^^^^^^^^^
 
-While temporary stream overloads are quite normal, connection overloads should not happen. If they do, either adjust your PingRateMax, your LoadConnMax or both. 
+While temporary stream overloads are quite normal, connection overloads
+should not happen. If they do, either adjust your PingRateMax, your LoadConnMax or both. 
 
-ASGARD will indicate an overload with the "Connection Overload line" and the "Stream Overload line" within the graphs in the overview section (see picture below). If an ASGARD is in an overload situation it will postpone connections and streams but will not lose or drop tasks or be harmed in any way. ASGARD will recover to normal load automatically.
+ASGARD will indicate an overload with the "Connection Overload line"
+and the "Stream Overload line" within the graphs in the overview
+section (see picture below). If an ASGARD is in an overload situation
+it will postpone connections and streams but will not lose or drop
+tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
 .. figure:: ../images/asset-connections-and-streams1.png
    :target: ../_images/asset-connections-and-streams1.png
@@ -51,7 +69,12 @@ ASGARD will indicate an overload with the "Connection Overload line" and the "St
 
    Asset Connections and Asset Streams 
 
-Stream overloads can happen temporarily (e.g. if you schedule a grouped scan or grouped task with an unlimited rate). The picture below shows such a normal overload situation that was caused by starting a grouped scan with an unlimited rate. This is the expected behavior. ASGARD will manage the load automatically and postpone streams until the load has returned to normal.
+Stream overloads can happen temporarily (e.g. if you schedule a grouped
+scan or grouped task with an unlimited rate). The picture below
+shows such a normal overload situation that was caused by starting
+a grouped scan with an unlimited rate. This is the expected behavior.
+ASGARD will manage the load automatically and postpone streams until
+the load has returned to normal.
 
 .. figure:: ../images/asset-connections-and-streams2.png
    :target: ../_images/asset-connections-and-streams2.png
@@ -59,16 +82,23 @@ Stream overloads can happen temporarily (e.g. if you schedule a grouped scan or 
 
    Asset Streams in an overload situation
 
-The "Busy Streams" line indicates the number of streams currently active. As you might have guessed, the picture above was taken on an ASGARD in default configuration where the number of concurrent streams is set to the default value of 25.
+The "Busy Streams" line indicates the number of streams currently active. 
+s you might have guessed, the picture above was taken on an ASGARD in
+default configuration where the number of concurrent streams is set
+to the default value of 25.
 
 Managing Logs
 -------------
 
 ASGARD will store all logs under ``/var/lib/nextron/asgard2/log/``
 
-All logs in this directory will be rotated and automatically cleared after 14 months, please see :ref:`usage/maintenance:Log Rotation and Retention` for more information.
+All logs in this directory will be rotated and automatically cleared
+after 14 months, please see :ref:`usage/maintenance:Log Rotation and Retention` for more information.
 
-Please copy the oldest log packages to another directory or to a dedicated log server in case you require longer retention periods. **Do not modify the built-in rotation settings** as this might interfere with ASGARD updates!
+Please copy the oldest log packages to another directory or to a dedicated
+log server in case you require longer retention periods.
+**Do not modify the built-in rotation settings** as this might
+interfere with ASGARD updates!
 
 .. list-table::
    :header-rows: 1
@@ -102,22 +132,36 @@ Scan Logs
 
 ASGARD will store all scan logs under ``/var/lib/nextron/asgard2/scan-results``
 
-All Scans will generate two files, ``thor-<ID>.txt.gz`` and ``thor-report-<ID>.html.gz``. The first file will be the raw THOR Scan Log(s) and the second file will be the HTML Report(s). The numeric value in the file name is the Scan-ID, which can be found in the the Scan Control view. Please make sure to enable the ``ID`` column, since it is not enabled in the default view.
+All Scans will generate two files, ``thor-<ID>.txt.gz`` and ``thor-report-<ID>.html.gz``.
+The first file will be the raw THOR Scan Log(s) and the second file will be
+the HTML Report(s). The numeric value in the file name is the Scan-ID, which
+can be found in the the Scan Control view. Please make sure to enable the ``ID``
+column, since it is not enabled in the default view.
 
-For Scans which were started with the ``--json`` flag, log files are additionally placed in the scan-results directory and are named ``thor-<ID>.json.gz``.
-Please keep in mind, those JSON logfiles are not being transfered to any connected Analysis Cockpit.
+For Scans which were started with the ``--json`` flag, log files are
+additionally placed in the scan-results directory and are named ``thor-<ID>.json.gz``.
+Please keep in mind, those JSON logfiles are not being transfered to
+any connected Analysis Cockpit.
 
 Agent and Agent Installer Update
 --------------------------------
 
-When ASGARD has a new agent version available you can see an indicator on the ``Update`` menu item as well as on the sub menu ``Update`` > ``Agents``. There are two tasks to perform, updating the agents on your assets and updating the agent installer for all future asset deployments.
+When ASGARD has a new agent version available you can see an indicator
+on the ``Update`` menu item as well as on the sub menu ``Update`` > ``Agents``.
+There are two tasks to perform, updating the agents on your assets and
+updating the agent installer for all future asset deployments.
 
 Agent Update
 ^^^^^^^^^^^^
 
-If this is the first agent update performed on this ASGARD you might need to enable the ``Update Agent`` module under ``Settings`` > ``Advanced`` > ``Show Advanced Tasks``.
+If this is the first agent update performed on this ASGARD you might need
+to enable the ``Update Agent`` module under ``Settings`` > ``Advanced`` > ``Show Advanced Tasks``.
 
-Then you need to run the ``Update Agent`` module. You can do this on a per asset basis by running a playbook from ``Asset Management`` or create a ``New Group Task`` from ``Response Control``, which is the preferred way. You can roll-out the update in batches by providing labels for each stage or not select any label to perform the update on all assets.
+Then you need to run the ``Update Agent`` module. You can do this on a per
+asset basis by running a playbook from ``Asset Management`` or create a
+``New Group Task`` from ``Response Control``, which is the preferred way.
+You can roll-out the update in batches by providing labels for each stage
+or not select any label to perform the update on all assets.
 
 .. figure:: ../images/example-group-task-for-agent-update.png
    :target: ../_images/example-group-task-for-agent-update.png
@@ -126,20 +170,27 @@ Then you need to run the ``Update Agent`` module. You can do this on a per asset
    Example Group Task for Agent Update
 
 .. note::
-   The ``Update Agent`` module is not shown by default under (Group) Tasks. To show the group task or single tasks (also inside the group task) you need to select the ``Update Agent`` module from the ``Module`` column. You may need to select the ``Module`` column from ``Column visibility`` first, if not shown.
+   The ``Update Agent`` module is not shown by default under (Group)
+   Tasks. To show the group task or single tasks (also inside the group task)
+   you need to select the ``Update Agent`` module from the ``Module``
+   column. You may need to select the ``Module`` column from ``Column visibility``
+   first, if not shown.
 
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You need to update the agent installer as well, so that newly added assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`section Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
+You need to update the agent installer as well, so that newly added
+assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`section Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
-If you use the default installer without any modifications you can run the following command to update the agent installers:
+If you use the default installer without any modifications you can run
+the following command to update the agent installers:
 
 .. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-repacker
 
-Or you can execute the agent installer update from within the WebUI at ``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
+Or you can execute the agent installer update from within the WebUI at
+``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
 
 .. figure:: ../images/asgard2-repacker.png
    :target: ../_images/asgard2-repacker.png
@@ -150,12 +201,17 @@ Or you can execute the agent installer update from within the WebUI at ``Updates
 Creating Custom Agent Installer
 -------------------------------
 
-ASGARD supports creation of custom installers. Custom installers can be configured in a way that agents show up with a preset label or with a preset proxy configuration.
+ASGARD supports creation of custom installers. Custom installers can be
+configured in a way that agents show up with a preset label or with a
+preset proxy configuration.
 
 Creating Custom Agent Installer From GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to ``Downloads`` > ``Agent Installers`` > ``Add Agent Installer``. Edit the properties of the desired installer and generate the installer by clicking ``Add Agent Installers``. The installers are available at the downloads page besides the default installers, so best use an affix as distinction.
+Go to ``Downloads`` > ``Agent Installers`` > ``Add Agent Installer``.
+Edit the properties of the desired installer and generate the installer
+by clicking ``Add Agent Installers``. The installers are available at the
+downloads page besides the default installers, so best use an affix as distinction.
 
 .. figure:: ../images/custom-agent-installer.png
    :target: ../_images/custom-agent-installer.png
@@ -163,12 +219,15 @@ Go to ``Downloads`` > ``Agent Installers`` > ``Add Agent Installer``. Edit the p
 
    Custom Agent Installer from the WebUI
 
-You can also delete old Agent Installers which are not needed anymore. Just select the Installer(s) and Click the ``Delete`` button in the top right corner.
+You can also delete old Agent Installers which are not needed anymore. Just
+select the Installer(s) and Click the ``Delete`` button in the top right corner.
 
 Creating Custom Agent Installer From CLI (deprecated)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to create your custom ASGARD agent, save the current agents stored in ``/var/lib/nextron/asgard2/installer/`` to a directory of your choosing and run ``sudo asgard2-repacker`` with one or more of the following flags:
+In order to create your custom ASGARD agent, save the current agents stored in
+``/var/lib/nextron/asgard2/installer/`` to a directory of your choosing and run
+``sudo asgard2-repacker`` with one or more of the following flags:
 
 ``-labels string``
 
@@ -178,15 +237,21 @@ Add initial labels to clients comma separated list, e.g. ``[label1,label2,label3
 
 Proxies to be used by agents comma separated list, e.g. ``[proxy1.nextron:3128,proxy2.nextron:3128]``
 
-Example: In order to create an installer for servers that initially show up in ASGARD with the label ``SQL-Servers`` use:
+Example: In order to create an installer for servers that initially show up in
+ASGARD with the label ``SQL-Servers`` use:
 
 .. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-repacker -label SQL-Servers
 
-Your newly generated agents will show up in ``/var/lib/nextron/asgard2/installer`` and will immediately be available for download from the login page. You can store multiple custom agents under ``/var/lib/nextron/asgard2/installer/``. In this case all agents will be available for download from ASGARDs login page.
+Your newly generated agents will show up in ``/var/lib/nextron/asgard2/installer``
+and will immediately be available for download from the login page. You can store
+multiple custom agents under ``/var/lib/nextron/asgard2/installer/``. In this case
+all agents will be available for download from ASGARDs login page.
 
-You can obfuscate the default asgard2-agent name with a custom one. The chosen name will generate new agents which can be deployed to the endpoints. These agents will create a service with the chosen name and will have no reference to ASGARD.
+You can obfuscate the default asgard2-agent name with a custom one. The chosen name
+will generate new agents which can be deployed to the endpoints. These agents will
+create a service with the chosen name and will have no reference to ASGARD.
 
 ``-name string``
 
@@ -194,7 +259,8 @@ You can obfuscate the default asgard2-agent name with a custom one. The chosen n
 
    nextron@asgard:~$ sudo asgard2-repacker -name javax
 
-This command will create a new agent for all operating systems. This is specially designed for cases where an agent obfuscation is required.
+This command will create a new agent for all operating systems.
+This is specially designed for cases where an agent obfuscation is required.
 
 An installed agent with the name "javax" would look like this:
 
@@ -215,7 +281,8 @@ Backup and Restore
 
 Backup
 ^^^^^^
-The command ``asgard2-backup`` can be used to generate a backup of all configurations, assets, tags, user accounts, tasks etc. except:
+The command ``asgard2-backup`` can be used to generate a backup of
+all configurations, assets, tags, user accounts, tasks etc. except:
 
 * Log files (ASGARD, THOR)
 * Playbook results (collected evidence)
@@ -230,7 +297,8 @@ The command ``asgard2-backup`` can be used to generate a backup of all configura
    Removing old backups (keeping the 5 most recent files)...
    done.
 
-If you want to transfer the backup to a different system, make sure to copy the ``.tar`` file to the home directory of the ``nextron`` user and change the permissions:
+If you want to transfer the backup to a different system, make sure to copy the
+``.tar`` file to the home directory of the ``nextron`` user and change the permissions:
 
 .. code-block:: console
 
@@ -240,7 +308,8 @@ If you want to transfer the backup to a different system, make sure to copy the 
    total 596496
    -rw-r--r-- 1 nextron nextron 309217280 Nov  1 12:01 20200427-1553.tar
 
-After this is done, you can use ``scp`` or any other available tool to transfer the backup file to a different system.
+After this is done, you can use ``scp`` or any other available tool to
+transfer the backup file to a different system.
 
 Restore
 ^^^^^^^
@@ -269,7 +338,10 @@ You can use the ``asgard2-restore`` command to restore a backup.
    Starting services... Created symlink /etc/systemd/system/multi-user.target.wants/asgard2.service → lib/systemd/system/asgard2.service. done.
 
 .. note::
-   The version of the ASGARD were the backup will be restored should be the same as the version which was present while the backup was created. If you need an older version of ASGARD, please contact our support team.
+   The version of the ASGARD were the backup will be restored should
+   be the same as the version which was present while the backup was
+   created. If you need an older version of ASGARD, please contact our
+   support team.
 
 
 Disable Remote Console Globally

@@ -4,7 +4,9 @@ Appendix
 Deploy ASGARD Agents via SCCM
 -----------------------------
 
-To deploy the ASGARD Agent (or any other .exe installer) via SCCM, you have to write a Powershell script with a few conditions to mark an installation correctly as successfull or failed.
+To deploy the ASGARD Agent (or any other .exe installer) via SCCM, you
+have to write a Powershell script with a few conditions to mark an
+installation correctly as successfull or failed.
 
 Please refer to Microsoft's `"Create applications in Configuration Manager" <https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods>`_ .
 
@@ -36,9 +38,12 @@ Please refer to Microsoft's `"Create applications in Configuration Manager" <htt
    }
 
 .. warning::
-   This is just an example script which should work with SCCM. If you encounter any problems, refer to the link provided above for additional information.
+   This is just an example script which should work with SCCM.
+   If you encounter any problems, refer to the link provided
+   above for additional information.
 
-SCCM Applications can also use a script to detect the Deployment. You can use this part of the script to detect if the installation was successful:
+SCCM Applications can also use a script to detect the Deployment.
+You can use this part of the script to detect if the installation was successful:
 
 .. code-block:: powershell
    :linenos:
@@ -55,7 +60,8 @@ SCCM Applications can also use a script to detect the Deployment. You can use th
 Install TLS certificates on ASGARD and MASTER ASGARD
 ----------------------------------------------------
 
-There are several methods to sign the ASGARD generated CSR request. This section describes the two most common procedures.
+There are several methods to sign the ASGARD generated CSR
+request. This section describes the two most common procedures.
 
 Use Case 1 - CSR Signing with a Microsoft Based CA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,14 +299,19 @@ As a result, the signed certificate will be available with the indicated filenam
 
    Signing procedure – Locating the generated certificate
 
-As a last step, the generated certificate can be imported following the :ref:`usage/administration:tls certificate installation` steps.
+As a last step, the generated certificate can be imported
+following the :ref:`usage/administration:tls certificate installation` steps.
 
 Agent Migration from ASGARD v1 to v2
 ------------------------------------
 
-This document will guide customers with an existing ASGARD version 1.x installation to perform an agent migration from ASGARD version 1.x to ASGARD version 2.
+This document will guide customers with an existing ASGARD
+version 1.x installation to perform an agent migration from ASGARD version 1.x to ASGARD version 2.
 
-The new release of ASGARD Management Center brings not only a totally redesigned interface, but also major changes in the architecture and usability, making it faster, more robust and easier to use.
+The new release of ASGARD Management Center brings not only
+a totally redesigned interface, but also major changes in
+the architecture and usability, making it faster, more robust
+and easier to use.
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -365,12 +376,14 @@ Connect to your ASGARD Management Center version 1.x and identify the system you
 Transfer the new ASGARD Windows agent to the ASGARD version 1.x Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Connect to your new ASGARD version 2 server over SSH and transfer the new windows agent to the old ASGARD version 1 server.
+Connect to your new ASGARD version 2 server over SSH and transfer
+the new windows agent to the old ASGARD version 1 server.
 
 This step will allow the old ASGARD version 1.x server to distribute the new agent.
 
 .. note::
-   In this step you require the password of your ASGARD version 1.x and your ASGARD version 2.x
+   In this step you require the password of your ASGARD version
+   1.x and your ASGARD version 2.x
 
 Connect to ASGARD version 2 over SSH
 """"""""""""""""""""""""""""""""""""
@@ -380,7 +393,9 @@ Connect to ASGARD version 2 over SSH
 Copy the new agent(s) to ASGARD version 1.x
 """""""""""""""""""""""""""""""""""""""""""
 
-You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ , this example will cover a migration of a windows x64 system. Please see the following chapters for Linux/macOS hosts.
+You will find all new agents under ``/var/lib/nextron/asgard2/installer``\ ,
+this example will cover a migration of a windows x64 system. Please see
+the following chapters for Linux/macOS hosts.
 
 ``sudo scp /var/lib/nextron/asgard2/installer/asgard2-agent-windows-amd64.exe bsk@yourasgardv1.domain:/home/bsk``
 
@@ -421,10 +436,13 @@ Remember to save the ``--dest_path``. In our case it is ``aff4:/asgardv1.nextron
 Switch to Advanced Mode within GRR
 """"""""""""""""""""""""""""""""""
 
-Open your ASGARD version 1.x web interface and navigate to the Response Control. You will be prompted for a username and password, use the same login information as you use to log into ASGARD.
+Open your ASGARD version 1.x web interface and navigate to the
+Response Control. You will be prompted for a username and password,
+use the same login information as you use to log into ASGARD.
 
-Once you reach the Response Control Section (GRR) please navigate to the top right corner (settings gear) and switch to the Advanced Mode. Apply the settings.
-
+Once you reach the Response Control Section (GRR) please navigate
+to the top right corner (settings gear) and switch to the
+Advanced Mode. Apply the settings.
 
 .. figure:: ../images/migrate5.png
    :target: ../_images/migrate5.png
@@ -435,8 +453,8 @@ Once you reach the Response Control Section (GRR) please navigate to the top rig
 Asset Selection
 """""""""""""""
 
-Navigate to the ``Asset List`` section on the left menu and select the asset you want to migrate. A click on the asset will select it.
-
+Navigate to the ``Asset List`` section on the left menu and select
+the asset you want to migrate. A click on the asset will select it.
 
 .. figure:: ../images/migrate6.png
    :target: ../_images/migrate6.png
@@ -456,9 +474,11 @@ Once the asset has been selected (clicking on it), navigate to the ``Start new f
 Install the new ASGARD2 Agent
 """""""""""""""""""""""""""""
 
-In order to install the new agent, we will need to expand the ``Administrative`` folder and select ``Launch Binary``.
+In order to install the new agent, we will need to expand
+the ``Administrative`` folder and select ``Launch Binary``.
 
-We will be requested to put in a binary, please use the binary name we gathered/created in step `Sign the new agents`_ and click Launch.
+We will be requested to put in a binary, please use the
+binary name we gathered/created in step `Sign the new agents`_ and click Launch.
 
 .. figure:: ../images/migrate8.png
    :target: ../_images/migrate8.png
@@ -466,7 +486,8 @@ We will be requested to put in a binary, please use the binary name we gathered/
 
    Launch Binary
 
-The used binary name was extracted from step 7.2.2.2.4. In this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
+The used binary name was extracted from step 7.2.2.2.4. In
+this example ``aff4:/asgardv1.nextron/asgard2-agent-windows-amd64.exe``
 
 .. figure:: ../images/migrate9.png
    :target: ../_images/migrate9.png
@@ -474,7 +495,9 @@ The used binary name was extracted from step 7.2.2.2.4. In this example ``aff4:/
 
    Confirmation after launching the binary
 
-After approximately 10 minutes, the binary will be executed and installed on the selected system. The status can be retrieved by navigating to the ``Manage launched flows`` section on the left menu.
+After approximately 10 minutes, the binary will be executed and
+installed on the selected system. The status can be retrieved by
+navigating to the ``Manage launched flows`` section on the left menu.
 
 .. figure:: ../images/migrate10.png
    :target: ../_images/migrate10.png
@@ -497,9 +520,12 @@ An example shell script for Debian based systems could look like this:
    dpkg -i /tmp/agent-linux.deb
    rm -f /tmp/agent-linux.deb
 
-Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 7.2.2.2.4, afterwards you will be able to launch a HUNT to your connected Linux Systems. 
+Save this script in your ASGARDv1 and sign/upload it to GRR as
+described in point 7.2.2.2.4, afterwards you will be able to
+launch a HUNT to your connected Linux Systems. 
 
-Please bear in mind that the above script will work only for Ubuntu/Debian systems and needs to be adapted for ``Redhat/CentOS systems``.
+Please bear in mind that the above script will work only for
+Ubuntu/Debian systems and needs to be adapted for ``Redhat/CentOS systems``.
 
 MacOS Hosts
 """""""""""
@@ -516,22 +542,28 @@ An example shell script for macOS based systems could look like this:
    sudo installer -pkg /tmp/agent-darwin.pkg -target /
    rm -f /tmp/agent-darwin.pkg
 
-Save this script in your ASGARDv1 and sign/upload it to GRR as described in point 7.2.2.2.4, afterwards you will be able to launch a HUNT to your connected ``macOS Systems``. 
+Save this script in your ASGARDv1 and sign/upload it to GRR as
+described in point 7.2.2.2.4, afterwards you will be able to
+launch a HUNT to your connected ``macOS Systems``. 
 
 Migration check and completion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After the above steps have been executed, the agent should be reporting to the new ASGARD version 2.x server.
+After the above steps have been executed, the agent should be
+reporting to the new ASGARD version 2.x server.
 
-At this moment the system will have 2 agents installed, the agent reporting to ASGARD version 1.x and the agent reporting to ASGARD version 2.x
+At this moment the system will have 2 agents installed, the
+agent reporting to ASGARD version 1.x and the agent reporting
+to ASGARD version 2.x
 
 Accept the agent request
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once a new agent is reporting to ASGARD version 2.x it will automatically create a request to be part of the same. We need to accept that request.
+Once a new agent is reporting to ASGARD version 2.x it will
+automatically create a request to be part of the same. We need
+to accept that request.
 
 Log into ASGARD version 2.x and navigate to the Asset Management – Requests.
-
 
 .. figure:: ../images/asset-management-requests.png
    :target: ../_images/asset-management-requests.png
@@ -539,8 +571,8 @@ Log into ASGARD version 2.x and navigate to the Asset Management – Requests.
 
    Asset Management (Requests)
 
-Select the migrated system and click on the top right on Accept. This should place the system in the ``Assets`` tab.
-
+Select the migrated system and click on the top right on Accept.
+This should place the system in the ``Assets`` tab.
 
 .. figure:: ../images/asset-management-assets-view.png
    :target: ../_images/asset-management-assets-view.png
@@ -556,12 +588,17 @@ This section will cover frequent questions regarding the migration.
 Will there be any problem in running both agents (v1, v2) at the same time?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are no known issues running both agents at the same time. The new ASGARD v2 agent is more lightweight and has better performance. The expected RAM utilization in idle mode demonstrated in our tests put the new agent in a very good position, consuming only 1 MB.
+There are no known issues running both agents at the same time.
+The new ASGARD v2 agent is more lightweight and has better performance.
+The expected RAM utilization in idle mode demonstrated in our tests put
+the new agent in a very good position, consuming only 1 MB.
 
 Will I need more resources for my new ASGARD v2 server?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please refer to the ASGARD v2 manual for specific sizing. The overall tests performed highlight that both server and agents have better performance which will allow more agent management per ASGARD (compared to version 1).
+Please refer to the ASGARD v2 manual for specific sizing. The overall
+tests performed highlight that both server and agents have better
+performance which will allow more agent management per ASGARD (compared to version 1).
 
 Can I import my memory dumps and file collections made on ASGARD v1?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -604,8 +641,9 @@ Install asgard2-agent Using the Command-Line
 This section describes the installation of the asgard2-agent using the command line
 
 1. 
-  Download the asgard2-agent from the ASGARD Management Center Agent Download page for macOS (.pkg extension). This page can be located under the following URL:
-
+  Download the asgard2-agent from the ASGARD Management Center Agent
+  Download page for macOS (.pkg extension). This page can be located
+  under the following URL:
 
   * :samp:`https://<ASGARD-FQDN>:8443/agent-installers`
 
@@ -635,10 +673,6 @@ This section describes the installation of the asgard2-agent using the command l
 Optional: Check the State of the Gatekeeper Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can verify the state of the protection mechanism with this command:
-  
-``spctl --status``
+You can verify the state of the protection mechanism with ``spctl --status``
 
-On a system with re-activated Gatekeeper output has to be:
-
-``assessments enabled``
+On a system with re-activated Gatekeeper, output has to be ``assessments enabled``.
