@@ -25,13 +25,15 @@ The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (
    :target: ../_images/setup_esx4.png
    :alt: New Virtual Machine - ESX
 
-Please make sure to select a suitable v-switch or physical interface that reflects the IP address scheme you are planning to use for the new ASGARD.
+Please make sure to select a suitable v-switch or physical interface that
+reflects the IP address scheme you are planning to use for the new ASGARD.
+Only use one Hard Disk for the installation.
 
 Navigate through the installer
 ------------------------------
 
-The installation Process is started by clicking on ASGARD Graphical install. The installer then loads the additional components from the ISO and lets you select location and language.
-
+The installation Process is started by clicking on ASGARD Graphical install.
+The installer then loads the additional components from the ISO and lets you select location and language.
 
 .. figure:: ../images/setup_iso_installer.png
    :target: ../_images/setup_iso_installer.png
@@ -57,7 +59,8 @@ The installation Process is started by clicking on ASGARD Graphical install. The
    :alt: Configure locales
 
 
-If DHCP is available, network parameters will be configured automatically. Without DHCP, ASGARD drops into the manual network configuration dialogue. 
+If DHCP is available, network parameters will be configured automatically.
+Without DHCP, ASGARD drops into the manual network configuration dialogue. 
 
 Without DHCP, ASGARD proceeds with the manual network configuration dialogue.
 
@@ -92,7 +95,10 @@ Network Configuration
    :alt: Configure the network
 
 .. warning::
-   **Important:** Make sure that the combination of hostname and domain creates an FQDN that can be resolved from the endsystems on which you intend to install the ASGARD agents. If you've configured a FQDN (hostname + domain) that cannot be resolved on the clients, no agent will be able to find and connect to the ASGARD server. 
+   **Important:** Make sure that the combination of hostname and domain creates
+   an FQDN that can be resolved from the endsystems on which you intend to install
+   the ASGARD agents. If you've configured a FQDN (hostname + domain) that cannot
+   be resolved on the clients, no agent will be able to find and connect to the ASGARD server. 
 
 .. figure:: ../images/setup_network7.png
    :target: ../_images/setup_network7.png
@@ -109,6 +115,14 @@ Choosing a password
 
 Partitioning the Hard Disk
 --------------------------
+
+.. warning:: 
+   ASGARD is intended to be installed with only one disk.
+   Do not configure your server with multiple disks.
+   The system won't configure additional disks. Make sure
+   that your disk has the recommended size. See
+   :ref:`usage/requirements:hardware requirements`
+   for more information.
 
 .. figure:: ../images/setup_disks1.png
    :target: ../_images/setup_disks1.png
