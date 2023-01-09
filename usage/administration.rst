@@ -159,7 +159,7 @@ effects on the duplicate hosts.
 
 .. warning::
    Assets in the ``Duplicate Assets`` view indicate, that one or more
-   agents are running on multiple end systems. This might be caused by
+   agents are running on multiple endpoints. This might be caused by
    cloning a system with an already installed ASGARD 2 Agent. Undesirable
    side effects of duplicate assets are alternating hostnames and tasks
    that fail immediately.
@@ -1055,7 +1055,7 @@ multiple options to tackle that issue.
     false positive tuning, you have to add the "Filters" column to your view (gear wheels
     icon) and show all non-empty rows by using the ``NOT -`` column filter.
 
-4. If the rule is adding too much noise and tuning is not sensible, you can remove the
+3. If the rule is adding too much noise and tuning is not sensible, you can remove the
    rule from the ruleset for a subset of your machines (maybe you need to define and use
    a separate ruleset for that use-case) or you can disable the rule altogether. This
    is done using the ``Disable this rule`` action of the rule. Disabling the rule affects the rule in all rulesets.
