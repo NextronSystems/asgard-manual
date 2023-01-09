@@ -289,3 +289,24 @@ AMC#006: Status
 ~~~~~~~~~~~~~~~
 
 Fixed in next ASGARD version.
+
+AMC#007: Sigma Rule Update Fails
+--------------------------------
+
+The signature set released on the 06.01.2023 contains a rule with an author field that is too long for the database field we use in AMC.
+
+Updating the rule set results in an error message:
+
+.. code-block:: none
+
+    could not use new blob ERROR: Error 1406: Data too long for column 'author' at row 1
+
+AMC#007: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+Search for rule title ``Malicious PowerShell Commandlets``, click on ``update rule``, deny the update by selecting ``keep current version`` for that single rule. Then you can update the rest of the rule set using the ``Update All Rules`` button. 
+
+AMC#007: Status
+~~~~~~~~~~~~~~~
+
+This will be fixed in the signature release on 09.01.2023 or 10.01.2023.
