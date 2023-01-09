@@ -47,7 +47,7 @@ Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER
 ASGARD v2 through a special license upload.
 
 .. note::
-   After upgrading an ASGARD to a MASTER ASGARRD, all previous information and
+   After upgrading an ASGARD to a MASTER ASGARD, all previous information and
    settings on that system will be lost. Don't upgrade ASGARD systems with
    connected endpoints, but only newly installed systems. 
 
@@ -192,7 +192,7 @@ User Management
 
 MASTER ASGARD offers no central user and role management for all connected
 ASGARD servers. Since MASTER ASGARD and ASGARD allow to use LDAP for
-authentication, we believe that complex and centralised user management should be based on LDAP.
+authentication, we believe that complex and centralized user management should be based on LDAP.
 
 MASTER ASGARD and Analysis Cockpit
 ----------------------------------

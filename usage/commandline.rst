@@ -140,7 +140,7 @@ column, since it is not enabled in the default view.
 
 For Scans which were started with the ``--json`` flag, log files are
 additionally placed in the scan-results directory and are named ``thor-<ID>.json.gz``.
-Please keep in mind, those JSON logfiles are not being transfered to
+Please keep in mind, those JSON log files are not being transferred to
 any connected Analysis Cockpit.
 
 Agent and Agent Installer Update
@@ -180,7 +180,10 @@ Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
 
 You need to update the agent installer as well, so that newly added
-assets will directly use the current agent version. This is a manual task as you might have customized your installers. If this is the case you have to repack the agent installers as explained in :ref:`section Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
+assets will directly use the current agent version. This is a manual
+task as you might have customized your installers. If this is the case
+you have to repack the agent installers as explained
+in :ref:`section Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
 
 If you use the default installer without any modifications you can run
 the following command to update the agent installers:
@@ -319,7 +322,7 @@ You can use the ``asgard2-restore`` command to restore a backup.
 .. code-block:: console
 
    nextron@asgard:~$ sudo asgard2-restore
-   Usage: /usr/sbin/asgard2-restore <BACKUPFILE>
+   Usage: /usr/sbin/asgard2-restore <BACKUP FILE>
    nextron@asgard:~$ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
    Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
    done.

@@ -6,7 +6,7 @@ Deploy ASGARD Agents via SCCM
 
 To deploy the ASGARD Agent (or any other .exe installer) via SCCM, you
 have to write a Powershell script with a few conditions to mark an
-installation correctly as successfull or failed.
+installation correctly as successful or failed.
 
 Please refer to Microsoft's `"Create applications in Configuration Manager" <https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods>`_ .
 
@@ -210,7 +210,7 @@ After the service has been successfully restarted, the installed certificate is 
 
 
 .. figure:: ../images/asgard-cert-check.png
-   :target: ../_images/iasgard-cert-check.png
+   :target: ../_images/asgard-cert-check.png
    :alt: ASGARD certificate installation check
 
    ASGARD certificate installation check

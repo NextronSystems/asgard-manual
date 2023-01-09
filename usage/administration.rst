@@ -159,7 +159,7 @@ effects on the duplicate hosts.
 
 .. warning::
    Assets in the ``Duplicate Assets`` view indicate, that one or more
-   agents are running on multiple endsystems. This might be caused by
+   agents are running on multiple end systems. This might be caused by
    cloning a system with an already installed ASGARD 2 Agent. Undesirable
    side effects of duplicate assets are alternating hostnames and tasks
    that fail immediately.
@@ -188,7 +188,7 @@ the endpoints ping rate to a few seconds instead of a maximum of 10 minutes.
    :alt: Asset Actions
 
    Available Actions (left to right): Run Scan, Run Task,
-   Connect To Remote Console, Show Timeline, Enable/Disbale Fast Poll Mode
+   Connect To Remote Console, Show Timeline, Enable/Disable Fast Poll Mode
 
 .. note::
 
@@ -222,7 +222,7 @@ selecting the particular assets in the left column, typing the label name
 
 .. figure:: ../images/add-labels.png
    :target: ../_images/add-labels.png
-   :alt: Asset Labling
+   :alt: Asset Labeling
 
    Add labels
 
@@ -231,7 +231,7 @@ button and type the name of the label you want to remove for these assets.
 
 .. figure:: ../images/remove-labels.png
    :target: ../_images/remove-labels.png
-   :alt: Asset Labling
+   :alt: Asset Labeling
 
    Remove labels
 
@@ -258,9 +258,9 @@ will be stripped from the labels.
 
 .. figure:: ../images/asset-label-import.png
    :target: ../_images/asset-label-import.png
-   :alt: Asset Labling via CSV
+   :alt: Asset Labeling via CSV
 
-   Asset Labling via CSV
+   Asset Labeling via CSV
 
 Asset Query
 ^^^^^^^^^^^
@@ -685,10 +685,10 @@ The ``--syslog`` value is constructed of the following arguments:
      - Port number
      -
    * - syslogtype
-     - Type of syslog format, valid formarts are:
+     - Type of syslog format, valid formats are:
      - DEFAULT, CEF, JSON, SYSLOGJSON, SYSLOGKV
    * - sockettype
-     - optional, defaul is ``UDP``
+     - optional, default is ``UDP``
      - UDP, TCP, TCPTLS
 
 .. [1] The remote Host can be ASGARD or any other syslog capable system.
@@ -991,7 +991,7 @@ It is not advised to enable all available rules on an asset. We suggest
 to start with all "critical" and then advance to all "high" rules. We
 already provide a default ruleset for those two levels for you to use.
 "Medium" rules should not be enabled in bulk or "low"/"informational"
-at all . Single medium rules, which increase an organisation's detection
+at all . Single medium rules, which increase an organization's detection
 coverage and do not trigger a bigger number of false positives can be added
 to the active configuration, but should be tested rule by rule.
 
@@ -1136,7 +1136,7 @@ between active and simulated.
        Response Configuration in Rulesets
 
 In addition the default response mode of a ruleset is important for the
-behaviour of response updates. It can be seen at ``Service Control`` >
+behavior of response updates. It can be seen at ``Service Control`` >
 ``Sigma`` > ``Rulesets`` in the "Default Response Mode" column.
 
     .. figure:: ../images/sigma-ruleset-default-response-mode.png
@@ -1217,7 +1217,7 @@ Process Excludes
 
 If Aurora uses too much CPU cycles, the most common reason is a heavy event
 producer on the system (e.g. anti virus or communication software). In order
-to analyse the issue and define process exclusions, go to ``Service Control`` >
+to analyze the issue and define process exclusions, go to ``Service Control`` >
 ``Aurora`` > ``Process Excludes``
 
 .. figure:: ../images/aurora-process-exclusion.png
@@ -1235,7 +1235,7 @@ False Positive Filters
 ~~~~~~~~~~~~~~~~~~~~~~
 If needed, false positives can be globally filtered on all Aurora agents
 at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is
-recommended to filter false positives at ``Servce Control`` > ``Sigma`` >
+recommended to filter false positives at ``Service Control`` > ``Sigma`` >
 ``Rules`` and filter the false positives on a rule level using the "edit false
 positive" action (funnel icon). For more details see
 :ref:`usage/administration:False Positive Tuning of Sigma Rules`. If this is
@@ -1342,7 +1342,7 @@ Documentation for that task is available `here <https://docs.microsoft.com/en-us
 Sysmon Configuration Template
 """""""""""""""""""""""""""""
 
-There are some best practise configurations available. See them as a
+There are some best practice configurations available. See them as a
 good starting point to develop your own configuration. If you do not
 have a Sysmon configuration yet, there are several options we suggest:
 
@@ -1371,7 +1371,7 @@ third party tool. The preferred way to distribute Sysmon and its configuration
 is using your organization's device management. If you do not have access to one,
 you can use ASGARD's playbook feature to distribute Sysmon and update its
 configuration. Documentation which describes the playbook creation and that
-offers maintenance scripts can be found in our `asgard-playpooks repository <https://github.com/NextronSystems/asgard-playbooks>`_.
+offers maintenance scripts can be found in our `asgard-playbooks repository <https://github.com/NextronSystems/asgard-playbooks>`_.
 
 Operation
 ~~~~~~~~~
@@ -1530,16 +1530,16 @@ ruleset (see tab "MISP Rulesets") before you can add MISP rules.
    MISP events 
 
 In order to create a ruleset, click ``Add MISP Ruleset`` in the
-``IOC Management`` > ``MISP`` > ``MISP Rulsets`` tab. Select a name
+``IOC Management`` > ``MISP`` > ``MISP Rulesets`` tab. Select a name
 and the type of IOCs you want to use in this ruleset. By default, all
 types are selected, but there may be reasons for deselecting certain
 categories. For example, filename IOCs tend to cause false positives
 and may be deselected for that reason. The picture below shows the
-dialogue for adding a MISP ruleset. Enable **Auto Generate** in order
+dialogue for adding a MISP ruleset. Enable ``Auto Generate`` in order
 to automatically compile new MISP events into the ruleset, when they arrive.
 
-.. figure:: ../images/addon-a-new-misp-rulset.png
-   :target: ../_images/addon-a-new-misp-rulset.png
+.. figure:: ../images/adding-a-new-misp-ruleset.png
+   :target: ../_images/adding-a-new-misp-ruleset.png
    :alt: Adding a new MISP ruleset
 
    Adding a new MISP ruleset
@@ -1548,8 +1548,8 @@ In order to use a MISP ruleset in a scan: Add the ruleset in the
 ``MISP Signatures`` field when creating your scan.
 
 
-.. figure:: ../images/adding-a-misp-rulset-to-a-scan.png
-   :target: ../_images/adding-a-misp-rulset-to-a-scan.png
+.. figure:: ../images/adding-a-misp-ruleset-to-a-scan.png
+   :target: ../_images/adding-a-misp-ruleset-to-a-scan.png
    :alt: Adding a MISP Ruleset to a Scan
 
    Adding a MISP Ruleset to a Scan 
@@ -1694,7 +1694,7 @@ The screenshot below shows the licensing section of an ASGARD.
    ASGARD licensing
 
 In addition, ASGARD can create single-licenses that can be used
-for agentless scanning. In this case the license is generated
+for agent-less scanning. In this case the license is generated
 and downloaded through the Web frontend. 
 
 .. figure:: ../images/generate-licenses.png
@@ -1842,7 +1842,7 @@ Rights
    * - Manage Scan Templates
      - Allows scan templates management
    * - Remote Console
-     - Connect to endsystems via remote console
+     - Connect to endpoints via remote console
    * - View Remote Console Log
      - Review the recordings of all remote console sessions
    * - Response Control
@@ -1914,7 +1914,7 @@ and could be used for a mapping to ASGARD groups.
 If you need to adapt the recommended configuration or want to customize it,
 we recommend an LDAP browser such as `ADExplorer <https://docs.microsoft.com/en-us/sysinternals/downloads/adexplorer>`_
 from Sysinternals to browse your LDAP structure. As an example you could
-use your organisation's e-mail address as a user login name if you change the "User Filter"
+use your organization's e-mail address as a user login name if you change the "User Filter"
 to ``(&(objectClass=user)(objectCategory=user)(userPrincipalName=%s))``
 
 .. note::

@@ -124,7 +124,7 @@ the RPM packages of the ASGARD agents.
 
     Depsolve Error occured: \n Problem: conflicting requests\n  - package asgard2-agent-1-1.0.0.amd64 does not have a compatible architecture.
 
-The issue is known and can be ignored. The installation completes successfull regardless of this error message. 
+The issue is known and can be ignored. The installation completes successfully regardless of this error message. 
 
 AMC#004: Workaround 1
 ~~~~~~~~~~~~~~~~~~~~~
@@ -161,9 +161,9 @@ Use the following file instead of the RPM from the Agent Download section in the
 ``/var/lib/nextron/asgard2/templates/rpm/x86_64/asgard2-agent-1-1.0.0.x86_64.rpm``
 
 When using ``scp`` to transfer the file from the server, you will
-need to copy the file to a directoy that is accessible by the
+need to copy the file to a directory that is accessible by the
 ``nextron`` user. You also need to change the file permissions.
-One possibility to achive this is to use the following commands:
+One possibility to achieve this is to use the following commands:
 
 .. code-block:: console
 

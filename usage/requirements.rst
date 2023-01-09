@@ -5,27 +5,46 @@ Before You Begin
 Agent to ASGARD Communication
 -----------------------------
 
-There are a few things to consider before you start with the installation. The communication between ASGARD and the ASGARD agent is unidirectional. The ASGARD agent polls ASGARD in a given timeframe and ask for tasks to execute. There is no active triggering from ASGARD to the ASGARD agent – we have designed it that way, because we believe that opening a port on all connected endpoints should and can be avoided. 
+There are a few things to consider before you start with the installation.
+The communication between ASGARD and the ASGARD agent is unidirectional.
+The ASGARD agent polls ASGARD in a given time frame and ask for tasks to
+execute. There is no active triggering from ASGARD to the ASGARD agent –
+we have designed it that way, because we believe that opening a port on
+all connected endpoints should and can be avoided. 
 
 Performance Considerations
 --------------------------
 
-In environments with up to 500 endpoints, the default polling interval is 20 seconds. In larger environments the polling interval increases automatically up to one minute for 2.000 endpoints and 10 minutes for a configuration with 25.000 endpoints connected to a single ASGARD. 
+In environments with up to 500 endpoints, the default polling interval
+is 20 seconds. In larger environments the polling interval increases
+automatically up to one minute for 2.000 endpoints and 10 minutes for
+a configuration with 25.000 endpoints connected to a single ASGARD. 
 
-Obviously, large environments are not as responsive as small environments when it comes to opening remote shells or executing urgent response tasks. It may take up to 10 minutes for the shell to open or the result to show up. However, once open, the shell or the response tasks are very responsive – almost as if it is native on the system.
+Obviously, large environments are not as responsive as small environments
+when it comes to opening remote shells or executing urgent response
+tasks. It may take up to 10 minutes for the shell to open or the result
+to show up. However, once open, the shell or the response tasks are
+very responsive – almost as if it is native on the system.
 
-In order to adapt to specific requirements regarding responsiveness, the polling behavior can be modified. For details, refer to 
-:ref:`chapter 6.1 Performance Tuning <usage/commandline:Performance Tuning>`. The hardware requirements in the next chapter assume that the default polling interval is used. 
+In order to adapt to specific requirements regarding responsiveness,
+the polling behavior can be modified. For details, refer to 
+:ref:`usage/commandline:Performance Tuning`.
+The hardware requirements in the next chapter assume that the default polling interval is used. 
 
 Using a Proxy between ASGARD Agent and ASGARD
 ---------------------------------------------
 
-ASGARD supports using a standard http proxy for the entire Agent to ASGARD communication. In order to use a proxy, the ASGARD agent must be repacked after installation. For details, see :ref:`chapter 6.4 Creating Custom Agent Installer <usage/commandline:Creating Custom Agent Installer>`.
+ASGARD supports using a standard http proxy for the entire Agent to
+ASGARD communication. In order to use a proxy, the ASGARD agent must
+be repacked after installation. For details, see :ref:`usage/commandline:Creating Custom Agent Installer`.
 
 Hardware Requirements
 ---------------------
 
-ASGARDs hardware requirements depend on the number of connected endpoints and also on the intended use. For example, you should consider using bigger hard disks if you are planning to use Bifrost or ASGARD's evidence collection feature extensively.
+ASGARDs hardware requirements depend on the number of connected
+endpoints and also on the intended use. For example, you should
+consider using bigger hard disks if you are planning to use Bifrost
+or ASGARD's evidence collection feature extensively.
 
 .. list-table::
    :header-rows: 1
@@ -40,20 +59,29 @@ ASGARDs hardware requirements depend on the number of connected endpoints and al
    * - up to 25,000 [1]_
      - System memory: 16 GB, Hard disk: 1TB SSD (min 100 MB/s), CPU Cores: 4
 
-.. [1] THOR and AURORA count as individual endpoints in this calculation. AURORA is more demanding than THOR. This results in a maximum of 200/4000/10000 endpoints if THOR **and** AURORA are installed on each endpoint.
+.. [1]
+  THOR and AURORA count as individual endpoints in this calculation.
+  AURORA is more demanding than THOR. This results in a maximum of 200/4000/10000
+  endpoints if THOR **and** AURORA are installed on each endpoint.
 
 Agent Requirements
 ------------------
 
-The ASGARD Agent, which is installed on endpoints, uses up to 10MB of RAM. THOR uses up to 300 MB of RAM additionally when scanning is in progress. 
+The ASGARD Agent, which is installed on endpoints, uses up to 10MB of RAM.
+THOR uses up to 300 MB of RAM additionally when scanning is in progress. 
 
-The agent will use up to 50 MB of hard disk. Together with THOR and its temporary files it uses a maximum of 200 MB in total. 
+The agent will use up to 50 MB of hard disk. Together with THOR and its
+temporary files it uses a maximum of 200 MB in total. 
 
-Please note, that some response actions, such as collecting triage packs or collecting system RAM, require additional disk space.
+Please note, that some response actions, such as collecting triage packs
+or collecting system RAM, require additional disk space.
 
-There are no requirements pertaining to the CPU as scans can be scheduled in a way that THOR reduces its own process priority and limits its CPU usage to a configurable percentage.
+There are no requirements pertaining to the CPU as scans can be scheduled
+in a way that THOR reduces its own process priority and limits its CPU
+usage to a configurable percentage.
 
-Supported operating systems are the ones `supported by THOR <https://thor-manual.nextron-systems.com/en/latest/usage/requirements.html#supported>`__. Not supported are the operating systems with limited or special THOR support.
+Supported operating systems are the ones `supported by THOR <https://thor-manual.nextron-systems.com/en/latest/usage/requirements.html#supported>`__.
+Not supported are the operating systems with limited or special THOR support.
 
 Network Requirements
 --------------------
@@ -117,7 +145,8 @@ From ASGARD to Analysis Cockpit
 From ASGARD and MASTER ASGARD to the Internet
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ASGARD systems are configured to retrieve updates from the following remote systems via HTTPS on port 443/tcp:
+The ASGARD systems are configured to retrieve updates from the
+following remote systems via HTTPS on port 443/tcp:
 
 .. list-table:: 
    :header-rows: 1
@@ -132,7 +161,11 @@ The ASGARD systems are configured to retrieve updates from the following remote 
    * - THOR updates
      - update2.nextron-systems.com
 
-All proxy systems should be configured to allow access to these URLs without TLS/SSL interception. (ASGARD uses client-side SSL certificates for authentication). It is possible to configure a proxy server, username and password during the setup process of the ASGARD platform. Only BASIC authentication is supported (no NTLM authentication support).
+All proxy systems should be configured to allow access to these URLs
+without TLS/SSL interception. (ASGARD uses client-side SSL certificates
+for authentication). It is possible to configure a proxy server, username
+and password during the setup process of the ASGARD platform. Only
+BASIC authentication is supported (no NTLM authentication support).
 
 From MASTER ASGARD to ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -190,20 +223,28 @@ DNS
 ASGARD needs to be able to resolve internal and external IP addresses.
 
 .. warning:: 
-  Please make sure that you install your ASGARD with a **domain name** (see `the following image <../_images/setup_network7.png>`_). If you do not set the Domain Name and install the ASGARD package, your clients won't be able to connect to your ASGARD.
+  Please make sure that you install your ASGARD with a ``domain name``
+  (see :ref:`usage/setup:network configuration`). If you do not set the
+  Domain Name and install the ASGARD package, your clients won't be able
+  to connect to your ASGARD.
 
-  All components you install should have a proper domain name configured to avoid issues further during the configuration.
+  All components you install should have a proper domain name configured
+  to avoid issues further during the configuration.
 
 Antivirus or EDR Exclusions
 ---------------------------
 
 We recommend excluding certain folders and binaries from Antivirus scanning. 
 
-The exclusions will not only prevent Antivirus engines from removing the agents and scanner executables but also increase scan speed, since their real-time engines won't check every file that the scanner has opened for analysis. This can improve the scan speed by up to 30% and also reduces the system's CPU load. 
+The exclusions will not only prevent Antivirus engines from removing the
+agents and scanner executables but also increase scan speed, since their
+real-time engines won't check every file that the scanner has opened for
+analysis. This can improve the scan speed by up to 30% and also reduces
+the system's CPU load. 
 
 General Recommendation
 ^^^^^^^^^^^^^^^^^^^^^^
-We recommend using this list - include all subfolders:
+We recommend using this list - include all sub folders:
 
 - For Windows:
     - %SYSTEMROOT%\\System32\\asgard2-agent\\ 
@@ -273,7 +314,7 @@ On-Access Scan:
     - asgard2-agent-service.exe
     - aurora-agent-64.exe
     - aurora-agent.exe
-- Exclusions (include subfolders):
+- Exclusions (include sub folders):
     - %SYSTEMROOT%\\System32\\asgard2-agent\\
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\
     - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\
@@ -349,7 +390,7 @@ or in Windows command prompt
     efccb4df0a95aa8e562d42707cb5409b866bd5ae8071c4f05eec6a10778f354b
     CertUtil: -hashfile command completed successfully.  
 
-or in powerhsell
+or in Powershell
 
 .. code-block:: ps1con
 

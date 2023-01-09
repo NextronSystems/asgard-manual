@@ -57,7 +57,7 @@ On Windows, open the cmd.exe as Administrator. Set some environment variables.
    C:\Windows\system32>set GRPC_GO_LOG_SEVERITY_LEVEL=info
    C:\Windows\system32>set GODEBUG=http2debug=2
 
-Navgiate into the agent's program directory and start it to see all output messages.
+Navigate into the agent's program directory and start it to see all output messages.
 
 .. code-block:: doscon 
 
@@ -81,7 +81,7 @@ On Linux, open a shell as root (sudo).
    root@asgard:~# export GRPC_GO_LOG_SEVERITY_LEVEL=info
    root@asgard:~# export GODEBUG=http2debug=2
 
-Navgiate into the agent's program directory and start it to see all output messages.
+Navigate into the agent's program directory and start it to see all output messages.
 
 .. code-block:: console 
 
@@ -129,7 +129,9 @@ It is also recommended to redeploy the ASGARD Service Controller.
 - To uninstall the ASGARD Service Controller, please follow the
   instructions in :ref:`usage/administration:Uninstall ASGARD Service Controller`.
 - To install the ASGARD Service Controller, please follow the
-  instructions in :ref:`usage/administration:Service Controller Installation`. You need to wait a few minutes until the asset is connected to your ASGARD before you continue with this step. Please note that you might need to accept the ``Asset Request``.
+  instructions in :ref:`usage/administration:Service Controller Installation`.
+  You need to wait a few minutes until the asset is connected to your ASGARD
+  before you continue with this step. Please note that you might need to accept the ``Asset Request``.
 
 SSL Interception
 ----------------
@@ -244,7 +246,7 @@ To this (values are examples, please change accordingly!)
 .. note:: 
    If you did not set a static IP-Address for your ASGARD Management Center
    server, your IP-Address in the second line of the file might be ``127.0.1.1``.
-   This is due to your server using DHCP. It is adviced that you are using a 
+   This is due to your server using DHCP. It is advised that you are using a 
    static IP-Address. To change this, please see :ref:`usage/setup:changing the ip-address`.
 
 You can verify if the changes worked. Run the following commands and see the difference
@@ -362,8 +364,8 @@ You need to restart ASGARD in order for the changes to take effect.
 
    nextron@asgard:~$ sudo systemctl restart asgard2.service
 
-Regenerate ASGARD Server Certififcate Agent Communication 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Regenerate ASGARD Server Certificate Agent Communication 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to reset the certificate that ASGARD uses to communicate
 with the agents, use the following commands. The agent should
