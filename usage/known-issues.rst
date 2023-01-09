@@ -293,9 +293,10 @@ Fixed in next ASGARD version.
 AMC#007: Sigma Rule Update Fails
 --------------------------------
 
-The signature set released on the 06.01.2023 contains a rule with an author field that is too long for the database field we use in AMC.
+The signature set released on the 06.01.2023 contains a rule with an author
+field which is too long for the database field we use in AMC.
 
-Updating the rule set results in an error message:
+Updating the ruleset results in an error message:
 
 .. code-block:: none
 
@@ -304,7 +305,16 @@ Updating the rule set results in an error message:
 AMC#007: Workaround
 ~~~~~~~~~~~~~~~~~~~
 
-Search for rule title ``Malicious PowerShell Commandlets``, click on ``update rule``, deny the update by selecting ``keep current version`` for that single rule. Then you can update the rest of the rule set using the ``Update All Rules`` button. 
+Search for rule title ``Malicious PowerShell Commandlets``, click on ``Update``,
+and deny the problematic update for this single rule by selecting ``Keep current version``.
+You can now update the rest of the ruleset using the ``Update All Rules`` button. 
+
+This will disable/skip the current update of the rule. As soon as a new update is
+available, the rule will be shown again in the ``Rule Updates`` view.
+
+.. note:: 
+    Denying an update for a rule will only deny the current rule update. Any
+    future updates to this rule will be available again.
 
 AMC#007: Status
 ~~~~~~~~~~~~~~~

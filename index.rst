@@ -18,8 +18,8 @@ Welcome to ASGARD's documentation!
    usage/masterasgard
    usage/maintenance
    usage/commandline
-   usage/known-issues
    usage/troubleshooting
+   usage/known-issues
    usage/appendix
 
 
