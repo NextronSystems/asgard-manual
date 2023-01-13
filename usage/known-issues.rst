@@ -279,7 +279,7 @@ restarts the assets to use the new configuration.
 AMC#002: Status
 ~~~~~~~~~~~~~~~
 
-Open. Will be fixed in the next release.
+Resolved in ASGARD 2.14.5+
 
 
 AMC#001: API Documentation Curl Examples Not Working
