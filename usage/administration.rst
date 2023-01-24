@@ -145,6 +145,38 @@ connected endpoints (see :ref:`usage/commandline:Performance Tuning` for
 details). If ASGARD has scheduled a task for the endpoint (for example:
 run THOR scan) it will be executed directly after the poll.
 
+MacOS Full Disk Access
+^^^^^^^^^^^^^^^^^^^^^^
+
+Since macOS version 13 (Ventura) the ASGARD Agent needs full disk access
+to function properly. After you have deployed the ASGARD Agent, you need
+to grant the service the required access permissions. Please keep in mind
+that administrative privileges on the machine are needed to perform this
+change.
+
+To do this, navigate on your Mac to ``System Settings`` > ``Privacy &
+Security`` > ``Full Disk Access``:
+
+.. figure:: ../images/macos_privacy_and_security.png
+   :target: ../_images/macos_privacy_and_security.png
+   :scale: 36
+   :alt: macOS 13 Privacy & Security
+
+You need to enable the ``asgard2-agent-service`` slider:
+
+.. figure:: ../images/macos_full_disk_access.png
+   :target: ../_images/macos_full_disk_access.png
+   :scale: 40
+   :alt: macOS 13 Full Disk Access
+
+.. note:: 
+   There is no workaround to this step, since it is an integral
+   part of the security design of Apple devices. If you are having trouble
+   with THOR scans via ASGARD on macOS, please check if the ``Full Disk
+   Access`` permission for the ASGARD agent was granted. Since macOS version
+   10.14 (Mojave), you need to grant the same permissions if you want to
+   scan removable volumes.
+
 Asset Management
 ----------------
 
