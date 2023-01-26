@@ -159,7 +159,8 @@ Using Hostname instead of FQDN
 
 The most common error is to define a simple hostname instead of a valid
 FQDN during installation. This happens in cases in which no domain name
-has been set in the setup step named "Configure the network". 
+has been set in the setup step :ref:`usage/setup:network configuration`
+(``Domain name``). 
 
 This leads to a variety of different problems. 
 
