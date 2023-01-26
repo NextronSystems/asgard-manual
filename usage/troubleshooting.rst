@@ -498,7 +498,8 @@ Now that you have the correct timezone you can set it the following way:
 
 Please reboot the system after the changes have been made.
 
-**Note**: This might cause problems with existing Scheduled Scans!
+.. warning::
+   This might cause problems with existing Scheduled Scans!
 
 Aurora is generating too many False Positives
 ---------------------------------------------
