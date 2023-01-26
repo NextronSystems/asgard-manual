@@ -1,6 +1,35 @@
 Known Issues
 =============
 
+AMC#008: Show Asset Timeline Fails
+----------------------------------
+
+After clicking on the asset timeline, the following error appears:
+
+.. code-block:: none
+
+    could not get client stats ID:7 ERROR: no agentlog could be opened
+
+AMC#008: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+To fix that problem you have to connect via ssh to your ASGARD Management Center and run the follwoing commands. 
+
+.. code-block:: console 
+
+    user@unix:~$ ssh nextron@asgard
+
+.. code-block:: console
+
+    nextron@asgard:~$ sudo touch /var/lib/nextron/asgard2/log/agent.log
+    [sudo] password for nextron: 
+    nextron@asgard:~$ sudo chown asgard2: /var/lib/nextron/asgard2/log/agent.log
+
+AMC#008: Status
+~~~~~~~~~~~~~~~
+
+Fixed in next ASGARD version. 
+
 AMC#007: Sigma Rule Update Fails
 --------------------------------
 
