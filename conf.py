@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ASGARD Manual'
+project = 'ASGARD Analysis Cockpit Manual'
 copyright = '2022, Nextron Systems'
 author = 'Stephan Kaiser, Florian Roth, Christian Burkard'
 
@@ -47,6 +47,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
+html_logo = "images/html/asgard-logo.png"
+html_favicon = "images/html/favicon.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
