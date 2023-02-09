@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ASGARD Analysis Cockpit Manual'
+project = 'ASGARD Management Center Manual'
 copyright = '2022, Nextron Systems'
 author = 'Stephan Kaiser, Florian Roth, Christian Burkard'
 
