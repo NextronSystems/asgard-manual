@@ -1545,6 +1545,11 @@ custom ruleset, the default signatures would not be applied.
 Integrating IOCs through MISP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+   In order to use MISP events and their IOCs for scanning, you
+   need to link your ASGARD with a MISP first. Please see
+   :ref:`usage/administration:link misp` for reference.
+
 ASGARD provides an easy to use interface for integrating IOCs from
 a connected MISP into THOR scans. In order to add rules from a MISP,
 navigate to ``IOC Management`` > ``MISP`` > ``MISP Events``, select
@@ -1561,13 +1566,13 @@ ruleset (see tab "MISP Rulesets") before you can add MISP rules.
 
    MISP events 
 
-In order to create a ruleset, click ``Add MISP Ruleset`` in the
+To create a new ruleset, click ``Add MISP Ruleset`` in the
 ``IOC Management`` > ``MISP`` > ``MISP Rulesets`` tab. Select a name
 and the type of IOCs you want to use in this ruleset. By default, all
 types are selected, but there may be reasons for deselecting certain
 categories. For example, filename IOCs tend to cause false positives
 and may be deselected for that reason. The picture below shows the
-dialogue for adding a MISP ruleset. Enable ``Auto Generate`` in order
+dialogue for adding a MISP ruleset. Enable ``Auto Compile`` in order
 to automatically compile new MISP events into the ruleset, when they arrive.
 
 .. figure:: ../images/adding-a-new-misp-ruleset.png
@@ -1576,15 +1581,46 @@ to automatically compile new MISP events into the ruleset, when they arrive.
 
    Adding a new MISP ruleset
 
-In order to use a MISP ruleset in a scan: Add the ruleset in the
+In order to use a MISP ruleset in a scan, add the ruleset in the
 ``MISP Signatures`` field when creating your scan.
-
 
 .. figure:: ../images/adding-a-misp-ruleset-to-a-scan.png
    :target: ../_images/adding-a-misp-ruleset-to-a-scan.png
    :alt: Adding a MISP Ruleset to a Scan
 
    Adding a MISP Ruleset to a Scan 
+
+MISP Attributes used by ASGARD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since not all the information and attributes in a MISP event are
+relevant to ASGARD and the THOR scanner, we provide a list of
+attributes which will be used by ASGARD:
+
+   * hostname
+   * ip-dst
+   * domain
+   * domain-ip>hostname
+   * domain-ip>ip-dst
+   * domain-ip>domain
+   * filename
+   * filepath
+   * file>filename
+   * file>filepath
+   * file>md5
+   * file>sha1
+   * file>sha256
+   * md5
+   * sha1
+   * sha256
+   * yara
+   * yara>yara
+   * sigma
+
+.. warning:: 
+   Only attributes with the flag ``IDS`` set to ``true`` will be used
+   by ASGARD. Please make sure that the flag is set if you are
+   intending to use certain events/attributes.
 
 Evidence Collection 
 -------------------
@@ -2135,10 +2171,9 @@ change on ASGARD's system status page. It will change from ``Not linked`` to ``O
 Link MISP
 ^^^^^^^^^
 
-In order to connect to a MISP navigate to the ``Settings > Link MISP`` tab.
-
-Insert the MISP's address along with the API Key and click ``Connect``.
-
+In order to connect to a MISP with your ASGARD Management Center,
+navigate to ``Settings`` > ``MISP``. Insert the MISP's address,
+along with the API Key and click ``Test and Link MISP``.
 
 .. figure:: ../images/linking-a-misp-to-asgard.png
    :target: ../_images/linking-a-misp-to-asgard.png
@@ -2147,9 +2182,9 @@ Insert the MISP's address along with the API Key and click ``Connect``.
    Linking a MISP to ASGARD
 
 The MISP connectivity status is shown in the ``Overview`` section.
-Please allow five minutes for the connection status to show green
-and MISP rules to show up in the ``IOC Management`` > ``MISP`` > ``MISP Events`` section.
-
+Please allow five minutes for the connection status to indicate the
+correct status, and also MISP rules to be downloaded and shown in
+``IOC Management`` > ``MISP`` > ``MISP Events``.
 
 .. figure:: ../images/connectivity-status.png
    :target: ../_images/connectivity-status.png
