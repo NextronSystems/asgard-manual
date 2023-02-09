@@ -10,6 +10,11 @@
         white-space: normal;
 }
 
+/* Header for mobile versions */
+.wy-nav-top {
+    color: #d72f32
+}
+
 .rst-versions a {
     color: #d72f32;
 }
