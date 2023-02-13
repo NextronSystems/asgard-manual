@@ -1,6 +1,96 @@
 Known Issues
 =============
 
+AMC#009: agent-access.log is not being rotated
+----------------------------------------------
+
+Since versions <= 2.14.6 the file ``/var/lib/nextron/asgard2/log/agent-access.log``
+is not included in the logrotate configuration. This might cause a full disk after
+a certain period of time, due to the file growing bigger and not being rotated.
+
+AMC#009: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+To fix that problem you have to connect via ssh to your ASGARD Management Center
+and edit the following file (as root user):
+
+.. code-block:: console 
+
+    user@unix:~$ ssh nextron@asgard
+
+.. code-block:: console
+
+    nextron@asgard:~$ sudoedit /etc/logrotate.d/asgard
+    [sudo] password for nextron:
+
+You will see the contents of the asgard logrotate file. The entry on the bottom of
+the file will be the one you need to change. Please make sure to only change the
+following highlighted line:
+
+.. code-block:: none
+    :caption: old agent-access.log location
+    :lineno-start: 51
+    :linenos:
+    :emphasize-lines: 1
+
+    /etc/nextron/asgard2/log/agent-access.log {
+        rotate 14
+        missingok
+        notifempty
+        compress
+        delaycompress
+        maxsize 10G
+        daily
+        postrotate
+            pkill -SIGHUP rsyslogd >/dev/null 2>&1 || true
+        endscript
+    }
+
+.. code-block:: none
+    :caption: new agent-access.log location
+    :lineno-start: 51
+    :linenos:
+    :emphasize-lines: 1
+
+    /var/lib/nextron/asgard2/logs/agent-access.log {
+        rotate 14
+        missingok
+        notifempty
+        compress
+        delaycompress
+        maxsize 10G
+        daily
+        postrotate
+            pkill -SIGHUP rsyslogd >/dev/null 2>&1 || true
+        endscript
+    }
+
+You can save the file by pressing ``CTRL + O`` (you will be asked what File Name to write to,
+you can just press ``Enter`` here). Exit the file by pressing ``CTRL + X``.
+
+Since the logrotate job will run every day at a certain time, the changes will take affect 
+with the next run. If you need to rotate the file immediately, run the following command:
+
+.. code-block:: console
+
+    nextron@asgard:~$ sudo logrotate -v /etc/logrotate.d/asgard
+
+You should see in your output something along the lines of the following:
+
+.. code-block:: none
+
+    rotating pattern: /var/lib/nextron/asgard2/log/agent-access.log  after 1 days (14 rotations)
+    empty log files are not rotated, log files >= 10737418240 are rotated earlier, old logs are removed
+    considering log /var/lib/nextron/asgard2/log/agent-access.log
+      Now: 2023-02-13 10:10
+      Last rotated at 2023-02-13 10:00
+      log does not need rotating (log has been already rotated)
+
+AMC#009: Status
+~~~~~~~~~~~~~~~
+
+Fixed in next ASGARD version (>2.14.6)
+
 AMC#008: Show Asset Timeline Fails
 ----------------------------------
 
