@@ -88,8 +88,7 @@ Network Requirements
 
 ASGARD and other systems which will have to communicate with each other,
 need the following ports opened within the network. For a detailed and up
-to date list of external connections to our update and licensing servers,
-please visit https://www.nextron-systems.com/hosts/.
+to date list of our update and licensing servers, please visit https://www.nextron-systems.com/hosts/.
 
 From ASGARD Agent to ASGARD Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
