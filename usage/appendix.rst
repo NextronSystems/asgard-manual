@@ -300,7 +300,7 @@ Execute/adapt the following command depending on the method you chose before:
 
 .. code-block:: console
 
-   root@ca:~$ openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
+   root@ca:~# openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650
    Using configuration from /etc/pki/tls/openssl.conf
    Enter pass phrase for cakey.pem:
 
@@ -314,7 +314,7 @@ Execute/adapt the following command depending on the method you chose before:
 .. code-block:: console
    :emphasize-lines: 19
 
-   root@ca:~$ openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650 -extfile asgard-test01.ext
+   root@ca:~# openssl ca -cert cacert.pem -keyfile cakey.pem -in asgard-test01.csr -out asgard-test01.crt -days 3650 -extfile asgard-test01.ext
    Using configuration from /etc/pki/tls/openssl.conf
    Enter pass phrase for cakey.pem:
    Check that the request matches the signature
