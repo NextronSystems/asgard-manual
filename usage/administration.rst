@@ -2047,7 +2047,6 @@ Instead of using the pre-installed self-signed TLS Certificate,
 users can upload their own TLS Certificate for ASGARD. 
 
 .. figure:: ../images/generate-csr.png
-   :target: ../_images/generate-csr.png
    :alt: Generate a Certificate Signing Request (CSR)
 
    Generate a Certificate Signing Request (CSR)
@@ -2062,11 +2061,13 @@ The generated CSR can be used to generate a TLS Certificate.
 Subsequently, this TLS Certificate can be uploaded in the ``Settings`` > ``TLS`` section.
 
 .. figure:: ../images/upload-tls-certificate.png
-   :target: ../_images/upload-tls-certificate.png
    :alt: Upload a TLS Certificate
 
    Upload a TLS Certificate
 
+.. note:: 
+   Please see :ref:`usage/appendix:install tls certificates on asgard and master asgard`
+   for a guide on how to sign the CSR and install it in your ASGARD.
 
 Manage Services
 ^^^^^^^^^^^^^^^
