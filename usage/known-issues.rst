@@ -1,12 +1,63 @@
 Known Issues
 =============
 
+AMC#010: High number of duplicate assets
+----------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced
+      - Fixed
+    * - N/A
+      - N/A
+
+In some edge cases within restricted endpoint configurations,
+you can encounter a problem which causes some agents to send
+a lot of asset requests. This is mostly caused by hardened systems,
+where the asgard agent is not able to write to its own configuration
+file. One example is SELinux prohibiting write access to the needed
+YAML file.
+
+AMC#010: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+The asgard-agent process needs write access to the configuration file.
+
+Make sure the following condition is present to avoid multiple asset
+requests from the same endpoint:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 40, 44, 16
+
+    * - Process
+      - File
+      - Permissions
+    * - /var/lib/asgard2-agent/asgard2-agent
+      - /var/lib/asgard2-agent/asgard2-agent.yaml
+      - Read/Write
+
+Make sure to disable ``Automatically accept all Asset Requests`` in
+the :ref:`usage/administration:advanced` Settings in the meantime, to
+avoid cleaning up after the changes to the endpoints have been made.
+
 AMC#009: agent-access.log is not being rotated
 ----------------------------------------------
 
-Since versions <= 2.14.6 the file ``/var/lib/nextron/asgard2/log/agent-access.log``
-is not included in the logrotate configuration. This might cause a full disk after
-a certain period of time, due to the file growing bigger and not being rotated.
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - <= 2.14.6
+      - >2.14.6
+
+The file ``/var/lib/nextron/asgard2/log/agent-access.log`` is not included
+in the logrotate configuration. This could cause a full disk after a certain
+period of time, due to the file growing bigger and not being rotated.
 
 AMC#009: Workaround
 ~~~~~~~~~~~~~~~~~~~
@@ -86,13 +137,17 @@ You should see in your output something along the lines of the following:
       Last rotated at 2023-02-13 10:00
       log does not need rotating (log has been already rotated)
 
-AMC#009: Status
-~~~~~~~~~~~~~~~
-
-Fixed in next ASGARD version (>2.14.6)
-
 AMC#008: Show Asset Timeline Fails
 ----------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - <= 2.14.6
+      - >2.14.6
 
 After clicking on the asset timeline, the following error appears:
 
@@ -103,7 +158,7 @@ After clicking on the asset timeline, the following error appears:
 AMC#008: Workaround
 ~~~~~~~~~~~~~~~~~~~
 
-To fix that problem you have to connect via ssh to your ASGARD Management Center and run the follwoing commands. 
+To fix that problem you have to connect via ssh to your ASGARD Management Center and run the following commands. 
 
 .. code-block:: console 
 
@@ -115,13 +170,17 @@ To fix that problem you have to connect via ssh to your ASGARD Management Center
     [sudo] password for nextron: 
     nextron@asgard:~$ sudo chown asgard2: /var/lib/nextron/asgard2/log/agent.log
 
-AMC#008: Status
-~~~~~~~~~~~~~~~
-
-Fixed in next ASGARD version. 
-
 AMC#007: Sigma Rule Update Fails
 --------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Signature Set
+      - Fixed Signature Set
+    * - 23.1.5-122954
+      - 23.1.9-153938 or newer
 
 The signature set released on the 06.01.2023 contains a rule with an author
 field which is too long for the database field we use in AMC.
@@ -146,14 +205,17 @@ available, the rule will be shown again in the ``Rule Updates`` view.
     Denying an update for a rule will only deny the current rule update. Any
     future updates to this rule will be available again.
 
-AMC#007: Status
-~~~~~~~~~~~~~~~
-
-This was fixed in the signature release on 10.01.2023 (signature version 23.1.9-153938 or higher).
-
-
 AMC#006: Nested LDAP Groups not working
 ---------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - 
+      - next Version
 
 Using nested groups in your LDAP/AD will result in no users because the query will fail.
 
@@ -166,14 +228,17 @@ Change your LDAP GroupFilter to the following:
     
     (&(objectCategory=group)(objectClass=group)(member:1.2.840.113556.1.4.1941:=%s))
 
-AMC#006: Status
-~~~~~~~~~~~~~~~
-
-Fixed in next ASGARD version.
-
-
 AMC#005: Basename Missing Operand after SSH Login
 -------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - 
+      - next Version
 
 After logging into ASGARD Management Center via SSH right
 after installing the base system, the following message can appear: 
@@ -196,14 +261,17 @@ AMC#005: Workaround
 No workaround required. The issue solves itself after the
 download of the scanner and signature packages. 
 
-AMC#005: Status
-~~~~~~~~~~~~~~~
-
-Fixed in next ASGARD version. 
-
-
 AMC#004: RPM Packages do not have a compatible architecture
 -----------------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - 
+      - Under investigation
 
 Some Linux systems return this error message when installing
 the RPM packages of the ASGARD agents. 
@@ -323,15 +391,17 @@ To uninstall the ASGARD agent without using the RPM package the following steps 
     user@host:~# sudo rm /usr/sbin/asgard2-agent-service
     user@host:~# sudo rm -Rf /var/lib/asgard2-agent/
 
-AMC#004: Status
-~~~~~~~~~~~~~~~
-
-Under investigation. We are planning to provide fixes but have
-to test if the fix would cause problems with older installations. (upgrades, legacy issues)
-
-
 AMC#003: Error on newly installed Management Center
 ---------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - 
+      - Open
 
 You just installed an ASGARD Management Center and get error messages such as
     
@@ -362,14 +432,17 @@ automatically (check at ``Updates`` > ``THOR and Signatures``) or
 initiate a download of THOR packages and signatures manually by
 clicking the "Manually Check for Updates" button at ``Updates`` > ``THOR and Signatures``.
 
-AMC#003: Status
-~~~~~~~~~~~~~~~
-
-Open.
-
-
 AMC#002: Aurora False Positive Filters Cleared After Saving
 -----------------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - <2.14.5
+      - >=2.14.5
 
 If the global Aurora false positive filter at ``Service Control`` >
 ``Aurora`` > ``False Positive Filters`` is used, the text box is
@@ -395,22 +468,20 @@ the edit action and saving without any modifications using the
 use the false positive filter defined in the file via CLI and
 restarts the assets to use the new configuration.
 
-AMC#002: Status
-~~~~~~~~~~~~~~~
-
-Resolved in ASGARD 2.14.5+
-
-
 AMC#001: API Documentation Curl Examples Not Working
 ----------------------------------------------------
 
-Since ASGARD 2.12.8 the API documentation is not showing the API key
-in example queries as it should and did.
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+    
+    * - Introduced Version
+      - Fixed Version
+    * - 2.12.8
+      - >=2.13.5
 
-..
-    Source of Issue
-    ~~~~~~~~~~~~~~~
-    add after source is known
+The API documentation is not showing the API key
+in example queries as it should and did.
 
 AMC#001: Workaround
 ~~~~~~~~~~~~~~~~~~~
@@ -439,9 +510,4 @@ Example with API endpoint ``/playbooks/search``:
 
 You also need the ``--insecure`` curl flag, if you are using the self-signed
 certificate that ASGARD shipped with.
-
-AMC#001: Status
-~~~~~~~~~~~~~~~
-
-Resolved in ASGARD 2.13.5+
 
