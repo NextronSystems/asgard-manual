@@ -8,8 +8,8 @@ AMC#010: High number of duplicate assets
     :header-rows: 1
     :widths: 50, 50
 
-    * - Introduced
-      - Fixed
+    * - Introduced Version
+      - Fixed Version
     * - N/A
       - N/A
 
