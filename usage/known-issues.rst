@@ -214,8 +214,8 @@ AMC#006: Nested LDAP Groups not working
     
     * - Introduced Version
       - Fixed Version
-    * - 
-      - next Version
+    * - 2.0.0
+      - Open
 
 Using nested groups in your LDAP/AD will result in no users because the query will fail.
 
@@ -237,8 +237,8 @@ AMC#005: Basename Missing Operand after SSH Login
     
     * - Introduced Version
       - Fixed Version
-    * - 
-      - next Version
+    * - 2.0.0
+      - >=2.14.5
 
 After logging into ASGARD Management Center via SSH right
 after installing the base system, the following message can appear: 
@@ -400,7 +400,7 @@ AMC#003: Error on newly installed Management Center
     
     * - Introduced Version
       - Fixed Version
-    * - 
+    * - 2.11.11
       - Open
 
 You just installed an ASGARD Management Center and get error messages such as
