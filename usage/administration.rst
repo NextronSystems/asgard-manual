@@ -1708,14 +1708,6 @@ The licenses are hostname based except for asset licenses. Asset
 licenses are issued for each accepted asset as soon as a response
 action is performed (playbook or remote console access).
 
-Provide an THOR Incident Response License (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In case you have an THOR Incident Response license and want to
-use it with ASGARD, just upload it through the web based UI. This
-will remove all endpoint count restrictions from ASGARD. You can
-scan as many endpoints as you like – regardless of the type (workstation / server). 
-
 Updates
 -------
 
