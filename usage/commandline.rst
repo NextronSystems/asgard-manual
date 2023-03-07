@@ -64,7 +64,6 @@ it will postpone connections and streams but will not lose or drop
 tasks or be harmed in any way. ASGARD will recover to normal load automatically.
 
 .. figure:: ../images/asset-connections-and-streams1.png
-   :target: ../_images/asset-connections-and-streams1.png
    :alt: Asset Connections and Asset Streams
 
    Asset Connections and Asset Streams 
@@ -77,7 +76,6 @@ ASGARD will manage the load automatically and postpone streams until
 the load has returned to normal.
 
 .. figure:: ../images/asset-connections-and-streams2.png
-   :target: ../_images/asset-connections-and-streams2.png
    :alt: Asset Streams in an overload situation
 
    Asset Streams in an overload situation
@@ -164,7 +162,6 @@ You can roll-out the update in batches by providing labels for each stage
 or not select any label to perform the update on all assets.
 
 .. figure:: ../images/example-group-task-for-agent-update.png
-   :target: ../_images/example-group-task-for-agent-update.png
    :alt: Example Group Task for Agent Update
 
    Example Group Task for Agent Update
@@ -196,7 +193,6 @@ Or you can execute the agent installer update from within the WebUI at
 ``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
 
 .. figure:: ../images/asgard2-repacker.png
-   :target: ../_images/asgard2-repacker.png
    :alt: GUI Execute asgard2-repacker
 
    Execute asgard2-repacker from the WebUI
@@ -217,7 +213,6 @@ by clicking ``Add Agent Installers``. The installers are available at the
 downloads page besides the default installers, so best use an affix as distinction.
 
 .. figure:: ../images/custom-agent-installer.png
-   :target: ../_images/custom-agent-installer.png
    :alt: Custom Agent Installer from the WebUI
 
    Custom Agent Installer from the WebUI

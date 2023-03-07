@@ -12,7 +12,6 @@ Login to ASGARD, navigate to ``Licensing``, click
 
 
 .. figure:: ../images/install-a-license.png
-   :target: ../_images/install-a-license.png
    :alt: Install a License
 
    Install a license
@@ -42,13 +41,11 @@ asset connections and asset streams.
    later than one hour after installation. 
 
 .. figure:: ../images/overview1.png
-   :target: ../_images/overview1.png
    :alt: Overview Top Half
 
    Overview Top Half
 
 .. figure:: ../images/overview2.png
-   :target: ../_images/overview2.png
    :alt: Overview Bottom Half
 
    Overview Bottom Half
@@ -62,7 +59,6 @@ of the performed check. If a check failed it gives a detailed error
 message and hints on which steps typically help in resolving the issue.
 
 .. figure:: ../images/diagnostics.png
-   :target: ../_images/diagnostics.png
    :alt: Overview Over Periodic Diagnostic Checks
 
    Overview Over Periodic Diagnostic Checks
@@ -78,7 +74,6 @@ The logs section shows the latest and most relevant logs.
 Complete logs can be found at ``/var/lib/nextron/asgard2/log``.
 
 .. figure:: ../images/logs-section.png
-   :target: ../_images/logs-section.png
    :alt: Logs Section
 
    Logs Section
@@ -108,13 +103,11 @@ of available agents for various operating systems appears.
 
 
 .. figure:: ../images/login-screen.png
-   :target: ../_images/login-screen.png
    :alt: Download Agent Installers from Login Screen
 
    Download Agent Installers from Login Screen
 
 .. figure:: ../images/agents-overview.png
-   :target: ../_images/agents-overview.png
    :alt: Agents Overview
 
    Agents Overview
@@ -134,7 +127,6 @@ click ``Accept``. After that, the endpoint shows up in the asset tab
 and is now ready to be managed or scanned.
 
 .. figure:: ../images/accepting-asgard-agent-requests.png
-   :target: ../_images/accepting-asgard-agent-requests.png
    :alt: Accepting ASGARD Agent Requests
 
    Accepting ASGARD Agent Requests
@@ -158,14 +150,12 @@ To do this, navigate on your Mac to ``System Settings`` > ``Privacy &
 Security`` > ``Full Disk Access``:
 
 .. figure:: ../images/macos_privacy_and_security.png
-   :target: ../_images/macos_privacy_and_security.png
    :scale: 36
    :alt: macOS 13 Privacy & Security
 
 You need to enable the ``asgard2-agent-service`` slider:
 
 .. figure:: ../images/macos_full_disk_access.png
-   :target: ../_images/macos_full_disk_access.png
    :scale: 40
    :alt: macOS 13 Full Disk Access
 
@@ -206,7 +196,6 @@ in Asset Management. The assets will be presented as a table with an
 individual ASGARD ID, their IP addresses and host names.
 
 .. figure:: ../images/asset-view.png
-   :target: ../_images/asset-view.png
    :alt: Asset View
 
    Asset View
@@ -216,7 +205,6 @@ a new scan, run a response playbook, open a command line or switch
 the endpoints ping rate to a few seconds instead of a maximum of 10 minutes. 
 
 .. figure:: ../images/available-actions.png
-   :target: ../_images/available-actions.png
    :alt: Asset Actions
 
    Available Actions (left to right): Run Scan, Run Task,
@@ -226,6 +214,10 @@ the endpoints ping rate to a few seconds instead of a maximum of 10 minutes.
 
     * The internal ping between the ASGARD agent and ASGARD is based on HTTPS not ICMP
     * Depending on the user's role some of the control buttons may be disabled
+    * The ``Run Scan`` button might be greyed out in new installations - this is
+      because ASGARD did not download the THOR packages yet. You can either wait for a
+      few minutes, or see the chapter :ref:`usage/administration:updates of thor and thor signatures`,
+      to trigger a download manually.
 
 Column Visibility
 ^^^^^^^^^^^^^^^^^
@@ -234,7 +226,6 @@ Users can select various columns and adjust their view according to their
 needs by clicking the gear wheel in the top right corner of any table.
 
 .. figure:: ../images/available-columns-in-asset-management.png
-   :target: ../_images/available-columns-in-asset-management.png
    :alt: Asset Columns
 
    Available columns in Asset Management
@@ -253,7 +244,6 @@ selecting the particular assets in the left column, typing the label name
    syncs with Analysis Cockpit, exports / imports or other underlying legacy functions. 
 
 .. figure:: ../images/add-labels.png
-   :target: ../_images/add-labels.png
    :alt: Asset Labeling
 
    Add labels
@@ -262,7 +252,6 @@ In order to remove labels, select your assets, click the yellow ``Remove Labels`
 button and type the name of the label you want to remove for these assets.
 
 .. figure:: ../images/remove-labels.png
-   :target: ../_images/remove-labels.png
    :alt: Asset Labeling
 
    Remove labels
@@ -289,7 +278,6 @@ Separate multiple labels with comma. Leading or ending white space characters
 will be stripped from the labels. 
 
 .. figure:: ../images/asset-label-import.png
-   :target: ../_images/asset-label-import.png
    :alt: Asset Labeling via CSV
 
    Asset Labeling via CSV
@@ -377,7 +365,6 @@ Module and then the ``Move asset to another ASGARD`` Type. You have to upload an
 installer from the ASGARD you want to migrate the asset to.
 
 .. figure:: ../images/master-asgard-move-asset.png
-   :target: ../images/master-asgard-move-asset.png
    :alt: MASTER ASGARD Move Asset
 
 .. note::
@@ -399,7 +386,6 @@ To see all the deleted assets, change your view from ``Active Only`` to ``Delete
    Deleted assets can no longer communicate with the ASGARD. Please use with caution.
 
 .. figure:: ../images/asset-view-deleted-assets.png
-   :target: ../_images/asset-view-deleted-assets.png
    :alt: Deleted Assets
 
    Deleted Assets View
@@ -449,7 +435,6 @@ by ASGARD users in case the flag "ForceStandardArgs" is set for this user.
 By clicking the ``Import Scan Template`` button you can import a previously exported scan template.
 
 .. figure:: ../images/scan-templates-overview.png
-   :target: ../_images/scan-templates-overview.png
    :alt: Scan Templates
 
    Scan Templates Overview
@@ -464,7 +449,6 @@ clicking on the other categories or quickly search for known flags in the search
 By clicking on the star symbols you can also edit your personal favorites. 
 
 .. figure:: ../images/scan-flags.png
-   :target: ../_images/scan-flags.png
    :alt: Scan Flags
 
    Scan Flags
@@ -491,7 +475,6 @@ button for each asset to create a new scan and to show all past scans.
 Just click on the "THOR" button in the Action column in the Asset Management view.
 
 .. figure:: ../images/scan-control-scan-creation.png
-   :target: ../_images/scan-control-scan-creation.png
    :alt: Scan Control - Scan Creation
 
    Scan Control - Scan Creation
@@ -512,7 +495,6 @@ Click the ``Add Scan`` button in the top right corner and fill in the scan optio
 This will create a Single Scan for each asset.
 
 .. figure:: ../images/asset-management-multiple-single-scan.png
-   :target: ../_images/asset-management-multiple-single-scan.png
    :alt: Scan Control - Multiple Single Scans
 
    Scan Control - Multiple Single Scans
@@ -524,7 +506,6 @@ To stop a single scan, navigate to the "Single Scans" tab in Scan Control
 section and click the "stop" (square) button for the scan you want to stop.
 
 .. figure:: ../images/stopping-a-single-scan.png
-   :target: ../_images/stopping-a-single-scan.png
    :alt: Stopping Single Scans
 
    Stopping a Single Scan
@@ -543,7 +524,6 @@ The download button has the following options:
 * Show HTML Report (opens another tab with the HTML report)
 
 .. figure:: ../images/download-scan-results.png
-   :target: ../_images/download-scan-results.png
    :alt: Scan Control - Download Scan Results
 
    Scan Control - Download Scan Results
@@ -558,7 +538,6 @@ A scan for a group of systems can be created in the ``Scan Control`` > ``Group S
 tab. Click the ``Add Group Scan`` button in the upper right corner.
 
 .. figure:: ../images/scan-control-create-group-scan.png
-   :target: ../_images/scan-control-create-group-scan.png
    :alt: Scan Control – Create Group Scan
 
    Scan Control – Create Group Scan
@@ -603,7 +582,6 @@ List of all Group Scans
 The list of all group scans contains, among other items, the unique Scan-ID and the name.
 
 .. figure:: ../images/scan-control-group-scans-list.png
-   :target: ../_images/scan-control-group-scans-list.png
    :alt: Group Scans - List
 
    Scan Control – Group Scans – List
@@ -646,13 +624,11 @@ section the moment they are started. New scheduled tasks can be created
 by clicking the ``Add Scheduled Group Scan`` button.
 
 .. figure:: ../images/scan-control-scheduled-group-scan.png
-   :target: ../_images/scan-control-scheduled-group-scan.png
    :alt: Scan Control – Scheduled Group Scan 
 
    Scan Control – Scheduled Group Scan 
 
 .. figure:: ../images/scan-control-new-scheduled-group-scan.png
-   :target: ../_images/scan-control-new-scheduled-group-scan.png
    :alt: Scan Control – New Scheduled Group Scan
 
    Scan Control – New Scheduled Group Scan 
@@ -664,7 +640,6 @@ Further information about a group scan can be observed from the detail
 page of the group scan. Click the scan you are interested in and the details section will appear.
 
 .. figure:: ../images/scan-control-group-scans-details.png
-   :target: ../_images/scan-control-group-scans-details.png
    :alt: Scan Control – Group Scans – Details
 
    Scan Control – Group Scans – Details
@@ -682,7 +657,6 @@ and `false positive filters <https://thor-manual.nextron-systems.com/en/latest/u
 With ASGARD 2.13+ these features can be globally defined in ASGARD at ``Scan Control`` > ``THOR Config``.
 
 .. figure:: ../images/scan-exclude-and-fp.png
-   :target: ../_images/scan-exclude-and-fp.png
    :alt: Scan Control - Global Directory Exclude and FP Filtering
 
    Scan Control - Global Directory Exclude and FP Filtering
@@ -698,7 +672,6 @@ To configure syslog forwarding of logs, you can set the ``--syslog`` flag
 during scans. You have multiple options as to where you can send the logs.
 
 .. figure:: ../images/set-syslog-flag.png
-   :target: ../_images/set-syslog-flag.png
    :alt: Syslog Forwarding via --syslog flag
 
 The ``--syslog`` value is constructed of the following arguments:
@@ -746,7 +719,6 @@ In order to open a remote shell on an endpoint, open the Asset
 Management section and click the "command line" button in the Actions column.
 
 .. figure:: ../images/opening-a-remote-shell-from-the-asset-view.png
-   :target: ../_images/opening-a-remote-shell-from-the-asset-view.png
    :alt: Opening a Remote Shell from the Asset View
 
    Opening a Remote Shell from the Asset View
@@ -757,7 +729,6 @@ within the remote shell are recorded and can be audited. All shells
 open with root or system privileges.
 
 .. figure:: ../images/remote-shell.png
-   :target: ../_images/remote-shell.png
    :alt: Remote Shell
 
    Remote Shell
@@ -767,7 +738,6 @@ expand the task that represents your session, select the ``Console Log`` tab
 and click the play button in the bottom row.
 
 .. figure:: ../images/replay-remote-shell-session.png
-   :target: ../_images/replay-remote-shell-session.png
    :alt: Replay Remote Shell Session
 
    Replay Remote Shell Session
@@ -789,7 +759,6 @@ a suspicious file to the ASGARD Management Center and analyze it in a Sandbox.
 
 
 .. figure:: ../images/built-in-playbooks.png
-   :target: ../_images/built-in-playbooks.png
    :alt: Built-in Playbooks
 
    Built-in Playbooks
@@ -799,7 +768,6 @@ to the Asset Management view and click the "play" button in the Actions
 Column. This will lead you to a dialogue where you can select the desired action. 
 
 .. figure:: ../images/execute-playbook-on-single-endpoint.png
-   :target: ../_images/execute-playbook-on-single-endpoint.png
    :alt: Execute Playbook on Single Endpoint
 
    Execute Playbook on Single Endpoint
@@ -842,7 +810,6 @@ Response functions for groups of systems can be defined in the ``Group Tasks``
 tab or the ``New Scheduled Group Task`` tab.
 
 .. figure:: ../images/execute-playbook-on-group-of-endpoints.png
-   :target: ../_images/execute-playbook-on-group-of-endpoints.png
    :alt: Execute Playbook on Group of Endpoints
 
    Execute Playbook on Group of Endpoints
@@ -854,7 +821,6 @@ You can add your own custom playbook by clicking the ``Add Playbook`` button in 
 ``Response Control`` > ``Playbooks`` tab. 
 
 .. figure:: ../images/add-custom-playbook.png
-   :target: ../_images/add-custom-playbook.png
    :alt: Add Custom Playbook
 
    Add Custom Playbook
@@ -863,7 +829,6 @@ This lets you define a name and a description for your playbook. After clicking
 the ``Add Playbook`` button, click on the ``Edit steps of this playbook`` action. 
 
 .. figure:: ../images/custom-playbook-edit-steps.png
-   :target: ../_images/custom-playbook-edit-steps.png
    :alt: Playbook Action Items
 
    Playbook Action Items
@@ -873,7 +838,6 @@ can be added using the ``Add Step`` button.
 
 
 .. figure:: ../images/add-playbook-entry.png
-   :target: ../_images/add-playbook-entry.png
    :alt: Add Playbook Entry
 
    Add Playbook Entry
@@ -885,7 +849,6 @@ files at ``Response Control`` > ``Playbook Files`` and upload or update files us
 the ``Upload Playbook File`` button.
 
 .. figure:: ../images/playbook-files.png
-   :target: ../_images/playbook-files.png
    :alt: Manage Playbook Files
 
    Manage Playbook Files
@@ -905,7 +868,6 @@ Next, set the Module to ``Maintenance`` and the Maintenance Type to
 can be set, though only one FQDN/IP-Address per field can be set.
 
 .. figure:: ../images/response-control-proxy.png
-   :target: ../_images/response-control-proxy.png
    :alt: Change/Set an assets Proxy
 
    Change/Set an assets Proxy
@@ -927,7 +889,6 @@ controller on an asset or you can manually download and execute the asgard2-serv
 installer from the ASGARD downloads page.
 
 .. figure:: ../images/sc-install.png
-   :target: ../_images/sc-install.png
    :alt: Install Service Controller
 
    Install Service Controller
@@ -942,7 +903,6 @@ the service controller on the already rolled-out assets. You can do this using a
 under ``Response Control`` > ``(Scheduled) Group Tasks`` > ``Add (Scheduled) Group Task``.
 
 .. figure:: ../images/sc-update.png
-   :target: ../_images/sc-update.png
    :alt: Update Service Controller
 
    Update Service Controller
@@ -984,7 +944,6 @@ rulesets for high and critical Sigma rules. If you want to create a
 custom ruleset go to ``Service Control`` > ``Sigma`` > ``Rulesets`` > ``Create Ruleset``.
 
 .. figure:: ../images/sc-create-ruleset.png
-   :target: ../_images/sc-create-ruleset.png
    :alt: Create a Ruleset
 
    Create a Ruleset
@@ -996,7 +955,6 @@ the rules that should be added to this ruleset by selecting the checkboxes
 and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
 
 .. figure:: ../images/sc-add-to-ruleset.png
-   :target: ../_images/sc-add-to-ruleset.png
    :alt: Add a Rule to Rulesets
 
    Add a Rule to Rulesets
@@ -1011,7 +969,6 @@ and then ``Add to Ruleset``. A rule can be assigned to multiple rulesets.
     (gear wheels). The need for compiling is indicated in the *Uncompiled Changes* column.
 
     .. figure:: ../images/sc-uncommitted-changes.png
-       :target: ../_images/sc-uncommitted-changes.png
        :alt: Uncompiled Changes Indicator
     
        Uncompiled Changes Indicator
@@ -1032,7 +989,6 @@ to select the desired rules and add the bulk to a ruleset. As an example
 you can add all rules of level "critical" to a ruleset:
 
     .. figure:: ../images/sc-choose-rules1.png
-       :target: ../_images/sc-choose-rules1.png
        :alt: Add all critical rules to a ruleset
     
        Add All Critical Rules to a Ruleset
@@ -1040,7 +996,6 @@ you can add all rules of level "critical" to a ruleset:
 Another great way to pivot the Sigma rule database is the usage of MITRE ATT&CK® IDs.
 
     .. figure:: ../images/sc-choose-rules2.png
-       :target: ../_images/sc-choose-rules2.png
        :alt: Search by MITRE ATT&CK® ID
     
        Search by MITRE ATT&CK® ID
@@ -1050,7 +1005,6 @@ the rule itself using the "Rule" column. (the "Rule" column is not shown by defa
 has to be added using the gear wheel button).
 
     .. figure:: ../images/sc-choose-rules3.png
-       :target: ../_images/sc-choose-rules3.png
        :alt: Search by Rule Title or Description
     
        Search by Rule Title or Description
@@ -1075,7 +1029,6 @@ multiple options to tackle that issue.
    of the rule logic and persist automatic rule updates.
 
     .. figure:: ../images/sigma-rules-fp-tuning.png
-       :target: ../_images/sigma-rules-fp-tuning.png
        :alt: Example of the false positive tuning of a Sigma rule
     
        Example of the false positive tuning of a Sigma rule
@@ -1103,7 +1056,6 @@ upload single files or a ZIP compressed archive. This can be done at
 ``Service Control`` > ``Sigma`` > ``Rules`` > ``Upload Rules``.
 
     .. figure:: ../images/sc-custom-rule.png
-       :target: ../_images/sc-custom-rule.png
        :alt: Adding Custom Rules
     
        Adding Custom Rules
@@ -1117,7 +1069,6 @@ managed by ASGARD. An indicator is shown in the WebUI and the rules changes can
 be reviewed and applied at ``Service Control`` > ``Sigma`` > ``Rule Updates``. 
 
     .. figure:: ../images/sigma-rule-updates.png
-       :target: ../_images/sigma-rule-updates.png
        :alt: Sigma Rule Updates for Aurora
     
        Sigma Rule Updates for Aurora
@@ -1147,7 +1098,6 @@ responses in the ``Service Control`` > ``Aurora`` > ``Configurations`` menu.
 
 
     .. figure:: ../images/sc-aurora-configuration-response-overview.png
-       :target: ../_images/sc-aurora-configuration-response-overview.png
        :alt: Aurora Configuration Response Action Overview
     
        Aurora Configuration Response Action Overview
@@ -1162,7 +1112,6 @@ the button in the upper right to switch the response status of the rules
 between active and simulated.
 
     .. figure:: ../images/sc-aurora-ruleset-responses.png
-       :target: ../_images/sc-aurora-ruleset-responses.png
        :alt: Response Configuration in Rulesets
     
        Response Configuration in Rulesets
@@ -1172,7 +1121,6 @@ behavior of response updates. It can be seen at ``Service Control`` >
 ``Sigma`` > ``Rulesets`` in the "Default Response Mode" column.
 
     .. figure:: ../images/sigma-ruleset-default-response-mode.png
-       :target: ../_images/sigma-ruleset-default-response-mode.png
        :alt: Ruleset Default Response Mode
     
        Ruleset Default Response Mode
@@ -1200,7 +1148,6 @@ of all assets with installed Aurora is shown. Clicking on the entry opens a
 drop-down menu with details and additional information.
 
 .. figure:: ../images/sc-aurora-asset-view.png
-   :target: ../_images/sc-aurora-asset-view.png
    :alt: Aurora Asset View
 
    Aurora Asset View
@@ -1220,7 +1167,6 @@ To change the Aurora configuration of an asset, navigate to ``Service Control``
 > by clicking ``Assign and Restart``.
 
 .. figure:: ../images/sc-aurora-assign-configuration.png
-   :target: ../_images/sc-aurora-assign-configuration.png
    :alt: Change Aurora Service Configuration
 
    Change Aurora Service Configuration
@@ -1239,7 +1185,6 @@ No rulesets is a viable option, if you only want to use the non-sigma matching m
 You don't need to edit any other option as sane defaults are given.
 
 .. figure:: ../images/sc-aurora-custom-configuration.png
-   :target: ../_images/sc-aurora-custom-configuration.png
    :alt: Create a Custom Aurora Configuration
 
    Create a Custom Aurora Configuration
@@ -1253,7 +1198,6 @@ to analyze the issue and define process exclusions, go to ``Service Control`` >
 ``Aurora`` > ``Process Excludes``
 
 .. figure:: ../images/aurora-process-exclusion.png
-   :target: ../_images/aurora-process-exclusion.png
    :alt: Define Aurora Process Exclusion
 
    Define Aurora Process Exclusion
@@ -1275,7 +1219,6 @@ not possible, because you need a quick fix and multiple rules are affected,
 the global false positive filter can help.
 
 .. figure:: ../images/aurora-global-fp-filter.png
-   :target: ../_images/aurora-global-fp-filter.png
    :alt: Define Global Aurora False Positive Filters
 
    Define Global Aurora False Positive Filters
@@ -1289,7 +1232,6 @@ You can view an overview and the logs of the Aurora response and simulated
 response actions under ``Service Control`` > ``Aurora`` > ``Response Action Logs``.
 
 .. figure:: ../images/aurora-response-action-logs.png
-   :target: ../_images/aurora-response-action-logs.png
    :alt: Aurora Response Action Logs
 
    Aurora Response Action Logs
@@ -1303,7 +1245,6 @@ Best Practices for Managing Aurora
 4. configuration (see :ref:`usage/administration:Deploy Aurora on Asset`)
 
 .. figure:: ../images/aurora-best-practices-service-deployed.png
-   :target: ../_images/aurora-best-practices-service-deployed.png
    :alt: Aurora Service Successfully Deployed
 
    Aurora Service Successfully Deployed
@@ -1332,7 +1273,6 @@ on the command line of an asset. As a result you should see following
 message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
 
 .. figure:: ../images/aurora-best-practices-example-response.png
-   :target: ../_images/aurora-best-practices-example-response.png
    :alt: Aurora Service Successfully Deployed
 
    Aurora Simulated Response Action 
@@ -1417,7 +1357,6 @@ the overview of all assets with an installed LogWatcher is shown.
 Clicking on the entry opens a drop-down menu with details and additional information.
 
 .. figure:: ../images/sc-logwatcher-overview.png
-   :target: ../_images/sc-logwatcher-overview.png
    :alt: LogWatcher Assets View
 
    LogWatcher Asset View
@@ -1433,7 +1372,6 @@ To enable the LogWatcher service for an asset, navigate to ``Service Control`` >
 by clicking ``Assign``.
 
 .. figure:: ../images/sc-logwatcher-change-configuration.png
-   :target: ../_images/sc-logwatcher-change-configuration.png
    :alt: Enable a Service Configuration
 
    Enable a Service Configuration
@@ -1449,7 +1387,6 @@ Go to ``Service Control`` > ``LogWatcher`` > ``Configurations`` >
 should apply for this service configuration (i.e. group of assets).
 
 .. figure:: ../images/sc-service-configuration.png
-   :target: ../_images/sc-service-configuration.png
    :alt: Create a Service Configuration
 
    Create a Service Configuration
@@ -1469,7 +1406,6 @@ In order to create your own custom IOC Group, navigate to ``IOC Management`` > `
 and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
 
 .. figure:: ../images/add-ioc-group.png
-   :target: ../_images/add-ioc-group.png
    :alt: Add IOC Group
 
    Add IOC Group
@@ -1483,7 +1419,6 @@ for a complete list and file formats. Browse to the file you want
 to add and click upload. This adds your IOC file to the default ruleset. 
 
 .. figure:: ../images/import-iocs.png
-   :target: ../_images/import-iocs.png
    :alt: Imported IOCs Overview
 
    Imported IOCs Overview
@@ -1493,7 +1428,6 @@ interactively. Select the type, score and description, enter some values
 and click the ``Add IOC`` button.
 
 .. figure:: ../images/add-ioc.png
-   :target: ../_images/add-ioc.png
    :alt: Add IOCs
 
    Add IOCs
@@ -1504,7 +1438,6 @@ button in the upper right corner. Select name and description and click the
 ``Add Ruleset`` button.
 
 .. figure:: ../images/add-ruleset.png
-   :target: ../_images/add-ruleset.png
    :alt: Add Ruleset
 
    Add Ruleset
@@ -1515,7 +1448,6 @@ ruleset. Additionally you can add or remove selected IOC Groups in
 ``IOC Management: IOCs`` by clicking one of the three buttons shown below.
 
 .. figure:: ../images/add-remove-ioc-group.png
-   :target: ../_images/add-remove-ioc-group.png
    :alt: Buttons to Add/Remove IOC Groups
 
    Buttons to Add/Remove IOC Groups
@@ -1532,7 +1464,6 @@ The THOR scan would be performed with the default settings and the
 custom ruleset, the default signatures would not be applied.
 
 .. figure:: ../images/select-ruleset.png
-   :target: ../_images/select-ruleset.png
    :alt: Select Ruleset while creating a scan job
 
    Select Ruleset while creating a scan job
@@ -1561,7 +1492,6 @@ ruleset (see tab "MISP Rulesets") before you can add MISP rules.
 
 
 .. figure:: ../images/misp-events.png
-   :target: ../_images/misp-events.png
    :alt: MISP events
 
    MISP events 
@@ -1576,7 +1506,6 @@ dialogue for adding a MISP ruleset. Enable ``Auto Compile`` in order
 to automatically compile new MISP events into the ruleset, when they arrive.
 
 .. figure:: ../images/adding-a-new-misp-ruleset.png
-   :target: ../_images/adding-a-new-misp-ruleset.png
    :alt: Adding a new MISP ruleset
 
    Adding a new MISP ruleset
@@ -1585,7 +1514,6 @@ In order to use a MISP ruleset in a scan, add the ruleset in the
 ``MISP Signatures`` field when creating your scan.
 
 .. figure:: ../images/adding-a-misp-ruleset-to-a-scan.png
-   :target: ../_images/adding-a-misp-ruleset-to-a-scan.png
    :alt: Adding a MISP Ruleset to a Scan
 
    Adding a MISP Ruleset to a Scan 
@@ -1636,7 +1564,6 @@ ASGARD provides two forms of collected evidence:
 All collected evidence can be downloaded in the ``Collected Evidence`` section.
 
 .. figure:: ../images/collected-evidence-list.png
-   :target: ../_images/collected-evidence-list.png
    :alt: Collected Evidence List
 
    Collected Evidence List
@@ -1651,7 +1578,6 @@ the samples. See section :ref:`usage/administration:Roles` and
 
 
 .. figure:: ../images/bifrost-collections.png
-   :target: ../_images/bifrost-collections.png
    :alt: Bifrost Collections
 
    Bifrost Collections
@@ -1674,7 +1600,6 @@ unwanted exhaustion of the ASGARD license pool. You can reset
 the download token by disabling and then re-enabling it using ``New Download Token``.
 
 .. figure:: ../images/download-thor-package.png
-   :target: ../_images/download-thor-package.png
    :alt: Generate THOR Package Download Link
 
    Download THOR package and license workstation named 'WIN-CLI-DE-1234'
@@ -1756,7 +1681,6 @@ particular system during its initial THOR scan.
 The screenshot below shows the licensing section of an ASGARD.
 
 .. figure:: ../images/asgard-licensing.png
-   :target: ../_images/asgard-licensing.png
    :alt: ASGARD licensing
 
    ASGARD licensing
@@ -1766,7 +1690,6 @@ for agent-less scanning. In this case the license is generated
 and downloaded through the Web frontend. 
 
 .. figure:: ../images/generate-licenses.png
-   :target: ../_images/generate-licenses.png
    :alt: Generate licenses
 
    Generate licenses
@@ -1808,7 +1731,6 @@ ASGARD service will be restarted and the user will be forced to
 re-login. Generally update MASTER ASGARD before the connected ASGARDs.
 
 .. figure:: ../images/updating-asgard.png
-   :target: ../_images/updating-asgard.png
    :alt: Updating ASGARD
 
    Updating ASGARD
@@ -1824,7 +1746,6 @@ or modify the automatic THOR and Signature updates by deleting or
 modifying the entries in this section.
 
 .. figure:: ../images/automatic-scanner-and-signature-updates.png
-   :target: ../_images/automatic-scanner-and-signature-updates.png
    :alt: Automatic Scanner and Signature Updates
 
    Automatic Scanner and Signature Updates
@@ -1835,12 +1756,15 @@ from the drop-down menu.
 
 Please be aware, that this is a global setting and will affect all scans!
 
-
 .. figure:: ../images/select-scanner-version-manually.png
-   :target: ../_images/select-scanner-version-manually.png
    :alt: Selecting a Scanner Version manually
 
    Selecting a Scanner Version manually
+
+.. hint:: 
+   You can trigger a Manual Check and download new THOR packages by clicking
+   ``Manually Check for Updates``. This can also be used in new ASGARD 
+   installations, as sometimes it takes a while until ASGARD does this automatically.
 
 Agent Updates
 ^^^^^^^^^^^^^
@@ -1849,7 +1773,6 @@ If an asset or an agent can be update, there will be a notice
 shown in the ``Updates`` > ``Agents`` tab.
 
 .. figure:: ../images/update-agent.png
-   :target: ../_images/update-agent.png
    :alt: Update Agent
 
    Update Agent
@@ -1865,7 +1788,6 @@ The field ``2FA`` in the overview indicates if a
 user has ``Two Factor Authentication`` enabled or not.
 
 .. figure:: ../images/add-user-account.png
-   :target: ../_images/add-user-account.png
    :alt: Add User Account
 
    Add User Account
@@ -1887,7 +1809,6 @@ deleted. The ASGARD role model is fully configurable.
 
 
 .. figure:: ../images/user-roles-factory-default.png
-   :target: ../_images/user-roles-factory-default.png
    :alt: ASGARD User Roles
 
    User Roles – Factory Defaults 
@@ -1949,7 +1870,6 @@ In the right column, the mapping of LDAP groups to ASGARD groups
 First check if your LDAP server is reachable by ASGARD by clicking "Test Connection".
 
 .. figure:: ../images/ldap-server.png
-   :target: ../_images/ldap-server.png
    :alt: Configure the LDAP Server
 
    Configure the LDAP Server
@@ -1960,7 +1880,6 @@ the distinguished name you can use an LDAP browser or query
 using the PowerShell AD module command ``Get-ADUser <username>``.
 
 .. figure:: ../images/ldap-bind.png
-   :target: ../_images/ldap-bind.png
    :alt: Configure the LDAP Bind User
 
    Configure the LDAP Bind User
@@ -1974,7 +1893,6 @@ with that user would be successful and which groups ASGARD identified
 and could be used for a mapping to ASGARD groups. 
 
 .. figure:: ../images/ldap-filter.png
-   :target: ../_images/ldap-filter.png
    :alt: Configure the LDAP User and Group Filters
 
    Configure the LDAP User and Group Filters
@@ -1995,7 +1913,6 @@ After the LDAP configuration is set up, you need to provide role mapping from LD
 This is done in the right column by using the ``Add LDAP Role`` feature.
 
 .. figure:: ../images/ldap-role.png
-   :target: ../_images/ldap-role.png
    :alt: LDAP Group to ASGARD Role Mapping
 
    LDAP Group to ASGARD Role Mapping
@@ -2010,7 +1927,6 @@ Rsyslog forwarding can be configured in ``Settings`` > ``RSYSLOG``.
 To add a forwarding configuration for local log sources, click ``Add Rsyslog Forwarding``.
 
 .. figure:: ../images/configure-rsyslog-forwarding.png
-   :target: ../_images/configure-rsyslog-forwarding.png
    :alt: Rsyslog Forwarding
 
 The following log sources can be forwarded individually:
@@ -2076,7 +1992,6 @@ The individual ASGARD services can be managed in ``Settings`` > ``Services``.
 The services can be stopped or restarted with the respective buttons in the ``Actions`` column. 
 
 .. figure:: ../images/manage-services.png
-   :target: ../_images/manage-services.png
    :alt: Configuration of Services
 
    Manage Services
@@ -2087,7 +2002,6 @@ NTP Configuration
 The current NTP configuration can be found in the NTP sub-section. 
 
 .. figure:: ../images/ntp-configuration.png
-   :target: ../_images/ntp-configuration.png
    :alt: NTP Configuration
 
    NTP configuration
@@ -2107,7 +2021,6 @@ the collected files will stay on ASGARD for the amount of time
 specified in ``Retention time`` (0 days represent an indefinite amount of time). 
 
 .. figure:: ../images/settings-for-bifrost.png
-   :target: ../_images/settings-for-bifrost.png
    :alt: Settings for Bifrost
 
    Settings for Bifrost
@@ -2121,7 +2034,6 @@ option to send samples to the system set as ``bifrost2Server``. Use the placehol
 ``%asgard-host%`` to use the hostname of you ASGARD instance as the Bifrost server.
 
 .. figure:: ../images/scan-option-for-bifrost.png
-   :target: ../_images/scan-option-for-bifrost.png
    :alt: Bifrost Options
 
    Scan option for Bifrost 
@@ -2142,7 +2054,6 @@ the field ``FQDN``, enter the one-time code, choose the
 type and click ``Update Analysis Cockpit``. 
 
 .. figure:: ../images/linking-the-analysis-cockpit.png
-   :target: ../_images/linking-the-analysis-cockpit.png
    :alt: Linking the Analysis Cockpit
 
    Linking the Analysis Cockpit 
@@ -2150,7 +2061,6 @@ type and click ``Update Analysis Cockpit``.
 The Cockpit's API key can be found at ``Settings`` > ``ASGARDs`` > ``Connect ASGARD``.
 
 .. figure:: ../images/settings-ac.png
-   :target: ../_images/settings-ac.png
    :alt: Analysis Cockpit API Key
 
    Analysis Cockpit API Key
@@ -2164,7 +2074,6 @@ Please wait up to five minutes for the status to
 change on ASGARD's system status page. It will change from ``Not linked`` to ``Online``.
 
 .. figure:: ../images/connectivity-status.png
-   :target: ../_images/connectivity-status.png
    :alt: image87
 
    Cockpit connectivity status
@@ -2177,7 +2086,6 @@ navigate to ``Settings`` > ``MISP``. Insert the MISP's address,
 along with the API Key and click ``Test and Link MISP``.
 
 .. figure:: ../images/linking-a-misp-to-asgard.png
-   :target: ../_images/linking-a-misp-to-asgard.png
    :alt: Linking a MISP to ASGARD
 
    Linking a MISP to ASGARD
@@ -2188,7 +2096,6 @@ correct status, and also MISP rules to be downloaded and shown in
 ``IOC Management`` > ``MISP`` > ``MISP Events``.
 
 .. figure:: ../images/connectivity-status.png
-   :target: ../_images/connectivity-status.png
    :alt: MISP connectivity status
 
    MISP connectivity status
@@ -2201,7 +2108,6 @@ configuration. Please note, you need to restart the ASGARD
 service (Tab Services) afterwards. 
 
 .. figure:: ../images/change-proxy-settings.png
-   :target: ../_images/change-proxy-settings.png
    :alt: Change Proxy Settings
 
    Change Proxy Settings
@@ -2215,7 +2121,6 @@ dialogue within the MASTER ASGARD frontend.
 
 
 .. figure:: ../images/link-master-asgard.png
-   :target: ../_images/link-master-asgard.png
    :alt: Link MASTER ASGARD
 
    Link MASTER ASGARD
@@ -2233,7 +2138,6 @@ Inactive assets can be hidden in the Asset Management Section
 by setting a suitable threshold for ``Hide inactive Assets``. 
 
 .. figure:: ../images/advanced-settings.png
-   :target: ../_images/advanced-settings.png
    :alt: Advanced Settings
 
    Advanced Settings
@@ -2249,7 +2153,6 @@ Changing your password
 To change your password, navigate to the ``User Settings`` section.
 
 .. figure:: ../images/changing-your-password.png
-   :target: ../_images/changing-your-password.png
    :alt: Changing your password
 
    Changing your password
@@ -2274,7 +2177,6 @@ To enable Two Factor Authentication, navigate to ``User Settings`` >
 will see the option to ``Use Two Factor Authentication``.
 
 .. figure:: ../images/user_enable_2fa.png
-   :target: ../_images/user_enable_2fa.png
    :alt: Enable 2FA
 
 After clicking the button, you will be presented with a QR
@@ -2284,7 +2186,6 @@ to verify the 6-digit token and click ``Validate Two Factor Authentication``
 to enable 2FA.
 
 .. figure:: ../images/user_verify_2fa.png
-   :target: ../_images/user_verify_2fa.png
    :alt: Verify 2FA
 
 .. note:: 
@@ -2297,7 +2198,6 @@ To disable 2FA, navigate to ``User Settings`` > ``Two Factor Authentication``
 and click ``Deactivate Two Factor Authentication``.
 
 .. figure:: ../images/user_deactivate_2fa.png
-   :target: ../_images/user_deactivate_2fa.png
    :alt: Deactivate 2FA
 
 .. note:: 

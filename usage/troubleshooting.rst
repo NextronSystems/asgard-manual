@@ -11,11 +11,9 @@ the system configuration and log data of an ASGARD instance.
 You can generate a Diagnostic Package in ``Systems Status > Tab: Logs > Diagnostics Package``. 
 
 .. figure:: ../images/asgard-diagnostic-1.png
-   :target: ../_images/asgard-diagnostic-1.png
    :alt: Diagnostics Pack
 
 .. figure:: ../images/asgard-diagnostic-2.png
-   :target: ../_images/asgard-diagnostic-2.png
    :alt: Diagnostics Pack Download View
 
 The package can have a size that cannot be shared via Email. In this case you can either
@@ -116,7 +114,6 @@ you need to fix the issue to avoid unwanted behavior of this asset. To
 fix the issue, you need to uninstall the current ASGARD agent and redeploy a fresh copy.
 
 .. figure:: ../images/troubleshooting-duplicate-assets.png
-   :target: ../_images/troubleshooting-duplicate-assets.png
    :alt: Troubleshooting Duplicate Assets
 
    Troubleshooting Duplicate Assets
@@ -419,7 +416,6 @@ the ``2FA`` option is enabled. Disable the option and click ``Edit User``
 necessary).
 
 .. figure:: ../images/admin_disable_2fa.png
-   :target: ../_images/admin_disable_2fa.png
    :alt: Disable 2FA via WebUI
 
 After you edited the user, the ``Two Factor Authentication`` will be disabled

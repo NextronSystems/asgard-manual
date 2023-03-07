@@ -10,19 +10,15 @@ Create a new VM with your virtualization software. In this case, we will use VMW
 The new VM must be configured with a Linux base system and Debian GNU/Linux 10 (64 bits) as target version. It is recommended to upload the ASGARD or MASTER ASGARD ISO to an accessible data store and mount the same to your newly created VM. 
 
 .. figure:: ../images/setup_esx1.png
-   :target: ../_images/setup_esx1.png
    :alt: New Virtual Machine - ESX
 
 .. figure:: ../images/setup_esx2.png
-   :target: ../_images/setup_esx2.png
    :alt: New Virtual Machine - ESX
 
 .. figure:: ../images/setup_esx3.png
-   :target: ../_images/setup_esx3.png
    :alt: New Virtual Machine - ESX
 
 .. figure:: ../images/setup_esx4.png
-   :target: ../_images/setup_esx4.png
    :alt: New Virtual Machine - ESX
 
 Please make sure to select a suitable v-switch or physical interface that
@@ -36,26 +32,21 @@ The installation Process is started by clicking on ASGARD Graphical install.
 The installer then loads the additional components from the ISO and lets you select location and language.
 
 .. figure:: ../images/setup_iso_installer.png
-   :target: ../_images/setup_iso_installer.png
    :alt: ISO Installer - ASGARD
 
 .. figure:: ../images/setup_language.png
-   :target: ../_images/setup_language.png
    :alt: Select a language
 
 .. figure:: ../images/setup_location1.png
-   :target: ../_images/setup_location1.png
    :alt: Select your location
 
 .. figure:: ../images/setup_location2.png
-   :target: ../_images/setup_location2.png
    :alt: Select your location
 
 .. warning::
    Please make sure to select the correct Country, as this will also set your local timezone!
 
 .. figure:: ../images/setup_locales.png
-   :target: ../_images/setup_locales.png
    :alt: Configure locales
 
 
@@ -68,30 +59,24 @@ Network Configuration
 ---------------------
 
 .. figure:: ../images/setup_network1.png
-   :target: ../_images/setup_network1.png
    :alt: Configure the network
 
 .. figure:: ../images/setup_network2.png
-   :target: ../_images/setup_network2.png
    :alt: Configure the network
 
 .. figure:: ../images/setup_network3.png
-   :target: ../_images/setup_network3.png
    :alt: Configure the network
 
 .. figure:: ../images/setup_network4.png
-   :target: ../_images/setup_network4.png
    :alt: Configure the network
 
 .. warning::
    ASGARD needs to be able to resolve internal and external IP addresses.
 
 .. figure:: ../images/setup_network5.png
-   :target: ../_images/setup_network5.png
    :alt: Configure the network
 
 .. figure:: ../images/setup_network6.png
-   :target: ../_images/setup_network6.png
    :alt: Configure the network
 
 .. warning::
@@ -101,14 +86,12 @@ Network Configuration
    be resolved on the clients, no agent will be able to find and connect to the ASGARD server. 
 
 .. figure:: ../images/setup_network7.png
-   :target: ../_images/setup_network7.png
    :alt: Configure the network
 
 Choosing a password
 -------------------
 
 .. figure:: ../images/setup_password.png
-   :target: ../_images/setup_password.png
    :alt: Set up users and passwords
 
    Choosing a password for the ``nextron`` user
@@ -125,13 +108,11 @@ Partitioning the Hard Disk
    for more information.
 
 .. figure:: ../images/setup_disks1.png
-   :target: ../_images/setup_disks1.png
    :alt: Partition disks
 
 Finally, write your configuration to the disk by selecting "Yes" and clicking "Continue".
 
 .. figure:: ../images/setup_disks2.png
-   :target: ../_images/setup_disks2.png
    :alt: Partition disks
 
 Proxy Configuration
@@ -141,7 +122,6 @@ If you are using a proxy to access the internet, enter the proxy details in the 
 Please note, ``Internet connectivity is required`` for the next step – the installation of the ASGARD service. 
 
 .. figure:: ../images/setup_proxy.png
-   :target: ../_images/setup_proxy.png
    :alt: Finish the installation
 
 The base installation is now complete. In the next step we will install the ASGARD service.
@@ -157,7 +137,6 @@ system, the password is ``nextron``). Now you can run the following command:
 ``sudo nextronInstaller -asgard`` (caution: upper case “i" in the middle). This will install ASGARD.
 
 .. figure:: ../images/setup_nextronInstaller.png
-   :target: ../_images/setup_nextronInstaller.png
    :alt: running the nextronInstaller
 
 
@@ -167,7 +146,6 @@ The output should look like the screenshot below with status ``Active``.
 
 
 .. figure:: ../images/setup_service.png
-   :target: ../_images/setup_service.png
    :alt: systemctl status asgard2
 
 
@@ -234,7 +212,6 @@ audit of certain actions. In order to access restricted functions which require 
 audit please create an user with the corresponding rights under ``Settings`` > ``Users``.
 
 .. figure:: ../images/login-screen.png
-   :target: ../_images/login-screen.png
    :alt: Login Screen
 
    Login Screen
@@ -242,7 +219,6 @@ audit please create an user with the corresponding rights under ``Settings`` > `
 Click on ``User Settings`` and update your password. 
 
 .. figure:: ../images/changing-the-password.png
-   :target: ../_images/changing-the-password.png
    :alt: Changing the Password
 
    Changing the Password

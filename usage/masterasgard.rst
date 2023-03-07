@@ -75,7 +75,6 @@ On your ASGARD server, go to ``Settings`` > ``MASTER ASGARD``, generate a
 one-time code and copy it. 
 
 .. figure:: ../images/link-master1.png
-   :target: ../_images/link-master1.png
    :alt: Generate One Time Token
 
    Generate One Time Token on ASGARD
@@ -86,7 +85,6 @@ connect that ASGARD system. You can use a description to provide more
 information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
 
 .. figure:: ../images/link-asgard-in-master-asgard.png
-   :target: ../_images/link-asgard-in-master-asgard.png
    :alt: Link ASGARD in MASTER ASGARD
 
    Link ASGARD in MASTER ASGARD
@@ -105,7 +103,6 @@ Scan Control in MASTER ASGARD looks the same as in an ASGARD server.
 The only difference is that you can select an ASGARD Server or "All ASGARDs" to run the scans on.  
 
 .. figure:: ../images/scan-control-in-master-asgard-add-group-task.png
-   :target: ../_images/scan-control-in-master-asgard-add-group-task.png
    :alt: MASTER ASGARD Scan Control
 
    Scan Control in MASTER ASGARD - Add Group Task
@@ -141,7 +138,6 @@ edits a configuration of an asset it will take over the "leadership"
 over this asset, no matter by which it was managed beforehand.
 
 .. figure:: ../images/master-service-controller.png
-   :target: ../_images/master-service-controller.png
    :alt: Example: Service Controller listed in ASGARD but managed by MASTER ASGARD
 
    Example: Service Controller listed in ASGARD but managed by MASTER ASGARD
@@ -159,7 +155,6 @@ download Agent Installers on all your connected ASGARDs. This
 allows for a central management of the Installers.
 
 .. figure:: ../images/master-asgard-download-section.png
-   :target: ../_images/master-asgard-download-section.png
    :alt: Example: Download Section in ASGARD but managed by MASTER ASGARD
 
    Example: Download Section in ASGARD but managed by MASTER ASGARD
@@ -173,7 +168,6 @@ A third tab named ``THOR and Signatures`` gives you an overview of
 the used scanner and signature versions on all connected ASGARDs. 
 
 .. figure:: ../images/master-asgard-scanner-updates.png
-   :target: ../_images/master-asgard-scanner-updates.png
    :alt: MASTER ASGARD Scanner Updates
 
    MASTER ASGARD Scanner Updates
@@ -211,7 +205,6 @@ However, many API endpoints contain a field in which users select the
 corresponding ASGARD (via ``ID``) or all ASGARDs (``ID=0``) 
 
 .. figure:: ../images/master-api1.png
-   :target: ../_images/master-api1.png
    :alt: MASTER ASGARD API Peculiarity
 
    MASTER ASGARD API Peculiarity
