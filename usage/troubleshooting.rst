@@ -111,7 +111,8 @@ Duplicate Assets Remediation
 
 If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
 you need to fix the issue to avoid unwanted behavior of this asset. To
-fix the issue, you need to uninstall the current ASGARD agent and redeploy a fresh copy.
+fix the issue, you need to uninstall the current ASGARD agent, delete the
+configuration files, and redeploy a fresh copy.
 
 .. figure:: ../images/troubleshooting-duplicate-assets.png
    :alt: Troubleshooting Duplicate Assets
@@ -119,6 +120,12 @@ fix the issue, you need to uninstall the current ASGARD agent and redeploy a fre
    Troubleshooting Duplicate Assets
 
 - To uninstall the ASGARD agent, please follow the instructions in :ref:`usage/administration:Uninstall ASGARD Agents`.
+- To delete the configuration files, make sure that the following folder is 
+  deleted before installing a new agent:
+
+  * Windows: ``C:\Windows\System32\asgard2-agent\``
+  * Linux: ``/var/lib/asgard2-agent/``
+
 - To install the ASGARD agent, please follow the instructions in :ref:`usage/administration:ASGARD Agent Deployment`.
 
 It is also recommended to redeploy the ASGARD Service Controller.
