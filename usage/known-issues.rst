@@ -1,6 +1,83 @@
 Known Issues
 =============
 
+AMC#011: Context Deadline Exceeded
+----------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - N/A
+      - Ongoing
+
+When debugging GRPC connectivity issues between your components (for example Management
+Center to Analysis Cockpit), you might encounter an error similar to the following one:
+
+.. code-block:: json
+   :linenos:
+   :emphasize-lines: 9
+
+   {
+    "LEVEL":"Warning",
+    "MESSAGE":"could not dial grpc",
+    "MODULE":"api",
+    "REQUEST_IP":"172.16.30.20",
+    "TIME":"2023-03-06T12:35:37Z",
+    "USER":"admin",
+    "error":"context deadline exceeded",
+    "host":"cockpit3.domain.local:7443"
+   }
+
+AMC#011: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+There is no workaround for this type of error. The error usually occurs because
+one of the following things are preventing proper communication between your
+components:
+
+* Firewall is using TLS Inspection
+* Proxy is using TLS Inspection
+* DNS Issues
+
+.. note::
+  Your components expect specific certificates from each other when communicating.
+  If a device is trying to inspect TLS traffic, the certificate will change and
+  you receive the above error.
+
+To help you figuring out what is causing the problem, you can try the following.
+You can use openssl on your source system to see which certificate is presented
+by the destination host.
+
+.. code-block:: console
+  :emphasize-lines: 3, 6
+
+  nextron@asgard2:~$ openssl s_client -host cockpit3.domain.local:7443
+  CONNECTED(00000005)                        
+  depth=0 O = Nextron Systems GmbH, CN = cockpit3.domain.local
+  verify error:num=20:unable to get local issuer certificate
+  verify return:1
+  depth=0 O = Nextron Systems GmbH, CN = cockpit3.domain.local
+  verify error:num=21:unable to verify the first certificate
+  verify return:1
+  write W BLOCK
+  ---               
+  Certificate chain      
+   0 s:O = Nextron Systems GmbH, CN = cockpit3.domain.local
+     i:O = Nextron Systems GmbH, CN = Analysis Cockpit 3
+  ---         
+  Server certificate     
+  -----BEGIN CERTIFICATE-----
+
+The marked lines show you the certificate which is presented by the destination
+host. If this certificate is different from the one you installed, then the problem
+might be a device trying to do TLS Inspection.
+
+We are currently working on improving the presented error message, to give
+a better understanding what might be the issue at hand.
+
 AMC#010: High number of duplicate assets
 ----------------------------------------
 
