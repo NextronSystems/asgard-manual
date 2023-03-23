@@ -2253,15 +2253,15 @@ RPMs via ``yum``
 
 .. code-block:: console 
 
-   user@host:~$ sudo yum remove 'asgard2-agent*'
-   user@host:~$ sudo rm -rf /var/lib/thor
+   user@host:~$ sudo yum remove asgard2-agent
+   user@host:~$ sudo rm -r /var/lib/thor
 
-DPKGs via ``apt-get``
+DEBs via ``dpkg``
 
 .. code-block:: console 
 
-   user@host:~$ sudo apt-get remove 'asgard2-agent*'
-   user@host:~$ sudo rm -rf /var/lib/thor
+   user@host:~$ sudo dpkg -P asgard2-agent
+   user@host:~$ sudo rm -r /var/lib/thor
 
 Manual uninstall
 
@@ -2269,10 +2269,10 @@ Manual uninstall
 
    root@host:~# /usr/sbin/asgard2-agent-amd64 stop
    root@host:~# /usr/sbin/asgard2-agent-amd64 uninstall
-   root@host:~# rm -rf /usr/sbin/asgard2-agent-amd64
-   root@host:~# rm -rf /var/tmp/nextron/asgard2-agent
-   root@host:~# rm -rf /var/lib/nextron/asgard2-agent
-   root@host:~# rm -rf /var/lib/thor
+   root@host:~# rm -r /usr/sbin/asgard2-agent-amd64
+   root@host:~# rm -r /var/tmp/nextron/asgard2-agent
+   root@host:~# rm -r /var/lib/nextron/asgard2-agent
+   root@host:~# rm -r /var/lib/thor
 
 Uninstall ASGARD Agents on macOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2280,8 +2280,8 @@ Uninstall ASGARD Agents on macOS
 .. code-block:: console 
 
    user@mac:~$ sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
-   user@mac:~$ sudo rm -rf /var/lib/asgard2-agent/asgard2-agent
-   user@mac:~$ sudo rm -rf /var/lib/thor
+   user@mac:~$ sudo rm -r /var/lib/asgard2-agent/asgard2-agent
+   user@mac:~$ sudo rm -r /var/lib/thor
 
 Uninstall ASGARD Service Controller
 ----------------------------------- 
