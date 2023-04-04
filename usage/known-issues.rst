@@ -1,6 +1,94 @@
 Known Issues
 =============
 
+AMC#012: Missing asgard2-agent.yaml
+-----------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - asgard2-agent (1.6.5)
+      - Ongoing
+
+Due to a bug in the installer of our ASGARD Agent, there is a possibility that
+the configuration file (``asgard2-agent.yaml``) gets renamed but not replaced
+by a more current version. This usually happens if the agent installer is being
+run a second time, after the agent is aready installed. In some rare cases this
+can also happen when the agent is being updated via your ASGARD. All together,
+this leaves the agent in an undesirable state, which will cause no tasks/jobs
+to be executed due to the missing config file (task will be in ``Pending`` state
+or return an error).
+
+You will find errors in the agent log (``C:\Windows\System32\asgard2-agent\log\agent.log``)
+and also observe that the installer directory only contains ``asgard2-agent.yaml.old``
+and not the correct ``asgard2-agent.yaml`` config file.
+
+.. code-block:: none
+  :caption: Error in the asgard.log file
+
+   2023/03/29 23:34:26 ASGARD_THOR: Error: could not load config: open C:\Windows\System32\asgard2-agent\asgard2-agent.yaml: The system cannot find the file specified.
+   2023/03/29 23:34:26 ASGARD_AGENT: Error: task 1350 done with error: exit status 1
+
+Another indicator is the ``asgard2-agent-install.log`` file located at
+``C:\Windows\System32\asgard2-agent\``. This almost always means the installer
+was executed multiple times.
+
+.. code-block:: none
+  :caption: Error in the asgard2-agent-install.log file
+
+  2023/03/30 16:13:14 installer arguments: asgard2-agent.exe -install
+  2023/03/30 16:13:14 could not open dst file C:\Windows\System32\asgard2-agent\asgard2-agent-service.exe: open C:\Windows\System32\asgard2-agent\asgard2-agent-service.exe: The process cannot access the file because it is being used by another process.
+  2023/03/30 16:13:14 could not copy files from executable path . to install path C:\Windows\System32\asgard2-agent: open C:\Windows\System32\asgard2-agent\asgard2-agent-service.exe: The process cannot access the file because it is being used by another process.
+
+AMC#012: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+To get the agent up and running again, you need to rename the config file to its
+original name and restart the asgard2-agent service. We wrote a little batch script
+you can use, alternatively you can write your own and deploy it
+
+.. code-block:: batch
+
+  @ECHO OFF
+
+  IF EXIST "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml" GOTO noFix
+  IF EXIST "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml.old" GOTO fixConfig
+
+  :noFix
+  echo config file exists, nothing to do
+  GOTO commonExit
+
+  :fixConfig
+  echo config file in renamed state, fixing
+  copy "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml.old" "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml"
+  timeout /t 2
+
+  echo stopping asgard2-agent service
+  sc stop asgard2-agent
+  timeout /t 5
+
+  echo starting asgard2-agent service
+  sc start asgard2-agent
+  timeout /t 5
+
+  echo service should be in state RUNNING
+  sc query asgard2-agent | findstr STATE
+
+  GOTO commonExit
+
+  :commonExit
+  pause
+
+.. hint:: 
+  If you are seeing a second asset with the same hostname in your ASGARD, the issue was
+  most likely caused by re-installing the agent over an already installed agent. Try to
+  avoid running the installer a second time on systems which already have an agent installed.
+  You can find information when the installer was being run in the installer log
+  ``C:\Windows\System32\asgard2-agent\asgard2-agent-install.log``.
+
 AMC#011: Context Deadline Exceeded
 ----------------------------------
 
