@@ -80,7 +80,7 @@ you can use, alternatively you can write your own and deploy it
   GOTO commonExit
 
   :commonExit
-  pause
+  exit
 
 .. hint:: 
   If you are seeing a second asset with the same hostname in your ASGARD, the issue was
