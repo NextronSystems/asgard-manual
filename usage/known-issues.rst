@@ -48,7 +48,8 @@ AMC#012: Workaround
 
 To get the agent up and running again, you need to rename the config file to its
 original name and restart the asgard2-agent service. We wrote a little batch script
-you can use, alternatively you can write your own and deploy it
+you can use, alternatively you can write your own and deploy it. Administrative
+rights on the endpoint are needed.
 
 .. code-block:: batch
 
