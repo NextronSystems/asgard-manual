@@ -16,7 +16,7 @@ AMC#012: Missing asgard2-agent.yaml
 Due to a bug in the installer of our ASGARD Agent, there is a possibility that
 the configuration file (``asgard2-agent.yaml``) gets renamed but not replaced
 by a more current version. This usually happens if the agent installer is being
-run a second time, after the agent is aready installed. In some rare cases this
+run a second time, after the agent is already installed. In some rare cases this
 can also happen when the agent is being updated via your ASGARD. All together,
 this leaves the agent in an undesirable state, which will cause no tasks/jobs
 to be executed due to the missing config file (task will be in ``Pending`` state
