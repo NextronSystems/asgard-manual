@@ -52,6 +52,7 @@ you can use, alternatively you can write your own and deploy it. Administrative
 rights on the endpoint are needed.
 
 .. code-block:: batch
+  :linenos:
 
   @ECHO OFF
 
