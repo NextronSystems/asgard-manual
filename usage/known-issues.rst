@@ -27,17 +27,21 @@ and also observe that the installer directory only contains ``asgard2-agent.yaml
 and not the correct ``asgard2-agent.yaml`` config file.
 
 .. code-block:: none
-  :caption: Error in the asgard.log file
+  :caption: Errors in the asgard.log file
 
    2023/03/29 23:34:26 ASGARD_THOR: Error: could not load config: open C:\Windows\System32\asgard2-agent\asgard2-agent.yaml: The system cannot find the file specified.
    2023/03/29 23:34:26 ASGARD_AGENT: Error: task 1350 done with error: exit status 1
 
 Another indicator is the ``asgard2-agent-install.log`` file located at
 ``C:\Windows\System32\asgard2-agent\``. This almost always means the installer
-was executed multiple times.
+was executed multiple times. See the two highlighted lines below, a normal install
+would only contain the first line. Re-running the installer will produce lines 2
+and 3, which indicate that the agent might be in the faulty state.
 
 .. code-block:: none
-  :caption: Error in the asgard2-agent-install.log file
+  :caption: Errors in the asgard2-agent-install.log file
+  :linenos:
+  :emphasize-lines: 2-3
 
   2023/03/30 16:13:14 installer arguments: asgard2-agent.exe -install
   2023/03/30 16:13:14 could not open dst file C:\Windows\System32\asgard2-agent\asgard2-agent-service.exe: open C:\Windows\System32\asgard2-agent\asgard2-agent-service.exe: The process cannot access the file because it is being used by another process.
