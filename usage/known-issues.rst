@@ -11,7 +11,7 @@ AMC#012: Missing asgard2-agent.yaml
     * - Introduced Version
       - Fixed Version
     * - asgard2-agent (1.6.5)
-      - 
+      - Planned end of April 2023
 
 Due to a bug in the installer of our ASGARD Agent, there is a possibility that
 the configuration file (``asgard2-agent.yaml``) gets renamed but not replaced
