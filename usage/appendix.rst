@@ -117,7 +117,7 @@ needs administrative permissions.
 
 .. code-block:: powershell
    :linenos:
-   :emphasize-lines: 7, 15, 23
+   :emphasize-lines: 8, 15, 23
 
    $asgardAgent = "C:\Windows\System32\asgard2-agent"
    $asgardAgentTemp = "C:\Windows\Temp\asgard2-agent"
