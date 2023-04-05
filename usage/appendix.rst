@@ -99,22 +99,28 @@ You can use this part of the script to detect if the installation was successful
 Broken file and folder permissions
 ----------------------------------
 
-The ASGARD Agent folder has in a normal installation its permissions
-inherited from the parent folder. The ASGARD Agent checks regularly
+The ASGARD Agent folder has in a normal installation specific
+permissions set. The ASGARD Agent checks regularly
 for broken permissions and tries to fix them. If for some reason this
 process fails, you have to check and change the permissions manually.
+
+.. code-block:: none
+
+   2023/03/31 12:02:35 ASGARD_THOR: Error: failed to repair permissions: set security info: Access is denied.
 
 To do this we wrote a little PowerShell script which can help you with
 this process. Please test the script before you deploy it in your
 environment. To do this, you can leave the ``-WhatIf`` flag to see what
-the script would do if the permissions are broken. The script needs
-administrative permissions.
+the script would do if the permissions are broken. If you are content
+with the potential changes, remove the ``-WhatIf`` arguments. The script
+needs administrative permissions.
 
 .. code-block:: powershell
    :linenos:
-   :emphasize-lines: 7, 16
+   :emphasize-lines: 7, 15, 23
 
    $asgardAgent = "C:\Windows\System32\asgard2-agent"
+   $asgardAgentTemp = "C:\Windows\Temp\asgard2-agent"
    if (Get-Item -Path $asgardAgent | Get-Acl | where {$_.Access.IsInherited -eq $false}) {
        Write-Host "ASGARD Agent folder permission broken. Trying to fix: $asgardAgent"
        # Set the new Access Rule to inherit permissions
@@ -122,7 +128,13 @@ administrative permissions.
        $newAcl.SetAccessRuleProtection($false, $true)
        Set-Acl $asgardAgent -AclObject $newAcl -WhatIf
    }
-
+   if (Get-Item -Path $asgardAgentTemp | Get-Acl | where {$_.Access.IsInherited -eq $false}) {
+       Write-Host "ASGARD Agent folder permission broken. Trying to fix: $asgardAgentTemp"
+       # Set the new Access Rule to inherit permissions
+       $newAcl = Get-Acl -Path $asgardAgentTemp
+       $newAcl.SetAccessRuleProtection($false, $true)
+       Set-Acl $asgardAgentTemp -AclObject $newAcl -WhatIf
+   }
    get-childitem -path $asgardAgent -Recurse -Depth 1 | Get-Acl | where {$_.Access.IsInherited -eq $false} | % {
        $fullPath = Convert-Path $_.Path
        Write-Host "ASGARD Agent folder permission broken. Trying to fix: $fullPath"
@@ -131,6 +143,12 @@ administrative permissions.
        $newAcl.SetAccessRuleProtection($false, $true)
        Set-Acl $_.Path -AclObject $newAcl -WhatIf
    }
+
+.. tip:: 
+   After you changed the permissions of the asgard2-agent folder,
+   the agent might correct the permissions again and set them accordingly.
+   Only use this script if the agent is showing errors that permissions
+   can not be set.
 
 Installing ASGARD Agent on a Golden Image
 -----------------------------------------
