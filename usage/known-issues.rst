@@ -4,9 +4,6 @@ Known Issues
 AMC#012: Missing asgard2-agent.yaml
 -----------------------------------
 
-.. meta::
-  :keywords: yaml.old agent.yaml agent.yaml.old YAML
-
 .. list-table::
     :header-rows: 1
     :widths: 50, 50
