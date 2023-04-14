@@ -597,19 +597,30 @@ Account Data and Network Access
 
 Ensure you have access and credentials to the following systems, as well as connectivity as follows:
 
-* **ASGARD Management Center version 1**
-   * Administrative Web User
-   * Credentials for the ssh user: bsk
-* **ASGARD Management Center version 2**
-   * Administrative Web User
-   * Credentials for the ssh user: nextron
-* **Connectivity between ASGARD 1 and ASGARD 2**
-   * Required only if new agents are transferred via SCP
-* **Client/Server System(s) connected to ASGARD v1 needs connectivity to ASGARD v2**
-* **Access to a new update server**
-   * update1.nextron-systems.com
-   * update2.nextron-systems.com
-   * update3.nextron-systems.com
+- **ASGARD Management Center version 1**
+  
+  - Administrative Web User
+
+  - Credentials for the ssh user: bsk
+
+- **ASGARD Management Center version 2**
+
+  - Administrative Web User
+
+  - Credentials for the ssh user: nextron
+
+- **Connectivity between ASGARD 1 and ASGARD 2**
+
+  - Required only if new agents are transferred via SCP
+
+- **Client/Server System(s) connected to ASGARD v1 needs connectivity to ASGARD v2**
+- **Access to a new update server**
+
+  - update1.nextron-systems.com
+
+  - update2.nextron-systems.com
+
+  - update3.nextron-systems.com
 
 For a detailed and up to date list of our update and
 licensing servers, please visit https://www.nextron-systems.com/hosts/.

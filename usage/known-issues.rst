@@ -68,13 +68,13 @@ rights on the endpoint are needed.
   GOTO commonExit
 
   :fixConfig
-  echo config file in renamed state, fixing
-  copy "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml.old" "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml"
-  timeout /t 2
-
   echo stopping asgard2-agent service
   sc stop asgard2-agent
   timeout /t 5
+
+  echo config file in renamed state, fixing
+  copy "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml.old" "C:\Windows\System32\asgard2-agent\asgard2-agent.yaml"
+  timeout /t 2
 
   echo starting asgard2-agent service
   sc start asgard2-agent
