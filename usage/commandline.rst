@@ -277,10 +277,25 @@ An installed agent with the name "javax" would look like this:
 Backup and Restore
 ------------------
 
+All of our ASGARD servers come with predefined backup and restore scripts.
+You can use them to keep a backup available in case something stops working.
+
+.. warning::
+   If you are using a Management Center and Analysis Cockpit together, it
+   is advised to create the backups at the same time. This avoids
+   potential data inconsistencies across the two platforms. You can
+   do this via a cronjob on both systems or with an automation tool like
+   Ansible, Terraform, etc.
+
+   The same should be kept in mind when restoring your backups. You should
+   always restore the backups on all servers, to avoid getting problems
+   in the future.
+
 Backup
 ^^^^^^
+
 The command ``asgard2-backup`` can be used to generate a backup of
-all configurations, assets, tags, user accounts, tasks etc. except:
+all configurations, assets, tags, user accounts, tasks etc., except:
 
 * Log files (ASGARD, THOR)
 * Playbook results (collected evidence)
@@ -308,6 +323,61 @@ If you want to transfer the backup to a different system, make sure to copy the
 
 After this is done, you can use ``scp`` or any other available tool to
 transfer the backup file to a different system.
+
+.. hint::
+   Our recommendation is to run the backup as a cronjob during a time, when
+   no tasks are running or are scheduled to run. The reason for this is that
+   our sample script will stop the ASGARD service before the backup to avoid any
+   inconsistency with the data.
+
+Here is an example script and cronjob entry to create backups on a schedule:
+
+.. code-block:: bash
+   :linenos:
+   :caption: Example backup script, e.g. ``/root/backup.sh``
+
+   #!/bin/bash
+   date
+
+   echo "stopping asgard2.service"
+   if ! systemctl stop asgard2.service; then
+      echo "could not stop asgard2.service, exiting script"
+      exit 1
+   fi
+
+   sleep 10
+   echo "running backup script"
+   /usr/sbin/asgard2-backup
+
+   sleep 10
+   echo "starting asgard2.service"
+   if ! systemctl start asgard2.service; then
+      echo "could not start asgard2.service, needs manual debugging"
+      exit 1
+   fi
+
+   echo "backup created successfully"
+   echo ""
+   echo ""
+   exit 0
+
+The following crontab entry could be created to run the script every day at 2am.
+You can edit the crontab of the root user with the following commands:
+
+.. code-block:: console
+
+   nextron@asgard:~$ sudo su
+   [sudo] password for nextron:
+   root@asgard:~# crontab -e
+
+.. code-block:: none
+
+   0 2 * * * /bin/bash /root/backup.sh >> /root/backup.log
+
+.. warning::
+   Please keep in mind that the ``asgard2-backup`` script is only keeping **5**
+   backups in place. If you want to change this, you have to change the value
+   ``GENERATIONS`` in the file ``/usr/sbin/asgard2-backup`` to a different value.
 
 Restore
 ^^^^^^^
