@@ -411,7 +411,6 @@ You can use the ``asgard2-restore`` command to restore a backup.
    created. If you need an older version of ASGARD, please contact our
    support team.
 
-
 Disable Remote Console Globally
 -------------------------------
 Remote Console on connected endpoints can be disabled centrally by creating the following file. 
@@ -420,11 +419,8 @@ Remote Console on connected endpoints can be disabled centrally by creating the 
 
    nextron@asgard:~$ sudo touch /etc/nextron/asgard2/disable_console
 
-
 To re-enable Remote Console simply remove the created file
 
 .. code-block:: console
 
    nextron@asgard:~$ sudo rm /etc/nextron/asgard2/disable_console
-
-
