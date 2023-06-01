@@ -103,6 +103,12 @@ From ASGARD Agent to ASGARD Server
      - 443/tcp
    * - Syslog Forwarder (optional)
      - 514/tcp, 514/udp
+   * - ASGARD online check (optional)
+     - ICMP
+
+.. hint:: 
+  Your ASGARD Agents will check if they can reach your ASGARD
+  via HTTPs. ICMP is not necessary but helps during troubleshooting.
 
 From Management Workstation to ASGARD Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
