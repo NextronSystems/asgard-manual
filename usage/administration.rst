@@ -1504,7 +1504,7 @@ and click ``Add IOC Group`` in the upper right corner. Select a name and optiona
 
 To add IOCs to this group, use the ``Show and edit IOCs in this IOC group``
 action. A side pane opens where you can click the ``Import IOCs`` button
-to import your own signatures in any of THOR’s IOC formats as files (e.g.
+to import your own signatures in any of THOR's IOC formats as files (e.g.
 files for keyword IOCs, YARA files and SIGMA files). Refer to the  
 `THOR manual (custom signatures) <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_
 for a complete list and file formats. Browse to the file you want
@@ -1562,8 +1562,9 @@ custom ruleset, the default signatures would not be applied.
 
 .. note::
    To scan exclusively with the custom ruleset, the flag 
-   `--customonly <https://thor-manual.nextron-systems.com/en/latest/usage/flags.html#feature-extras>`_
-   must be set.
+   ``--customonly`` must be set. Please see
+   `THOR Flags <https://thor-manual.nextron-systems.com/en/latest/usage/flags.html#feature-extras>`_
+   for more information.
 
 Integrating IOCs through MISP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
