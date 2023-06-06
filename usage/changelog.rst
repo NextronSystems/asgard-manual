@@ -2,8 +2,7 @@ Changelog
 =========
 
 This chapter contains all new changes to the ASGARD
-Management Center. You can find the same output in
-your Management Center.
+Management Center.
 
 ASGARD 2.15
 ###########
