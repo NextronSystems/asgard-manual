@@ -4,6 +4,11 @@ Changelog
 This chapter contains all new changes to the ASGARD
 Management Center.
 
+ASGARD Management Center
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Changelog of ASGARD Management Center releases since version 2.0.0
+
 ASGARD 2.15
 ###########
 
@@ -1461,6 +1466,222 @@ ASGARD 2.0.0
 
     * - Release Date
     * - Wed,  Mon, 17 Feb 2020 14:17:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Major Release
+      - Initial release
+
+ASGARD Agent
+^^^^^^^^^^^^
+
+Changelog of ASGARD Agent releases since version 1.2.0
+
+Agent 1.6.5
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon, 24 Oct 2022 15:00:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Support for ASGARD Broker
+    * - Change
+      - Improved proxy support
+    * - Change
+      - Improved logging. Logs are now written in log/ subdirectory and rotated based on file size
+    * - Change
+      - Disabled syslog per default 
+
+Agent 1.5.5
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon,  8 Nov 2021 06:59:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Support for ARM64 MacOS 
+    * - Fix
+      - Improved stability of task executions on clients with an EDR installed
+    * - Fix
+      - Gracefully shutdown running tasks on os signals
+    * - Fix
+      - Improved stability of config file on system crash
+
+Agent 1.4.3
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon,  6 Sep 2021 12:19:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Change
+      - Rebuilt agent with newest Golang Version
+    * - Change
+      - Removed code fragments used for service controller
+
+Agent 1.4.2
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Tue, 11 May 2021 05:16:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Change
+      - Signed MacOS binaries with a new certificate
+    * - Fix
+      - In some cases the ASGARD Agents sent many DNS requests for a few seconds
+    * - Fix
+      - Fixed non-starting task after module version upgrade in some cases
+
+Agent 1.3.5
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon, 28 Sep 2020 10:38:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Change
+      - Exchanged code signing certificate and added time stamping
+
+Agent 1.2.0
+###########
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Wed, 19 Feb 2020 09:38:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Major Release
+      - Initial release
+
+ASGARD Service Controller
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Changelog of ASGARD Service Controller releases since version 2.0.5
+
+Service Controller 2.1.2
+########################
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Tue, 13 Aug 2022 08:55:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Support for ASGARD Broker
+    * - Change
+      - Improved proxy support
+    * - Change
+      - Improved logging. Logs are now written in log/ subdirectory and rotated based on file size 
+
+Service Controller 2.0.7
+########################
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon, 21 Feb 2022 15:05:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Send more detailed status of currently running services
+
+Service Controller 2.0.6
+########################
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Thu,  9 Dec 2021 09:42:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Change
+      - Increased max. offline mode time from 4 to 14 days
+    * - Bugfix
+      - Improved stability in offline mode
+    * - Bugfix
+      - Fixed sporadically service restarts due to connectivity issues
+
+Service Controller 2.0.5
+########################
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Thu, 11 Nov 2021 16:38:00 +0100
 
 .. list-table::
     :header-rows: 1
