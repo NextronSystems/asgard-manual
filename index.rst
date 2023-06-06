@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to ASGARD's documentation!
-=========================================
+==================================
 
 .. toctree::
    :maxdepth: 2
@@ -21,6 +21,7 @@ Welcome to ASGARD's documentation!
    usage/troubleshooting
    usage/known-issues
    usage/appendix
+   usage/changelog
 
 
 Indices and tables
