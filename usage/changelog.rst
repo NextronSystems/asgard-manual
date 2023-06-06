@@ -18,6 +18,7 @@ ASGARD 2.15.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -64,6 +65,7 @@ ASGARD 2.14.6
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -81,6 +83,7 @@ ASGARD 2.14.5
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -199,6 +202,7 @@ ASGARD 2.13.11
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -220,6 +224,7 @@ ASGARD 2.13.8
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -243,6 +248,7 @@ ASGARD 2.13.7
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -260,6 +266,7 @@ ASGARD 2.13.6
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -289,6 +296,7 @@ ASGARD 2.13.5
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -443,6 +451,7 @@ ASGARD 2.12.10
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -460,6 +469,7 @@ ASGARD 2.12.9
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -477,6 +487,7 @@ ASGARD 2.12.8
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -585,6 +596,7 @@ ASGARD 2.11.11
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -661,6 +673,7 @@ ASGARD 2.10.10
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -678,6 +691,7 @@ ASGARD 2.10.9
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -713,6 +727,7 @@ ASGARD 2.10.8
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -740,6 +755,7 @@ ASGARD 2.10.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -759,6 +775,7 @@ ASGARD 2.10.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -805,6 +822,7 @@ ASGARD 2.6.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -847,6 +865,7 @@ ASGARD 2.5.7
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -868,6 +887,7 @@ ASGARD 2.5.6
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -901,6 +921,7 @@ ASGARD 2.5.4
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -918,6 +939,7 @@ ASGARD 2.5.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -935,6 +957,7 @@ ASGARD 2.5.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -989,6 +1012,7 @@ ASGARD 2.4.4
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1006,6 +1030,7 @@ ASGARD 2.4.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1031,6 +1056,7 @@ ASGARD 2.4.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1048,6 +1074,7 @@ ASGARD 2.4.1
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1065,6 +1092,7 @@ ASGARD 2.4.0
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1109,6 +1137,7 @@ ASGARD 2.3.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1126,6 +1155,7 @@ ASGARD 2.3.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1188,6 +1218,7 @@ ASGARD 2.2.1
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1205,6 +1236,7 @@ ASGARD 2.2.0
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1313,6 +1345,7 @@ ASGARD 2.1.0
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1369,6 +1402,7 @@ ASGARD 2.0.3
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1386,6 +1420,7 @@ ASGARD 2.0.2
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1403,6 +1438,7 @@ ASGARD 2.0.1
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
@@ -1428,6 +1464,7 @@ ASGARD 2.0.0
 
 .. list-table::
     :header-rows: 1
+    :widths: 15, 85
 
     * - Type
       - Description
