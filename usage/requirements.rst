@@ -106,9 +106,12 @@ From ASGARD Agent to ASGARD Server
    * - ASGARD online check (optional)
      - ICMP
 
+The syslog port is optional, since your agents will work fine without it.
+Please see :ref:`usage/administration:syslog forwarding` for more information.
+
 .. hint:: 
   Your ASGARD Agents will check if they can reach your ASGARD
-  via HTTPs. ICMP is not necessary but helps during troubleshooting.
+  via HTTPs. ICMP is not necessary, but helps during troubleshooting.
 
 From Management Workstation to ASGARD Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,7 +153,7 @@ From ASGARD to Analysis Cockpit
    * - Syslog forwarder (optional)
      - 514/tcp, 514/udp
 
-From ASGARD and MASTER ASGARD to the Internet
+From ASGARD and Master ASGARD to the Internet
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ASGARD systems are configured to retrieve updates from the
@@ -175,7 +178,7 @@ for authentication). It is possible to configure a proxy server, username
 and password during the setup process of the ASGARD platform. Only
 BASIC authentication is supported (no NTLM authentication support).
 
-From MASTER ASGARD to ASGARD
+From Master ASGARD to ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: 
@@ -254,21 +257,30 @@ General Recommendation
 ^^^^^^^^^^^^^^^^^^^^^^
 We recommend using this list - include all sub folders:
 
-- For Windows:
+.. list-table:: 
+  :header-rows: 1
+  :stub-columns: 1
 
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\ 
-  - %SYSTEMROOT%\\Temp\\asgard2-agent\\
-
-- For Linux:
-
-  - /usr/sbin/asgard2-agent-service
-  - /var/lib/asgard2-agent/
-  - /var/tmp/asgard2-agent/
-
-- For MacOS:
-
-  - /var/lib/asgard2-agent/
-  - /var/tmp/asgard2-agent/
+  * -
+    - Folder Exclusions including Subfolders
+  * - **Windows**
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\
+  * - 
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\
+  * - 
+    -
+  * - **Linux**
+    - /usr/sbin/asgard2-agent-service
+  * - 
+    - /var/lib/asgard2-agent/
+  * - 
+    - /var/tmp/asgard2-agent/
+  * - 
+    -
+  * - **macOS**
+    - /var/lib/asgard2-agent/
+  * - 
+    - /var/tmp/asgard2-agent/
 
 .. note::
    If you have obfuscated the agent name, replace *asgard2-agent* with your custom agent name.
@@ -277,46 +289,74 @@ If you have to create a more specific list that can use wildcards, use
 the following list (and replace [random] with the wildcard). If you have
 the choice, the broader approach above should be preferred.
 
-- For Windows:
- 
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent-service.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\thor.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\interrogate.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\console.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
-  - %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
+.. list-table:: 
+  :header-rows: 1
+  :stub-columns: 1
 
-    - Especially: %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor.exe
-    - And/Or: %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor64.exe
-
-  - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\ (and all sub folders)
-
-    - Especially: %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent.exe
-    - And/Or: %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent-64.exe
-
-- For Linux:
-
-  - /usr/sbin/asgard2-agent-service
-  - /var/lib/asgard2-agent/asgard2-agent
-  - /var/lib/asgard2-agent/bin/console
-  - /var/lib/asgard2-agent/bin/interrogate
-  - /var/lib/asgard2-agent/bin/thor
-  - /var/lib/asgard2-agent/bin/update
-  - /var/tmp/asgard2-agent/[random]/thor/thor-linux
-  - /var/tmp/asgard2-agent/[random]/thor/thor-linux-64
-
-- For MacOS:
-
-  - /var/lib/asgard2-agent/asgard2-agent-service
-  - /var/lib/asgard2-agent/asgard2-agent
-  - /var/lib/asgard2-agent/asgard2-agent/bin/console
-  - /var/lib/asgard2-agent/asgard2-agent/bin/interrogate
-  - /var/lib/asgard2-agent/asgard2-agent/bin/thor
-  - /var/lib/asgard2-agent/asgard2-agent/bin/update
-  - /var/tmp/asgard2-agent/[random]/thor/thor-macosx
+  * - 
+    - Specific File/Process Exclusions
+  * - **Windows**
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent-service.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\thor.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\interrogate.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\console.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
+  * - 
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
+  * - 
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
+  * - **Especially**
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor.exe
+  * - **And/Or**
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor64.exe
+  * -
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\ (and all sub folders)
+  * - **Especially**
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent.exe
+  * - **And/Or**
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\aurora\\[random]\\aurora\\aurora-agent-64.exe
+  * -
+    - 
+  * - **Linux**
+    - /usr/sbin/asgard2-agent-service
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent
+  * -
+    - /var/lib/asgard2-agent/bin/console
+  * -
+    - /var/lib/asgard2-agent/bin/interrogate
+  * -
+    - /var/lib/asgard2-agent/bin/thor
+  * -
+    - /var/lib/asgard2-agent/bin/update
+  * -
+    - /var/tmp/asgard2-agent/[random]/thor/thor-linux
+  * -
+    - /var/tmp/asgard2-agent/[random]/thor/thor-linux-64
+  * -
+    -
+  * - **macOS**
+    - /var/lib/asgard2-agent/asgard2-agent-service
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent/bin/console
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent/bin/interrogate
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent/bin/thor
+  * -
+    - /var/lib/asgard2-agent/asgard2-agent/bin/update
+  * -
+    - /var/tmp/asgard2-agent/[random]/thor/thor-macosx
 
 Using the more specific list, we've experienced problems with some
 AV solutions that even trigger on certain keywords in filenames. They
@@ -329,74 +369,125 @@ McAfee EDR Exclusions
 ^^^^^^^^^^^^^^^^^^^^^
 
 McAfee needs Exclusions set in multiple locations. In addition to the
-general recommendation, customers with McAfee EDR need to set the following exclusions:
+general recommendation, customers with McAfee EDR need to set the following exclusions.
 
-On-Access Scan:
-"""""""""""""""
+McAfee On-Access Scan
+"""""""""""""""""""""
 
-- Low Risk:
+.. list-table:: 
+  :header-rows: 1
+  :stub-columns: 1
+  :widths: 25, 75
 
-  - thor.exe
-  - thor64.exe
-  - interrogate.exe
-  - generic.exe
-  - asgard2-agent.exe
-  - asgard2-agent-service.exe
-  - aurora-agent-64.exe
-  - aurora-agent.exe
+  * -
+    - McAfee On-Access Scan Exclusions
+  * - **Low Risk**
+    - thor.exe
+  * -  
+    - thor64.exe
+  * -  
+    - interrogate.exe
+  * -  
+    - generic.exe
+  * -  
+    - asgard2-agent.exe
+  * -  
+    - asgard2-agent-service.exe
+  * -  
+    - aurora-agent-64.exe
+  * -  
+    - aurora-agent.exe
+  * - 
+    -
+  * - **Exclusions**
 
-- Exclusions (include sub folders):
+      (include sub folders)
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\
+  * -
+    - %SYSTEMROOT%\\Temp\\asgard2-agent\\
+  * -
+    - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\
+  * - 
+    -
+  * - Access Protection
+    - thor.exe
+  * -
+    - thor64.exe
+  * -
+    - interrogate.exe
+  * -
+    - generic.exe
+  * -
+    - aurora-agent.exe
+  * -
+    - aurora-agent-64.exe
+  * -
+    - asgard2-agent.exe
+  * -
+    - asgard2-agent-service.exe
+  * -
+    - asgard2-agent-windows-amd64.exe
+  * -
+    - asgard2-agent-windows-386.exe
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\*
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\*\\*
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent\\*
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\*
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\*\\*
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*
+  * -
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\*
+  * -
+    - %SYSTEMROOT%\\System32\\asgard2-agent\\*
 
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\
-  - %SYSTEMROOT%\\Temp\\asgard2-agent\\
-  - %SYSTEMROOT%\\Temp\\asgard2-agent-sc\\
+McAfee EDR
+""""""""""
 
-- Access Protection:
+.. list-table:: 
+  :header-rows: 1
+  :stub-columns: 1
+  :widths: 25, 75
 
-  - thor.exe
-  - thor64.exe
-  - interrogate.exe
-  - generic.exe
-  - aurora-agent.exe
-  - aurora-agent-64.exe
-  - asgard2-agent.exe
-  - asgard2-agent-service.exe
-  - asgard2-agent-windows-amd64.exe
-  - asgard2-agent-windows-386.exe
-  - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\*
-  - C:\\Windows\\Temp\\asgard2-agent\\*\\thor\\*\\*
-  - C:\\Windows\\Temp\\asgard2-agent\\*
-  - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\*
-  - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*\\aurora\\*\\*
-  - C:\\Windows\\Temp\\asgard2-agent-sc\\aurora\\*
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\bin\\*
-  - %SYSTEMROOT%\\System32\\asgard2-agent\\*
-
-EDR Exclusions:
-"""""""""""""""
-
-- Network Flow:
-
-  - C:\\Windows\\System32\\asgard2-agent\\asgard2-agent.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\generic.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\interrogate.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\thor.exe;
-
-- Trace:
-
-  - C:\\Windows\\System32\\asgard2-agent\\asgard2-agent.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\generic.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\interrogate.exe;
-  - C:\\Windows\\System32\\asgard2-agent\\bin\\thor.exe;
-
-- File Hashing:
-
-  - C:\\Windows\\System32\\asgard2-agent\\;
-  - C:\\Windows\\System32\\asgard2-agent\\*\\;
-  - C:\\Windows\\Temp\\asgard2-agent\\;
-  - C:\\Windows\\Temp\\asgard2-agent\\*\\;
-  - C:\\Windows\\Temp\\asgard2-agent-sc\\;
-  - C:\\Windows\\Temp\\asgard2-agent-sc\\*\\;
+  * -
+    - McAfee EDR Exclusions
+  * - **Network Flow**
+    - C:\\Windows\\System32\\asgard2-agent\\asgard2-agent.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\generic.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\interrogate.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\thor.exe
+  * - 
+    -
+  * - **Trace**
+    - C:\\Windows\\System32\\asgard2-agent\\asgard2-agent.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\generic.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\interrogate.exe
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\bin\\thor.exe
+  * -
+    -
+  * - **File Hashing**
+    - C:\\Windows\\System32\\asgard2-agent\\
+  * -
+    - C:\\Windows\\System32\\asgard2-agent\\*\\
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent\\
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent\\*\\
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\
+  * -
+    - C:\\Windows\\Temp\\asgard2-agent-sc\\*\\
 
 Verify the Downloaded ISO (Optional)
 ------------------------------------
@@ -411,16 +502,16 @@ from our `portal server <https://portal.nextron-systems.com>`__.
 Via Hash
 ^^^^^^^^
 
-Extract the ZIP and check the sha256 hash:
+Extract the ZIP and check the sha256 hash.
 
-On Linux
+Linux:
 
 .. code-block:: console
 
    user@host:~$ sha256sum -c nextron-universal-installer.iso.sha256
    nextron-universal-installer.iso: OK
 
-or in Windows command prompt
+Windows command prompt:
 
 .. code-block:: doscon
 
@@ -431,7 +522,7 @@ or in Windows command prompt
    efccb4df0a95aa8e562d42707cb5409b866bd5ae8071c4f05eec6a10778f354b
    CertUtil: -hashfile command completed successfully.  
 
-or in Powershell
+Powershell:
 
 .. code-block:: ps1con
 
@@ -446,9 +537,10 @@ or in Powershell
 Via Signature (Recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Extract the ZIP, `download the public signature <https://www.nextron-systems.com/certificates-and-keys>`__ and verify the signed ISO:
+Extract the ZIP, `download the public signature <https://www.nextron-systems.com/certificates-and-keys>`__
+and verify the signed ISO:
 
-On Linux
+Linux:
 
 .. code-block:: console
 
@@ -456,7 +548,7 @@ On Linux
    user@host:~$ openssl dgst -sha256 -verify codesign.pem -signature nextron-universal-installer.iso.sig nextron-universal-installer.iso
    Verified OK
 
-or in powershell
+Powershell:
 
 .. code-block:: ps1con
 
@@ -465,6 +557,5 @@ or in powershell
    Verified OK 
 
 .. note::
-
-    If ``openssl`` is not present on your system you can easily install it using winget: ``winget install openssl``.
+   If ``openssl`` is not present on your system you can easily install it using winget: ``winget install openssl``.
 
