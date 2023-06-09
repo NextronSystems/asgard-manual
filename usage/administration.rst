@@ -732,35 +732,86 @@ With ASGARD 2.13+ these features can be globally defined in ASGARD at ``Scan Con
 Syslog Forwarding
 ^^^^^^^^^^^^^^^^^
 
+Syslog Forwarding is selected by default, with the ``%asgard-host%``
+target, if you create a new THOR scan task. This is a new feature
+in ASGARD which has a few advantages and why you should consider
+using it:
+
+* You see live statistics of your THOR scans
+* You see at which stage the THOR scan is
+* You can see which module is being executed
+* You will see the last scanned element (helpful if a scan is stuck)
+* If a scan is being stopped by an outside process, no logs are
+  available (more information further down)
+* You can use :ref:`usage/administration:rsyslog forwarding` to forward
+  log lines immediately to the Cockpit/your SIEM
+
+A normal flow of information for a THOR scan looks like this:
+
+* New scan is being created on the ASGARD
+* Agent checks in a asks if any tasks are available
+* ASGARD assigns the newly created THOR scan task to the asset
+* Asset is downloading THOR from the ASGARD and starts scanning
+* THOR finished the scan and the Asset is forwarding the scan result
+  as a whole to the ASGARD
+
+This means that your scan results take a while until you see them
+in your ASGARD, since the results will be uploaded to the ASGARD
+**after** the scan has finished. This also means if an outside process
+(e.g. Antivirus or EDR) killed THOR during the scan, you will not have
+any results in your ASGARD and have to troubleshoot why the scan failed,
+mainly by running THOR in debugging mode manually on the endpoint.
+
 To configure syslog forwarding of logs, you can set the ``--syslog`` flag
 during scans. You have multiple options as to where you can send the logs.
 
 .. figure:: ../images/set-syslog-flag.png
    :alt: Syslog Forwarding via --syslog flag
 
-The ``--syslog`` value is constructed of the following arguments:
+The ``--syslog`` value is constructed of the following arguments. Please
+keep in mind that the fields need to be in the correct order. Values are
+separated with the colon sign ``:``
 
-.. list-table:: --syslog arguments 
+.. list-table::
    :header-rows: 1
-   :widths: 17, 50, 33
 
-   * - Argument
+   * - Pos.
+     - Field
      - Description
-     - Value
-   * - server
+     - Possible Values
+   * - 1
+     - Server
      - The receiving server, ``%asgard-host%`` is the ASGARD which issued the Scan for the Agent
-     - FQDN or IP of remote host [1]_
-   * - port
-     - Port number
-     -
-   * - syslogtype
-     - Type of syslog format, valid formats are:
-     - DEFAULT, CEF, JSON, SYSLOGJSON, SYSLOGKV
-   * - sockettype
-     - optional, default is ``UDP``
-     - UDP, TCP, TCPTLS
+     - FQDN or IP of remote host
+   * - 2
+     - Port
+     - The listening port on the remote system - **optional**, default is ``514``
+     - 1 - 65535
+   * - 3
+     - Format
+     - The log format - **optional**, default is ``DEFAULT``
+     - \- DEFAULT [1]_
+     
+       \- CEF
+       
+       \- JSON
+       
+       \- SYSLOGJSON
+       
+       \- SYSLOGKV
+   * - 4
+     - Socket
+     - The socket type - **optional**, default is ``UDP``
+     - \- UDP
 
-.. [1] The remote Host can be ASGARD or any other syslog capable system.
+       \- TCP
+
+       \- TCPTLS
+
+.. [1] This is the default log format of THOR.
+
+.. hint:: 
+   The syslog listener on the ASGARD is running on port UDP/514.
 
 Examples:
 
@@ -770,11 +821,24 @@ Examples:
 
 If you choose to use the ``--syslog`` flag, please make sure that the
 necessary ports are allowed within your network/firewall. If you decide
-to send the logs via syslog to ASGARD, please have a look at
-the :ref:`usage/administration:Rsyslog Forwarding`.
+to forward your logs via ASGARD to a SIEM, please have a look at
+:ref:`usage/administration:Rsyslog Forwarding`.
 
 Response Control
 ----------------
+
+The Response Control is used to execute tasks on your agents. Those
+tasks can be:
+
+* Run Playbook (pre-defined or custom)
+* Run Interrogate (collect system information)
+* Open Remote Console
+* Maintenance
+
+  - Upgrade Agent
+  - Upgrade Service Controller
+  - Configure the asset's proxy
+  - Move asset to another ASGARD
 
 Opening a Remote Shell on an endpoint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
