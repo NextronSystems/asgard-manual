@@ -378,73 +378,45 @@ Asset Query
 ^^^^^^^^^^^
 
 You can search for Assets in your ASGARD with the Asset Query. This allows
-you to write more complex queries to search for assets.
+you to write more complex queries to search for assets. Additionally, this
+helps you to be more flexible with your scan/response tasks, since you can
+just specify a query and don't have to set labels first. A good example of
+this might be if you are scanning a specific subnet every week, and a new
+agent is being deployed in this subnet. You don't have to think of all the
+labels or troubleshoot why scans are not being deployed. One example you
+could achieve this is the following example query:
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30, 70
+``system = "linux" and interfaces = "172.16.50.0/24"``
 
-   * - Operator
-     - Example
-   * - **Equals**
-     - hostname = "win10-dev"
-   * - **Equals** 
-     - cpu_count = 1
-   * - **Contains**
-     - hostname contains "win"
-   * - **Begins With**
-     - hostname begins with "win"
-   * - **Ends With**
-     - hostname ends with "dev"
-   * - **Numerical Comparison**
-     - total_memory >= 4 GB
-   * - **Numerical Comparison**
-     - last_seen < 3 days ago (assets that have not been seen since 3 days)
-   * - **Numerical Comparison**
-     - last_seen > 1 hour ago (assets that have been seen in the last hour)
-   * - **Numerical Comparison**
-     - last_scan_completed < 2022-08-17 (assets that have not been scanned since 2022-08-17)
-   * - **Numerical Comparison**
-     - last_scan_completed < 2022-08-17 15:00:00 (assets that have not been scanned since 2022-08-17 15:00:00)
-   * - **Numerical Comparison**
-     - last_scan_completed is never
-   * - **Boolean**
-     - is_domain_controller is true
-   * - **Not**
-     - not hostname contains "win"
-   * - **Not**
-     - not hostname ends with "dev"
-   * - **And**
-     - hostname contains "win" and not hostname ends with "dev"
-   * - **Or**
-     - hostname begins with "dev" or hostname ends with "dev"
-   * - **Nested**
-     - hostname ends with "dev" and (hostname contains "win" or hostname contains "lin")
-   * - **Set / Not Set**
-     - labels is set (assets that have at least one label)
-   * - **Set / Not Set**
-     - labels is not set (assets that have no labels)
-   * - **Regular Expression**
-     - hostname matches "^[a-z0-9]{(0,6)}$"
-   * - **Pattern**
-     - **Use _ to match any single character and % to match an arbitrary number of characters, including zero characters.**
-   * - **Pattern**
-     -  arch like "a__64" (matches amd64 and arm64, but not aarch64)
-   * - **Pattern**
-     -  arch like "%64" (all 64 bit systems, e.g. amd64, arm64, aarch64 or ppc64)
-   * - **IP Range**
-     - interfaces = "172.28.30.1/24"
+This would run the task on all linux systems in the subnet 172.16.50.0/24.
 
-.. note::
-   Optionally: You can also create group tasks with an asset query instead of labels
+The following operators are available:
+
+.. csv-table::
+     :file: ../csv/asgard-query-operators.csv
+     :widths: 30, 70
+     :delim: ;
+     :header-rows: 1
+
+You can create simple or complex queries this way. You can group/separate queries with brackets:
+
+``(system = "linux" and interfaces = "172.28.30.0/24") or (system = "windows" and interfaces = "172.28.50.0/24")``
+
+``(system = "linux" and interfaces = "172.28.30.0/24" and labels = "my-label") or labels = "robot-test"``
 
 The following keys for the asset query are available:
 
 .. csv-table::
-     :file: ../csv/asgard-query.csv
+     :file: ../csv/asgard-query-fields.csv
      :widths: 50, 50
      :delim: ;
      :header-rows: 1
+
+.. hint:: 
+   You can see which query-name a field has by enabling the column in your asset view
+   and clicking into the query text field:
+
+   .. figure:: ../images/asgard_asset_query_fieldnames.png
 
 Asset Migration
 ^^^^^^^^^^^^^^^
