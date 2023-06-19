@@ -2,19 +2,29 @@
 MASTER ASGARD
 =============
 
-MASTER ASGARD is a single central management console that can control all of your ASGARD systems.
-It is meant to centrally manage controlled scans on all your ASGARD systems.
-MASTER ASGARD also provides one central point of management for your Response Playbooks, Evidence Collection and IOC Management. 
+MASTER ASGARD is a single central management console that can control
+all of your ASGARD systems. It is meant to centrally manage controlled
+scans on all your ASGARD systems. MASTER ASGARD also provides one central
+point of management for your Response Playbooks, Evidence Collection
+and IOC Management. A special license for this is needed.
 
-Since MASTER ASGARD version 2, you install a MASTER ASGARD by promoting a
-bare ASGARD system with the installation of a special license. After the MASTER ASGARD license
-installation many functions offer additional options. However from that moment onwards, your
-MASTER ASGARD controls all endpoints connected to all linked ASGARD systems. 
+To install a Master ASGARD, you have to choose the command line argument
+``-masterasgard`` after the installation from our ISO.
+
+.. figure:: ../images/master-asgard-install.png
+   :alt: Installation of Master ASGARD
+
+   Installation of Master ASGARD
+
+After the MASTER ASGARD and later its license have been installed, many
+functions offer additional options. From that moment onwards, your
+MASTER ASGARD can use all endpoints connected to your linked ASGARD systems,
+just like a normal ASGARD.
 
 Hardware Requirements for MASTER ASGARD
 ---------------------------------------
 
-MASTER ASGARD has the following hardware requirements:
+The MASTER ASGARD has the following hardware requirements:
 
 .. list-table::
    :header-rows: 1
@@ -32,24 +42,18 @@ MASTER ASGARD has the following hardware requirements:
 License Management
 ------------------
 
-Once you connect ASGARD systems with MASTER ASGARD, the licensing sections on
-connected ASGARD systems become inactive. The local ASGARD license will be replaced
-with the MASTER ASGARD license. Every ASGARD can issue scanning licenses to
-assets as long as the total number of scanned servers and workstations does
-not exceed the number of systems in the master license.
+Once you connect your ASGARD Management Centers to your MASTER ASGARD,
+the licensing sections on connected ASGARD Management Centers become inactive.
+The local ASGARD license will be replaced with the MASTER ASGARD license.
+Every ASGARD can issue scanning licenses to assets as long as the
+total number of scanned servers and workstations does not exceed the
+number of systems in the MASTER license.
 
 Setting up MASTER ASGARD
 ------------------------
 
 The setup procedure for MASTER ASGARD is identical to the setup procedure for
 ASGARD Management Center, see :ref:`usage/setup:setup guide`.
-Since MASTER ASGARD v2, you install an ASGARD v2 and promote it to MASTER
-ASGARD v2 through a special license upload.
-
-.. note::
-   After upgrading an ASGARD to a MASTER ASGARD, all previous information and
-   settings on that system will be lost. Don't upgrade ASGARD systems with
-   connected endpoints, but only newly installed systems. 
 
 Default Credentials
 ^^^^^^^^^^^^^^^^^^^
@@ -72,7 +76,7 @@ Link ASGARD Systems with MASTER ASGARD
 --------------------------------------
 
 On your ASGARD server, go to ``Settings`` > ``MASTER ASGARD``, generate a
-one-time code and copy it. 
+one-time code and copy it.
 
 .. figure:: ../images/link-master1.png
    :alt: Generate One Time Token
@@ -80,7 +84,7 @@ one-time code and copy it.
    Generate One Time Token on ASGARD
 
 In MASTER ASGARD go to ``Connected ASGARDs``, click the ``Add ASGARD``
-button in the upper right and use the hostname and one-time token to
+button in the upper right corner, and use the hostname and one-time token to
 connect that ASGARD system. You can use a description to provide more
 information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
 
@@ -91,10 +95,10 @@ information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``.
 
 .. note::
    You don't have to provide a port in the hostname field. Don't use a
-   URL like ``https://`` but just the FQDN. Remember that MASTER ASGARD
+   URL like ``https://``, just the FQDN. Remember that MASTER ASGARD
    must be able to reach ASGARD v2 systems on port 5443/tcp and ASGARD
    v1 systems on port 9443/tcp. Also make sure that the MASTER ASGARD
-   system is able to resolve the hostname of the ASGARD system. 
+   system is able to resolve the FQDN of the ASGARD system.
 
 Scan Control
 ------------
@@ -173,27 +177,30 @@ the used scanner and signature versions on all connected ASGARDs.
    MASTER ASGARD Scanner Updates
 
 It is possible to set a certain THOR and Signatures version for each
-connected ASGARD. However, if automatic updates is configured, this
-setting has only effect until a new version gets downloaded. 
+connected ASGARD. However, if automatic updates are configured, this
+setting has only effect until a new version gets downloaded.
 
-Customers use this feature in cases in which they want to test a certain
+Customers use this feature in cases where they want to test a certain
 THOR version before using it in production. In this use case the ASGARD
 system that runs the test scans is set to automatic updates, while the
-ASGARD systems in production use versions that administrators set manually after successful test runs. 
+ASGARD systems in production use versions that administrators set manually
+after successful test runs. 
 
 User Management
 ---------------
 
 MASTER ASGARD offers no central user and role management for all connected
 ASGARD servers. Since MASTER ASGARD and ASGARD allow to use LDAP for
-authentication, we believe that complex and centralized user management should be based on LDAP.
+authentication, we believe that complex and centralized user management
+should be based on LDAP.
 
 MASTER ASGARD and Analysis Cockpit
 ----------------------------------
 
-It is not possible to link MASTER ASGARD with an Analysis Cockpit and
+It is not possible to link a MASTER ASGARD with an Analysis Cockpit and
 transmit all scan logs via MASTER ASGARD to a single Analysis Cockpit
-instance. Each ASGARD has to deliver its logs separately to a connected Analysis Cockpit.
+instance. Each ASGARD has to deliver its logs separately to a connected
+Analysis Cockpit.
 
 MASTER ASGARD API
 -----------------
