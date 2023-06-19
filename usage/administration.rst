@@ -2226,12 +2226,19 @@ Change Proxy Settings
 
 In this dialogue, you can add or modify ASGARDs proxy
 configuration. Please note, you need to restart the ASGARD
-service (Tab Services) afterwards. 
+service (Tab ``Services``) afterwards. 
 
 .. figure:: ../images/change-proxy-settings.png
    :alt: Change Proxy Settings
 
    Change Proxy Settings
+
+.. warning::
+   This will also overwrite any changes made to the file
+   ``/etc/apt/apt.conf.d/proxy`` on your system. If you
+   changed the file before installation of your ASGARD
+   services (:ref:`usage/setup:changing proxy configuration`),
+   you can safely go ahead and change your proxy settings.
 
 Link MASTER ASGARD
 ^^^^^^^^^^^^^^^^^^

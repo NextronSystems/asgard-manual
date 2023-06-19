@@ -158,6 +158,30 @@ The output should look like the screenshot below with status ``Active``.
 
 Installation is complete, you are ready to log into the web-based GUI.
 
+Changing Proxy Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have to change your proxy configuration before you run the
+``nextronInstaller`` script, you can do so with the following command:
+
+.. code-block:: console
+
+   nextron@asgard:~$ sudoedit /etc/apt/apt.conf.d/proxy
+
+The format of the proxy in this configuration file is as follows:
+
+.. code-block:: none
+
+   Acquire::http::Proxy "http://<user>:<password>@<proxyfqdn>:<port>";
+   Acquire::https::Proxy "http://<user>:<password>@<proxyfqdn>:<port>";
+
+Example:
+
+.. code-block:: none
+      
+   Acquire::http::Proxy "http://proxyuser:mySecurePassword123@proxy.internal.domain:8080";
+   Acquire::https::Proxy "http://proxyuser:mySecurePassword123@proxy.internal.domain:8080";
+
 Changing the IP-Address
 -----------------------
 

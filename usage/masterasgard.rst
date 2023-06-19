@@ -9,7 +9,9 @@ point of management for your Response Playbooks, Evidence Collection
 and IOC Management. A special license for this is needed.
 
 To install a Master ASGARD, you have to choose the command line argument
-``-masterasgard`` after the installation from our ISO.
+``-masterasgard`` after the installation from our ISO. This has to be
+a new system, you cannot install a MASTER ASGARD on an existing ASGARD
+Management Center.
 
 .. figure:: ../images/master-asgard-install.png
    :alt: Installation of Master ASGARD
