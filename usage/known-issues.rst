@@ -1,6 +1,63 @@
 Known Issues
 =============
 
+AMC#013: Master ASGARD custom IOCs in Scheduled Group Scan
+----------------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - <= 2.15.3
+      - 2.15.5
+
+Due to a bug in the handling of scheduled group scans in your Master ASGARD,
+you will face an issue, were custom IOCs (``--customonly``) are not updated.
+This means that you would use an old version of your custom IOCs for
+this specific scheduled group scan, even if they have changed since the scheduled
+group scan was created. This scenario happens if the following conditions are given:
+
+- Scheduled Group Scan on your Master ASGARD for **one specific ASGARD**
+- The flag ``--customonly`` is used
+- Your Custom IOCs changed **after** the scheduled group scan was created (compiled)
+
+This led to the Master ASGARD not pushing the Custom IOC changes to the specific
+ASGARD, on which you created the scheduled group scan, after your IOCs have changed
+and your IOC Ruleset was compiled.
+
+From version 2.15.5, you will receive the following warning, if you have a
+scheduled group scan active with this bug:
+
+.. warning:: 
+  **Warning**: Due to a bug in the Master ASGARD, some scheduled group scans
+  might not be affected by custom signature updates. We highly recommend
+  to stop and recreate the group scans with the following ids: ``59``
+
+AMC#013: Fix
+~~~~~~~~~~~~
+
+After you installed the version 2.15.5 or newer in your Master ASGARD and all
+connected ASGARDs, make sure to fix any scheduled group scan which are being
+reported by the above warning.
+
+To do this, go to ``Scan Control`` > ``Scheduled Group Scans`` and activate the
+``ID`` column. Search for the specific scan with the reported ID.
+
+.. figure:: ../images/master-asgard-amc013.png
+   :alt: Master ASGARD AMC#013
+
+Copy your THOR
+Flags and disable the scheduled group scan. You can now recreate the scheduled
+group scan with the exact settings (and ASGARD) with identical settings. Afterwards
+you can activate the scheduled group scan again, this time no warnings will appear.
+From this point onwards, any changes to your IOCs/IOC Rulesets within your Master
+ASGARD, will also be reflected on the ASGARD which received the new scheduled group scan.
+
+Repeat this step for any scheduled group scans which give you a warning in your Master
+ASGARD. Newly created scheduled group scans do not have this bug.
+
 AMC#012: Missing asgard2-agent.yaml
 -----------------------------------
 
