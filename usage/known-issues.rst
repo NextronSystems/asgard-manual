@@ -14,13 +14,12 @@ AMC#013: Master ASGARD custom IOCs in Scheduled Group Scan
       - 2.15.5
 
 Due to a bug in the handling of scheduled group scans in your Master ASGARD,
-you will face an issue, were custom IOCs (``--customonly``) are not updated.
-This means that you would use an old version of your custom IOCs for
-this specific scheduled group scan, even if they have changed since the scheduled
-group scan was created. This scenario happens if the following conditions are given:
+you will face an issue, were custom IOCs are not updated. This means that you would
+use an old version of your custom IOCs for this specific scheduled group scan, even
+if they have changed since the scheduled group scan was created. This scenario
+happens if the following conditions are given:
 
 - Scheduled Group Scan on your Master ASGARD for **one specific ASGARD**
-- The flag ``--customonly`` is used
 - Your Custom IOCs changed **after** the scheduled group scan was created (compiled)
 
 This led to the Master ASGARD not pushing the Custom IOC changes to the specific
