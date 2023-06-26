@@ -23,7 +23,7 @@ happens if the following conditions are given:
 - Your Custom IOCs changed **after** the scheduled group scan was created (compiled)
 
 This led to the Master ASGARD not pushing the Custom IOC changes to the specific
-ASGARD, on which you created the scheduled group scan, after your IOCs have changed
+ASGARD (which you created the scheduled group scan for), after your IOCs have changed
 and your IOC Ruleset was compiled.
 
 From version 2.15.5, you will receive the following warning, if you have a
@@ -49,13 +49,13 @@ To do this, go to ``Scan Control`` > ``Scheduled Group Scans`` and activate the
 
 Copy your THOR
 Flags and disable the scheduled group scan. You can now recreate the scheduled
-group scan with the exact settings (and ASGARD) with identical settings. Afterwards
-you can activate the scheduled group scan again, this time no warnings will appear.
-From this point onwards, any changes to your IOCs/IOC Rulesets within your Master
-ASGARD, will also be reflected on the ASGARD which received the new scheduled group scan.
+group scan with the exact settings and your target ASGARD. Afterwards, you can
+activate the scheduled group scan again, this time no warnings will appear.
+From this point onwards, any changes to your IOCs and IOC Rulesets within your Master
+ASGARD will also be reflected on the ASGARD from your new scheduled group scan.
 
-Repeat this step for any scheduled group scans which give you a warning in your Master
-ASGARD. Newly created scheduled group scans do not have this bug.
+Repeat this step for any scheduled group scans which show in the warning message of
+your Master ASGARD. Newly created scheduled group scans do not have this bug.
 
 AMC#012: Missing asgard2-agent.yaml
 -----------------------------------
