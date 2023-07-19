@@ -162,14 +162,14 @@ Using Hostname instead of FQDN
 ------------------------------
 
 The most common error is to define a simple hostname instead of a valid
-FQDN during installation. This happens in cases in which no domain name
-has been set in the setup step :ref:`usage/setup:network configuration`
+FQDN during installation. This happens if no domain name
+has been set during the setup step :ref:`usage/setup:network configuration`
 (``Domain name``). 
 
 This leads to a variety of different problems. 
 
-The most important problem is that ASGARD Agents that install on end
-systems will never be able to resolve and connect to the ASGARD server. 
+The most important problem is that ASGARD Agents that install on endpoints
+will never be able to resolve and connect to the ASGARD server. 
 
 Errors that appear in these cases 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,30 +181,31 @@ Errors that appear in these cases
    error: desc = "transport: authentication handshake failed: x509:
    certificate is valid for wrong-fqdn, not asgard.nextron.internal"
 
-How to Fix an unset or wrong FQDN
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to Fix a non-existing or wrong FQDN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The FQDN is set at installation time and is composed by the hostname
 and the domain name. The ASGARD Agents require a resolvable FQDN to
 correctly operate and connect to the ASGARD Server.
 One of the processes which are executed at installation time include
-the integration of the FQDN we set during installation into our agents.
-If we incorrectly set the FQDN or we leave any of those values empty,
-the agents will fail to connect to ASGARD.
+the integration of the FQDN - which should be set during installation - into
+the ASGARD agents. If we incorrectly set the FQDN or leave any of those
+values empty, the agents will fail to connect to ASGARD.
 
-With this fix we'll set a new FQDN for the ASGARD Server, recreate
-the internal certificates and rebuild the agents.
+With this fix we will set a new FQDN for the ASGARD Management Center, recreate
+the internal certificates, and rebuild the agents.
 
 .. warning:: 
    The used FQDN in this manual is just an example. Please use the
-   FQDN of your domain.
+   FQDN of your domain. make sure the FQDN is resolvable via your DNS
+   server.
 
 Set a valid FQDN
 ^^^^^^^^^^^^^^^^
 
 To set a valid FQDN for your ASGARD Management Center server, follow the steps below.
-We are assuming that your ASGARD Management Center has already a FQDN assigned
-via your local DNS servers and is resolvable.
+We are assuming that your local DNS server already has an A-Record assigned, so your
+clients can resolve the new hostname/FQDN of your ASGARD Management Center.
 
 Connect via SSH to the ASGARD Management Center:
 
@@ -270,36 +271,27 @@ your changes were set up correctly and you can continue to the next step.
 Recreate the TLS Certificate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We need to recreate the TLS certificate to make the Agent communication possible again.
+We need to recreate the TLS certificate to make the Agent to ASGARD communication
+possible again. Create a new file which will contain the script with the fix.
+In this example we'll use nano as the text editor. Make sure that the system has
+a valid FQDN.
 
-Create a new file which will contain the script with the fix. In this example we'll use nano as the text editor.
-
- .. code-block:: console
+.. code-block:: console
 
    nextron@asgard-mc:~$ nano fix-fqdn.sh
 
-Change the ``HOST`` and ``DOMAIN`` variable (marked lines), make sure that the resulting
-``FQDN`` is resolvable by the endpoints on which you deploy the agent to later.
-The FQDN should be identical to the value we set earlier in our ``hosts`` file.
+Insert the following content into the text editor:
 
 .. code-block:: bash
    :linenos:
-   :emphasize-lines: 4-5
 
    #!/bin/bash
-   # VARIABLES
-   ############################################
-   HOST="asgard-mc"
-   DOMAIN="example.org"
-   FQDN=$HOST.$DOMAIN
-   CLIENTCERTVALIDITY=36500
-   ############################################
-   openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
+   export FQDN=$(hostname --fqdn)
 
-   openssl req -newkey rsa:4096 -nodes -subj "/O=Nextron Systems GmbH/CN=$FQDN" -keyout /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
-
-   openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days $CLIENTCERTVALIDITY -out /etc/nextron/asgard2/client-service.pem
-
+   sed "s/\$FQDN/${FQDN}/" /etc/nextron/asgard2/server_cert_ext.cnf.in > /etc/nextron/asgard2/server_cert_ext.cnf
+   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=${FQDN}" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
+   openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
+   systemctl restart asgard2
    asgard2-repacker -host $FQDN
 
 After changing the variables to the desired values, save the file.
@@ -312,19 +304,13 @@ Give the created script execution permissions and execute it:
    nextron@asgard-mc:~$ chmod +x fix-fqdn.sh
    nextron@asgard-mc:~$ sudo ./fix-fqdn.sh
 
-Once the script has been executed the ASGARD service should be restarted.
-
-.. code-block:: console
-
-   nextron@asgard-mc:~$ sudo systemctl restart asgard2.service
-
-You should now be able to reach the ASGARD Server under the new FQDN.
+You should now be able to reach the ASGARD Server via the new FQDN.
 Navigate to ``https://<YOUR-FQDN>:8443``, which reflects the FQDN we set earlier.
 
-You should now install the agents on the endpoints again. They
-should be communicating correctly back to ASGARD by now. Remember
-to review the network requirements section to ensure all needed ports
+At this point you have to install the ASGARD agents on your endpoints again.
+Remember to review the network requirements section to ensure all needed ports
 are open to the ASGARD Management Center from your endpoints.
+See :ref:`usage/requirements:network requirements`
 
 ASGARD Errors
 -------------
