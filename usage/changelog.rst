@@ -287,17 +287,14 @@ ASGARD 2.13.6
 ASGARD 2.13.5
 ~~~~~~~~~~~~~
 
+.. important:: 
+   Master ASGARD must be upgraded before upgrading the connected ASGARDs
+
 .. list-table:: 
     :header-rows: 1
 
     * - Release Date
     * - Tue, 12 Apr 2022 15:18:00 +0200
-
-.. list-table::
-    :header-rows: 1
-
-    * - IMPORTANT
-    * - Master ASGARD must be upgraded before upgrading the connected ASGARDs
 
 .. list-table::
     :header-rows: 1
