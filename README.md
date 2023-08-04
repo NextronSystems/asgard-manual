@@ -14,7 +14,17 @@ You can find the online version here:
 
 ### Offline Version
 
-Clone the repository to your local machine and build the project:
+You have two options if you want to download and use the manual offline.
+
+#### Direct Download
+
+You can navigate to the ReadTheDocs page of the [ASGARD Management Center Manual](https://asgard-manual.nextron-systems.com) and click the bottom left label which says ``v: latest``.
+You can find older versions of the manual, but most importantly, you can download the currently selected version for offline viewing.
+Just choose one of the formats you would like to use.
+
+#### Using git
+
+You can use ``git`` to clone the repository to your local machine and build the project. This method is more geared towards developers who want to contribute towards the project.
 
 ``` bash
 $ git clone https://github.com/NextronSystems/asgard-manual.git
