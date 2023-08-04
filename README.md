@@ -18,9 +18,9 @@ Clone the repository to your local machine and build the project:
 
 ``` bash
 $ git clone https://github.com/NextronSystems/asgard-manual.git
-$ cd asgard-manual
 $ python3 -m venv venv
 $ source venv/bin/activate
+$ cd asgard-manual
 $ pip install -r requirements.txt
 $ make html
 ```
