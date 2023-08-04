@@ -4,7 +4,7 @@ This repository contains all the sources for our online manual of the ASGARD Man
 
 ## How to use
 
-You can either use the online version of this manual, which is hosted on ReadTheDocs, or clone the repository in run it locally.
+You can either use the online version of this manual, which is hosted on ReadTheDocs, or clone the repository and build it locally.
 
 ### Online Version
 
