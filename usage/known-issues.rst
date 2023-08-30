@@ -1,6 +1,31 @@
 Known Issues
 =============
 
+AMC#014: Edge Browser with translation, "removeChild" error
+-----------------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - N/A 
+      - N/A
+
+Microsoft's Edge Browser is changing DOM objects on web pages, when
+the translator is activated. This leads to the following error on
+some of our pages:
+
+.. figure:: ../images/amc14_removeChild_error.png
+   :alt: removeChild Error with Edge translation
+
+   removeChild Error with Edge translation
+
+Since this is an issue with Microsoft Edge, we can not fix this.
+You have to disable the translation tool of Edge to make the
+pages functional.
+
 AMC#013: Master ASGARD custom IOCs in Scheduled Group Scan
 ----------------------------------------------------------
 
