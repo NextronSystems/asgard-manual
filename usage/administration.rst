@@ -374,17 +374,17 @@ will be stripped from the labels.
 
    Asset Labeling via CSV
 
-Asset Query
-^^^^^^^^^^^
+ASGARD Query
+^^^^^^^^^^^^
 
-You can search for Assets in your ASGARD with the Asset Query. This allows
+You can search for Assets in your ASGARD with the ``ASGARD Query``. This allows
 you to write more complex queries to search for assets. Additionally, this
 helps you to be more flexible with your scan/response tasks, since you can
 just specify a query and don't have to set labels first. A good example of
 this might be if you are scanning a specific subnet every week, and a new
 agent is being deployed in this subnet. You don't have to think of all the
 labels or troubleshoot why scans are not being deployed. One example you
-could achieve this is the following example query:
+could achieve this with is the following query:
 
 ``system = "linux" and interfaces = "172.16.50.0/24"``
 
