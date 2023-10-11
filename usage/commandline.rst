@@ -332,34 +332,10 @@ transfer the backup file to a different system.
 
 Here is an example script and cronjob entry to create backups on a schedule:
 
-.. code-block:: bash
+.. literalinclude:: ../scripts/backup.sh
+   :language: bash
    :linenos:
    :caption: Example backup script, e.g. ``/root/backup.sh``
-
-   #!/bin/bash
-   date
-
-   echo "stopping asgard2.service"
-   if ! systemctl stop asgard2.service; then
-      echo "could not stop asgard2.service, exiting script"
-      exit 1
-   fi
-
-   sleep 10
-   echo "running backup script"
-   /usr/sbin/asgard2-backup
-
-   sleep 10
-   echo "starting asgard2.service"
-   if ! systemctl start asgard2.service; then
-      echo "could not start asgard2.service, needs manual debugging"
-      exit 1
-   fi
-
-   echo "backup created successfully"
-   echo ""
-   echo ""
-   exit 0
 
 The following crontab entry could be created to run the script every day at 2am.
 You can edit the crontab of the root user with the following commands:

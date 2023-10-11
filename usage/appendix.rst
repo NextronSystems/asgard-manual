@@ -8,37 +8,9 @@ You can find a simple script to install the ASGARD Agent via
 Powershell. Place the installer and script in the same folder.
 Change the script as needed.
 
-.. code-block:: powershell
+.. literalinclude:: ../scripts/install_agent.ps1
+   :language: powershell
    :linenos:
-
-   # Setting vars
-   $scriptpath = $MyInvocation.MyCommand.Path
-   $dir = Split-Path $scriptpath
-   $installer = "asgard2-agent-windows-amd64.exe"
-   $servicename = "asgard2-agent"
-
-   # Checking if ASGARD Agent is already installed
-   if (Get-Service -Name $servicename -ErrorAction SilentlyContinue) {
-   	Write-Host "ASGARD Agent already installed, exiting"
-   	exit 0
-   } else {
-   	Write-Host "ASGARD Agent not found, trying to install..."
-
-   	# Install ASGARD Agent
-   	Start-Process -Wait -FilePath "$dir\$installer" -WorkingDirectory $dir -WindowStyle Hidden -PassThru
-
-   	# Timeout just to make sure the service is up and running
-   	Timeout /T 15
-   
-   	# Checking service to see if agent was installed
-   	if (Get-Service -Name $servicename -ErrorAction SilentlyContinue) {
-   		Write-Host "Installed ASGARD Agent successfully"
-   		exit 0
-   	} else {
-   		$Host.UI.WriteErrorLine("Could not install ASGARD Agent")
-   		exit 1
-   	}
-   }
 
 Deploy ASGARD Agents via SCCM
 -----------------------------
@@ -49,32 +21,9 @@ installation correctly as successful or failed.
 
 Please refer to Microsoft's `Create applications in Configuration Manager <https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods>`_ .
 
-.. code-block:: powershell
+.. literalinclude:: ../scripts/install_agent_sccm.ps1
+   :language: powershell
    :linenos:
-
-   # Get current directory
-   $scriptpath = $MyInvocation.MyCommand.Path
-   $dir = Split-Path $scriptpath
-
-   # Run the installer
-   $installer = "asgard2-agent-windows-amd64.exe"
-   Start-Process -Wait -FilePath "$dir\$installer" -WorkingDirectory $dir -WindowStyle Hidden -PassThru
-
-   # Timeout just to make sure the service is up and running
-   Timeout /T 15
-
-   # If the service exists, the script writes console output and exits with code 0
-   # If the service does not exist, the script writes an error output and exits with code 1
-   # See https://learn.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-applications#about-custom-script-detection-methods
-   
-   $servicename = "asgard2-agent"
-   if (Get-Service -Name $servicename -ErrorAction SilentlyContinue) {
-      Write-Host "ASGARD Agent installed"
-      exit 0
-   } else {
-      $Host.UI.WriteErrorLine("ASGARD Agent not installed")
-      exit 1
-   }
 
 .. warning::
    This is just an example script which should work with SCCM.
@@ -115,34 +64,10 @@ the script would do if the permissions are broken. If you are content
 with the potential changes, remove the ``-WhatIf`` arguments. The script
 needs administrative permissions.
 
-.. code-block:: powershell
+.. literalinclude:: ../scripts/fix_broken_acls.ps1
+   :language: powershell
    :linenos:
-   :emphasize-lines: 8, 15, 23
-
-   $asgardAgent = "C:\Windows\System32\asgard2-agent"
-   $asgardAgentTemp = "C:\Windows\Temp\asgard2-agent"
-   if (Get-Item -Path $asgardAgent | Get-Acl | where {$_.Access.IsInherited -eq $false}) {
-       Write-Host "ASGARD Agent folder permission broken. Trying to fix: $asgardAgent"
-       # Set the new Access Rule to inherit permissions
-       $newAcl = Get-Acl -Path $asgardAgent
-       $newAcl.SetAccessRuleProtection($false, $true)
-       Set-Acl $asgardAgent -AclObject $newAcl -WhatIf
-   }
-   if (Get-Item -Path $asgardAgentTemp | Get-Acl | where {$_.Access.IsInherited -eq $false}) {
-       Write-Host "ASGARD Agent folder permission broken. Trying to fix: $asgardAgentTemp"
-       # Set the new Access Rule to inherit permissions
-       $newAcl = Get-Acl -Path $asgardAgentTemp
-       $newAcl.SetAccessRuleProtection($false, $true)
-       Set-Acl $asgardAgentTemp -AclObject $newAcl -WhatIf
-   }
-   get-childitem -path $asgardAgent -Recurse -Depth 1 | Get-Acl | where {$_.Access.IsInherited -eq $false} | % {
-       $fullPath = Convert-Path $_.Path
-       Write-Host "ASGARD Agent folder permission broken. Trying to fix: $fullPath"
-       # Set the new Access Rule to inherit permissions
-       $newAcl = Get-Acl -Path $_.Path
-       $newAcl.SetAccessRuleProtection($false, $true)
-       Set-Acl $_.Path -AclObject $newAcl -WhatIf
-   }
+   :emphasize-lines: 9, 16, 24
 
 .. tip:: 
    After you changed the permissions of the asgard2-agent folder,
