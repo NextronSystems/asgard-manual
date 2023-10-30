@@ -362,17 +362,7 @@ You need to restart ASGARD in order for the changes to take effect.
 Regenerate ASGARD Server Certificate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to reset the certificate that ASGARD uses to communicate
-with the agents, use the following commands. The agent should
-immediately trust the new certificate, as it was generated using
-the CA they already trust. 
-
-.. code-block:: console 
-
-   nextron@asgard:~$ su asgard2 -s /bin/sh <<'EOF'
-   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=ASGARD Management Center" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
-   openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
-   EOF
+Please see chapter :ref:`usage/troubleshooting:using hostname instead of fqdn`.
 
 Admin User Password Reset 
 -------------------------
