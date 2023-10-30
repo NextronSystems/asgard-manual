@@ -25,7 +25,7 @@ This factory preset behavior insures your ASGARD stays stable and responsive eve
 ASGARD's system resources are limited. Furthermore, you most likely can't overload your
 network or firewalls with high numbers of requests or downloads.
 
-In order to modify ASGARDs performance settings edit ``/etc/nextron/asgard2/asgard.conf``
+In order to modify ASGARDs performance settings edit ``/etc/asgard-management-center/asgard.conf``
 and restart the ASGARD service.
 
 The default values are: 
@@ -393,10 +393,10 @@ Remote Console on connected endpoints can be disabled centrally by creating the 
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo touch /etc/nextron/asgard2/disable_console
+   nextron@asgard:~$ sudo touch /etc/asgard-management-center/disable_console
 
 To re-enable Remote Console simply remove the created file
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo rm /etc/nextron/asgard2/disable_console
+   nextron@asgard:~$ sudo rm /etc/asgard-management-center/disable_console

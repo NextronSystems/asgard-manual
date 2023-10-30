@@ -288,11 +288,11 @@ Insert the following content into the text editor:
    #!/bin/bash
    export FQDN=$(hostname --fqdn)
 
-   sed "s/\$FQDN/${FQDN}/" /etc/nextron/asgard2/server_cert_ext.cnf.in > /etc/nextron/asgard2/server_cert_ext.cnf
-   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=${FQDN}" -key /etc/nextron/asgard2/client-service.key -out /etc/nextron/asgard2/client-service.csr
-   openssl x509 -req -in /etc/nextron/asgard2/client-service.csr -CA /etc/nextron/asgard2/ca.pem -CAkey /etc/nextron/asgard2/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard2/client-service.pem -extfile /etc/nextron/asgard2/server_cert_ext.cnf
-   systemctl restart asgard2
-   asgard2-repacker -host $FQDN
+   sed "s/\$FQDN/${FQDN}/" /etc/nextron/asgard-management-center/server_cert_ext.cnf.in > /etc/nextron/asgard-management-center/server_cert_ext.cnf
+   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=${FQDN}" -key /etc/nextron/asgard-management-center/client-service.key -out /etc/nextron/asgard-management-center/client-service.csr
+   openssl x509 -req -in /etc/nextron/asgard-management-center/client-service.csr -CA /etc/nextron/asgard-management-center/ca.pem -CAkey /etc/nextron/asgard-management-center/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard-management-center/client-service.pem -extfile /etc/nextron/asgard-management-center/server_cert_ext.cnf
+   systemctl restart asgard-management-center
+   asgard-agent-repacker -host $FQDN
 
 After changing the variables to the desired values, save the file.
 In ``nano`` this can be done in by pressing ``CTRL + X`` and confirming the changes with ``y``.
@@ -351,7 +351,7 @@ To do so log in using SSH and execute:
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard2/server.key -out /etc/nextron/asgard2/server.pem
+   nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard-management-center/server.key -out /etc/nextron/asgard-management-center/server.pem
 
 You need to restart ASGARD in order for the changes to take effect.
 
