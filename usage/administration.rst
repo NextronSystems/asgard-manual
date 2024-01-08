@@ -432,7 +432,13 @@ installer from the ASGARD you want to migrate the asset to.
    :alt: MASTER ASGARD Move Asset
 
 .. note::
-   The target OS or Arch of the installer doesn't matter, we will only use the installers configuration data.
+   The target OS or Arch of the installer doesn't matter, we will only use the installers
+   configuration data for the migration.
+
+The task will fail if the migrated asset is unable to communicate with the new ASGARD.
+In this case, the asset will remain on the ASGARD which issued the migration task. Only
+the asset will be migrated (it shows up as a brand new asset on your new ASGARD), no
+scan or response tasks and also no logs will be migrated.
 
 Delete Assets
 ^^^^^^^^^^^^^
