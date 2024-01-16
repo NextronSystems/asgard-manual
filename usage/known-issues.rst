@@ -1,6 +1,60 @@
 Known Issues
 =============
 
+AMC#015: THOR License not valid yet (timezone difference)
+---------------------------------------------------------
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - <= 2.16.3
+      - N/A
+
+There is currently a bug in the ASGARD Management Center which
+can can cause problems during THOR license generation. This happens
+if the following conditions are given:
+
+-  An asset which is located in a different timezone to your ASGARD Management
+   Center
+
+- The difference between the two timezones is greater than 8 hours.
+
+If this is the case for a few assets of yours, you will encounter
+the following error in your THOR scan:
+
+.. code-block:: none
+
+   REASON: license not valid yet
+
+AMC#015: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+The current workaround is to avoid issuing THOR licenses on your
+ASGARD Management Center during a specific time window. We take
+the time difference between your asset and your Management Center
+and subtract 8 hours. The resulting time is the time window,
+beginning at 00:00 AM local time of your Management Center, from
+which you should avoid issuing licenses. Below are two examples:
+
+- ASGARD Management Center timezone: UTC +11
+- Asset timezone: UTC -3
+
+This results in a time difference of 14 hours. We subtract 8 hours
+from that and are left with 6 hours. That means you should avoid
+issuing new licenses during the following time:
+
+00:00 AM until 06:00 AM of the ASGARD Management Center local time.
+
+If you have the following scenario, you will not encounter the problem:
+
+- ASGARD Management Center timezone: UTC +2
+- Asset timezone: UTC -3
+
+The timezone difference is smaller than 8.
+
 AMC#014: Edge Browser with translation, "removeChild" error
 -----------------------------------------------------------
 
