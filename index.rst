@@ -24,7 +24,7 @@ find useful.
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: Contents:
+   :caption: Contents
 
    requirements/index
    setup/index
@@ -35,6 +35,7 @@ find useful.
    troubleshooting/index
    issues/index
    appendix/index
+   upgrade/index
    changelog/index
 
 

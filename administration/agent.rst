@@ -42,7 +42,7 @@ and is now ready to be managed or scanned.
 
 A registered agent will poll to the ASGARD Management Center at a given
 interval between 10 seconds and 600 seconds – depending on the number of
-connected endpoints (see :ref:`usage/commandline:Performance Tuning` for
+connected endpoints (see :ref:`advanced/performance:performance tuning` for
 details). If ASGARD has scheduled a task for the endpoint (for example:
 run THOR scan) it will be executed directly after the poll.
 
@@ -53,8 +53,8 @@ Since the Agent Installer for Windows is a normal ``.exe`` file and not a
 ``.msi`` file, you need to write your own scripts to deploy the agent via
 your management system of choice. We have written an example script in 
 PowerShell, which should work for most of the tools. Please see the section
-:ref:`usage/appendix:Installing ASGARD Agent via Powershell Script` and
-:ref:`usage/appendix:deploy asgard agents via sccm`.
+:ref:`appendix/scripts:installing asgard agent via powershell script` and
+:ref:`appendix/scripts:deploy asgard agents via sccm`.
 
 Alternatively, if you want to deploy the ASGARD Agent manually, you can
 just execute the installer by hand.

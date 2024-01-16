@@ -9,7 +9,7 @@ This chapter contains basic maintenance tasks you
 can perform on your Management Center.
 
 .. toctree:: 
-    :caption: Content
+    :caption: Contents
 
     log
     disk

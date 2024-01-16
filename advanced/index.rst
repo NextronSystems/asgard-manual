@@ -8,7 +8,7 @@ can be helpful in different scenarios. Please have a look if
 some options could be helpful for your environment.
 
 .. toctree:: 
-    :caption: Content
+    :caption: Contents
 
     performance
     logs

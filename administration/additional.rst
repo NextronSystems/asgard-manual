@@ -65,7 +65,7 @@ Subsequently, this TLS Certificate can be uploaded in the ``Settings`` > ``TLS``
    Upload a TLS Certificate
 
 .. note:: 
-   Please see :ref:`usage/appendix:install tls certificates on asgard and master asgard`
+   Please see :ref:`appendix/tls:install tls certificates on asgard and master asgard`
    for a guide on how to sign the CSR and install it in your ASGARD.
 
 Manage Services

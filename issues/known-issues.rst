@@ -1,5 +1,5 @@
 Known Issues
-=============
+============
 
 AMC#015: THOR License not valid yet (timezone difference)
 ---------------------------------------------------------
@@ -346,7 +346,7 @@ requests from the same endpoint:
       - Read/Write
 
 Make sure to disable ``Automatically accept all Asset Requests`` in
-the :ref:`usage/administration:advanced` Settings in the meantime, to
+the :ref:`administration/advanced:advanced settings` Settings in the meantime, to
 avoid cleaning up after the changes to the endpoints have been made.
 
 AMC#009: agent-access.log is not being rotated

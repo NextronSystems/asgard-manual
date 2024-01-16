@@ -15,6 +15,6 @@ and IOC Management. A special license for this is needed.
     license are required.
 
 .. toctree::
-    :caption: Content
+    :caption: Contents
 
     masterasgard
