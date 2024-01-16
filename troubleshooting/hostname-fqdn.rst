@@ -130,10 +130,10 @@ Insert the following content into the text editor:
    #!/bin/bash
    export FQDN=$(hostname --fqdn)
 
-   sed "s/\$FQDN/${FQDN}/" /etc/nextron/asgard-management-center/server_cert_ext.cnf.in > /etc/nextron/asgard-management-center/server_cert_ext.cnf
-   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=${FQDN}" -key /etc/nextron/asgard-management-center/client-service.key -out /etc/nextron/asgard-management-center/client-service.csr
-   openssl x509 -req -in /etc/nextron/asgard-management-center/client-service.csr -CA /etc/nextron/asgard-management-center/ca.pem -CAkey /etc/nextron/asgard-management-center/ca.key -CAcreateserial -days 36500 -out /etc/nextron/asgard-management-center/client-service.pem -extfile /etc/nextron/asgard-management-center/server_cert_ext.cnf
-   systemctl restart asgard-management-center
+   sed "s/\$FQDN/${FQDN}/" /etc/asgard-management-center/server_cert_ext.cnf.in > /etc/asgard-management-center/server_cert_ext.cnf
+   openssl req -new -nodes -subj "/O=Nextron Systems GmbH/CN=${FQDN}" -key /etc/asgard-management-center/client-service.key -out /etc/asgard-management-center/client-service.csr
+   openssl x509 -req -in /etc/asgard-management-center/client-service.csr -CA /etc/asgard-management-center/ca.pem -CAkey /etc/asgard-management-center/ca.key -CAcreateserial -days 36500 -out /etc/asgard-management-center/client-service.pem -extfile /etc/asgard-management-center/server_cert_ext.cnf
+   systemctl restart asgard-management-center.service
    asgard-agent-repacker -host $FQDN
 
 After changing the variables to the desired values, save the file.

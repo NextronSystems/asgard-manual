@@ -1,7 +1,5 @@
 .. index:: Managing Logs
 
-.. todo:: change paths
-
 Managing Logs
 =============
 

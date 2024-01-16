@@ -1,5 +1,7 @@
 .. index:: Backup and Restore
 
+.. todo:: verify paths and binaries
+
 Backup and Restore
 ==================
 

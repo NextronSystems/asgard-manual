@@ -13,13 +13,22 @@ system, the password is ``nextron``). Now you can run the following command:
    :alt: running the nextronInstaller
 
 
-After installation is complete type ``sudo systemctl status asgard2``. 
+After installation is complete type the following command to see if the service
+is running: 
 
-The output should look like the screenshot below with status ``Active``.
+.. code-block:: console
+   :emphasize-lines: 5
 
+   nextron@asgard:~$ sudo systemctl status asgard-management-center.service
+   [sudo] password for nextron: 
+   ● asgard-management-center.service - ASGARD Management Center
+        Loaded: loaded (/lib/systemd/system/asgard-management-center.service; enabled; preset: enabled)
+        Active: active (running) since Tue 2024-01-16 13:45:15 CET; 1min 38s ago
+       Process: 898 ExecStartPre=/usr/share/asgard-management-center/scripts/exec_start_pre.sh (code=exited, status=0/SUCCESS)
+      Main PID: 927 (exec_start.sh)
+         Tasks: 10 (limit: 4601)
+        Memory: 186.0M
+           CPU: 2.043s
 
-.. figure:: ../images/setup_service.png
-   :alt: systemctl status asgard2
-
-
-Installation is complete, you are ready to log into the web-based GUI.
+The installation is complete, you are ready to log into the web UI
+of your Management Center.

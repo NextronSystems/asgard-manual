@@ -1,7 +1,5 @@
 .. index:: Maintenance
 
-.. todo:: change paths to various directories
-
 Maintenance
 ===========
 

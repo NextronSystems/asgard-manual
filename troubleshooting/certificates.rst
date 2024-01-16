@@ -14,13 +14,13 @@ To do so log in using SSH and execute:
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/nextron/asgard-management-center/server.key -out /etc/nextron/asgard-management-center/server.pem
+   nextron@asgard:~$ sudo openssl req -new -newkey rsa:4096 -days 182 -nodes -x509 -subj "/O=Nextron Systems GmbH/CN=$(hostname --fqdn)" -keyout /etc/asgard-management-center/server.key -out /etc/asgard-management-center/server.pem
 
 You need to restart ASGARD in order for the changes to take effect.
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo systemctl restart asgard2.service
+   nextron@asgard:~$ sudo systemctl status asgard-management-center.service
 
 Regenerate ASGARD Server Certificate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
