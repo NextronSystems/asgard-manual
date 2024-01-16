@@ -19,7 +19,7 @@ effects on the duplicate hosts.
    side effects of duplicate assets are alternating hostnames and tasks
    that fail immediately.
 
-For remediation please see :ref:`usage/troubleshooting:Duplicate Assets Remediation`.
+For remediation please see :ref:`troubleshooting/agent-debugging:duplicate assets remediation`
 
 Asset Overview
 ^^^^^^^^^^^^^^

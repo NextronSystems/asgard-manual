@@ -29,7 +29,7 @@ very responsive – almost as if it is native on the system.
 
 In order to adapt to specific requirements regarding responsiveness,
 the polling behavior can be modified. For details, refer to 
-:ref:`usage/commandline:Performance Tuning`.
+:ref:`advanced/performance:performance tuning`.
 The hardware requirements in the next chapter assume that the default polling interval is used. 
 
 Using a Proxy between ASGARD Agent and ASGARD
@@ -37,4 +37,4 @@ Using a Proxy between ASGARD Agent and ASGARD
 
 ASGARD supports using a standard http proxy for the entire Agent to
 ASGARD communication. In order to use a proxy, the ASGARD agent must
-be repacked after installation. For details, see :ref:`usage/commandline:Creating Custom Agent Installer`.
+be repacked after installation. For details, see :ref:`advanced/custom-agent:creating custom agent installer`.

@@ -74,7 +74,7 @@ to analyze the issue and define process exclusions, go to ``Service Control`` >
 
 An overview over the top event producing processes is given on the bottom
 of the section. Another possibility is to
-:ref:`collect diagnostic packs of systems<usage/troubleshooting:Aurora Diagnostics Pack>`
+:ref:`troubleshooting/agent-debugging:aurora diagnostics pack`
 in question and look in the ``status.txt`` at the event statistics by process.
 
 False Positive Filters

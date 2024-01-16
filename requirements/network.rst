@@ -24,7 +24,7 @@ From ASGARD Agent to ASGARD Server
      - ICMP
 
 The syslog port is optional, since your agents will work fine without it.
-Please see :ref:`usage/administration:syslog forwarding` for more information.
+Please see :ref:`administration/syslog:syslog forwarding` for more information.
 
 .. hint:: 
   Your ASGARD Agents will check if they can reach your ASGARD
