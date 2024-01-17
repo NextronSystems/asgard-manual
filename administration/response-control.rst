@@ -16,20 +16,20 @@ tasks can be:
   - Configure the asset's proxy
   - Move asset to another ASGARD
 
-Opening a Remote Shell on an endpoint
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Opening a Remote Console on an endpoint
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to open a remote shell on an endpoint, open the Asset
+In order to open a remote console on an endpoint, open the Asset
 Management section and click the "command line" button in the Actions column.
 
 .. figure:: ../images/opening-a-remote-shell-from-the-asset-view.png
-   :alt: Opening a Remote Shell from the Asset View
+   :alt: Opening a Remote Console from the Asset View
 
-   Opening a Remote Shell from the Asset View
+   Opening a Remote Console from the Asset View
 
 Depending on your configuration it may take between 10 seconds and 10
-minutes for the remote shell to open. Please note that all actions
-within the remote shell are recorded and can be audited. All shells
+minutes for the remote console to open. Please note that all actions
+within the remote console are recorded and can be audited. All consoles
 open with root or system privileges.
 
 .. figure:: ../images/remote-shell.png
@@ -46,7 +46,7 @@ and click the play button in the bottom row.
 
    Replay Remote Shell Session
 
-ASGARD users can only see their own remote shell session. Only users with
+ASGARD users can only see their own remote console session. Only users with
 the ``RemoteConsoleProtocol`` permission are able to replay all sessions from all users.
 
 Response Control with Pre-Defined Playbooks

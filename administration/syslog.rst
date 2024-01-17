@@ -36,7 +36,7 @@ mainly by running THOR in debugging mode manually on the endpoint.
 To configure syslog forwarding of logs, you can set the ``--syslog`` flag
 during scans. You have multiple options as to where you can send the logs.
 
-.. figure:: ../images/set-syslog-flag.png
+.. figure:: ../images/mc_syslog-flag.png
    :alt: Syslog Forwarding via --syslog flag
 
 The ``--syslog`` value is constructed of the following arguments. Please
