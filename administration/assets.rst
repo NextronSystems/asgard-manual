@@ -3,7 +3,7 @@
 Asset Management
 ================
 
-In the ``Asset Management`` view you can see all the connected ASGARD
+In the ``Assets`` view you can see all the connected ASGARD
 agents. New assets will be placed under ``Asset Requests`` and need a
 manual approval before being able to connect to your ASGARD (for auto
 accept see :ref:`administration/advanced:advanced settings`).
@@ -13,9 +13,9 @@ the issues in a timely manner, since this might cause unwanted side
 effects on the duplicate hosts.
 
 .. warning::
-   Assets in the ``Duplicate Assets`` view indicate, that one or more
+   Assets in the ``Duplicate Assets`` view indicate that one or more
    agents are running on multiple endpoints. This might be caused by
-   cloning a system with an already installed ASGARD 2 Agent. Undesirable
+   cloning a system with an already installed ASGARD Agent. Undesirable
    side effects of duplicate assets are alternating hostnames and tasks
    that fail immediately.
 
@@ -28,7 +28,7 @@ Management of all endpoints registered with ASGARD can be performed
 in Asset Management. The assets will be presented as a table with an
 individual ASGARD ID, their IP addresses and host names.
 
-.. figure:: ../images/asset-view.png
+.. figure:: ../images/mc_assets-view.png
    :alt: Asset View
 
    Asset View
@@ -37,7 +37,7 @@ By clicking the control buttons in the Actions column, you can start
 a new scan, run a response playbook, open a command line or switch
 the endpoints ping rate to a few seconds instead of a maximum of 10 minutes. 
 
-.. figure:: ../images/available-actions.png
+.. figure:: ../images/mc_asset-actions.png
    :alt: Asset Actions
 
    Available Actions (left to right): Run Scan, Run Task,
@@ -57,8 +57,10 @@ Column Visibility
 
 Users can select various columns and adjust their view according to their
 needs by clicking the gear wheel in the top right corner of any table.
+You can toggle visibility of columns by clicking the icon next to the name.
+You can also drag and drop the columns to change the order in the table view.
 
-.. figure:: ../images/available-columns-in-asset-management.png
+.. figure:: ../images/mc_asset-columns.png
    :alt: Asset Columns
 
    Available columns in Asset Management
@@ -74,9 +76,10 @@ selecting the particular assets in the left column, typing the label name
 
 .. note::
    Don't use labels with white space characters as it could cause issues in
-   syncs with Analysis Cockpit, exports / imports or other underlying legacy functions. 
+   syncs with your Analysis Cockpit, exports/imports or other underlying legacy
+   functions. 
 
-.. figure:: ../images/add-labels.png
+.. figure:: ../images/mc_add-labels.png
    :alt: Asset Labeling
 
    Add labels
@@ -84,7 +87,7 @@ selecting the particular assets in the left column, typing the label name
 In order to remove labels, select your assets, click the yellow ``Remove Labels``
 button and type the name of the label you want to remove for these assets.
 
-.. figure:: ../images/remove-labels.png
+.. figure:: ../images/mc_remove-labels.png
    :alt: Asset Labeling
 
    Remove labels
@@ -115,14 +118,14 @@ will be stripped from the labels.
 
    Asset Labeling via CSV
 
-ASGARD Query
-^^^^^^^^^^^^
+ASGARD Search Query
+^^^^^^^^^^^^^^^^^^^
 
-You can search for Assets in your ASGARD with the ``ASGARD Query``. This allows
-you to write more complex queries to search for assets. Additionally, this
-helps you to be more flexible with your scan/response tasks, since you can
-just specify a query and don't have to set labels first. A good example of
-this might be if you are scanning a specific subnet every week, and a new
+You can search for Assets in your Management Center with the ``ASGARD Search Query``.
+This allows you to write more complex queries to search for assets. Additionally,
+this helps you to be more flexible with your scan/response tasks, since you can
+just specify a query and not set labels for all assets first. A good example of
+this might be if you want to scan a specific subnet every week, and a new
 agent is being deployed in this subnet. You don't have to think of all the
 labels or troubleshoot why scans are not being deployed. One example you
 could achieve this with is the following query:
@@ -159,44 +162,49 @@ The following keys for the asset query are available:
 
    .. figure:: ../images/asgard_asset_query_fieldnames.png
 
+The ASGARD Search Query is the preferred tool to manage scans and assets.
+If you are using the Analysis Cockpit and need to labels, you can still use
+them.
+
 Asset Migration
 ^^^^^^^^^^^^^^^
 
-You can move an asset from one ASGARD to another via the Maintenance Module of Response
-Control. To do this, navigate to ``Asset Management`` and select the assets you want to
-migrate. Alternatively you can navigate to ``Response Control`` and add a new task.
-You can now Click the ``Add Task`` button to open the Task Menu. Choose the ``Maintenance``
-Module and then the ``Move asset to another ASGARD`` Type. You have to upload an agent
-installer from the ASGARD you want to migrate the asset to.
+You can move an asset from one Management Center to another via the Maintenance
+Module of the Response Control. To do this, navigate to ``Assets`` and select the
+assets you want to migrate. Alternatively you can navigate to ``Response Control``
+and add a new task. You can now click the ``Add Task`` button to open the Task Menu.
+Choose the ``Maintenance`` module and then the ``Move asset to another ASGARD`` Type.
+You have to upload an agent installer from the ASGARD you want to migrate the asset to.
 
-.. figure:: ../images/master-asgard-move-asset.png
-   :alt: MASTER ASGARD Move Asset
+.. figure:: ../images/mc_migrate-asset.png
+   :alt: Management Center Move Asset
 
 .. note::
    The target OS or Arch of the installer doesn't matter, we will only use the installers
    configuration data for the migration.
 
-The task will fail if the migrated asset is unable to communicate with the new ASGARD.
-In this case, the asset will remain on the ASGARD which issued the migration task. Only
-the asset will be migrated (it shows up as a brand new asset on your new ASGARD), no
-scan or response tasks and also no logs will be migrated.
+The task will fail if the migrated asset is unable to communicate with the new Management
+Center. In this case, the asset will remain on the Management Center which issued the
+migration task. Only the asset will be migrated (it shows up as a brand new asset on
+your new Management Center), no scan or response tasks and also no logs will be migrated.
 
 Delete Assets
 ^^^^^^^^^^^^^
 
-Deleting Assets will remove the assets from the ``Active Only`` asset view and will
-invalidate the authentication for these assets.
+Deleting assets will remove the assets from the ``Active Only`` asset view and will
+invalidate the authentication for those assets.
 
-To delete an asset, go to the ``Asset Management`` View and mark the assets you want
+To delete an asset, go to the ``Assets`` View and mark the assets you want
 to delete. Click the ``Delete Assets`` Button on the top right corner. Confirm that
-you want to delete the asset.
+you want to delete the assets.
 
 To see all the deleted assets, change your view from ``Active Only`` to ``Deleted Only``.
 
 .. warning::
    Deleted assets can no longer communicate with the ASGARD. Please use with caution.
+   This cannot be undone, you have to manually fix the asset.
 
-.. figure:: ../images/asset-view-deleted-assets.png
+.. figure:: ../images/mc_deleted-only.png
    :alt: Deleted Assets
 
    Deleted Assets View

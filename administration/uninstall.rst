@@ -7,8 +7,8 @@ The following listings contain commands to uninstall ASGARD Agents on endpoints.
 
 .. note::
    The commands contain names used by the default installer packages.
-   In cases in which you've generated custom installer packages with
-   a custom service and binary name, adjust the commands accordingly. 
+   If you have generated custom installer packages with a custom service
+   and binary name, you have to adjust the commands accordingly. 
 
 Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -27,7 +27,13 @@ Open a command prompt with administrative privileges and run the following comma
    C:\Windows\system32>rmdir /S /Q C:\ProgramData\thor
 
 .. note::
-   Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed. 
+   Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed.
+
+The commands above will:
+
+- Disable the ASGARD agent's service
+- Delete the ASGARD agent's service
+- Remove all files associated with the ASGARD agent
 
 Uninstall ASGARD Agents on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,15 +75,8 @@ Uninstall ASGARD Agents on macOS
 Uninstall ASGARD Service Controller
 ----------------------------------- 
 
-.. note::
-   The command contains names used by the default installer packages.
-   In cases in which you've generated custom installer packages with
-   a custom service and binary name, adjust the commands accordingly. 
-
-If you want to uninstall the ASGARD Service Controller and Agent,
-see section :ref:`administration/uninstall:uninstall asgard agents`.
-
-If you only want to uninstall the ASGARD Service Controller execute:
+If you only want to uninstall the ASGARD Service Controller (Aurora),
+but leave the normal ASGARD Agent as it is, execute the following command:
 
 .. code-block:: doscon
 
