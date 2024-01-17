@@ -4,9 +4,9 @@ Scan a Group of Systems
 =======================
 
 A group scan is a scan task which is assigned to one or
-more asset conditions. Those conditions can either be labels
-or the ASGARD Query. This is meant to be used if you want to
-scan a group of assets with one scan configuration.
+more asset **condition**. Those conditions can either be labels
+or the ASGARD Search Query. This is meant to be used if you want to
+scan a large group of assets with one scan configuration.
 
 Create Group Scans
 ~~~~~~~~~~~~~~~~~~
@@ -14,7 +14,7 @@ Create Group Scans
 A scan for a group of systems can be created in the ``Scan Control`` > ``Group Scans``
 tab. Click the ``Add Group Scan`` button in the upper right corner.
 
-.. figure:: ../images/scan-control-create-group-scan.png
+.. figure:: ../images/mc_group-scan.png
    :alt: Scan Control – Create Group Scan
 
    Scan Control – Create Group Scan
@@ -31,10 +31,10 @@ mentioned parameters, the following parameters can be set:
    * - **Description**
      - Freely selectable name for the group scan.
    * - **Scan Target**
-     - Here you can define which assets will be affected by the group scan.
+     - Here you can define which assets will be assigned the group scan.
        You can either use the ``Simple`` target option, which uses labels,
        or you can use the ``Advanced`` target options, which makes use of
-       labels or asset queries. Leaving this option empty will scan all assets.
+       labels or the ASGARD Search Query. Leaving this option empty will scan all assets.
    * - **Limit**
      - ASGARD will not send additional scans to the agents when the client
        limit is reached. Therefore you need to set a limit higher than the
@@ -58,7 +58,7 @@ List of all Group Scans
 
 The list of all group scans contains, among other items, the unique Scan-ID and the name.
 
-.. figure:: ../images/scan-control-group-scans-list.png
+.. figure:: ../images/mc_group-scan-view.png
    :alt: Group Scans - List
 
    Scan Control – Group Scans – List
@@ -95,9 +95,11 @@ Details of a Group Scan
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Further information about a group scan can be observed from the detail
-page of the group scan. Click the scan you are interested in and the details section will appear.
+side bar of the group scan. Click the arrow in the left column of
+the group scan you are interested in and the details section will appear
+on the right side of the window.
 
-.. figure:: ../images/scan-control-group-scans-details.png
+.. figure:: ../images/mc_group-scan-details.png
    :alt: Scan Control – Group Scans – Details
 
    Scan Control – Group Scans – Details
