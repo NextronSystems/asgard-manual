@@ -7,7 +7,7 @@ ASGARD's IP-Address can be changed in **/etc/network/interfaces**. The IP is con
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo vi /etc/network/interfaces
+   nextron@asgard:~$ sudoedit /etc/network/interfaces
 
 .. code-block:: none
 

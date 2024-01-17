@@ -1,20 +1,26 @@
 .. Index:: Install Service
 
-Install the ASGARD Management Center Services
----------------------------------------------
+Install the ASGARD Management Center Service
+--------------------------------------------
 
-Use SSH to connect to the appliance using the user ``nextron`` and the password you
-specified during the installation (if you were using an old ISO to install the base
-system, the password is ``nextron``). Now you can run the following command: 
+Use SSH to connect to the appliance using the user ``nextron`` and the password
+you specified during the installation. Now you can run the following command: 
 
-``sudo nextronInstaller -asgard`` (caution: upper case “i" in the middle). This will install ASGARD.
+.. code-block:: console
+
+   nextron@asgard:~$ sudo nextronInstaller -asgard
+
+.. caution::
+   Upper case "i" in the middle.
+
+This will install the ASGARD Management Center on top of the base operating
+system from the ISO.
 
 .. figure:: ../images/setup_nextronInstaller.png
    :alt: running the nextronInstaller
 
-
-After installation is complete type the following command to see if the service
-is running: 
+After the installation is completed, type the following command to see
+if the service is running: 
 
 .. code-block:: console
    :emphasize-lines: 5
@@ -30,5 +36,5 @@ is running:
         Memory: 186.0M
            CPU: 2.043s
 
-The installation is complete, you are ready to log into the web UI
+The installation is now completed, you are ready to log into the web UI
 of your Management Center.

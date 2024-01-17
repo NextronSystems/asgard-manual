@@ -11,39 +11,39 @@ screen through the button ``Download Agent Installers``. A list
 of available agents for various operating systems appears. 
 
 
-.. figure:: ../images/login-screen.png
+.. figure:: ../images/mc_login-screen.png
    :alt: Download Agent Installers from Login Screen
 
    Download Agent Installers from Login Screen
 
-.. figure:: ../images/agents-overview.png
+.. figure:: ../images/mc_agents-overview.png
    :alt: Agents Overview
 
    Agents Overview
 
-After the installation, the endpoints will connect to ASGARD, register
-automatically and appear in the Asset Management Section in the tab
-``Requests``. Please allow two or three minutes for systems to show
-up. The agents use the hostname to connect to ASGARD, ensure that
-your endpoints can resolve and reach the ASGARD hostname.
+After the installation, the endpoints will connect to your Management
+Center, register automatically and appear in the Asset Management Section
+in the tab ``Asset Requests``. Please allow two or three minutes for systems to show
+up. The agents use the FQDN to connect to your Management Center, so ensure that
+your endpoints can resolve and reach the Management Center via FQDN.
 
 .. note::
    Full administrative privileges are required for the ASGARD agent
    and THOR to operate properly.
 
 In the requests tab, select the agents you want ASGARD to manage and
-click ``Accept``. After that, the endpoint shows up in the asset tab
-and is now ready to be managed or scanned.
+click ``Accept Asset Requests``. After that, the endpoint shows up
+in the assets overview and is now ready to be managed and scanned.
 
-.. figure:: ../images/accepting-asgard-agent-requests.png
+.. figure:: ../images/mc_accept-asset-request.png
    :alt: Accepting ASGARD Agent Requests
 
    Accepting ASGARD Agent Requests
 
-A registered agent will poll to the ASGARD Management Center at a given
-interval between 10 seconds and 600 seconds – depending on the number of
+A registered agent will poll to the Management Center at a given
+interval between 10 seconds and 10 Minutes – depending on the number of
 connected endpoints (see :ref:`advanced/performance:performance tuning` for
-details). If ASGARD has scheduled a task for the endpoint (for example:
+details). If your Management Center has scheduled a task for the endpoint (for example:
 run THOR scan) it will be executed directly after the poll.
 
 Windows Agent Deployment
@@ -77,7 +77,7 @@ commands:
 
 You will be able to deploy your agents via most of the common linux tools,
 just make sure that the installer is being installed with administrative
-priileges.
+privileges.
 
 macOS Agent Deployment
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -85,23 +85,25 @@ macOS Agent Deployment
 Starting with macOS Big Sur (v11.0), Apple requires software developers
 to notarize applications.
 
-Due to the nature of the ``asgard2-agent`` installer, which is generated on
-installation time and making it unique for each new installation, it's
-currently not possible to notarize the installer.
+Due to the nature of the ``asgard2-agent`` installer, which is generated
+during installation time on your Management Center, and making it unique
+for each Management Center installation, it iss currently not possible
+to notarize the installer.
 
-This document aims to describe possible workarounds intended to be a
-reference for IT Administrators or IT packaging teams to bypass Apple
-verifications and install the personalized asgard2-agents on their macOS
+This document aims to describe possible workarounds, intended to be a
+reference for IT administrators or IT packaging teams to bypass Apple
+verifications and install the personalized ``asgard2-agents`` on macOS
 Big Sur (or newer) workstations.
 
 .. warning::
    Executing any of the workarounds described in this document puts your
    system at risk for a short period of time. This document will deactivate
    global security mechanisms of the operating system, which are intended to
-   protect the integrity of the system.
+   protect the integrity of the system. Please make sure to follow the below
+   steps carefully and enable those security mechanisms after you are done.
 
-Please always keep in mind to check your systems after performing any of
-the described actions to ensure that all security mechanisms are in
+Please always keep in mind to check your system after performing any of
+the described actions, to ensure that all security mechanisms are in
 place and are re-activated after performing the described actions.
 
 Please follow the below steps to install the ASGARD Agent on macOS.
@@ -114,7 +116,7 @@ Please follow the below steps to install the ASGARD Agent on macOS.
 
 3. Close the terminal and open a new terminal session
 
-4. Install asgard2-agent
+4. Install the asgard2-agent
 
    * ``sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg -target /``
 
@@ -141,7 +143,7 @@ On a system with activated Gatekeeper, the output has to be ``assessments enable
 macOS Full Disk Access
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Since macOS version 13 (Ventura) the ASGARD Agent needs full disk access
+Since macOS Ventura (v13.0) the ASGARD Agent needs full disk access
 to function properly. After you have deployed the ASGARD Agent, you need
 to grant the service the required access permissions. Please keep in mind
 that administrative privileges on the machine are needed to perform this
@@ -164,6 +166,6 @@ You need to enable the ``asgard2-agent-service`` slider:
    There is no workaround to this step, since it is an integral
    part of the security design of Apple devices. If you are having trouble
    with THOR scans via ASGARD on macOS, please check if the ``Full Disk
-   Access`` permission for the ASGARD agent was granted. Since macOS version
-   10.14 (Mojave), you need to grant the same permissions if you want to
-   scan removable volumes.
+   Access`` permission for the ASGARD agent was granted. Since macOS Mojave
+   (v10.14), you need to grant the same permissions to removable volumes,
+   if you plan on scanning those.
