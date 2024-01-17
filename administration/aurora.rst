@@ -8,8 +8,7 @@ Aurora
 - It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
 - It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
 
-Its documentation can be found at `aurora-agent-manual.nextron-systems.com <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
-
+Its documentation can be found `here <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
 
 Aurora Overview
 ~~~~~~~~~~~~~~~
@@ -17,7 +16,7 @@ Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview
 of all assets with installed Aurora is shown. Clicking on the entry opens a
 drop-down menu with details and additional information.
 
-.. figure:: ../images/sc-aurora-asset-view.png
+.. figure:: ../images/mc_aurora-view-deployed.png
    :alt: Aurora Asset View
 
    Aurora Asset View
@@ -25,36 +24,39 @@ drop-down menu with details and additional information.
 Deploy Aurora on Asset
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Analogous you can see an overview of all assets without Aurora installed under
+You can als see an overview of all assets without Aurora installed under
 ``Service Control`` > ``Aurora`` > ``Asset View (Not Deployed)`` and install
-Aurora using the ``Deploy Aurora`` button.
+Aurora using the ``Deploy Aurora`` button. Those are all the assets which
+have the service controller installed, but the Aurora deployment was not done
+yet.
 
 Change Service for an Asset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 To change the Aurora configuration of an asset, navigate to ``Service Control``
 > ``Aurora`` > ``Asset View (Deployed)``, select the asset's checkbox and choose
 > ``Change Aurora Configuration``. Then choose the desired service configuration
 > by clicking ``Assign and Restart``.
 
-.. figure:: ../images/sc-aurora-assign-configuration.png
+.. figure:: ../images/mc_aurora-assign-config.png
    :alt: Change Aurora Service Configuration
 
    Change Aurora Service Configuration
 
-If you want to enable or disable the Aurora service on an asset, select it
-with the checkbox and use the ``Enable`` or ``Disable`` button or select
-the play or stop action icon on single assets.
+If you want to enable or disable the Aurora service on an or more assets,
+select them with the checkbox and use the ``Enable`` or ``Disable`` button.
+Alternatively you can use the play or stop action icon on a single asset to
+achieve the same.
 
-
-Creating a Custom Aurora Service Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create a Custom Aurora Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Go to ``Service Control`` > ``Aurora`` > ``Configurations`` > ``Add Configuration``,
 enter a name and add the rulesets that should apply for this service configuration.
 No rulesets is a viable option, if you only want to use the non-sigma matching modules.
 You don't need to edit any other option as sane defaults are given.
 
-.. figure:: ../images/sc-aurora-custom-configuration.png
+.. figure:: ../images/mc_add-custom-aurora-config.png
    :alt: Create a Custom Aurora Configuration
 
    Create a Custom Aurora Configuration
@@ -65,21 +67,21 @@ Process Excludes
 If Aurora uses too much CPU cycles, the most common reason is a heavy event
 producer on the system (e.g. anti virus or communication software). In order
 to analyze the issue and define process exclusions, go to ``Service Control`` >
-``Aurora`` > ``Process Excludes``
+``Aurora`` > ``Process Exclusions``
 
-.. figure:: ../images/aurora-process-exclusion.png
+.. figure:: ../images/mc_aurora-process-exclusions.png
    :alt: Define Aurora Process Exclusion
 
    Define Aurora Process Exclusion
 
 An overview over the top event producing processes is given on the bottom
-of the section. Another possibility is to
+of the section. Another possibility is to download a
 :ref:`troubleshooting/agent-debugging:aurora diagnostics pack`
-in question and look in the ``status.txt`` at the event statistics by process.
+and look in the ``status.txt`` at the event statistics by process.
 
 False Positive Filters
 ~~~~~~~~~~~~~~~~~~~~~~
-If needed, false positives can be globally filtered on all Aurora agents
+If needed, false positives can be globally defined on all Aurora agents
 at ``Service Control`` > ``Aurora`` > ``False Positive Filters``. It is
 recommended to filter false positives at ``Service Control`` > ``Sigma`` >
 ``Rules`` and filter the false positives on a rule level using the "edit false
@@ -88,20 +90,21 @@ positive" action (funnel icon). For more details see
 not possible, because you need a quick fix and multiple rules are affected,
 the global false positive filter can help.
 
-.. figure:: ../images/aurora-global-fp-filter.png
+.. figure:: ../images/mc_aurora_fps.png
    :alt: Define Global Aurora False Positive Filters
 
    Define Global Aurora False Positive Filters
 
 .. warning::
-   A too permissive filter will greatly reduce Aurora's detection and response capabilities.
+   A too permissive filter will greatly reduce Aurora's detection
+   and response capabilities.
 
 Response Action Logs
 ~~~~~~~~~~~~~~~~~~~~
 You can view an overview and the logs of the Aurora response and simulated
 response actions under ``Service Control`` > ``Aurora`` > ``Response Action Logs``.
 
-.. figure:: ../images/aurora-response-action-logs.png
+.. figure:: ../images/mc_aurora-response-action-logs.png
    :alt: Aurora Response Action Logs
 
    Aurora Response Action Logs
@@ -114,7 +117,7 @@ Best Practices for Managing Aurora
 3. Deploy the Aurora Service on the asset using the ``[Default] Standard configuration with critical and high Sigma rules``
 4. configuration (see :ref:`administration/aurora:deploy aurora on asset`)
 
-.. figure:: ../images/aurora-best-practices-service-deployed.png
+.. figure:: ../images/mc_aurora-best-practices.png
    :alt: Aurora Service Successfully Deployed
 
    Aurora Service Successfully Deployed
@@ -124,8 +127,7 @@ to enable our included responses:
 
 1. See the overview at ``Service Control`` > ``Aurora`` > ``Configurations``.
    The ``Effective Rules and Response`` row shows how many responses are active.
-   By default no responses are active. See :ref:`administration/sigma:how to activate responses`
-   on how to activate responses.
+   By default no responses are active. See :ref:`administration/sigma:how to activate responses`.
 2. Do not directly activate the responses in production environments. Monitor
    your environment for at least a month with simulated responses to verify
    that no false positive matches occur.
@@ -142,7 +144,7 @@ You can test the response functionality by entering the command
 on the command line of an asset. As a result you should see following
 message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
 
-.. figure:: ../images/aurora-best-practices-example-response.png
+.. figure:: ../images/mc_aurora-example-respons.png
    :alt: Aurora Service Successfully Deployed
 
    Aurora Simulated Response Action 
