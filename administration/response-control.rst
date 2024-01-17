@@ -22,7 +22,7 @@ Opening a Remote Console on an endpoint
 In order to open a remote console on an endpoint, open the Asset
 Management section and click the "command line" button in the Actions column.
 
-.. figure:: ../images/opening-a-remote-shell-from-the-asset-view.png
+.. figure:: ../images/mc_remote-console.png
    :alt: Opening a Remote Console from the Asset View
 
    Opening a Remote Console from the Asset View
@@ -32,7 +32,7 @@ minutes for the remote console to open. Please note that all actions
 within the remote console are recorded and can be audited. All consoles
 open with root or system privileges.
 
-.. figure:: ../images/remote-shell.png
+.. figure:: ../images/mc_open-remote-console.png
    :alt: Remote Shell
 
    Remote Shell
