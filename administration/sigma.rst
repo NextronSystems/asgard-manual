@@ -3,9 +3,7 @@
 Sigma
 =====
 
-LogWatcher, as well as Aurora, are using Sigma in order to define their detections.
-The Sigma rule management is shared between the two services. But each service has
-its own configuration that defines which rules are actually used on the assets.
+Aurora is using Sigma in order to define detections.
 
 What is Sigma
 ~~~~~~~~~~~~~
