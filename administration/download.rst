@@ -17,7 +17,7 @@ access can download and issue licenses, which may lead to
 unwanted exhaustion of the ASGARD license pool. You can reset
 the download token by disabling and then re-enabling it using ``New Download Token``.
 
-.. figure:: ../images/download-thor-package.png
+.. figure:: ../images/mc_download-thor-package.png
    :alt: Generate THOR Package Download Link
 
    Download THOR package and license workstation named 'WIN-CLI-DE-1234'
