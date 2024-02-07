@@ -27,8 +27,8 @@ Creating Custom Agent Installer From CLI (deprecated)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to create your custom ASGARD agent, save the current agents stored in
-``/var/lib/nextron/asgard2/installer/`` to a directory of your choosing and run
-``sudo asgard2-repacker`` with one or more of the following flags:
+``/var/lib/asgard-management-center/installer/`` to a directory of your choosing and run
+``sudo asgard-agent-repacker`` with one or more of the following flags:
 
 ``-labels string``
 
@@ -43,11 +43,11 @@ ASGARD with the label ``SQL-Servers`` use:
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo asgard2-repacker -label SQL-Servers
+   nextron@asgard:~$ sudo asgard-agent-repacker -label SQL-Servers
 
-Your newly generated agents will show up in ``/var/lib/nextron/asgard2/installer``
+Your newly generated agents will show up in ``/var/lib/asgard-management-center/installer``
 and will immediately be available for download from the login page. You can store
-multiple custom agents under ``/var/lib/nextron/asgard2/installer/``. In this case
+multiple custom agents under ``/var/lib/asgard-management-center/installer/``. In this case
 all agents will be available for download from ASGARDs login page.
 
 You can obfuscate the default asgard2-agent name with a custom one. The chosen name
@@ -58,12 +58,12 @@ create a service with the chosen name and will have no reference to ASGARD.
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo asgard2-repacker -name javax
+   nextron@asgard:~$ sudo asgard-agent-repacker -name javax
 
 This command will create a new agent for all operating systems.
 This is specially designed for cases where an agent obfuscation is required.
 
-An installed agent with the name "javax" would look like this:
+An installed agent with the name ``javax`` would look like this:
 
 .. code-block:: console
 
