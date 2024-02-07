@@ -106,7 +106,7 @@ Navigate to Settings >> TLS.
 On the bottom of the page click ``Upload TLS Certificate`` and select the
 exported certificate from the previous step.
 
-.. figure:: ../images/upload-tls-certificate.png
+.. figure:: ../images/mc_upload-tls-cert.png
    :alt: ASGARD Certificate Import
 
    ASGARD Certificate Import
