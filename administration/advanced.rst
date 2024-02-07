@@ -12,7 +12,7 @@ within the response control section.
 Inactive assets can be hidden in the Asset Management Section
 by setting a suitable threshold for ``Hide inactive Assets``. 
 
-.. figure:: ../images/advanced-settings.png
+.. figure:: ../images/mc_advanced-settings.png
    :alt: Advanced Settings
 
    Advanced Settings

@@ -8,9 +8,11 @@ The following settings will only affect the currently logged in user.
 Changing your password
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To change your password, navigate to the ``User Settings`` section.
+To change your password, click your username in the top right
+corner and click ``User Settings``. This will lead you to the
+personal user settings.
 
-.. figure:: ../images/changing-your-password.png
+.. figure:: ../images/mc_user-settings.png
    :alt: Changing your password
 
    Changing your password
@@ -30,11 +32,10 @@ one of the following mobile apps for 2FA:
 Enable Two Factor Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To enable Two Factor Authentication, navigate to ``User Settings`` >
-``Two Factor Authentication``. If 2FA is not enabled, you
-will see the option to ``Use Two Factor Authentication``.
+To enable Two Factor Authentication, click ``Use Two Factor Authentication``
+in your User Settings and follow the instructions on the screen.
 
-.. figure:: ../images/user_enable_2fa.png
+.. figure:: ../images/mc_enable-2fa.png
    :alt: Enable 2FA
 
 After clicking the button, you will be presented with a QR
@@ -43,7 +44,7 @@ Alternatively, you can use the secret key. You will need
 to verify the 6-digit token and click ``Validate Two Factor Authentication``
 to enable 2FA.
 
-.. figure:: ../images/user_verify_2fa.png
+.. figure:: ../images/mc_verify-2fa.png
    :alt: Verify 2FA
 
 .. note:: 
@@ -55,7 +56,7 @@ Disable Two Factor Authentication
 To disable 2FA, navigate to ``User Settings`` > ``Two Factor Authentication``
 and click ``Deactivate Two Factor Authentication``.
 
-.. figure:: ../images/user_deactivate_2fa.png
+.. figure:: ../images/mc_deactivate-2fa.png
    :alt: Deactivate 2FA
 
 .. note:: 
