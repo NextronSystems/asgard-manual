@@ -11,7 +11,7 @@ The menu ``IOC Management`` gives you the opportunity to easily integrate custom
 In order to create your own custom IOC Group, navigate to ``IOC Management`` > ``IOCs``
 and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
 
-.. figure:: ../images/add-ioc-group.png
+.. figure:: ../images/mc_add-ioc-group.png
    :alt: Add IOC Group
 
    Add IOC Group
@@ -24,7 +24,7 @@ files for keyword IOCs, YARA files and SIGMA files). Refer to the
 for a complete list and file formats. Browse to the file you want
 to add and click upload. This adds your IOC file to the default ruleset. 
 
-.. figure:: ../images/import-iocs.png
+.. figure:: ../images/mc_import-iocs.png
    :alt: Imported IOCs Overview
 
    Imported IOCs Overview
@@ -33,7 +33,7 @@ However, you can also click the ``Add IOC(s)`` button to add some IOCs
 interactively. Select the type, score and description, enter some values
 and click the ``Add IOC`` button.
 
-.. figure:: ../images/add-ioc.png
+.. figure:: ../images/mc_add-iocs.png
    :alt: Add IOCs
 
    Add IOCs
@@ -43,7 +43,7 @@ the ``IOC Management`` > ``IOC Rulesets`` tab by clicking the  ``Add Ruleset``
 button in the upper right corner. Select name and description and click the 
 ``Add Ruleset`` button.
 
-.. figure:: ../images/add-ruleset.png
+.. figure:: ../images/mc_add-ioc-ruleset.png
    :alt: Add Ruleset
 
    Add Ruleset
@@ -53,10 +53,33 @@ get information about all IOC Groups which have been added to this
 ruleset. Additionally you can add or remove selected IOC Groups in
 ``IOC Management: IOCs`` by clicking one of the three buttons shown below.
 
-.. figure:: ../images/add-remove-ioc-group.png
+.. figure:: ../images/mc_add-remove-ioc-group.png
    :alt: Buttons to Add/Remove IOC Groups
 
    Buttons to Add/Remove IOC Groups
+
+You can now add your IOC Group to the newly created IOC Ruleset.
+
+.. figure:: ../images/mc_add-ioc-group-to-ruleset.png
+   :alt: Add IOC Group to Ruleset
+
+   Add IOC Group to Ruleset
+
+This Ruleset can now be used in THOR scans.
+
+.. figure:: ../images/mc_ioc-ruleset-thor-scan.png
+   :alt: IOC Ruleset in THOR Scan
+
+   IOC Ruleset in THOR Scan
+
+Anytime you add, remove or change IOCs within one of your IOC Groups,
+you have to recompile the IOC Ruleset. To do this, navigate to the
+``IOC Rulesets`` page and click the "geard" icon in the Ruleset's row
+
+.. figure:: ../images/mc_compile-ioc-ruleset.png
+   :alt: Compile IOC Ruleset
+
+   Compile IOC Ruleset
 
 Scan only with Custom IOCs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,7 +92,7 @@ added to this ruleset. You can also select more than one ruleset.
 The THOR scan would be performed with the default settings and the
 custom ruleset, the default signatures would not be applied.
 
-.. figure:: ../images/select-ruleset.png
+.. figure:: ../images/mc_ioc-ruleset-selection.png
    :alt: Select Ruleset while creating a scan job
 
    Select Ruleset while creating a scan job
@@ -98,7 +121,7 @@ There is no default ruleset for MISP. You must create at least one
 ruleset (see tab "MISP Rulesets") before you can add MISP rules.
 
 
-.. figure:: ../images/misp-events.png
+.. figure:: ../images/mc_misp-events.png
    :alt: MISP events
 
    MISP events 
@@ -112,7 +135,7 @@ and may be deselected for that reason. The picture below shows the
 dialogue for adding a MISP ruleset. Enable ``Auto Compile`` in order
 to automatically compile new MISP events into the ruleset, when they arrive.
 
-.. figure:: ../images/adding-a-new-misp-ruleset.png
+.. figure:: ../images/mc_new-misp-ruleset.png
    :alt: Adding a new MISP ruleset
 
    Adding a new MISP ruleset
@@ -120,10 +143,10 @@ to automatically compile new MISP events into the ruleset, when they arrive.
 In order to use a MISP ruleset in a scan, add the ruleset in the
 ``MISP Signatures`` field when creating your scan.
 
-.. figure:: ../images/adding-a-misp-ruleset-to-a-scan.png
-   :alt: Adding a MISP Ruleset to a Scan
+.. figure:: ../images/mc_scanning-with-misp-ruleset.png
+   :alt: Scanning with MISP Ruleset
 
-   Adding a MISP Ruleset to a Scan 
+   Scanning with MISP Ruleset
 
 MISP Attributes used by ASGARD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
