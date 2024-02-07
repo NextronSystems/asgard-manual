@@ -56,7 +56,7 @@ Agent Updates
 If an asset or an agent can be update, there will be a notice
 shown in the ``Updates`` > ``Agents`` tab.
 
-.. figure:: ../images/update-agent.png
+.. figure:: ../images/mc_agent-update.png
    :alt: Update Agent
 
    Update Agent

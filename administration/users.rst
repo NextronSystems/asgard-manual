@@ -9,7 +9,7 @@ allows administrators to add or edit user accounts.
 The field ``2FA`` in the overview indicates if a
 user has ``Two Factor Authentication`` enabled or not.
 
-.. figure:: ../images/add-user-account.png
+.. figure:: ../images/mc_add-user.png
    :alt: Add User Account
 
    Add User Account
@@ -30,7 +30,7 @@ user roles. The pre-configured roles can be modified or
 deleted. The ASGARD role model is fully configurable.
 
 
-.. figure:: ../images/user-roles-factory-default.png
+.. figure:: ../images/mc_roles-factory-defaults.png
    :alt: ASGARD User Roles
 
    User Roles – Factory Defaults 
@@ -91,7 +91,7 @@ In the right column, the mapping of LDAP groups to ASGARD groups
 
 First check if your LDAP server is reachable by ASGARD by clicking "Test Connection".
 
-.. figure:: ../images/ldap-server.png
+.. figure:: ../images/mc_ldap-server.png
    :alt: Configure the LDAP Server
 
    Configure the LDAP Server
@@ -101,7 +101,7 @@ permissions on the bind user are sufficient. To find out
 the distinguished name you can use an LDAP browser or query
 using the PowerShell AD module command ``Get-ADUser <username>``.
 
-.. figure:: ../images/ldap-bind.png
+.. figure:: ../images/mc_ldap-bind.png
    :alt: Configure the LDAP Bind User
 
    Configure the LDAP Bind User
@@ -114,7 +114,7 @@ adapt it to your liking. The test button shows you if a login
 with that user would be successful and which groups ASGARD identified
 and could be used for a mapping to ASGARD groups. 
 
-.. figure:: ../images/ldap-filter.png
+.. figure:: ../images/mc_ldap-filter.png
    :alt: Configure the LDAP User and Group Filters
 
    Configure the LDAP User and Group Filters
@@ -134,7 +134,7 @@ to ``(&(objectClass=user)(objectCategory=user)(userPrincipalName=%s))``
 After the LDAP configuration is set up, you need to provide role mapping from LDAP groups to ASGARD groups.
 This is done in the right column by using the ``Add LDAP Role`` feature.
 
-.. figure:: ../images/ldap-role.png
+.. figure:: ../images/mc_ldap-roles.png
    :alt: LDAP Group to ASGARD Role Mapping
 
    LDAP Group to ASGARD Role Mapping
