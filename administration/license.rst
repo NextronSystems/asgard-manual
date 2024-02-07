@@ -13,7 +13,7 @@ particular system during its initial THOR scan.
 
 The screenshot below shows the licensing section of an ASGARD.
 
-.. figure:: ../images/asgard-licensing.png
+.. figure:: ../images/mc_asgard-licensing.png
    :alt: ASGARD licensing
 
    ASGARD licensing
@@ -22,7 +22,7 @@ In addition, ASGARD can create single-licenses that can be used
 for agent-less scanning. In this case the license is generated
 and downloaded through the Web frontend. 
 
-.. figure:: ../images/generate-licenses.png
+.. figure:: ../images/mc_generate-licenses.png
    :alt: Generate licenses
 
    Generate licenses
