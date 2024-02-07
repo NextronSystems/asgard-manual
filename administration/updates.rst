@@ -14,7 +14,7 @@ appears. Clicking this button will start the update process. The
 ASGARD service will be restarted and the user will be forced to
 re-login. Generally update MASTER ASGARD before the connected ASGARDs.
 
-.. figure:: ../images/updating-asgard.png
+.. figure:: ../images/mc_update-asgard.png
    :alt: Updating ASGARD
 
    Updating ASGARD
@@ -29,7 +29,7 @@ current THOR version and current signature version. You may disable
 or modify the automatic THOR and Signature updates by deleting or
 modifying the entries in this section.
 
-.. figure:: ../images/automatic-scanner-and-signature-updates.png
+.. figure:: ../images/mc_update-thor-and-sigs.png
    :alt: Automatic Scanner and Signature Updates
 
    Automatic Scanner and Signature Updates
@@ -40,7 +40,7 @@ from the drop-down menu.
 
 Please be aware, that this is a global setting and will affect all scans!
 
-.. figure:: ../images/select-scanner-version-manually.png
+.. figure:: ../images/mc_update-thor-manually.png
    :alt: Selecting a Scanner Version manually
 
    Selecting a Scanner Version manually
