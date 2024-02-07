@@ -3,7 +3,7 @@
 Managing Logs
 =============
 
-ASGARD will store all logs under ``/var/lib/nextron/asgard2/log/``
+ASGARD will store all logs under ``/var/log/asgard-management-center``
 
 All logs in this directory will be rotated and automatically cleared
 after 14 months, please see :ref:`maintenance/log:log rotation and retention` for more information.
@@ -26,15 +26,21 @@ interfere with ASGARD updates!
    * - ASGARD Management Center
      - asgard.log
      - ASGARD Log [1]_
-   * - Agent Agent and Service Controller
+   * - ASGARD Agent and Service Controller
      - agent.log
      - Agent Log [1]_
+   * - ASGARD Agent Access
+     - agent-access.log
+     - 
    * - THOR via Syslog
      - scan.log
      - THOR Log [1]_
    * - THOR via Syslog (Scan Start, Licensing, Completion only)
      - subscan.log
      - THOR Log [1]_
+   * - Aurora
+     - aurora-service.log
+     - 
 
 .. [1] This is the **Type** you can select in :ref:`administration/additional:rsyslog forwarding`.
 
@@ -43,7 +49,7 @@ The logs will always be stored here, even if you have :ref:`administration/addit
 Scan Logs
 ^^^^^^^^^
 
-ASGARD will store all scan logs under ``/var/lib/nextron/asgard2/scan-results``
+ASGARD will store all scan logs under ``/var/lib/asgard-management-center/scan-results``
 
 All Scans will generate two files, ``thor-<ID>.txt.gz`` and ``thor-report-<ID>.html.gz``.
 The first file will be the raw THOR Scan Log(s) and the second file will be

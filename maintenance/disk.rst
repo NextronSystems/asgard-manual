@@ -17,14 +17,14 @@ Safe-to-Delete Files
 
 The following files are safe to delete. They are not needed for ASGARD to operate.
 
-- ``/var/lib/nextron/asgard2/log/*.gz``
+- ``/var/lib/asgard-management-center/log/*.gz``
 
 They are only kept on the system if needed for further processing.
 E.g. saving/sending the log files to another system. If you do not
 need or plan to use those, they can be deleted. If you are unsure
 make a copy to another system before deleting them.
 
-- ``/var/lib/nextron/asgard2/downloads/*`` (except current day)
+- ``/var/lib/asgard-management-center/downloads/*`` (except current day)
 
 The files in this folder are only generated for temporary downloading
 files from the UI and are not needed after the download has finished.
@@ -40,9 +40,9 @@ If you use Bifrost, the collected files are not deleted by default.
 If dated files are no longer needed, you can define a retention
 period at ``Settings`` > ``Bifrost``.
 
-- ``/var/lib/nextron/asgard2/scan-results/*.gz``
-- ``/var/lib/nextron/asgard2/generic-results/*``
-- ``/var/lib/nextron/asgard2/remote-console/protocol/*``
+- ``/var/lib/asgard-management-center/scan-results/*.gz``
+- ``/var/lib/asgard-management-center/generic-results/*``
+- ``/var/lib/asgard-management-center/remote-console/protocol/*.gz``
 
 The listed files are the results of THOR scans (scan-results), Tasks
 except Scans (generic-results) and the sessions of remote consoles (remote-console).
@@ -55,7 +55,7 @@ This can be done with a find-remove combination using the command line:
 
 .. code-block:: console
 
-   root@asgard:~# find /var/lib/nextron/asgard2/<directory> -mtime +<days> -print0 | xargs -0 -r rm
+   root@asgard:~# find /var/lib/asgard-management-center/<directory> -mtime +<days> -print0 | xargs -0 -r rm
 
 Where ``<directory>`` is one of ``scan-results/*.gz``, ``generic-results/*`` or ``remote-console/protocol/*``
 and ``<days>`` the number of days you want to keep. Files and folders older than ``<days>`` days will be deleted.

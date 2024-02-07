@@ -9,12 +9,12 @@ before they get purged. All logs will be rotated and zipped into one
 file monthly, for up to 14 months.
 
 To get a better understanding of how the log rotation is handled,
-you can inspect ``/etc/logrotate.d/asgard``.
+you can inspect ``/etc/logrotate.d/asgard-management-center``.
 
 Syslog Logs
 ~~~~~~~~~~~
 
-ASGARD will store all logs under ``/var/lib/nextron/asgard2/log/``.
+ASGARD will store all logs under ``/var/lib/asgard-management-center/log``.
 This does not include the Scan Logs, as those are handled separately.
 
 If you require a longer retention period, please copy the oldest log
@@ -31,12 +31,16 @@ modify the built-in rotation settings as this might interfere with ASGARD update
      - asgard-audit.log
    * - ASGARD Management Center
      - asgard.log
-   * - Agent Agent and Service Controller
+   * - ASGARD Agent and Service Controller
      - agent.log
+   * - ASGARD Agent Access
+     - agent-access.log
    * - THOR via Syslog
      - scan.log
    * - THOR via Syslog (Scan Start, Licensing, Completion only)
      - subscan.log
+   * - Aurora
+     - aurora-service.log
 
 If you want to forward those logs automatically to a dedicated server,
 you can set up :ref:`administration/additional:rsyslog forwarding`. Forwarded
