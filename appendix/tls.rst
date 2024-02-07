@@ -116,19 +116,16 @@ that the certificate was successfully installed.
 
 Navigate to Settings >> Services and restart the ``ASGARD 2 Service`` by clicking ``Restart`` button.
                                 
-.. figure:: ../images/asgard-service-restart.png
+.. figure:: ../images/mc_manage-services.png
    :alt: ASGARD service restart
 
    ASGARD service restart
 
-Please take into consideration that it could take a few minutes until the ASGARD Service is restarted successfully.
+Please take into consideration that it could take a few minutes
+until the ASGARD Service is restarted successfully.
 
-After the service has been successfully restarted, the installed certificate is shown in the browser.
-
-.. figure:: ../images/asgard-cert-check.png
-   :alt: ASGARD certificate installation check
-
-   ASGARD certificate installation check
+After the service has been successfully restarted, the installed
+certificate will be used by your Management Center.
 
 Use Case 2 - CSR Signing with an OpenSSL Based CA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
