@@ -13,7 +13,7 @@ ASGARD provides two forms of collected evidence:
 
 All collected evidence can be downloaded in the ``Collected Evidence`` section.
 
-.. figure:: ../images/collected-evidence-list.png
+.. figure:: ../images/mc_evidences-table.png
    :alt: Collected Evidence List
 
    Collected Evidence List
@@ -27,7 +27,7 @@ the samples. See section :ref:`administration/users:roles` and
 :ref:`administration/users:rights` for details.
 
 
-.. figure:: ../images/bifrost-collections.png
+.. figure:: ../images/mc_bifrost-quarantine.png
    :alt: Bifrost Collections
 
    Bifrost Collections
