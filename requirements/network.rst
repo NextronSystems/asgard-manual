@@ -83,7 +83,7 @@ following remote systems via HTTPS on port 443/tcp:
    * - Product
      - Remote Systems
    * - ASGARD packages
-     - update301.nextron-systems.com
+     - update-301.nextron-systems.com
    * - THOR updates
      - update1.nextron-systems.com
    * - THOR updates
@@ -163,9 +163,9 @@ ASGARD needs to be able to resolve internal and external IP addresses.
 Internet Access during Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Analysis Cockpit installer requires Internet access during the
+The Management Center installer requires Internet access during the
 setup. The installation process will fail if required packages cannot be
-loaded from https://update3.nextron-systems.com
+loaded from https://update-301.nextron-systems.com
 
 SSL/TLS Interception
 ~~~~~~~~~~~~~~~~~~~~

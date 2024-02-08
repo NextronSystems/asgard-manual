@@ -14,7 +14,7 @@ To install a Master ASGARD, you have to choose the command line argument
 a new system, you cannot install a Master ASGARD on an existing ASGARD
 Management Center.
 
-.. figure:: ../images/master-asgard-install.png
+.. figure:: ../images/mc_master-asgard-install.png
    :alt: Installation of Master ASGARD
 
    Installation of Master ASGARD
@@ -81,7 +81,7 @@ Link ASGARD Systems with Master ASGARD
 On your ASGARD server, go to ``Settings`` > ``Master ASGARD``, generate a
 one-time code and copy it.
 
-.. figure:: ../images/link-master1.png
+.. figure:: ../images/mc_master-asgard-code.png
    :alt: Generate One Time Token
 
    Generate One Time Token on ASGARD
@@ -91,7 +91,7 @@ button in the upper right corner, and use the hostname and one-time token to
 connect that ASGARD system. You can use a description to provide more
 information on that ASGARD server, e.g. ``DMZ 1`` or ``Region EMEA - HQ 1``. 
 
-.. figure:: ../images/link-asgard-in-master-asgard.png
+.. figure:: ../images/mc_master-add-asgard.png
    :alt: Link ASGARD in Master ASGARD
 
    Link ASGARD in Master ASGARD
@@ -109,7 +109,7 @@ Scan Control
 Scan Control in Master ASGARD looks the same as in an ASGARD server.
 The only difference is that you can select an ASGARD Server or "All ASGARDs" to run the scans on.  
 
-.. figure:: ../images/scan-control-in-master-asgard-add-group-task.png
+.. figure:: ../images/mc_master-scan-control.png
    :alt: Master ASGARD Scan Control
 
    Scan Control in Master ASGARD - Add Group Task
@@ -144,7 +144,7 @@ by the connected ASGARD (and vice versa). If Master ASGARD or ASGARD
 edits a configuration of an asset it will take over the "leadership"
 over this asset, no matter by which it was managed beforehand.
 
-.. figure:: ../images/master-service-controller.png
+.. figure:: ../images/mc_master-service-controller.png
    :alt: Example: Service Controller listed in ASGARD but managed by Master ASGARD
 
    Example: Service Controller listed in ASGARD but managed by Master ASGARD
@@ -161,7 +161,7 @@ The ``Downloads`` section of Master ASGARD allows to generate and
 download Agent Installers on all your connected ASGARDs. This
 allows for a central management of the Installers.
 
-.. figure:: ../images/master-asgard-download-section.png
+.. figure:: ../images/mc_master-download-section.png
    :alt: Example: Download Section in ASGARD but managed by Master ASGARD
 
    Example: Download Section in ASGARD but managed by Master ASGARD
@@ -169,15 +169,22 @@ allows for a central management of the Installers.
 Updates
 -------
 
-The ``Updates`` section contains a tab in which upgrades for ASGARD can be installed. 
+The ``Updates`` section contains a tab in which upgrades for
+ASGARD can be installed. 
 
-A third tab named ``THOR and Signatures`` gives you an overview of
-the used scanner and signature versions on all connected ASGARDs. 
+The menu ``THOR and Signatures`` gives you an overview of
+the used scanner and signature versions on all connected ASGARDs.
 
-.. figure:: ../images/master-asgard-scanner-updates.png
-   :alt: Master ASGARD Scanner Updates
+This view is identical to a standalone ASGARD Management Center
+installation (see :ref:`administration/updates:updates of thor and thor signatures`)
 
-   Master ASGARD Scanner Updates
+The view in your connected ASGARD Management Centers however
+will be different:
+
+.. figure:: ../images/mc_master-mc-thor-sig.png
+   :alt: ASGARD THOR and Signatures Update view when connected to a Master ASGARD
+
+   ASGARD THOR and Signatures Update view when connected to a Master ASGARD
 
 It is possible to set a certain THOR and Signatures version for each
 connected ASGARD. However, if automatic updates are configured, this

@@ -165,6 +165,22 @@ change on ASGARD's system status page. It will change from ``Not linked`` to ``O
 
    Connectivity Test
 
+Link MASTER ASGARD
+^^^^^^^^^^^^^^^^^^
+
+In order to control your ASGARD with a MASTER ASGARD,
+you must generate a One-Time Code and use it in the "Add ASGARD"
+dialogue within the MASTER ASGARD frontend. 
+
+
+.. figure:: ../images/mc_link-master.png
+   :alt: Link MASTER ASGARD
+
+   Link MASTER ASGARD
+
+Please see :ref:`masterasgard/masterasgard:link asgard systems with master asgard`
+for more information.
+
 Link MISP
 ^^^^^^^^^
 
@@ -207,16 +223,3 @@ service (Tab ``Services``) afterwards.
    changed the file before installation of your ASGARD
    services, you can safely go ahead and change your
    proxy settings.
-
-Link MASTER ASGARD
-^^^^^^^^^^^^^^^^^^
-
-In order to control your ASGARD with a MASTER ASGARD,
-you must generate a One-Time Code and use it in the "Add ASGARD"
-dialogue within the MASTER ASGARD frontend. 
-
-
-.. figure:: ../images/mc_link-master.png
-   :alt: Link MASTER ASGARD
-
-   Link MASTER ASGARD

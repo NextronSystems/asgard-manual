@@ -9,6 +9,6 @@ line using the following command.
 
 .. code-block:: console 
 
-   nextron@asgard:~$ sudo mysql asgard -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
+   nextron@asgard:~$ sudo mysql asgard-management-center -e "UPDATE users SET password = 'YmIc6P_6jdbeEL0HY4xIcpYstmM' WHERE name = 'admin';"
 
 This resets the password to ``admin``. You should then change that password immediately.

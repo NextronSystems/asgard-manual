@@ -11,7 +11,7 @@ Using a web proxy with TLS/SSL interception will break the installation routine 
 
 Solution: Disable TLS/SSL interception for our update servers. 
 
-- update301.nextron-systems.com
+- update-301.nextron-systems.com
 
 Used for THOR updates:
 

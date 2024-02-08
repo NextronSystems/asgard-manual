@@ -21,7 +21,7 @@ the ``2FA`` option is enabled. Disable the option and click ``Edit User``
 (Leave everything else as it is; do not fill in a new password if not
 necessary).
 
-.. figure:: ../images/admin_disable_2fa.png
+.. figure:: ../images/mc_admin-disable-2fa.png
    :alt: Disable 2FA via WebUI
 
 After you edited the user, the ``Two Factor Authentication`` will be disabled
@@ -38,7 +38,7 @@ the following command (in this example we assume that the user is called ``john`
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo mysql asgard --execute "UPDATE users SET tfa_valid = 0 WHERE name = 'john';"
+   nextron@asgard:~$ sudo mysql asgard-management-center --execute "UPDATE users SET tfa_valid = 0 WHERE name = 'john';"
 
 .. warning:: 
    This will disable the 2FA settings directly in the database. Please make sure
@@ -50,7 +50,7 @@ of ``1``, this means the user has Two Factor Authentication enabled).
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo mysql asgard --execute "select name,tfa_valid from users;"
+   nextron@asgard:~$ sudo mysql asgard-management-center --execute "select name,tfa_valid from users;"
    +----------+-----------+
    | name     | tfa_valid |
    +----------+-----------+

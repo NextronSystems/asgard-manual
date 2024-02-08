@@ -20,7 +20,7 @@ asset basis by running a playbook from ``Asset Management`` or create a
 You can roll-out the update in batches by providing labels for each stage
 or not select any label to perform the update on all assets.
 
-.. figure:: ../images/example-group-task-for-agent-update.png
+.. figure:: ../images/mc_agent-update-group-task.png
    :alt: Example Group Task for Agent Update
 
    Example Group Task for Agent Update
@@ -31,6 +31,8 @@ or not select any label to perform the update on all assets.
    you need to select the ``Update Agent`` module from the ``Module``
    column. You may need to select the ``Module`` column from ``Column visibility``
    first, if not shown.
+
+.. todo:: verify since it might be outdated
 
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
