@@ -144,7 +144,7 @@ You can test the response functionality by entering the command
 on the command line of an asset. As a result you should see following
 message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
 
-.. figure:: ../images/mc_aurora-example-respons.png
+.. figure:: ../images/mc_aurora-example-response.png
    :alt: Aurora Service Successfully Deployed
 
    Aurora Simulated Response Action 
