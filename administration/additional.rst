@@ -206,8 +206,6 @@ correct status, and also MISP rules to be downloaded and shown in
 Change Proxy Settings
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: verify proxy paths
-
 In this dialogue, you can add or modify ASGARDs proxy
 configuration. Please note, you need to restart the ASGARD
 service (Tab ``Services``) afterwards. 
@@ -216,10 +214,3 @@ service (Tab ``Services``) afterwards.
    :alt: Change Proxy Settings
 
    Change Proxy Settings
-
-.. warning::
-   This will also overwrite any changes made to the file
-   ``/etc/apt/apt.conf.d/proxy`` on your system. If you
-   changed the file before installation of your ASGARD
-   services, you can safely go ahead and change your
-   proxy settings.
