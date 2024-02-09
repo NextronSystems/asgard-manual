@@ -1,7 +1,5 @@
 .. index:: Backup and Restore
 
-.. todo:: verify paths and binaries
-
 Backup and Restore
 ==================
 
@@ -22,7 +20,7 @@ You can use them to keep a backup available in case something stops working.
 Backup
 ^^^^^^
 
-The command ``asgard2-backup`` can be used to generate a backup of
+We create a script which can be used to generate a backup of
 all configurations, assets, tags, user accounts, tasks etc., except:
 
 * Log files (ASGARD, THOR)
@@ -31,11 +29,11 @@ all configurations, assets, tags, user accounts, tasks etc., except:
 
 .. code-block:: console 
 
-   nextron@asgard:~$ sudo asgard2-backup
-   Writing backup to '/var/lib/nextron/asgard2/backups/20200427-1553.tar'
-   tar: Removing leading '/' from member names
-   tar: Removing leading '/' from hard link targets
-   Removing old backups (keeping the 5 most recent files)...
+   nextron@asgard:~$ sudo /usr/share/asgard-management-center/scripts/backup.sh 
+   Writing backup to '/var/lib/asgard-management-center/backups/20240209-1110.tar'
+   tar: Removing leading `/' from member names
+   tar: Removing leading `/' from hard link targets
+   Removing old backups (keeping the 5 most recent files)... 
    done.
 
 If you want to transfer the backup to a different system, make sure to copy the
@@ -43,11 +41,11 @@ If you want to transfer the backup to a different system, make sure to copy the
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo cp /var/lib/nextron/asgard2/backups/20200427-1553.tar /home/nextron
-   nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/20200427-1553.tar
+   nextron@asgard:~$ sudo cp /var/lib/asgard-management-center/backups/20240209-1110.tar /home/nextron
+   nextron@asgard:~$ sudo chown nextron:nextron /home/nextron/20240209-1110.tar
    nextron@asgard:~$ ls -l
-   total 596496
-   -rw-r--r-- 1 nextron nextron 309217280 Nov  1 12:01 20200427-1553.tar
+   total 205560
+   -rw-r--r-- 1 nextron nextron 210493440 Feb  9 11:17 20240209-1110.tar
 
 After this is done, you can use ``scp`` or any other available tool to
 transfer the backup file to a different system.
@@ -79,35 +77,33 @@ You can edit the crontab of the root user with the following commands:
    0 2 * * * /bin/bash /root/backup.sh >> /root/backup.log
 
 .. warning::
-   Please keep in mind that the ``asgard2-backup`` script is only keeping **5**
+   Please keep in mind that the ``backup.sh`` script is only keeping **5**
    backups in place. If you want to change this, you have to change the value
-   ``GENERATIONS`` in the file ``/usr/sbin/asgard2-backup`` to a different value.
+   ``GENERATIONS`` in the file ``/usr/share/asgard-management-center/scripts/backup.sh``
+   to a different value.
 
 Restore
 ^^^^^^^
 
-You can use the ``asgard2-restore`` command to restore a backup.
+You can use the ``restore.sh`` script to restore a backup.
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo asgard2-restore
-   Usage: /usr/sbin/asgard2-restore <BACKUP FILE>
-   nextron@asgard:~$ sudo asgard2-restore /var/lib/nextron/asgard2/backups/20200427-1553.tar
-   Stopping services... Removed /etc/systemd/system/multi-user.target.wants/asgard2.service.
-   done.
-   etc/nextron/asgard2/
-   etc/nextron/asgard2/upgrade2.sh
-   etc/nextron/asgard2/run_asgard2.sh
-   etc/nextron/asgard2/server.pem
-   etc/nextron/asgard2/ca2.key
-   etc/nextron/asgard2/pre_asgard2.sh
-   etc/nextron/asgard2/rsyslog-asgard-audit.conf
-   etc/nextron/asgard2/client.yaml
+   nextron@asgard:~$ sudo /usr/share/asgard-management-center/scripts/restore.sh
+   Usage: /usr/share/asgard-management-center/scripts/restore.sh <BACKUPFILE>
+   nextron@asgard:~$ sudo /usr/share/asgard-management-center/scripts/restore.sh /var/lib/asgard-management-center/backups/20240209-1110.tar
+   Stopping services... Removed "/etc/systemd/system/multi-user.target.wants/asgard-management-center.service".                                                                                                      
+   done.                                                                                                                                                                                                             
+   etc/asgard-management-center/                                                                                                                                                                                     
+   etc/asgard-management-center/broker.conf                                                                                                                                                                          
+   etc/asgard-management-center/server_cert_ext.cnf.in                                                                                                                                                               
+   etc/asgard-management-center/rsyslog-thor.conf.20240208142245.bak
    ...
    1+0 records in
    1+0 records out
-   24 bytes copied, 3.2337e-05 s, 742 kB/s
-   Starting services... Created symlink /etc/systemd/system/multi-user.target.wants/asgard2.service → lib/systemd/system/asgard2.service. done.
+   24 bytes copied, 0.000126177 s, 190 kB/s
+   Starting services... Created symlink /etc/systemd/system/multi-user.target.wants/asgard-management-center.service → /lib/systemd/system/asgard-management-center.service.
+   done.
 
 .. note::
    The version of the ASGARD were the backup will be restored should
