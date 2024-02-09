@@ -32,28 +32,17 @@ or not select any label to perform the update on all assets.
    column. You may need to select the ``Module`` column from ``Column visibility``
    first, if not shown.
 
-.. todo:: verify since it might be outdated
-
 Agent Installer Update
 ^^^^^^^^^^^^^^^^^^^^^^
 
 You need to update the agent installer as well, so that newly added
 assets will directly use the current agent version. This is a manual
-task as you might have customized your installers. If this is the case
-you have to repack the agent installers as explained
-in :ref:`advanced/custom-agent:creating custom agent installer`.
+task you have to perform once a new version is available. Navigate
+to ``Downloads`` > ``Agent Installers`` and click ``Repack Outdated
+Agent Installers``. Please note that this process might take a while
+to finish.
 
-If you use the default installer without any modifications you can run
-the following command to update the agent installers:
+.. figure:: ../images/mc_repack-modal.png
+   :alt: Repack Agent Installers
 
-.. code-block:: console
-
-   nextron@asgard:~$ sudo asgard2-repacker
-
-Or you can execute the agent installer update from within the WebUI at
-``Updates`` > ``Agents`` > ``Repack Agent Installers`` at the bottom.
-
-.. figure:: ../images/asgard2-repacker.png
-   :alt: GUI Execute asgard2-repacker
-
-   Execute asgard2-repacker from the WebUI
+   Repack Agent Installers
