@@ -59,7 +59,7 @@ Rights
    * - Response Control
      - Run playbooks, including playbooks for evidence collection, to kill processes or isolate an endpoint
    * - Service Control
-     - User can manage services on endpoint, e.g. Aurora or LogWatcher
+     - User can manage services on endpoint, e.g. Aurora
 
 Restrictions 
 ^^^^^^^^^^^^

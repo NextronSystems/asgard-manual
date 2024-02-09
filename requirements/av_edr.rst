@@ -68,8 +68,6 @@ the choice, the broader approach above should be preferred.
   * - 
     - %SYSTEMROOT%\\System32\\asgard2-agent\\asgard2-agent_sc-service.exe
   * - 
-    - %SYSTEMROOT%\\System32\\asgard2-agent\\services\\bin\\logwatcher.exe
-  * - 
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\ (and all sub folders)
   * - **Especially**
     - %SYSTEMROOT%\\Temp\\asgard2-agent\\[random]\\thor\\thor.exe

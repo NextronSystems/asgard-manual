@@ -6,7 +6,7 @@ Licensing
 ASGARD requires an Issuer-License in order to scan systems.
 The Issuer-License contains the number of asset-, server- and
 workstation systems that can be scanned with ASGARD Management
-Center as well as the Aurora or LogWatcher service licenses.
+Center as well as the Aurora service licenses.
 
 ASGARD will automatically issue a valid single-license for a
 particular system during its initial THOR scan. 
