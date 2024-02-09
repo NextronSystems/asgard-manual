@@ -19,12 +19,14 @@ From ASGARD Agent to ASGARD Server
    * - Agent / Server communication
      - 443/tcp
    * - Syslog Forwarder (optional)
-     - 514/tcp, 514/udp
+     - 514/udp [1]_
    * - ASGARD online check (optional)
      - ICMP
 
 The syslog port is optional, since your agents will work fine without it.
 Please see :ref:`administration/syslog:syslog forwarding` for more information.
+
+.. [1] You can configure any port and protocol combination for this.
 
 .. hint:: 
   Your ASGARD Agents will check if they can reach your ASGARD
@@ -54,7 +56,9 @@ From ASGARD to SIEM
    * - Description
      - Ports
    * - Syslog forwarder
-     - 514/tcp, 514/udp
+     - 514/udp [2]_
+
+.. [2] You can configure any port and protocol combination for this.
 
 From ASGARD to Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,14 +108,12 @@ From Master ASGARD to ASGARD
 
    * - Direction
      - Port
-   * - From MASTER ASGARD v3 to ASGARD v3
-     - 5443/tcp
-   * - From MASTER ASGARD v3 to ASGARD v2
+   * - From Master ASGARD to ASGARD Management Center
      - 5443/tcp
 
 You cannot manage ASGARD v3 systems from a MASTER ASGARD v2.
 
-From Management Workstation to MASTER ASGARD
+From Management Workstation to Master ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. list-table:: 
@@ -165,7 +167,7 @@ Internet Access during Installation
 
 The Management Center installer requires Internet access during the
 setup. The installation process will fail if required packages cannot be
-loaded from https://update-301.nextron-systems.com
+loaded from https://update3.nextron-systems.com
 
 SSL/TLS Interception
 ~~~~~~~~~~~~~~~~~~~~
