@@ -6,10 +6,13 @@ ASGARD Agent Deployment
 In order to register a new endpoint to the ASGARD Management Center,
 download and install the ASGARD Agent on the system you want to register. 
 
-The ASGARD Agent can be directly downloaded from the ASGARD login
-screen through the button ``Download Agent Installers``. A list
+The ASGARD Agent can be directly downloaded from the Management Center
+login screen through the button ``Download Agent Installers``. A list
 of available agents for various operating systems appears. 
 
+.. hint::
+   You can disable the downloading of agents on the login screen. Please
+   see :ref:`administration/advanced:advanced settings`.
 
 .. figure:: ../images/mc_login-screen.png
    :alt: Download Agent Installers from Login Screen
@@ -31,16 +34,16 @@ your endpoints can resolve and reach the Management Center via FQDN.
    Full administrative privileges are required for the ASGARD agent
    and THOR to operate properly.
 
-In the requests tab, select the agents you want ASGARD to manage and
-click ``Accept Asset Requests``. After that, the endpoint shows up
-in the assets overview and is now ready to be managed and scanned.
+In the requests tab, select the agents you want to allow on your Management
+Center to manage and click ``Accept Asset Requests``. After that, the
+endpoint shows up in the assets overview and is now ready to be managed and scanned.
 
 .. figure:: ../images/mc_accept-asset-request.png
    :alt: Accepting ASGARD Agent Requests
 
    Accepting ASGARD Agent Requests
 
-A registered agent will poll to the Management Center at a given
+A registered agent will poll the Management Center at a given
 interval between 10 seconds and 10 Minutes – depending on the number of
 connected endpoints (see :ref:`advanced/performance:performance tuning` for
 details). If your Management Center has scheduled a task for the endpoint (for example:

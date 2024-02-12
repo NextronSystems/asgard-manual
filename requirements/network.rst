@@ -26,8 +26,6 @@ From ASGARD Agent to ASGARD Server
 The syslog port is optional, since your agents will work fine without it.
 Please see :ref:`administration/syslog:syslog forwarding` for more information.
 
-.. [1] You can configure any port and protocol combination for this.
-
 .. hint:: 
   Your ASGARD Agents will check if they can reach your ASGARD
   via HTTPs. ICMP is not necessary, but helps during troubleshooting.
@@ -56,9 +54,7 @@ From ASGARD to SIEM
    * - Description
      - Ports
    * - Syslog forwarder
-     - 514/udp [2]_
-
-.. [2] You can configure any port and protocol combination for this.
+     - 514/udp [1]_
 
 From ASGARD to Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,7 +68,7 @@ From ASGARD to Analysis Cockpit
    * - Asset Synchronization, Log- and Sample forwarding
      - 7443/tcp
    * - Syslog forwarder (optional)
-     - 514/tcp, 514/udp
+     - 514/udp [1]_
 
 From ASGARD and Master ASGARD to the Internet
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,7 +83,9 @@ following remote systems via HTTPS on port 443/tcp:
    * - Product
      - Remote Systems
    * - ASGARD packages
-     - update-301.nextron-systems.com
+     - update-301.nextron-systems.com [2]_
+   * - ASGARD packages
+     - update3.nextron-systems.com [2]_
    * - THOR updates
      - update1.nextron-systems.com
    * - THOR updates
@@ -111,7 +109,7 @@ From Master ASGARD to ASGARD
    * - From Master ASGARD to ASGARD Management Center
      - 5443/tcp
 
-You cannot manage ASGARD v3 systems from a MASTER ASGARD v2.
+You cannot manage ASGARD v3 systems from a Master ASGARD v2.
 
 From Management Workstation to Master ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -167,7 +165,7 @@ Internet Access during Installation
 
 The Management Center installer requires Internet access during the
 setup. The installation process will fail if required packages cannot be
-loaded from https://update3.nextron-systems.com
+loaded from https://update3.nextron-systems.com [2]_
 
 SSL/TLS Interception
 ~~~~~~~~~~~~~~~~~~~~
@@ -190,3 +188,11 @@ their communication relationships.
    :alt: Full Architecture
 
    Full Architecture
+
+.. rubric:: Footnotes
+
+.. [1] You can configure any port and protocol combination for this,
+   e.g. 6514/tcp
+.. [2] If you are upgrading from Management Center version 2 to version 3,
+   you need both update servers reachable from your Management Center. If
+   you installed version 3 directly, you only need https://update-301.nextron-systems.com

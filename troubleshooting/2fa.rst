@@ -31,7 +31,7 @@ Using the Command Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-   This method needs SSH access to ASGARD.
+   This method needs SSH access to the Management Center.
 
 Log into your ASGARD via SSH. You can reset the users MFA Settings with
 the following command (in this example we assume that the user is called ``john``):

@@ -10,17 +10,17 @@ The initial system status page provides a summary of the
 most important system components. 
 
 It also includes the current resource consumption (disk,
-CPU and memory) and lists the currently installed ASGARD
-software version along with available versions of THOR.
-Additionally, the connection status to the update servers,
-Master ASGARD and Cockpit are shown with a graph that shows
-asset connections and asset streams.
+CPU and memory) and lists the currently installed Management
+Center software version, along with available versions of THOR.
+The connection status to the update servers, Master ASGARD
+and Cockpit are shown as well as multiple graphs which show asset
+connections and asset streams.
 
 .. note::
    The THOR version numbers may be missing in a new installation.
-   THOR is not included in the installed packages. THOR is downloaded
-   automatically after the installation and should show up not
-   later than one hour after installation.
+   THOR is **not** included in the installed packages and has to be
+   downloaded first. The download is starting automatically after
+   the installation, not later than one hour after installation.
 
 .. figure:: ../images/mc_overview-1.png
    :alt: Overview Top Half
@@ -46,14 +46,14 @@ message and hints on which steps typically help in resolving the issue.
    Overview Over Periodic Diagnostic Checks
 
 The indicator on the top right always shows if any of those checks
-failed by showing a warning or error (i.e. yellow or red light). You
+failed by showing a warning or error (i.e. yellow or red icon). You
 can click the icon to view the diagnostics page as a pop-up.
 
 Logs
 ^^^^
 
 The logs section shows the latest and most relevant logs.
-Complete logs can be found at ``/var/lib/nextron/asgard2/log``.
+Complete logs can be found at ``/var/lib/asgard-management-center/log``.
 You can also download the selected log type directly.
 
 .. figure:: ../images/mc_logs-section.png

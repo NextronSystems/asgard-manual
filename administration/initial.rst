@@ -9,16 +9,16 @@ is functional and ready to deploy THOR scans on your agents.
 Change the Admin Password
 -------------------------
 
-Login to the ASGARD Web interface with the user ``admin`` and password ``admin``.
-
-The admin user has limited/restricted access to some sections to ensure the correct
-audit of certain actions. In order to access restricted functions which require an
-audit please create an user with the corresponding rights under ``Settings`` > ``Users``.
+Log into the Management Center web interface with the user
+``admin`` and password ``admin``.
 
 .. figure:: ../images/mc_login-screen.png
    :alt: Login Screen
 
    Login Screen
+
+After logging in to the Management Center for the first time,
+you will have to change the default password.
 
 Click the username ``admin`` in the top right corner. This will open
 a dropdown menu. Click ``User Settings`` to see user specific settings.
