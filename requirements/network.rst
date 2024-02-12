@@ -62,9 +62,9 @@ From ASGARD to Analysis Cockpit
 .. list-table:: 
    :header-rows: 1
    :widths: 70, 30
+     - Ports
 
    * - Description
-     - Ports
    * - Asset Synchronization, Log- and Sample forwarding
      - 7443/tcp
    * - Syslog forwarder (optional)
@@ -184,7 +184,7 @@ Architecture Overview
 The following image shows an architecture overview with all products and
 their communication relationships.
 
-.. figure:: ../images/asgard_architecture.png
+.. figure:: ../images/mc_architecture.png
    :alt: Full Architecture
 
    Full Architecture
