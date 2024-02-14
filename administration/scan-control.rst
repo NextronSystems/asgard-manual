@@ -14,16 +14,30 @@ Your Management Center will also take care of THOR scans which stopped (e.g.
 the asset rebooted or lost connection to your Management Center during a scan), so that
 a scan will not fail if the asset is temporarily offline.
 
+.. warning::
+   When creating a scan job, the Management Center offers almost all possible scan
+   options that can be used with THOR. Please consider their use with care as there
+   are options that may lead to incompatibilities, failing scans, or errors.
+ 
+- Example 1: A combination of ``--truncate 0`` and ``--allreasons`` may lead to
+  very long THOR event log lines (> 64 KB), which `cannot be processed by the Analysis
+  Cockpit properly <https://analysis-cockpit-manual.nextron-systems.com/en/latest/issues/issues.html#aac-002-scan-stuck-at-status-unknown>`_.
+ 
+- Example 2: The use of the ``--processdump`` flag will create files on endpoints
+  that are **not** automatically cleaned up.
+ 
+All options can be used in certain scenarios, but they have to be chosen with care.
+
 Managing Scan Templates
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Scan templates are the most convenient way to make use of THOR's rich set of
-scan options. Starting with ``ASGARD 1.10``, it is possible to define scan parameters
-for THOR 10 and store them in different templates for later use in single scans
-and grouped scans. The scan templates are also very helpful if you want to
-automate scanning via the API, as you don't have to specify all the options,
-but rather only the template. This also means you don't have to change your API
-request, but only the template.
+scan options. It is possible to define scan parameters for THOR 10 and store
+them in different templates for later use in single scans and grouped scans.
+The scan templates are also very helpful if you want to automate scanning via
+the API, as you don't have to specify all the options, but rather only the
+template. This also means you don't have to change your API request, but only
+the template.
 
 Imagine you want to use dedicated scan options for different system groups (e.g.
 Linux Servers, Domain Controllers, Workstations, etc.) and make sure to use exactly
