@@ -144,10 +144,11 @@ by the connected ASGARD (and vice versa). If Master ASGARD or ASGARD
 edits a configuration of an asset it will take over the "leadership"
 over this asset, no matter by which it was managed beforehand.
 
-.. figure:: ../images/mc_master-service-controller.png
-   :alt: Example: Service Controller listed in ASGARD but managed by Master ASGARD
+.. screenshot needed after fix
+   .. figure:: ../images/mc_master-service-controller.png
+      :alt: Example: Service Controller listed in ASGARD but managed by Master ASGARD
 
-   Example: Service Controller listed in ASGARD but managed by Master ASGARD
+      Example: Service Controller listed in ASGARD but managed by Master ASGARD
 
 Evidence Collection 
 -------------------

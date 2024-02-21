@@ -15,8 +15,8 @@ Using the Web UI
 
 Log into ASGARDs Web UI as a user with administrative privileges.
 
-Navigate to ``Settings`` > ``Authentication > Users`` and edit the user
-you want to reset 2FA for. On the bottom of the popup you will see that
+Navigate to ``Settings`` > ``Authentication`` > ``Users`` and edit the user
+you want to reset 2FA for. On the bottom of the modal you will see that
 the ``2FA`` option is enabled. Disable the option and click ``Edit User``
 (Leave everything else as it is; do not fill in a new password if not
 necessary).
