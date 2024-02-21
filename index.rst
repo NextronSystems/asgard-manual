@@ -1,27 +1,42 @@
-.. ASGARD Manual documentation master file, created by
-   sphinx-quickstart on Mon Jul  6 15:04:24 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. index:: Home
 
-Welcome to ASGARD's documentation!
-==================================
+Nextron Systems - Management Center v3
+======================================
+
+Welcome to Nextron System's Manual for the ASGARD Management
+Center v3.
+
+.. note::
+   If you are still using an older version of the Management Center,
+   please click `here <https://asgard-manual.nextron-systems.com/en/v2/>`__ 
+   to see the older version of the documentation.
+
+ASGARD Management Center is the central management platform for THOR
+scans. It manages distributed THOR scans on thousands of systems,
+collects and forwards scan results.
+
+Furthermore, ASGARD can control and execute complex response tasks,
+if needed. It features built-in response playbooks for quarantining
+endpoints, creating and collecting triage packs, opening a remote
+command line and other actions incident response specialists will
+find useful.
 
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: Contents:
+   :caption: Contents
 
-   usage/introduction
-   usage/requirements
-   usage/setup
-   usage/administration
-   usage/masterasgard
-   usage/maintenance
-   usage/commandline
-   usage/troubleshooting
-   usage/known-issues
-   usage/appendix
-   usage/changelog
+   requirements/index
+   setup/index
+   administration/index
+   masterasgard/index
+   maintenance/index
+   advanced/index
+   troubleshooting/index
+   issues/index
+   appendix/index
+   upgrade/index
+   changelog/index
 
 
 Indices and tables

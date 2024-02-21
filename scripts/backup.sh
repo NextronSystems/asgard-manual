@@ -1,5 +1,5 @@
 #!/bin/bash
-BACKUPDIR="/var/lib/nextron/asgard2/backups"
+BACKUPDIR="/var/lib/asgard-management-center/backups"
 NEWDIR="/home/nextron/backups"
 date
 
@@ -9,20 +9,20 @@ if ! [ -d "$NEWDIR" ]; then
    chown -R nextron: $NEWDIR
 fi
 
-echo "stopping asgard2.service"
-if ! systemctl stop asgard2.service; then
-   echo "could not stop asgard2.service, exiting script"
+echo "stopping asgard-management-center.service"
+if ! systemctl stop asgard-management-center.service; then
+   echo "could not stop asgard-management-center.service, exiting script"
    exit 1
 fi
 
 sleep 3
 echo "running backup script"
-/usr/sbin/asgard2-backup
+/usr/share/asgard-management-center/scripts/backup.sh
 
 sleep 3
-echo "starting asgard2.service"
-if ! systemctl start asgard2.service; then
-   echo "could not start asgard2.service, needs manual debugging"
+echo "starting asgard-management-center.service"
+if ! systemctl start asgard-management-center.service; then
+   echo "could not start asgard-management-center.service, needs manual debugging"
    exit 1
 fi
 
