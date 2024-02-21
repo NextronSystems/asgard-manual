@@ -4,7 +4,7 @@ Upgrade
 =======
 
 This chapter guides you through the upgrade process of
-your Management Center version 2.17.1 to version 3.x.
+your Management Center version 2.17.2 to version 3.x.
 
 It is important to follow the steps carefully. We advise you
 to create a snapshot of the Management Center itself before
@@ -26,7 +26,7 @@ should follow:
       - Description
     * - Snapshot of your Management Center
       - For disaster recovery
-    * - Management Center running version 2.17.1
+    * - Management Center running version 2.17.2
       - Prerequisite for the Major Upgrade
     * - Connection to our new update servers
       - New update server infrastructure
@@ -38,7 +38,7 @@ With the new version of your Management Center, we also
 made changes to our update servers. Please make sure
 that all your components can reach the following servers:
 
-.. list-table:: 
+.. list-table::
     :header-rows: 1
 
     * - Server
@@ -59,7 +59,7 @@ which are needed for your Management Center v3.
 You can find the corresponding IP-Addresses to the above
 FQDNs here: https://www.nextron-systems.com/hosts/.
 
-Management Center running version 2.17.1
+Management Center running version 2.17.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To check if your Management Center is running on the correct version
