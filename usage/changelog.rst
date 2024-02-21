@@ -9,6 +9,86 @@ ASGARD Management Center
 
 Changelog of ASGARD Management Center releases since version 2.0.0
 
+ASGARD 2.17
+###########
+
+ASGARD 2.17.2
+~~~~~~~~~~~~~
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Thu,  1 Feb 2024 15:55:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Major
+      - Prepare for Debian 12 Upgrade (but still allow minor updates)
+    * - Bugfix
+      - Fixed loading of sigma response rules, when corresponding sigma rules are missing
+
+ASGARD 2.16
+###########
+
+ASGARD 2.16.3
+~~~~~~~~~~~~~
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Mon,  8 Oct 2023 13:12:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed wording in MacOS binary signatures
+
+ASGARD 2.16.2
+~~~~~~~~~~~~~
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Fri,  1 Sep 2023 15:49:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Added uuids to tables like THOR scans, Aurora services, group tasks and many more
+    * - Change
+      - Improved license generation for assets, THOR and Aurora. Licenses will no longer be max. valid for 90 days. Instead, they are valid as long as the ASGARD license. We also added a small tolerance that allows you to slightly exceed the license limit.
+    * - Security
+      - OS Security Fix
+    * - Bugfix
+      - Fixed issues with regenerating IOC rulesets for scheduled group scans (Master ASGARD only)
+    * - Bugfix
+      - Fixed an ASGARD license issue in combination with Master ASGARD and Broker Network
+    * - Bugfix
+      - Fixed an MacOS signing issue
+    * - Bugfix
+      - Fixed small bug in agent installer for MacOS
+    * - Bugfix
+      - Fixed freezing Broker Network configuration page (Master ASGARD only)
+    * - Bugfix
+      - Fixed issues with delayed Full Disk Access on MacOS
+    * - Bugfix
+      - Fixed inaccurate RAM usage measurement on MacOS and AIX in THOR launcher and Playbook launcher
+
 ASGARD 2.15
 ###########
 
