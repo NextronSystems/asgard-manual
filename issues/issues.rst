@@ -1,6 +1,56 @@
 Known Issues
 ============
 
+AMC#007: curl: (58) could not load PEM client certificate
+---------------------------------------------------------
+
+This bug only affects the ``asgard-updater`` helper tool,
+which is used to update your ASGARD Management Center
+from version 2.x to 3.x
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - <= 1.0.20
+      - 1.0.21
+
+There is a bug in older versions of the ``asgard-updater``
+tool which is used to update your ASGARD Management Center
+from version 2.x to 3.x. When using ``start-asgard-update``,
+you might encounter the below error in rare cases.
+
+.. code-block:: none
+
+  curl: (58) could not load PEM client certificate, OpenSSL error error:0909006C:PEM routines:get_name:no start line, (no key found, wrong pass phrase, or wrong file format?)
+
+This error will appear if the following conditions are met:
+
+- the directory ``/etc/nextron/asgard2`` contains multiple licenses files (``.lic``)
+- one of the licenses is older than April 2023
+- one of the old licenses is the last in an alphabetical order (based on the MD5 Hash)
+
+AMC#007: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+There are two workarounds, with the first being the easier
+one:
+
+1. Install the newest version of the ``asgard-updater``
+
+   .. code-block:: console
+
+      nextron@asgard:~$ sudo apt update
+      nextron@asgard:~$ sudo apt install asgard-updater
+
+2. Remove the old license files (you might need to change
+   to default license view to "All Licenses" in your Management
+   Center). You can compare the ``MD5`` value of the license
+   with the filename of all licenses in the ``/etc/nextron/asgard2``
+   directory and delete expired or old licenses.
+
 AMC#006: THOR License not valid yet (timezone difference)
 ---------------------------------------------------------
 
