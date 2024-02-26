@@ -15,6 +15,16 @@ by automating the process as much as possible.
     instructions in the ``Broker Network Manual`` in the section
     `Major Updates <https://broker-network-manual.nextron-systems.com/en/latest/update/major.html>`_.
 
+.. warning::
+    Due to a bug in our updater tool, a small chance exists that
+    the upgrade will encounter an error. Make sure you have the
+    latest version of the updater tool installed. For more information,
+    please perform the steps in :ref:`upgrade/upgrade:management center upgrade`
+    carefully to install the latest version of the updater.
+
+    For information regarding the issue, please see the KB entry
+    :ref:`issues/issues:amc#007: curl: (58) could not load pem client certificate`.
+
 .. toctree:: 
     :caption: Contents
 
