@@ -1,6 +1,46 @@
 Known Issues
 ============
 
+AMC#008: could not generate csr
+-------------------------------
+
+This bug will prevent you from generating a new CSR in the TLS
+Section of the Settings. The error message will look like this:
+
+.. code-block:: none
+
+  Error - could not generate csr
+  Could not read private key
+
+.. list-table::
+    :header-rows: 1
+    :widths: 50, 50
+
+    * - Introduced Version
+      - Fixed Version
+    * - <= 3.0.11
+      - 3.0.12
+
+This bug will only occur if you upgraded your ASGARD Management
+Center from version 2.x to 3.x. The issue is caused by the
+``controller.key`` file not being present in the ``/etc/asgard-management-center``
+directory. If you installed a fresh ASGARD Management Center 3.x,
+with the new web based installer, this issue will not occur.
+
+AMC#008: Workaround
+~~~~~~~~~~~~~~~~~~~
+
+To work around this issue, you can run the following command:
+
+.. code-block:: console
+
+  nextron@asgard:~$ sudo -u asgard-management-center ln -s /etc/asgard-management-center/server.key /etc/asgard-management-center/controller.key
+  [sudo] password for nextron:
+
+This will create a symbolic link from the ``server.key`` to the
+``controller.key`` file. After that, you should be able to
+generate a new CSR in the TLS Section of the Settings.
+
 AMC#007: curl: (58) could not load PEM client certificate
 ---------------------------------------------------------
 
