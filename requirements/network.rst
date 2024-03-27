@@ -161,7 +161,7 @@ ASGARD needs to be able to resolve internal and external IP addresses.
 Internet Access during Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Management Center installer requires Internet access during the
+The Nextron Universal Installer requires Internet access during the
 setup. The installation process will fail if required packages cannot be
 loaded from https://update-301.nextron-systems.com
 
