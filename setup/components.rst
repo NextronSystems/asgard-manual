@@ -122,6 +122,11 @@ button in the left menu of the Nextron Universal Installer.
 .. figure:: ../images/setup_nextronInstaller-settings.png
    :alt: Settings of the Universal Installer
 
+If you configured a proxy during the ISO installation, those
+settings will be carried over into the Universal Installer.
+The settings will also be carried over into your ASGARD
+Management Center. The same goes for NTP.
+
 Diagnostic Pack
 ~~~~~~~~~~~~~~~
 
