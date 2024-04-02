@@ -3,15 +3,62 @@
 Install the ASGARD Management Center Service
 --------------------------------------------
 
+The Nextron Universal Installer is a web based installer
+which will guide you through the installation of our
+ASGARD products. The Nextron Universal Installer will install
+**one** of the following products on your server (this manual
+focuses on the ``ASGARD Management Center``):
+
+- ASGARD Management Center; alternatively if your license permits:
+  
+  * ASGARD Broker
+  * ASGARD Gatekeeper
+  * ASGARD Lobby
+
+- ASGARD Analysis Cockpit; alternatively:
+  
+  * Elasticsearch Cluster Node for ASGARD Analysis Cockpit
+
+- ASGARD Security Center, in the following variants:
+
+  * ASGARD Security Center (Backend Only)
+  * ASGARD Security Center (Frontend Only)
+  * ASGARD Security Center (All-in-one, unrecommended)
+
+.. note::
+   You can only install one product on one server, since the
+   products are not designed to coexist on the same server.
+   The exception being the ASGARD Security Center (All-in-one).
+
+The installation takes roughly between 5-15 minutes, depending
+on your internet connection and the server you are installing
+the product on.
+
+If you encounter problems during your installation, please see
+:ref:`setup/components:diagnostic pack` for further instructions.
+
+Requirements
+~~~~~~~~~~~~
+
+The installation of the ASGARD Management Center requires
+the following:
+
+- A valid license file for the ASGARD Management Center
+- A configured FQDN (with some exceptions, see :ref:`setup/components:valid fqdn`)
+- Internet access during installation (see :ref:`setup/components:connectivity check`)
+
+Installation
+~~~~~~~~~~~~
+
 After the ISO installer is finished with the setup,
-you will be greeted at the login prompt with the following
-message:
+you will be greeted at the console login prompt with
+the following message:
 
 .. figure:: ../images/setup_nextronInstaller.png
    :alt: Login prompt ASGARD Server
 
 Follow the instructions and navigate to the webpage
-displayed on your terminal. You will most likely get
+displayed on your console. You will most likely get
 a browser warning when you connect the first time to
 the page. This is due to the page using a self signed
 certificate, since it will only be used to install the
@@ -27,33 +74,32 @@ page of the Nextron Universal Installer.
    :alt: landing page of the Universal Installer
 
 Enter the Installation Code from the terminal and click
-``Next``. The Installer will now prompt you to upload your
-license for the product you intend to install.
+``Next``. The Installer will now guide you through the
+installation.
 
-.. figure:: ../images/setup_nextronInstaller-license.png
-   :alt: License Prompt of the Universal Installer
+Connectivity Check
+~~~~~~~~~~~~~~~~~~
 
-After you have uploaded your license, the Installer will
-display informations about the license you uploaded. Verify
-the information and click ``Next`` to proceed.
+The Nextron Universal Installer will try to connect to our
+update server in order to download all the necessary packages
+once the installation starts. Make sure you can reach the
+update servers (see :ref:`requirements/network:internet access during installation`).
 
-.. figure:: ../images/setup_nextronInstaller-license-review.png
-   :alt: License Review of the Universal Installer
+Please configure your proxy settings if you are behind a
+proxy (see :ref:`setup/components:proxy and ntp settings`).
 
-The next step is a connectiviy check. The Installer will
-try to connect to our update server in order to download all
-the necessary packages once the installation starts. Make sure
-you can reach the update servers (see :ref:`requirements/network:internet access during installation`).
+Valid FQDN
+~~~~~~~~~~
 
-Click ``Next`` to proceed.
-
-.. figure:: ../images/setup_nextronInstaller-connectivity.png
-   :alt: Connectivity Check of the Universal Installer
-
-After the connectivity check is completed, the Installer
-will prompt you to verify the FQDN which you configured during
-the installation of the base system. If the FQDN shown is correct,
-type it into the text field for verification and click ``Next``.
+The Nextron Universal Installer will prompt you to verify the
+FQDN which you configured during the installation of the base
+system (see :ref:`setup/network:network configuration`). This
+is needed in order for your ASGARD Agents to communicate via
+a HTTPs connection with the ASGARD Management Center. The Agents
+will use the FQDN to connect to the ASGARD Management Center and
+also verify the Common Name of the certificate to verify its
+authenticity. If there is a mismatch the Agents will not be able
+to connect to the ASGARD Management Center.
 
 If the displayed FQDN is not correct, you can change it by
 clicking on the ``View FQDN Change Instructions`` button.
@@ -64,53 +110,11 @@ you can continue with the installation.
 .. figure:: ../images/setup_nextronInstaller-fqdn.png
    :alt: FQDN Verification of the Universal Installer
 
-.. danger:: 
-   The FQDN verification is a crucial step in the installation
-   process. If the FQDN is not correct, you might encounter issues
-   when using our product. Make sure to verify the FQDN before
-   proceeding.
-
-After the FQDN verification is completed, the Installer will
-show you the available products you can install with the
-license you uploaded. Select the product you want to install
-and click ``Next``.
-
-.. figure:: ../images/setup_nextronInstaller-product.png
-   :alt: Product Selection of the Universal Installer
-
-.. note::
-   There might be different services you can choose for
-   installation, depending on the license you uploaded.
-
-You will now be prompted to configure a password for the
-admin user of the ASGARD Management Center. Enter a password
-and click ``Submit Configuration``. You can now continue to the
-next step by clicking ``Next``.
-
-.. figure:: ../images/setup_nextronInstaller-password.png
-   :alt: Password Configuration of the Universal Installer
-
-You will now be prompted to start the installation by clicking
-the ``Start Installation`` button. The Installer will now
-download the necessary packages and install the ASGARD Management
-Center. This process can take a few minutes, depending on your
-internet connection.
-
-.. figure:: ../images/setup_nextronInstaller-installation.png
-   :alt: Installation of the Universal Installer
-
-After the installation started, you will see console output
-of the installation process and a progress bar below it.
-
-.. figure:: ../images/setup_nextronInstaller-progress.png
-   :alt: Installation Progress of the Universal Installer
-
-Once the installation is finished, click ``Next``. You will
-now be prompted to reboot the system. Click the ``Restart System``
-button to reboot the system.
-
-.. figure:: ../images/setup_nextronInstaller-finished.png
-   :alt: Installation Finished of the Universal Installer
+If you are in a time critical engagement and need to proceed
+with the installation, you can just confirm the displayed (and
+technically invalid) FQDN and change it later (before you deploy
+your Agents). To do this, see
+:ref:`troubleshooting/certificates:regenerate asgard server certificate agent communication`
 
 Proxy and NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~
