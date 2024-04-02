@@ -3,6 +3,30 @@ Management Center v3
 
 This chapter contains all the changes of the ASGARD Management Center.
 
+Management Center 3.0.12
+------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Release Date
+    * - Thu, 28 Mar 2024 11:46:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Improved performance of the asset table and the task statistics
+    * - Bugfix
+      - Fixed non-working API key generation for read-only users
+    * - Bugfix
+      - Fixed non-working CSR generation for HTTPS TLS certificate
+    * - Bugfix
+      - Removed some major upgrade leftovers from the diagnostics pack
+
 Management Center 3.0.11
 ------------------------
 
