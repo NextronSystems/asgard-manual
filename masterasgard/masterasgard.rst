@@ -9,20 +9,9 @@ scans on all your ASGARD systems. Master ASGARD also provides one central
 point of management for your Response Playbooks, Evidence Collection
 and IOC Management. A special license for this is needed.
 
-To install a Master ASGARD, you have to choose the command line argument
-``-masterasgard`` after the installation from our ISO. This has to be
-a new system, you cannot install a Master ASGARD on an existing ASGARD
-Management Center.
-
-.. figure:: ../images/mc_master-asgard-install.png
-   :alt: Installation of Master ASGARD
-
-   Installation of Master ASGARD
-
-After the Master ASGARD and later its license have been installed, many
-functions offer additional options. From that moment onwards, your
-Master ASGARD can use all endpoints connected to your linked ASGARD systems,
-just like a normal ASGARD.
+To install a Master ASGARD, you can use our Nextron Universal Installer.
+Please follow the instructions in the following chapter:
+:ref:`setup/components:install the asgard management center service`.
 
 Hardware Requirements for Master ASGARD
 ---------------------------------------

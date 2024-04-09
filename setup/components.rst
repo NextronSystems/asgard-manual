@@ -9,11 +9,19 @@ ASGARD products. The Nextron Universal Installer will install
 **one** of the following products on your server (this manual
 focuses on the ``ASGARD Management Center``):
 
+.. hint::
+
+   if you want to install the Master ASGARD, please use
+   the correct license and product (``Master ASGARD``)
+   in the Nextron Universal Installer.
+
 - ASGARD Management Center; alternatively if your license permits:
   
   * ASGARD Broker
   * ASGARD Gatekeeper
   * ASGARD Lobby
+
+- Master ASGARD
 
 - ASGARD Analysis Cockpit; alternatively:
   
