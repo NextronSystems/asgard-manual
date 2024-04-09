@@ -15,6 +15,8 @@ focuses on the ``ASGARD Management Center``):
   * ASGARD Gatekeeper
   * ASGARD Lobby
 
+- Master ASGARD
+
 - ASGARD Analysis Cockpit; alternatively:
   
   * Elasticsearch Cluster Node for ASGARD Analysis Cockpit
