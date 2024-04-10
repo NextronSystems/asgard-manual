@@ -9,7 +9,6 @@ installing agents and performing routine tasks in the Web UI.
 .. toctree:: 
     :caption: Contents
 
-    initial
     status
     agent
     uninstall
