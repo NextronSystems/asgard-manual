@@ -45,24 +45,8 @@ Setting up Master ASGARD
 ------------------------
 
 The setup procedure for Master ASGARD is identical to the setup procedure for
-ASGARD Management Center, see :ref:`setup/index:setup guide`.
-
-Default Credentials
-^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :widths: 25, 25, 50
-
-   * - Interface
-     - Username
-     - Password
-   * - Web UI
-     - admin
-     - admin
-   * - CLI/SSH
-     - nextron
-     - `manually set during system installation`
+ASGARD Management Center, see :ref:`setup/index:setup guide`. The only
+difference is that you need to provide a Master ASGARD license file.
 
 Link ASGARD Systems with Master ASGARD 
 --------------------------------------
