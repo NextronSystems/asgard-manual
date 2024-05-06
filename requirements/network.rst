@@ -83,9 +83,7 @@ following remote systems via HTTPS on port 443/tcp:
    * - Product
      - Remote Systems
    * - ASGARD packages
-     - update-301.nextron-systems.com [2]_
-   * - ASGARD packages
-     - update3.nextron-systems.com [2]_
+     - update-301.nextron-systems.com
    * - THOR updates
      - update1.nextron-systems.com
    * - THOR updates
@@ -163,9 +161,9 @@ ASGARD needs to be able to resolve internal and external IP addresses.
 Internet Access during Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Management Center installer requires Internet access during the
+The Nextron Universal Installer requires Internet access during the
 setup. The installation process will fail if required packages cannot be
-loaded from https://update3.nextron-systems.com [2]_
+loaded from https://update-301.nextron-systems.com
 
 SSL/TLS Interception
 ~~~~~~~~~~~~~~~~~~~~
@@ -193,6 +191,3 @@ their communication relationships.
 
 .. [1] You can configure any port and protocol combination for this,
    e.g. 6514/tcp
-.. [2] If you are upgrading from Management Center version 2 to version 3,
-   you need both update servers reachable from your Management Center. If
-   you installed version 3 directly, you only need https://update-301.nextron-systems.com
