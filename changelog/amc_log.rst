@@ -3,14 +3,26 @@ Management Center v3
 
 This chapter contains all the changes of the ASGARD Management Center.
 
+Management Center 3.0.15
+------------------------
+
+Release Date: Tue, 18 Jun 2024 16:45:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Normalized hostnames during license generation to reduce quota usage in the long term
+    * - Bugfix
+      - Fixed issues with the http proxy configuration on fresh installations
+
 Management Center 3.0.12
 ------------------------
 
-.. list-table:: 
-    :header-rows: 1
-
-    * - Release Date
-    * - Thu, 28 Mar 2024 11:46:00 +0200
+Release Date:  Thu, 28 Mar 2024 11:46:00 +0200
 
 .. list-table::
     :header-rows: 1
@@ -30,11 +42,7 @@ Management Center 3.0.12
 Management Center 3.0.11
 ------------------------
 
-.. list-table:: 
-    :header-rows: 1
-
-    * - Release Date
-    * - Wed, 28 Feb 2024 09:19:00 +0200
+Release Date:  Wed, 28 Feb 2024 09:19:00 +0200
 
 .. list-table::
     :header-rows: 1
@@ -48,11 +56,7 @@ Management Center 3.0.11
 Management Center 3.0.10
 ------------------------
 
-.. list-table:: 
-    :header-rows: 1
-
-    * - Release Date
-    * - Tue, 20 Feb 2024 13:01:00 +0200
+Release Date:  Tue, 20 Feb 2024 13:01:00 +0200
 
 .. list-table::
     :header-rows: 1
