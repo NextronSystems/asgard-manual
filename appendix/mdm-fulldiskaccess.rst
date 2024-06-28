@@ -18,12 +18,10 @@ You have to copy the output, starting from ``identifier`` in your MDM profile in
 
 .. note:: 
   Please be aware, that setting the ``Full Disk Access`` via MDM will not result in listing the granted access in the ``System Settings`` of macOS.
-  The only way to check if everything is correct is to execute in terminal: |br|
-  ``/usr/libexec/PlistBuddy -c "print" /Library/Application Support/com.apple.TCC/MDMOverrides.plist``
+  The only way to check if everything is correct is to execute in terminal:
+
+  .. code-block:: console
+
+     MacBook-Pro:~ nextron$  /usr/libexec/PlistBuddy -c "print" /Library/Application Support/com.apple.TCC/MDMOverrides.plist
 
 For further support, please take a look in the manuals of your MDM provider.
-
-
-.. |br| raw:: html
-
-      </br>
