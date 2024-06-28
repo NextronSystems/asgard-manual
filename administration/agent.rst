@@ -130,8 +130,8 @@ You need to enable the ``asgard2-agent-service`` slider:
    :scale: 40
    :alt: macOS 13 Full Disk Access
 
-If you need to grant Full Disk Access via MDM, please take a look at this appendix:|br|
-:ref:`appendix/mdm-fulldiskaccess:Full Disk Access for macOS asgard2-agent-service via MDM`
+If you need to grant Full Disk Access via MDM, please have a look at the chapter
+:ref:`appendix/mdm-fulldiskaccess:Full Disk Access for macOS asgard2-agent-service via MDM`.
 
 .. note:: 
    There is no workaround to this step, since it is an integral
