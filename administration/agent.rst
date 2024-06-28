@@ -85,63 +85,28 @@ privileges.
 macOS Agent Deployment
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Starting with macOS Big Sur (v11.0), Apple requires software developers
-to notarize applications.
-
-Due to the nature of the ``asgard2-agent`` installer, which is generated
-during installation time on your Management Center, and making it unique
-for each Management Center installation, it iss currently not possible
-to notarize the installer.
-
-This document aims to describe possible workarounds, intended to be a
-reference for IT administrators or IT packaging teams to bypass Apple
-verifications and install the personalized ``asgard2-agents`` on macOS
-Big Sur (or newer) workstations.
-
-.. warning::
-   Executing any of the workarounds described in this document puts your
-   system at risk for a short period of time. This document will deactivate
-   global security mechanisms of the operating system, which are intended to
-   protect the integrity of the system. Please make sure to follow the below
-   steps carefully and enable those security mechanisms after you are done.
-
-Please always keep in mind to check your system after performing any of
-the described actions, to ensure that all security mechanisms are in
-place and are re-activated after performing the described actions.
-
-Please follow the below steps to install the ASGARD Agent on macOS.
-
-1. Open a new terminal session
-
-2. Deactivate macOS Gatekeeper
-
-   * ``sudo spctl --master-disable``
-
-3. Close the terminal and open a new terminal session
-
-4. Install the asgard2-agent
-
-   * ``sudo installer -pkg /path/to/asgard2-agent-macos-amd64.pkg -target /``
-
-5. Close the terminal and open a new terminal session
-
-6. Reactivate macOS Gatekeeper
-
-   * ``sudo spctl --master-enable``
-
-.. warning:: 
-   Make sure to activate the macOS Gatekeeper once you are done:
-
-   ``sudo spctl --master-enable``
-
-You can verify the state of the macOS Gatekeeper with:
+To install the agent on macOS, you can just run the PKG file or execute the following command in terminal:
 
 .. code-block:: console
+   
+     MacBook-Pro:~ nextron$  sudo installer -pkg  /home/nextron/Downloads/asgard2-agent-macos-amd64.pkg -target /
 
-   MacBook-Pro:~ nextron$ spctl --status
-   assessments enabled
+Starting with macOS Big Sur (v11.0), Apple requires software developers
+to notarize applications. Our ``asgard2-agent`` installer is notarized.
 
-On a system with activated Gatekeeper, the output has to be ``assessments enabled``.
+You can test this by exectuing the follow commands in terminal:
+
+.. code-block:: console
+   
+   MacBook-Pro:~ nextron$  pkgutil --check-signature /home/nextron/Downloads/asgard2-agent-macos-amd64.pkg
+   Package "asgard2-agent-macos-arm64.pkg":
+   Status: signed by a developer certificate issued by Apple for distribution
+   Notarization: trusted by the Apple notary service
+   Signed with a trusted timestamp on: XXXX-XX-XX XX:XX:XX +0000
+   ...
+
+If you are facing issues concerning the installation, please see this section:|br|
+:ref:`appendix/gatekeeper:Bypass Apple verification during installation of asgard2-agent`
 
 macOS Full Disk Access
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -165,6 +130,9 @@ You need to enable the ``asgard2-agent-service`` slider:
    :scale: 40
    :alt: macOS 13 Full Disk Access
 
+If you need to grant Full Disk Access via MDM, please take a look at this appendix:|br|
+:ref:`appendix/mdm-fulldiskaccess:Full Disk Access for macOS asgard2-agent-service via MDM`
+
 .. note:: 
    There is no workaround to this step, since it is an integral
    part of the security design of Apple devices. If you are having trouble
@@ -172,3 +140,7 @@ You need to enable the ``asgard2-agent-service`` slider:
    Access`` permission for the ASGARD agent was granted. Since macOS Mojave
    (v10.14), you need to grant the same permissions to removable volumes,
    if you plan on scanning those.
+
+.. |br| raw:: html
+
+      </br>
