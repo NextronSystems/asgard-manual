@@ -140,7 +140,3 @@ If you need to grant Full Disk Access via MDM, please have a look at the chapter
    Access`` permission for the ASGARD agent was granted. Since macOS Mojave
    (v10.14), you need to grant the same permissions to removable volumes,
    if you plan on scanning those.
-
-.. |br| raw:: html
-
-      </br>
