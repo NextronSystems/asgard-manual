@@ -105,8 +105,8 @@ You can test this by exectuing the follow commands in terminal:
    Signed with a trusted timestamp on: XXXX-XX-XX XX:XX:XX +0000
    ...
 
-If you are facing issues concerning the installation, please see this section:|br|
-:ref:`appendix/gatekeeper:Bypass Apple verification during installation of asgard2-agent`
+If you are facing issues concerning the installation, please have a look in the chapter
+:ref:`appendix/gatekeeper:Bypass Apple verification during installation of asgard2-agent`.
 
 macOS Full Disk Access
 ~~~~~~~~~~~~~~~~~~~~~~
