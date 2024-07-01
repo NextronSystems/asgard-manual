@@ -16,3 +16,5 @@ modify them accordingly to your needs.
     permissions
     golden-image
     tls
+    gatekeeper
+    mdm-fulldiskaccess
