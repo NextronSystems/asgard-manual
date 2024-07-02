@@ -3,6 +3,20 @@ Management Center v3
 
 This chapter contains all the changes of the ASGARD Management Center.
 
+Management Center 3.0.16
+------------------------
+
+Release Date: Tue,  2 Jul 2024 09:50:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Security
+      - OS Security Fix
+
 Management Center 3.0.15
 ------------------------
 
