@@ -6,7 +6,6 @@ copyright = '2023, Nextron Systems GmbH'
 author = 'Nextron Systems'
 extensions = [
     'sphinx.ext.autosectionlabel',
-    'sphinx_rtd_theme'
 ]
 templates_path = ['_templates']
 source_suffix = '.rst'
