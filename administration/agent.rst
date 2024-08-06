@@ -89,16 +89,16 @@ To install the agent on macOS, you can just run the PKG file or execute the foll
 
 .. code-block:: console
    
-     MacBook-Pro:~ nextron$  sudo installer -pkg  /home/nextron/Downloads/asgard2-agent-macos-amd64.pkg -target /
+     MacBook-Pro:~ nextron$  sudo installer -pkg  /home/nextron/Downloads/asgard2-agent-macos-arm64.pkg -target /
 
 Starting with macOS Big Sur (v11.0), Apple requires software developers
 to notarize applications. Our ``asgard2-agent`` installer is notarized.
 
-You can test this by exectuing the follow commands in terminal:
+You can test it  by executing the following command in Terminal:
 
 .. code-block:: console
    
-   MacBook-Pro:~ nextron$  pkgutil --check-signature /home/nextron/Downloads/asgard2-agent-macos-amd64.pkg
+   MacBook-Pro:~ nextron$  pkgutil --check-signature /home/nextron/Downloads/asgard2-agent-macos-arm64.pkg
    Package "asgard2-agent-macos-arm64.pkg":
    Status: signed by a developer certificate issued by Apple for distribution
    Notarization: trusted by the Apple notary service
