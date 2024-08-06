@@ -24,4 +24,6 @@ You have to copy the output, starting from ``identifier`` in your MDM profile in
 
      MacBook-Pro:~ nextron$  /usr/libexec/PlistBuddy -c "print" /Library/Application Support/com.apple.TCC/MDMOverrides.plist
 
+You can create the mobileconfig file by using the PPPC utility from JAMF: https://github.com/jamf/PPPC-Utility 
+
 For further support, please take a look in the manuals of your MDM provider.
