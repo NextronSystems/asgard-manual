@@ -20,7 +20,7 @@ You need to restart ASGARD in order for the changes to take effect.
 
 .. code-block:: console
 
-   nextron@asgard:~$ sudo systemctl status asgard-management-center.service
+   nextron@asgard:~$ sudo systemctl restart asgard-management-center.service
 
 Regenerate ASGARD Server Certificate Agent Communication 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
