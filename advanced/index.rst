@@ -10,7 +10,6 @@ some options could be helpful for your environment.
 .. toctree:: 
     :caption: Contents
 
-    performance
     logs
     agents
     custom-agent

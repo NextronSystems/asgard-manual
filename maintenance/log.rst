@@ -14,7 +14,7 @@ you can inspect ``/etc/logrotate.d/asgard-management-center``.
 Syslog Logs
 ~~~~~~~~~~~
 
-ASGARD will store all logs under ``/var/lib/asgard-management-center/log``.
+ASGARD will store all logs under ``/var/log/asgard-management-center/``.
 This does not include the Scan Logs, as those are handled separately.
 
 If you require a longer retention period, please copy the oldest log
@@ -31,7 +31,7 @@ modify the built-in rotation settings as this might interfere with ASGARD update
      - asgard-audit.log
    * - ASGARD Management Center
      - asgard.log
-   * - ASGARD Agent and Service Controller
+   * - ASGARD Agent
      - agent.log
    * - ASGARD Agent Access
      - agent-access.log
@@ -41,6 +41,8 @@ modify the built-in rotation settings as this might interfere with ASGARD update
      - subscan.log
    * - Aurora
      - aurora-service.log
+   * - Thunderstorm
+     - thunderstorm.log
 
 If you want to forward those logs automatically to a dedicated server,
 you can set up :ref:`administration/additional:rsyslog forwarding`. Forwarded

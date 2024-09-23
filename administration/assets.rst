@@ -34,36 +34,17 @@ individual ASGARD ID, their IP addresses and host names.
    Asset View
 
 By clicking the control buttons in the Actions column, you can start
-a new scan, run a response playbook, open a command line or switch
-the endpoints ping rate to a few seconds instead of a maximum of 10 minutes. 
-
-.. figure:: ../images/mc_asset-actions.png
-   :alt: Asset Actions
-
-   Available Actions (left to right): Run Scan, Run Task,
-   Connect To Remote Console, Show Timeline, Enable/Disable Fast Poll Mode
+a new scan, run a response playbook, open a command line or browse the
+remote file system.
 
 .. note::
 
-    * The internal ping between the ASGARD agent and ASGARD is based on HTTPS not ICMP
-    * Depending on the user's role some of the control buttons may be disabled
+    * Depending on the user's role, some of the control buttons may be disabled
     * The ``Run Scan`` button might be greyed out in new installations - this is
-      because ASGARD did not download the THOR packages yet. You can either wait for a
-      few minutes, or see the chapter :ref:`administration/updates:updates of thor and thor signatures`,
+      because the ASGARD Management Center did not download the THOR packages yet.
+      You can either wait for a few minutes, or see the chapter
+      :ref:`administration/updates:updates of thor and thor signatures`,
       to trigger a download manually.
-
-Column Visibility
-^^^^^^^^^^^^^^^^^
-
-Users can select various columns and adjust their view according to their
-needs by clicking the gear wheel in the top right corner of any table.
-You can toggle visibility of columns by clicking the icon next to the name.
-You can also drag and drop the columns to change the order in the table view.
-
-.. figure:: ../images/mc_asset-columns.png
-   :alt: Asset Columns
-
-   Available columns in Asset Management
 
 Asset Labels
 ^^^^^^^^^^^^

@@ -27,7 +27,7 @@ Open a command prompt with administrative privileges and run the following comma
    C:\Windows\system32>rmdir /S /Q C:\ProgramData\thor
 
 .. note::
-   Line 3 and 4 are only necessary if the new service controller (on ASGARD 2.11+) has been installed.
+   Line 3 and 4 are only necessary if the service controller (on ASGARD <=3.0) has been installed.
 
 The commands above will:
 

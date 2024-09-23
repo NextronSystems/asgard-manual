@@ -13,7 +13,6 @@ after the installation.
     :caption: Contents
 
     introduction
-    before
     hardware
     agent
     network

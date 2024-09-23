@@ -13,7 +13,7 @@ particular system during its initial THOR scan.
 
 The screenshot below shows the licensing section of an ASGARD.
 
-.. figure:: ../images/mc_asgard-licensing.png
+.. figure:: ../images/mc_licensing.png
    :alt: ASGARD licensing
 
    ASGARD licensing
@@ -40,3 +40,10 @@ The following systems require a server license in order to be scanned:
 The licenses are hostname based except for asset licenses. Asset
 licenses are issued for each accepted asset as soon as a response
 action is performed (playbook or remote console access).
+
+Thunderstorm
+^^^^^^^^^^^^
+
+You can upload your THOR Thunderstorm license lower box of the
+``Licenses`` view. Please note that the Thunderstorm license
+needs to have the same hostname as the ASGARD system.

@@ -3,6 +3,9 @@
 IOC Management
 ==============
 
+The ASGARD Management Center allows you to create and manage your own IOCs.
+Those IOCs can be used with THOR and Aurora.
+
 Integrating Custom IOCs
 ^^^^^^^^^^^^^^^^^^^^^^^
 

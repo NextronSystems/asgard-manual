@@ -9,5 +9,6 @@ can perform on your Management Center.
 .. toctree:: 
     :caption: Contents
 
+    backup-restore
     log
     disk

@@ -4,9 +4,9 @@ Agent Requirements
 ------------------
 
 The ASGARD Agent, which needs to be installed on endpoints, is a lightweight
-service which is used to establish as secure connection with your Management
+service which is used to establish a secure connection with your Management
 Center. Memory usage of the agent is around 50 MB, which makes it very unobtrusive.
-THOR uses up to 1 GB of RAM additionally when scanning is in progress. This
+THOR uses up to 1.5 GB of RAM additionally when scanning is in progress. This
 value will vary depending on the operating system THOR is running on. We
 observed lower RAM usage on unix systems all together, whereas Windows
 endpoints generally use more RAM.

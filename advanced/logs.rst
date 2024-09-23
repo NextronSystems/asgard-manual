@@ -3,7 +3,7 @@
 Managing Logs
 =============
 
-ASGARD will store all logs under ``/var/lib/asgard-management-center/log``
+ASGARD will store all logs under ``/var/log/asgard-management-center/log``
 
 All logs in this directory will be rotated and automatically cleared
 after 14 months, please see :ref:`maintenance/log:log rotation and retention` for more information.

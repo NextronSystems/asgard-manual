@@ -73,10 +73,10 @@ Available logs and their content:
      - Overall status of the Management Center, general errors and warnings
    * - Audit
      - Containing user login/logout and changes done over the UI
-   * - ASGARD Agent and Service Controller
+   * - ASGARD Agent
      - Status of the agents deployed on assets
-   * - ASGARD Agent and Service Controller Access Log
-     - Logs of agents and service controllers communicating with the Management Center
+   * - ASGARD Agent Access Log
+     - Logs of agents communicating with the Management Center
    * - THOR via Syslog
      - Received syslog events of THOR scans. Partial results if a scan did not complete
    * - THOR via Syslog (Scan Start, Licensing, Completion only)
@@ -91,3 +91,7 @@ Available logs and their content:
      - Only simulated response action events of Aurora
    * - Diagnostic Pack
      - Button for generating and downloading a diagnostic pack that may be asked for by support
+   * - Backup & Restore
+     - Logs related to Backup & Restore activities
+   * - Thunderstorm
+     - Full Log output of the Thunderstorm service, including matches

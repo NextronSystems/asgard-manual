@@ -82,11 +82,11 @@ following remote systems via HTTPS on port 443/tcp:
 
    * - Product
      - Remote Systems
-   * - ASGARD packages
+   * - ASGARD and system updates
      - update-301.nextron-systems.com
-   * - THOR updates
+   * - THOR, Aurora, and Signature updates
      - update1.nextron-systems.com
-   * - THOR updates
+   * - THOR, Aurora, and Signature updates
      - update2.nextron-systems.com
 
 All proxy systems should be configured to allow access to these URLs
@@ -100,11 +100,11 @@ From Master ASGARD to ASGARD
 
 .. list-table:: 
    :header-rows: 1
-   :widths: 70, 30
+   :widths: 60, 40
 
-   * - Direction
+   * - Description
      - Port
-   * - From Master ASGARD to ASGARD Management Center
+   * - Management Backend
      - 5443/tcp
 
 You cannot manage ASGARD v3 systems from a Master ASGARD v2.
