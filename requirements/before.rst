@@ -46,4 +46,4 @@ Using a Proxy between ASGARD Agent and ASGARD
 
 ASGARD supports using a standard http proxy for the entire Agent to
 ASGARD communication. In order to use a proxy, the ASGARD agent must
-be repacked after installation. For details, see :ref:`advanced/custom-agent:creating custom agent installer`.
+be repacked after installation. For details, see :ref:`advanced/custom-agent:creating custom agent installers`.

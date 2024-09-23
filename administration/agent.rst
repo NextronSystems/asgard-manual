@@ -3,6 +3,15 @@
 ASGARD Agent Deployment
 -----------------------
 
+There are currently two modes of operation for the ASGARD Agent:
+
+- **Normal** - This is the default mode and allows usage of all ASGARD features.
+- **Essential** - This is a lightweight mode which only allows THOR scanning
+  and Aurora deployment.
+
+Please note that the Agent in Essential Mode is a separate installer and
+needs to be created in the :ref:`advanced/custom-agent:creating custom agent installers`
+
 In order to register a new endpoint to the ASGARD Management Center,
 download and install the ASGARD Agent on the system you want to register. 
 
