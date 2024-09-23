@@ -1,7 +1,5 @@
-Management Center v3
-====================
-
-This chapter contains all the changes of the ASGARD Management Center.
+Management Center v3.0
+======================
 
 Management Center 3.0.16
 ------------------------
