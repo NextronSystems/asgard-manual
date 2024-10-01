@@ -123,6 +123,27 @@ From Management Workstation to Master ASGARD
    * - Command line administration
      - 22/tcp
 
+Thunderstorm (optional)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The following ports are being used by Thunderstorm.
+This is optional and only needed if you plan on using
+Thunderstorm in your ASGARD.
+
+.. list-table:: 
+   :header-rows: 1
+   :widths: 50,50
+
+   * - Description
+     - Port
+   * - HTTPs
+     - 9443/tcp
+   * - HTTP
+     - 8080/tcp
+
+Please see chapter :ref:`administration/thunderstorm:Thunderstorm`
+for more information.
+
 Time Synchronization
 ^^^^^^^^^^^^^^^^^^^^
 
