@@ -19,15 +19,13 @@ Open a command prompt with administrative privileges and run the following comma
 .. code-block:: doscon
    :linenos:
 
-   C:\Windows\system32>sc stop asgard2-agent
-   C:\Windows\system32>sc delete asgard2-agent
-   C:\Windows\system32>sc stop asgard2-agent_sc
-   C:\Windows\system32>sc delete asgard2-agent_sc
+   C:\Windows\system32>C:\Windows\system32\asgard2-agent-service.exe stop
+   C:\Windows\system32>C:\Windows\system32\asgard2-agent-service.exe uninstall
    C:\Windows\system32>rmdir /S /Q C:\Windows\System32\asgard2-agent
    C:\Windows\system32>rmdir /S /Q C:\ProgramData\thor
 
 .. note::
-   Line 3 and 4 are only necessary if the service controller (on ASGARD <=3.0) has been installed.
+   Change `system32` to `SysWOW64` if you are running the agent on a x86 machine.
 
 The commands above will:
 
@@ -56,28 +54,19 @@ Manual uninstall
 
 .. code-block:: console
 
-   root@host:~# /usr/sbin/asgard2-agent-amd64 stop
-   root@host:~# /usr/sbin/asgard2-agent-amd64 uninstall
-   root@host:~# rm -r /usr/sbin/asgard2-agent-amd64
-   root@host:~# rm -r /var/tmp/nextron/asgard2-agent
-   root@host:~# rm -r /var/lib/nextron/asgard2-agent
-   root@host:~# rm -r /var/lib/thor
+   user@host:~$ sudo asgard2-agent-service stop
+   user@host:~$ sudo asgard2-agent-service uninstall
+   user@host:~$ sudo rm -r /usr/sbin/asgard2-agent-amd64
+   user@host:~$ sudo rm -r /var/tmp/nextron/asgard2-agent
+   user@host:~$ sudo rm -r /var/lib/nextron/asgard2-agent
+   user@host:~$ sudo rm -r /var/lib/thor
 
 Uninstall ASGARD Agents on macOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console 
 
-   user@mac:~$ sudo /var/lib/asgard2-agent/asgard2-agent --uninstall
+   user@mac:~$ sudo asgard2-agent-service stop
+   user@mac:~$ sudo asgard2-agent-service uninstall
    user@mac:~$ sudo rm -r /var/lib/asgard2-agent/asgard2-agent
    user@mac:~$ sudo rm -r /var/lib/thor
-
-Uninstall ASGARD Service Controller
------------------------------------ 
-
-If you only want to uninstall the ASGARD Service Controller (Aurora),
-but leave the normal ASGARD Agent as it is, execute the following command:
-
-.. code-block:: doscon
-
-    C:\Windows\system32>C:\Windows\System32\asgard2-agent\asgard2-agent_sc.exe -uninstall
