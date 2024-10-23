@@ -1,12 +1,20 @@
 Management Center v3.1
 ======================
 
-Management Center 3.1.0
+Management Center 3.1.5
 ------------------------
 
-Release Date: Mon,  2 Sep 2024 07:48:00 +0200
+Release Date: Tue, 22 Oct 2024 14:02:00 +0200
 
-* **Highlights**
+----
+
+* Breaking Changes
+
+  - The ASGARD Agent now also acts as the Service Controller. Existing Service Controller installations will be automatically put into sleep mode. Deployed Aurora Agents will still work as expected. (MC-517, MC-518)
+
+----
+
+* Highlights
 
   - The ASGARD Agent will from now on receive new tasks in real time. (MC-202)
   - The ASGARD Agent will from now on be able to run multiple tasks in parallel. (MC-202)
@@ -18,8 +26,8 @@ Release Date: Mon,  2 Sep 2024 07:48:00 +0200
 
 ----
 
-* **Features**
-    
+* Features
+
   - New agent module 'Sysstats' that allows you to view the system statistics such as CPU, RAM, and disk usage of the ASGARD Agent in real time. (MC-371)
   - New agent module 'Log' that allows you to view and download the agent's log. (MC-574)
   - Users can now be forced to use 2FA or change their password on the next login (MC-5)
@@ -29,8 +37,8 @@ Release Date: Mon,  2 Sep 2024 07:48:00 +0200
 
 ----
 
-* **Improvements**
-    
+* Improvements
+
   - IOC rulesets can now be configured to automatically recompile after changes (MC-46)
   - New configuration option to use THOR for Server licenses for workstations once the THOR for Workstation licenses are exhausted (MC-77)
   - Added more API endpoints to the API documentation page (MC-62)
@@ -48,13 +56,13 @@ Release Date: Mon,  2 Sep 2024 07:48:00 +0200
   - Improved and migrated the Agent API validators from the ASGARD Gatekeeper (MC-598)
   - Added new column 'status' to the Sigma rules table (MC-68)
   - Added new option to automatically remove Sigma rules from a ruleset if the rule's level has been changed and is under the configured level (MC-69)
-  - Added new columns 'errored' and 'succeed' to the group tasks/scans table (MC-340)
+  - Added new columns 'failed' and 'successful' to the group tasks/scans table (MC-340)
   - Added an option in the LDAP settings to use nested groups (MC-324)
 
 ----
 
-* **UX**
-    
+* UX
+
   - Improved charts and statistics in the Overview section (MC-345)
   - Moved manuals to more prominent position (MC-32)
   - Made 'not yet valid' licenses in License section visible in the default view (MC-36)
@@ -84,6 +92,12 @@ Release Date: Mon,  2 Sep 2024 07:48:00 +0200
 
 ----
 
+* Security
+
+  - Changed the authentication for Mariadb to not use SHA-1 based mysql_native_password. Thanks to Ianis BERNARD from NATO Cyber Security Centre (NCSC) for reporting this (MC-673)
+
+----
+
 * Bugfixes
 
   - Fixed wrong file paths and names when collecting nested directories on Windows assets (MC-84)
@@ -110,7 +124,7 @@ Release Date: Mon,  2 Sep 2024 07:48:00 +0200
 ----
 
 * Chore
-  
+
   - Wordings (MC-61)
   - Removed some deprecated playbooks like installation of the Service Controller or uninstalling the ASGARD 1 Agent (MC-328)
   - Removed obsolete 'fast poll' mode from the ASGARD Agent (MC-468)

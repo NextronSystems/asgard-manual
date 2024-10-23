@@ -6,69 +6,42 @@ IOC Management
 The ASGARD Management Center allows you to create and manage your own IOCs.
 Those IOCs can be used with THOR and Aurora.
 
+What's the difference between IOCs, IOC Groups, IOC Rulesets, and IOC Files?
+
+- IOCs: Define specific indicators that represent potential threats. Supports different
+  types of IOC detection, such as filenames like “some_malware.exe”, hashes like "4fef5e34…”,
+  YARA and Sigma rules, etc.
+
+- IOC Groups: Organise related individual IOCs into easily manageable groups. For example,
+  you can group various individual IOCs related to a "Mimikatz" attack (such as an IOC
+  that detects the presence of a file called “mm64c.exe”) under a single category.
+
+- IOC Rulesets: IOC Rulesets combines multiple IOC Groups into a comprehensive set of rules.
+  With this, you can assemble a set of indicator groups to represent a specific threat
+  scenario. You can also apply your changes to your rulesets for streamlined and efficient threat detection.
+
+- IOC Files: Upload files containing your own IOCs that you can later use to add them
+  onto your own IOC Rulesets.
+
 Integrating Custom IOCs
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The menu ``IOC Management`` gives you the opportunity to easily integrate custom signatures into your scans. 
 
 In order to create your own custom IOC Group, navigate to ``IOC Management`` > ``IOCs``
-and click ``Add IOC Group`` in the upper right corner. Select a name and optionally a description for your IOC Group.
+and click ``Add IOC`` in the upper right corner. Select a name and optionally a description for your IOC Group.
+This will open a dialog which guides you through the creation of IOCs.
 
-.. figure:: ../images/mc_add-ioc-group.png
-   :alt: Add IOC Group
+Every IOC has to belong to one IOC Group. One IOC Group can contain multiple IOCs. And finally,
+one IOC Ruleset can contain many IOC Groups.
 
-   Add IOC Group
+After you are finished with the creation of your IOCs, you will have to apply the
+changes to the IOC Ruleset. You can do so by checking the box towards the end
+of the dialog ("Apply changes on all affected rulesets immediately"), or by
+setting the IOC Ruleset to "autocompile" (this can also be done during the dialog,
+if you create a new IOC Ruleset).
 
-To add IOCs to this group, use the ``Show and edit IOCs in this IOC group``
-action. A side pane opens where you can click the ``Import IOCs`` button
-to import your own signatures in any of THOR's IOC formats as files (e.g.
-files for keyword IOCs, YARA files and SIGMA files). Refer to the  
-`THOR manual (custom signatures) <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_
-for a complete list and file formats. Browse to the file you want
-to add and click upload. This adds your IOC file to the default ruleset. 
-
-.. figure:: ../images/mc_import-iocs.png
-   :alt: Imported IOCs Overview
-
-   Imported IOCs Overview
-
-However, you can also click the ``Add IOC(s)`` button to add some IOCs
-interactively. Select the type, score and description, enter some values
-and click the ``Add IOC`` button.
-
-.. figure:: ../images/mc_add-iocs.png
-   :alt: Add IOCs
-
-   Add IOCs
-
-You can add those IOC Groups to IOC Rulesets which can be created in
-the ``IOC Management`` > ``IOC Rulesets`` tab by clicking the  ``Add Ruleset``
-button in the upper right corner. Select name and description and click the 
-``Add Ruleset`` button.
-
-.. figure:: ../images/mc_add-ioc-ruleset.png
-   :alt: Add Ruleset
-
-   Add Ruleset
-
-After that, click on an entry in the table to expand it. There you
-get information about all IOC Groups which have been added to this
-ruleset. Additionally you can add or remove selected IOC Groups in
-``IOC Management: IOCs`` by clicking one of the three buttons shown below.
-
-.. figure:: ../images/mc_add-remove-ioc-group.png
-   :alt: Buttons to Add/Remove IOC Groups
-
-   Buttons to Add/Remove IOC Groups
-
-You can now add your IOC Group to the newly created IOC Ruleset.
-
-.. figure:: ../images/mc_add-ioc-group-to-ruleset.png
-   :alt: Add IOC Group to Ruleset
-
-   Add IOC Group to Ruleset
-
-This Ruleset can now be used in THOR scans.
+Once you created a IOC Ruleset which contains IOCs, it can be used for scanning with THOR.
 
 .. figure:: ../images/mc_ioc-ruleset-thor-scan.png
    :alt: IOC Ruleset in THOR Scan
@@ -77,7 +50,8 @@ This Ruleset can now be used in THOR scans.
 
 Anytime you add, remove or change IOCs within one of your IOC Groups,
 you have to recompile the IOC Ruleset. To do this, navigate to the
-``IOC Rulesets`` page and click the "geard" icon in the Ruleset's row
+``IOC Rulesets`` page and click the "gear" icon in the Ruleset's row.
+You can optionally set IOS Rulesets to "Autocompile".
 
 .. figure:: ../images/mc_compile-ioc-ruleset.png
    :alt: Compile IOC Ruleset
