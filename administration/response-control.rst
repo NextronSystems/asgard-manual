@@ -16,6 +16,16 @@ tasks can be:
   - Configure the asset's proxy
   - Move asset to another ASGARD
 
+There are several other tasks which will appear in the Response Control
+section, those include:
+
+* Directory Listing (Browse the file system)
+* Log (view the ASGARD Agent Log)
+* System Stats (view the system load)
+
+Those tasks can only be started from the Details view of an asset,
+but appear here for audit purposes.
+
 Opening a Remote Console on an endpoint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -27,10 +37,8 @@ Management section and click the "command line" button in the Actions column.
 
    Opening a Remote Console from the Asset View
 
-Depending on your configuration it may take between 10 seconds and 10
-minutes for the remote console to open. Please note that all actions
-within the remote console are recorded and can be audited. All consoles
-open with root or system privileges.
+Please note that all actions within the remote console are recorded and
+can be audited. All consoles open with root or system privileges.
 
 .. figure:: ../images/mc_open-remote-console.png
    :alt: Remote Shell

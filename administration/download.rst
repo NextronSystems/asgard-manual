@@ -20,8 +20,6 @@ the download token by disabling and then re-enabling it using ``New Download Tok
 .. figure:: ../images/mc_download-thor-package.png
    :alt: Generate THOR Package Download Link
 
-   Download THOR package and license workstation named 'WIN-CLI-DE-1234'
-
 While selecting different options in the form, the download link changes.
 
 After you have generated a download token and have selected the
@@ -41,15 +39,15 @@ anybody can download THOR from this ASGARD or can generate licenses.
    Incident Response license, you must provide it separately.
 
 
-Use Case 1 - Share th URL without Hostname
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Use Case 1 - Share the URL without Hostname
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can generate download links without an included license by
 leaving the `hostname` field empty. A valid license (e.g. "Incident Response")
 must be  placed in the program folder after the download and extraction. 
 
-Use Case 2 - Share th URL with Hostname
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Use Case 2 - Share the URL with Hostname
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By including the hostname in the form, a license will be generated
 and included in the download package You can copy the final download
@@ -83,4 +81,6 @@ scans on systems without an installed ASGARD agent.
 .. code-block:: powershell 
 
    $Type = "server"
+   $Hostname = "server1"
+   $Token = "my-unique-token"
    $Download_Url = "https://asgard2.nextron:8443/api/v1/downloads/thor?os=windows&type=$($Type)&scanner=thor10%4010.6&signatures=signatures&hostname=$($Hostname)&token=$($Token)"

@@ -105,12 +105,3 @@ configuration files, and redeploy a fresh copy.
   * Linux: ``/var/lib/asgard2-agent/``
 
 - To install the ASGARD agent, please follow the instructions in :ref:`administration/agent:asgard agent deployment`.
-
-It is also recommended to redeploy the ASGARD Service Controller.
-
-- To uninstall the ASGARD Service Controller, please follow the
-  instructions in :ref:`administration/uninstall:uninstall asgard service controller`.
-- To install the ASGARD Service Controller, please follow the
-  instructions in :ref:`administration/service-control:service controller installation`.
-  You need to wait a few minutes until the asset is connected to your ASGARD
-  before you continue with this step. Please note that you might need to accept the ``Asset Request``.

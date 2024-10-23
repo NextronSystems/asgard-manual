@@ -3,7 +3,7 @@
 Sigma
 =====
 
-Aurora is using Sigma in order to define detections.
+THOR and Aurora are using Sigma in order to improve detections.
 
 What is Sigma
 ~~~~~~~~~~~~~
