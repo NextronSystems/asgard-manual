@@ -3,9 +3,6 @@
 Evidence Collection 
 ===================
 
-Collected Evidences
-^^^^^^^^^^^^^^^^^^^
-
 ASGARD provides two forms of collected evidence: 
 
 1. Playbook output (file or memory collection, command output)

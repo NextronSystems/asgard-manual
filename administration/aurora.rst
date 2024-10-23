@@ -5,15 +5,15 @@ Aurora
 
 - Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
 - It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
-- It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
-- It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
+- It extends the Sigma standard with so-called "response actions" that can get executed after a rule matches
+- It supports multiple output channels: the Windows Eventlog, a log file and remote syslog.
 
 Its documentation can be found `here <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
 
 Aurora Overview
 ~~~~~~~~~~~~~~~
 Under ``Service Control`` > ``Aurora`` > ``Asset View (Deployed)`` the overview
-of all assets with installed Aurora is shown. Clicking on the entry opens a
+of all assets with Aurora installed can be seen here. Clicking on the entry opens a
 drop-down menu with details and additional information.
 
 .. figure:: ../images/mc_aurora-view-deployed.png
@@ -113,7 +113,6 @@ Best Practices for Managing Aurora
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Install the ASGARD agent on the asset (see :ref:`administration/agent:asgard agent deployment`)
-2. Install the ASGARD service controller on the asset (see :ref:`administration/service-control:service controller installation`)
 3. Deploy the Aurora Service on the asset using the ``[Default] Standard configuration with critical and high Sigma rules``
 4. configuration (see :ref:`administration/aurora:deploy aurora on asset`)
 

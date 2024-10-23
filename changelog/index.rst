@@ -10,4 +10,5 @@ Center version 3 and its components.
 .. toctree:: 
     :caption: Contents
 
-    amc_log
+    log1
+    log0

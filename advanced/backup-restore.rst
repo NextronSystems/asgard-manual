@@ -1,12 +1,16 @@
 .. index:: Backup and Restore
 
-Backup and Restore
-==================
+Backup and Restore (deprecated)
+===============================
+
+.. warning::
+   This section of the manual is deprecated and will be removed in a future release.
+   Please use the :ref:`maintenance/backup-restore:backup & restore` section.
 
 All of our ASGARD servers come with predefined backup and restore scripts.
 You can use them to keep a backup available in case something stops working.
 
-.. warning::
+.. hint::
    If you are using a Management Center and Analysis Cockpit together, it
    is advised to create the backups at the same time. This avoids
    potential data inconsistencies across the two platforms. You can

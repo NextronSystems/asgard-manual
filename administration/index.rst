@@ -19,11 +19,11 @@ installing agents and performing routine tasks in the Web UI.
     scheduled-scan
     syslog
     response-control
-    service-control
     aurora
     sigma
     iocs
     evidence
+    thunderstorm
     download
     license
     updates

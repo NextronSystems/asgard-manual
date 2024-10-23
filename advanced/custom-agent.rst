@@ -1,7 +1,7 @@
 .. index:: Creating Custom Agent Installer
 
-Creating Custom Agent Installer
-===============================
+Creating Custom Agent Installers
+================================
 
 ASGARD supports creation of custom installers. Custom installers can be
 configured in a way so that agents show up with a preset label or with a
