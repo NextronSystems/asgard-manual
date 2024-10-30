@@ -150,6 +150,11 @@ them.
 Asset Migration
 ^^^^^^^^^^^^^^^
 
+.. hint::
+   You have to enable the option ``Show Response Control Advanced Tasks``
+   in the ``Settings`` > ``Advanced`` section of your ASGARD Management
+   Center to allow Asset Migration.
+
 You can move an asset from one Management Center to another via the Maintenance
 Module of the Response Control. To do this, navigate to ``Assets`` and select the
 assets you want to migrate. Alternatively you can navigate to ``Response Control``
