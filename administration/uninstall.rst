@@ -19,8 +19,8 @@ Open a command prompt with administrative privileges and run the following comma
 .. code-block:: doscon
    :linenos:
 
-   C:\Windows\system32>C:\Windows\system32\asgard2-agent-service.exe stop
-   C:\Windows\system32>C:\Windows\system32\asgard2-agent-service.exe uninstall
+   C:\Windows\system32>C:\Windows\system32\asgard2-agent\asgard2-agent-service.exe stop
+   C:\Windows\system32>C:\Windows\system32\asgard2-agent\asgard2-agent-service.exe uninstall
    C:\Windows\system32>rmdir /S /Q C:\Windows\System32\asgard2-agent
    C:\Windows\system32>rmdir /S /Q C:\ProgramData\thor
 
