@@ -67,6 +67,6 @@ Uninstall ASGARD Agents on macOS
 .. code-block:: console 
 
    user@mac:~$ sudo /private/var/lib/asgard2-agent/asgard2-agent-service stop
-   user@mac:~$ sudo /private/var/lib/asgard2-agent-service uninstall
+   user@mac:~$ sudo /private/var/lib/asgard2-agent/asgard2-agent-service uninstall
    user@mac:~$ sudo rm -r /var/lib/asgard2-agent/asgard2-agent
    user@mac:~$ sudo rm -r /var/lib/thor
