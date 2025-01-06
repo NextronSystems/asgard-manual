@@ -1,0 +1,33 @@
+name: Manual Pre Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Check Links
+        run: make linkcheck
+  build-docs:
+    runs-on: ubuntu-latest
+    needs: linkcheck
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Build Documentation
+        run: make html SPHINXOPTS="-W"
