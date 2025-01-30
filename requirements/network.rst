@@ -63,8 +63,8 @@ From ASGARD to Analysis Cockpit
    :header-rows: 1
    :widths: 70, 30
 
-   * - Ports
-     - Description
+   * - Description
+     - Ports
    * - Asset Synchronization, Log- and Sample forwarding
      - 7443/tcp
    * - Syslog forwarder (optional)
