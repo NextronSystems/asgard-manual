@@ -144,6 +144,14 @@ Thunderstorm in your ASGARD.
 Please see chapter :ref:`administration/thunderstorm:Thunderstorm`
 for more information.
 
+Secure Communication
+^^^^^^^^^^^^^^^^^^^^
+
+Any connection within our products (with the exception of syslog over plaintext)
+is done via mTLS. That means client and server certificates are used for the
+authentication between both products. This ensures that no attacker can read
+any sensitive information if a Man in the Middle-attack-would-take place.
+
 Time Synchronization
 ^^^^^^^^^^^^^^^^^^^^
 
