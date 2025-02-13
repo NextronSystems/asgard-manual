@@ -1,6 +1,38 @@
 Management Center v3.1
 ======================
 
+Management Center 3.1.7
+-----------------------
+
+Release Date: Thu, 13 Feb 2025 10:14:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Resolved an issue where log forwarding for Thunderstorm events did not function correctly after log rotation
+    * - Bugfix
+      - Removed the "Automatically accept all asset requests" setting from Master ASGARD, as this configuration must be managed directly on the Management Center
+    * - Bugfix
+      - Fixed a bug causing cloned tasks on Master ASGARD to remain in a perpetual pending state
+    * - Bugfix
+      - Updated the tooltip for changing the type of a playbook step
+    * - Bugfix
+      - Addressed an issue where temporary files created during IOC ruleset compilation were not properly removed
+    * - Bugfix
+      - Corrected spelling errors in the licensing section
+    * - Bugfix
+      - Fixed an issue where scheduled backups were not executed in certain scenarios
+    * - Bugfix
+      - The expiration date of a group scan now takes precedence over the configured resume deadline for THOR scans. This ensures that scans interrupted and eligible for resumption are not resumed if the group scan's expiration date has already passed
+    * - Bugfix
+      - Resolved inconsistencies in the statistics displayed on the Master ASGARD overview page
+    * - Bugfix
+      - Fixed an issue where the "Stop" and "Interrupt" buttons did not function correctly for certain group scans on the Master ASGARD
+
 Management Center 3.1.6
 -----------------------
 
