@@ -39,6 +39,8 @@ We recommend using this list - include all sub folders:
     - /var/lib/asgard2-agent/
   * - 
     - /var/tmp/asgard2-agent/
+  * -
+    - /private/var/tmp/asgard2-agent/ 
 
 .. note::
    If you have obfuscated the agent name, replace *asgard2-agent* with your custom agent name.
