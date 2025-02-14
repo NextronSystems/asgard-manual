@@ -3,10 +3,13 @@
 Aurora
 ======
 
-- Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
-- It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
-- It extends the Sigma standard with so-called "response actions" that can get executed after a rule matches
-- It supports multiple output channels: the Windows Eventlog, a log file and remote syslog.
+A quick summary of what Aurora is:
+
+- lightweight endpoint agent for Windows
+- applies Sigma rules and IOCs on local event streams
+- uses Event Tracing for Windows (ETW) to subscribe to certain pre-configured event channels
+- extends the Sigma standard with so-called "response actions", which can get executed after a rule matches
+- supports multiple output channels: the Windows Eventlog, a log file and remote syslog.
 
 Its documentation can be found `here <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
 
