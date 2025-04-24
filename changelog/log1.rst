@@ -1,6 +1,38 @@
 Management Center v3.1
 ======================
 
+Management Center 3.1.8
+-----------------------
+
+Release Date: Tue, 22 Apr 2025 10:42:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Resolved sporadic "unknown asset" error encountered during synchronization with Master ASGARD
+    * - Bugfix
+      - Corrected a defect that caused JSON reporting to fail for scans executed with THOR 10.7
+    * - Bugfix
+      - Fixed missing chart legend in group scan results when using the light theme
+    * - Bugfix
+      - Addressed an issue where collected Bifrost samples could not be downloaded from the Master ASGARD interface
+    * - Bugfix
+      - Fixed the absence of a progress bar for certain completed THOR scans in the scan results interface
+    * - Bugfix
+      - Restored functionality of search filters for labels and network interfaces within the asset requests table
+    * - Bugfix
+      - Resolved a problem that prevented agent log downloads from the Master ASGARD
+    * - Bugfix
+      - Fixed an error displayed when retrying a failed group scan initiated via an ASGARD Query
+    * - Bugfix
+      - Restored visibility of the Broker Network section when accessed via Firefox version 137
+    * - Security
+      - Addressed a privilege escalation vulnerability on Windows during installation of the ASGARD Agent. A local attacker could potentially exploit the installation process to execute code with elevated privileges. This vulnerability only affects the installation process and does not require updating already installed agents. To fully remediate this vulnerability, it is essential to regenerate and replace all existing agent installers after applying this update. Thanks to Jorge Escabias from NATO Cyber Security Centre (NCSC) for reporting this
+
 Management Center 3.1.7
 -----------------------
 
