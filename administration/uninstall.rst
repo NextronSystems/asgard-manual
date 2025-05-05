@@ -56,9 +56,9 @@ Manual uninstall
 
    user@host:~$ sudo asgard2-agent-service stop
    user@host:~$ sudo asgard2-agent-service uninstall
-   user@host:~$ sudo rm -r /usr/sbin/asgard2-agent-amd64
-   user@host:~$ sudo rm -r /var/tmp/nextron/asgard2-agent
-   user@host:~$ sudo rm -r /var/lib/nextron/asgard2-agent
+   user@host:~$ sudo rm -r /usr/sbin/asgard2-agent-service
+   user@host:~$ sudo rm -r /var/tmp/asgard2-agent
+   user@host:~$ sudo rm -r /var/lib/asgard2-agent
    user@host:~$ sudo rm -r /var/lib/thor
 
 Uninstall ASGARD Agents on macOS
