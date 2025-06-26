@@ -14,7 +14,7 @@ Uninstall ASGARD Agents on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need administrative privileges to remove the ASGARD Agent from Windows.
-Open a command prompt with administrative privileges and run the following commands:
+Open a Command Prompt **as Administrator** and run the following commands:
 
 .. code-block:: doscon
    :linenos:
@@ -27,11 +27,12 @@ Open a command prompt with administrative privileges and run the following comma
 .. note::
    Change `system32` to `SysWOW64` if you are running the agent on a x86 machine.
 
-The commands above will:
+These commands perform the following actions in order:
 
-- Disable the ASGARD agent's service
-- Delete the ASGARD agent's service
-- Remove all files associated with the ASGARD agent
+- Stop the ASGARD Agent service
+- Uninstall the ASGARD Agent service
+- Delete all ASGARD Agent files
+- Remove THOR-related data from ProgramData
 
 Uninstall ASGARD Agents on Linux
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
