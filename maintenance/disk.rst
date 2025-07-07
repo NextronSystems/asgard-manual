@@ -10,14 +10,12 @@ out, you have several options:
 2. Delete files that are not needed for operation (i.e. safe to delete)
 3. Delete files that are used by MC but might be unneeded / dated
 
-
-
 Safe-to-Delete Files
 ~~~~~~~~~~~~~~~~~~~~
 
 The following files are safe to delete. They are not needed for ASGARD to operate.
 
-- ``/var/lib/asgard-management-center/log/*.gz``
+- ``/var/log/asgard-management-center/*.gz``
 
 They are only kept on the system if needed for further processing.
 E.g. saving/sending the log files to another system. If you do not
@@ -44,8 +42,8 @@ period at ``Settings`` > ``Bifrost``.
 - ``/var/lib/asgard-management-center/generic-results/*``
 - ``/var/lib/asgard-management-center/remote-console/protocol/*.gz``
 
-The listed files are the results of THOR scans (scan-results), Tasks
-except Scans (generic-results) and the sessions of remote consoles (remote-console).
+The listed files are the results of THOR scans (scan-results),
+Tasks (generic-results) and the sessions of remote consoles (remote-console).
 They are not needed for ASGARD to function, but the data is viewed and
 available for download in ASGARD. This means deleting these files will
 not break ASGARD, but you lose the information provided by the files.
