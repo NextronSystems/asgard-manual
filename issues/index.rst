@@ -3,9 +3,5 @@
 Known Issues
 ============
 
-You can find a list of known issues in this section.
-
-.. toctree::
-    :caption: Contents
-
-    issues
+.. note:: 
+    For Known Issues, please visit our `Knowledge Base <https://support.nextron-systems.com/>`_.

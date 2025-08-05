@@ -18,9 +18,9 @@ effects on the duplicate hosts.
    cloning a system with an already installed ASGARD Agent. Undesirable
    side effects of duplicate assets are alternating hostnames and tasks
    that fail immediately.
-
-For remediation please see :ref:`troubleshooting/agent-debugging:duplicate assets remediation`
-
+   
+   For remediation please see our `Knowledge Base <https://support.nextron-systems.com/>`_.
+   
 Asset Overview
 ^^^^^^^^^^^^^^
 
@@ -173,6 +173,28 @@ The task will fail if the migrated asset is unable to communicate with the new M
 Center. In this case, the asset will remain on the Management Center which issued the
 migration task. Only the asset will be migrated (it shows up as a brand new asset on
 your new Management Center), no scan or response tasks and also no logs will be migrated.
+
+Duplicate Assets Remediation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
+you need to fix the issue to avoid unwanted behavior of this asset. To
+fix the issue, you need to uninstall the current ASGARD agent, delete the
+configuration files, and redeploy a fresh copy.
+
+.. figure:: ../images/mc_duplicate_assets.png
+   :alt: Troubleshooting Duplicate Assets
+
+   Troubleshooting Duplicate Assets
+
+- To uninstall the ASGARD agent, please follow the instructions in :ref:`administration/uninstall:uninstall asgard agents`.
+- To delete the configuration files, make sure that the following folder is 
+  deleted before installing a new agent:
+
+  * Windows: ``C:\Windows\System32\asgard2-agent\``
+  * Linux: ``/var/lib/asgard2-agent/``
+
+- To install the ASGARD agent, please follow the instructions in :ref:`administration/agent:asgard agent deployment`.
 
 Delete Assets
 ^^^^^^^^^^^^^

@@ -13,8 +13,6 @@ modify them accordingly to your needs.
     :caption: Contents
 
     scripts
-    permissions
     golden-image
-    tls
     gatekeeper
     mdm-fulldiskaccess

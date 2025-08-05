@@ -87,8 +87,7 @@ Once the service is stopped, we have to alter the configuration file of the
 agent. This is necessary because your agent will have communicated with your
 ASGARD by now, thus having generated an ``token``, which should be unique.
 If you would create your Golden Image now, you would have the
-systems, installed with the Golden Image, appear as ``Duplicate Asset`` (see
-:ref:`troubleshooting/agent-debugging:duplicate assets remediation`).
+systems, installed with the Golden Image, appear as ``Duplicate Asset``.
 
 Open the ``asgard2-agent.yaml`` file and delete the marked lines in our example.
 

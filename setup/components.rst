@@ -121,8 +121,7 @@ you can continue with the installation.
 If you are in a time critical engagement and need to proceed
 with the installation, you can just confirm the displayed (and
 technically invalid) FQDN and change it later (before you deploy
-your Agents). To do this, see
-:ref:`troubleshooting/certificates:regenerate asgard server certificate agent communication`
+your Agents). For remediation please see our `Knowledge Base <https://support.nextron-systems.com/>`_.
 
 Proxy and NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~

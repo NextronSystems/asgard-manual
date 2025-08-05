@@ -5,27 +5,6 @@ Agent Debugging
 
 This chapter contains debugging information for our ASGARD Agent.
 
-SLES 11 Installation
-~~~~~~~~~~~~~~~~~~~~
-
-On older SLES (SUSE Linux Enterprise Server) versions, the installation
-of the ASGARD Agent might fail with the following error:
-
-.. code-block:: none
-
-   error: Failed dependencies:
-        rpmlib(FileDigests) <= 4.6.0-1 is needed by asgard2-agent-1-1.6.5.x86_64
-
-To circumvent this error savely, you can just add the ``--nodeps`` flag to install
-the package:
-
-.. code-block:: console
-
-   user@sles11:~$ sudo rpm -ivh --nodeps asgard2-agent-linux-amd64.rpm                 
-      Preparing...                ########################################### [100%]
-         1:asgard2-agent          ########################################### [100%]
-   user@sles11:~$ 
-
 Go Debug Logging
 ~~~~~~~~~~~~~~~~
 
@@ -86,25 +65,3 @@ It can be run from ``Asset Management`` > ``Response Action`` (Play button)
 or from ``Response Control`` > ``Tasks`` > ``Add Task`` or if needed
 as a group task. The resulting ``diagnostics.zip`` can be downloaded
 from the third step in the ``Playbook Result`` tab of the expanded task.
-
-Duplicate Assets Remediation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
-you need to fix the issue to avoid unwanted behavior of this asset. To
-fix the issue, you need to uninstall the current ASGARD agent, delete the
-configuration files, and redeploy a fresh copy.
-
-.. figure:: ../images/mc_duplicate_assets.png
-   :alt: Troubleshooting Duplicate Assets
-
-   Troubleshooting Duplicate Assets
-
-- To uninstall the ASGARD agent, please follow the instructions in :ref:`administration/uninstall:uninstall asgard agents`.
-- To delete the configuration files, make sure that the following folder is 
-  deleted before installing a new agent:
-
-  * Windows: ``C:\Windows\System32\asgard2-agent\``
-  * Linux: ``/var/lib/asgard2-agent/``
-
-- To install the ASGARD agent, please follow the instructions in :ref:`administration/agent:asgard agent deployment`.

@@ -22,8 +22,7 @@ by automating the process as much as possible.
     please perform the steps in :ref:`upgrade/upgrade:management center upgrade`
     carefully to install the latest version of the updater.
 
-    For information regarding the issue, please see the KB entry
-    :ref:`issues/issues:amc#007: curl: (58) could not load pem client certificate`.
+    For remediation please see our `Knowledge Base <https://support.nextron-systems.com/>`_.
 
 .. toctree:: 
     :caption: Contents
