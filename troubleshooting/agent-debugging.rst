@@ -52,18 +52,18 @@ you need to fix the issue to avoid unwanted behavior of this asset.
 
 To fix the issue, you have two options:
 
-- Delete the asset in the Management Center
+- :ref:`troubleshooting/agent-debugging:delete the asset` in the Management Center
 
   * This approach is faster but also more "destructive", since this will
     delete your asset and with it the Scan/Task history of it. This step
     is not reversible
 
-- Reinstall the agent on all affected endpoints
+- :ref:`troubleshooting/agent-debugging:reinstall the agent` on all affected/duplicated endpoints
 
   * This approach is more time consuming, but also the cleanest solution.
 
-Deleting the Asset
-^^^^^^^^^^^^^^^^^^
+Delete the Asset
+^^^^^^^^^^^^^^^^
 
 Follow the below steps to delete the correct asset:
 
