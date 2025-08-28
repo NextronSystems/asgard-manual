@@ -26,54 +26,6 @@ the package:
          1:asgard2-agent          ########################################### [100%]
    user@sles11:~$ 
 
-Go Debug Logging
-~~~~~~~~~~~~~~~~
-
-On Windows, open the cmd.exe as Administrator. Set some environment variables.
-
-.. code-block:: doscon 
-
-   C:\Windows\system32>set GRPC_GO_LOG_SEVERITY_LEVEL=info
-   C:\Windows\system32>set GODEBUG=http2debug=2
-
-Navigate into the agent's program directory and start it to see all output messages.
-
-.. code-block:: doscon 
-
-   C:\Windows\system32>sc stop asgard2-agent
-   C:\Windows\system32>cd C:\Windows\system32\asgard2-agent\
-   C:\Windows\system32\asgard2-agent>asgard2-agent.exe
-
-Interrupt the agent with ``CTRL+C``. Don't forget to start the Windows service after the debugging session. 
-
-.. code-block:: doscon
-
-   C:\Windows\system32\asgard2-agent>sc start asgard2-agent
-
-On Linux, open a shell as root (sudo). 
-
-.. code-block:: console
-
-   nextron@asgard:~$ sudo su -
-   [sudo] password for nextron: 
-   root@asgard:~# 
-   root@asgard:~# export GRPC_GO_LOG_SEVERITY_LEVEL=info
-   root@asgard:~# export GODEBUG=http2debug=2
-
-Navigate into the agent's program directory and start it to see all output messages.
-
-.. code-block:: console 
-
-   root@asgard:~# systemctl stop asgard2-agent
-   root@asgard:~# cd /var/lib/asgard2-agent/
-   root@asgard:/var/lib/asgard2-agent# ./asgard2-agent
-
-Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service after the debugging session. 
-
-.. code-block:: console 
-
-   root@asgard:/var/lib/asgard2-agent# systemctl start asgard2-agent
-
 Aurora Diagnostics Pack
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -91,20 +43,60 @@ Duplicate Assets Remediation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
-you need to fix the issue to avoid unwanted behavior of this asset. To
-fix the issue, you need to uninstall the current ASGARD agent, delete the
-configuration files, and redeploy a fresh copy.
+you need to fix the issue to avoid unwanted behavior of this asset.
 
 .. figure:: ../images/mc_duplicate_assets.png
    :alt: Troubleshooting Duplicate Assets
 
    Troubleshooting Duplicate Assets
 
-- To uninstall the ASGARD agent, please follow the instructions in :ref:`administration/uninstall:uninstall asgard agents`.
-- To delete the configuration files, make sure that the following folder is 
-  deleted before installing a new agent:
+To fix the issue, you have two options:
+
+- Delete the asset in the Management Center
+
+  * This approach is faster but also more "destructive", since this will
+    delete your asset and with it the Scan/Task history of it. This step
+    is not reversible
+
+- Reinstall the agent on all affected endpoints
+
+  * This approach is more time consuming, but also the cleanest solution.
+
+Deleting the Asset
+^^^^^^^^^^^^^^^^^^
+
+Follow the below steps to delete the correct asset:
+
+- Write down the ``Asset ID`` shown in the "Duplicate Assets" section
+- Search for the ID in your "Assets" section
+- Select the Asset and click "Delete Asset"
+- Confirm your action
+
+.. only:: html
+
+   .. raw:: html
+
+      <video width="640" controls>
+        <source src="../_static/videos/mc_duplicate_asset_delete.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+
+After the asset was deleted, all duplicate assets will reconnect
+after a few minutes and show up as individual "Asset Requests".
+
+Reinstall the Agent
+^^^^^^^^^^^^^^^^^^^
+
+Follow the below steps to reinstall the ASGARD agent on your endpoints.
+
+- First you need to uninstall the ASGARD agent. Please follow the instructions
+  in :ref:`administration/uninstall:uninstall asgard agents`.
+
+- Next you need to delete the configuration files, make sure that the following
+  folder is deleted before installing a new agent:
 
   * Windows: ``C:\Windows\System32\asgard2-agent\``
   * Linux: ``/var/lib/asgard2-agent/``
 
-- To install the ASGARD agent, please follow the instructions in :ref:`administration/agent:asgard agent deployment`.
+- Finally you need install the ASGARD agent again, please follow the instructions
+  in :ref:`administration/agent:asgard agent deployment`.
