@@ -42,61 +42,22 @@ from the third step in the ``Playbook Result`` tab of the expanded task.
 Duplicate Assets Remediation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
-you need to fix the issue to avoid unwanted behavior of this asset.
+The ``Duplicate Assets`` view in your Management Center lists
+assets, which appear to be active on multiple endpoints at
+the same time, often due to system cloning. This can cause
+issues like a changing hostname and failing tasks. Deleting
+these duplicate assets will allow each endpoint to reconnect
+as a new asset with its own authentication, resolving these
+problems.
 
 .. figure:: ../images/mc_duplicate_assets.png
    :alt: Troubleshooting Duplicate Assets
 
    Troubleshooting Duplicate Assets
 
-To fix the issue, you have two options:
+To fix the issue, follow the instructions in your Management Center.
 
-- :ref:`troubleshooting/agent-debugging:delete the asset` in the Management Center
-
-  * This approach is faster but also more "destructive", since this will
-    delete your asset and with it the Scan/Task history of it. This step
-    is not reversible
-
-- :ref:`troubleshooting/agent-debugging:reinstall the agent` on all affected/duplicated endpoints
-
-  * This approach is more time consuming, but also the cleanest solution.
-
-Delete the Asset
-^^^^^^^^^^^^^^^^
-
-Follow the below steps to delete the correct asset:
-
-- Write down the ``Asset ID`` shown in the "Duplicate Assets" section
-- Search for the ID in your "Assets" section
-- Select the Asset and click "Delete Asset"
-- Confirm your action
-
-.. only:: html
-
-   .. raw:: html
-
-      <video width="640" controls>
-        <source src="../_static/videos/mc_duplicate_asset_delete.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-
-After the asset was deleted, all duplicate assets will reconnect
-after a few minutes and show up as individual "Asset Requests".
-
-Reinstall the Agent
-^^^^^^^^^^^^^^^^^^^
-
-Follow the below steps to reinstall the ASGARD agent on your endpoints.
-
-- First you need to uninstall the ASGARD agent. Please follow the instructions
-  in :ref:`administration/uninstall:uninstall asgard agents`.
-
-- Next you need to delete the configuration files, make sure that the following
-  folder is deleted before installing a new agent:
-
-  * Windows: ``C:\Windows\System32\asgard2-agent\``
-  * Linux: ``/var/lib/asgard2-agent/``
-
-- Finally you need install the ASGARD agent again, please follow the instructions
-  in :ref:`administration/agent:asgard agent deployment`.
+.. important::
+   Endpoints will reconnect as new assets. Previous scan history
+   will remain attached to the **old/deleted** asset, so the new
+   endpoints will appear without history.
