@@ -50,7 +50,7 @@ Once you created a IOC Ruleset which contains IOCs, it can be used for scanning 
 
 Anytime you add, remove or change IOCs within one of your IOC Groups,
 you have to recompile the IOC Ruleset. To do this, navigate to the
-``IOC Rulesets`` page and click the "gear" icon in the Ruleset's row.
+``IOC Rulesets`` page and click the "gear" icon (1) in the Ruleset's row.
 You can optionally set IOS Rulesets to "Autocompile".
 
 .. figure:: ../images/mc_compile-ioc-ruleset.png
@@ -76,7 +76,7 @@ custom ruleset, the default signatures would not be applied.
 
 .. note::
    To scan exclusively with the custom ruleset, the flag 
-   ``--customonly`` must be set. Please see
+   ``--customonly`` must be set (1,2). Please see
    `THOR Flags <https://thor-manual.nextron-systems.com/en/latest/usage/flags.html#feature-extras>`_
    for more information.
 
@@ -109,8 +109,8 @@ and the type of IOCs you want to use in this ruleset. By default, all
 types are selected, but there may be reasons for deselecting certain
 categories. For example, filename IOCs tend to cause false positives
 and may be deselected for that reason. The picture below shows the
-dialogue for adding a MISP ruleset. Enable ``Auto Compile`` in order
-to automatically compile new MISP events into the ruleset, when they arrive.
+dialogue for adding a MISP ruleset. Enable ``Apply Changes Automatically`` in order
+to compile new MISP events into the ruleset, when they arrive.
 
 .. figure:: ../images/mc_new-misp-ruleset.png
    :alt: Adding a new MISP ruleset
