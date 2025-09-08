@@ -28,6 +28,15 @@ signatures or a template can also be selected.
 After the desired parameters have been set, the scan can be started by
 clicking the ``Add Scan`` button.
 
+.. note::
+   If the scan is interrupted due to an unplanned restart of the asset or by THOR or the ASGARD Agent due to lack of resources,
+   the Agent resumes the scan from where it left off as soon as the asset is available again by adding the "--resume" flag. 
+   By default, this happens a maximum of five times (``Max. THOR Resumes``) within of one week (``THOR Resume Deadline``).
+
+   The default values for ``Max. THOR Resumes`` and ``THOR Resume Deadline``  can be modified in the :ref:`administration/advanced:advanced settings`.
+
+   Manually setting the "--resume" flag has no effect when scanning via ASGARD.
+
 Stopping a Single Scan
 ~~~~~~~~~~~~~~~~~~~~~~
 
