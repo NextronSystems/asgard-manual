@@ -21,7 +21,9 @@ What's the difference between IOCs, IOC Groups, IOC Rulesets, and IOC Files?
   scenario. You can also apply your changes to your rulesets for streamlined and efficient threat detection.
 
 - IOC Files: Upload files containing your own IOCs that you can later use to add them
-  onto your own IOC Rulesets.
+  onto your own IOC Rulesets. Please see 
+  `THOR Custom Signatures <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_ 
+  for filename requirements and syntax.
 
 Integrating Custom IOCs
 ^^^^^^^^^^^^^^^^^^^^^^^
