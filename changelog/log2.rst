@@ -4,7 +4,7 @@ Management Center v3.2
 Management Center 3.2.0
 -----------------------
 
-Release Date: Mon, 15 Sep 2025 09:08:00 +0200
+Release Date: Thu,  2 Oct 2025 11:26:00 +0200
 
 ----
 
