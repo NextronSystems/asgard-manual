@@ -25,6 +25,7 @@ Release Date: Thu,  2 Oct 2025 11:26:00 +0200
 ----
 
 * Bugfixes
+
   - The agent for AIX is now built with a more modern AIX build server
   - Fixed an issue with THOR log cleanup on endpoints
   - Fixed a temporary issue where some temp directories on endpoints were not immediately cleaned up after use
