@@ -26,54 +26,6 @@ the package:
          1:asgard2-agent          ########################################### [100%]
    user@sles11:~$ 
 
-Go Debug Logging
-~~~~~~~~~~~~~~~~
-
-On Windows, open the cmd.exe as Administrator. Set some environment variables.
-
-.. code-block:: doscon 
-
-   C:\Windows\system32>set GRPC_GO_LOG_SEVERITY_LEVEL=info
-   C:\Windows\system32>set GODEBUG=http2debug=2
-
-Navigate into the agent's program directory and start it to see all output messages.
-
-.. code-block:: doscon 
-
-   C:\Windows\system32>sc stop asgard2-agent
-   C:\Windows\system32>cd C:\Windows\system32\asgard2-agent\
-   C:\Windows\system32\asgard2-agent>asgard2-agent.exe
-
-Interrupt the agent with ``CTRL+C``. Don't forget to start the Windows service after the debugging session. 
-
-.. code-block:: doscon
-
-   C:\Windows\system32\asgard2-agent>sc start asgard2-agent
-
-On Linux, open a shell as root (sudo). 
-
-.. code-block:: console
-
-   nextron@asgard:~$ sudo su -
-   [sudo] password for nextron: 
-   root@asgard:~# 
-   root@asgard:~# export GRPC_GO_LOG_SEVERITY_LEVEL=info
-   root@asgard:~# export GODEBUG=http2debug=2
-
-Navigate into the agent's program directory and start it to see all output messages.
-
-.. code-block:: console 
-
-   root@asgard:~# systemctl stop asgard2-agent
-   root@asgard:~# cd /var/lib/asgard2-agent/
-   root@asgard:/var/lib/asgard2-agent# ./asgard2-agent
-
-Interrupt the agent with ``CTRL+C``. Don't forget to start the Linux service after the debugging session. 
-
-.. code-block:: console 
-
-   root@asgard:/var/lib/asgard2-agent# systemctl start asgard2-agent
-
 Aurora Diagnostics Pack
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -90,21 +42,22 @@ from the third step in the ``Playbook Result`` tab of the expanded task.
 Duplicate Assets Remediation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are seeing the ``Duplicate Assets`` view in your ``Asset Management``,
-you need to fix the issue to avoid unwanted behavior of this asset. To
-fix the issue, you need to uninstall the current ASGARD agent, delete the
-configuration files, and redeploy a fresh copy.
+The ``Duplicate Assets`` view in your Management Center lists
+assets, which appear to be active on multiple endpoints at
+the same time, often due to system cloning. This can cause
+issues like a changing hostname and failing tasks. Deleting
+these duplicate assets will allow each endpoint to reconnect
+as a new asset with its own authentication, resolving these
+problems.
 
 .. figure:: ../images/mc_duplicate_assets.png
    :alt: Troubleshooting Duplicate Assets
 
    Troubleshooting Duplicate Assets
 
-- To uninstall the ASGARD agent, please follow the instructions in :ref:`administration/uninstall:uninstall asgard agents`.
-- To delete the configuration files, make sure that the following folder is 
-  deleted before installing a new agent:
+To fix the issue, follow the instructions in your Management Center.
 
-  * Windows: ``C:\Windows\System32\asgard2-agent\``
-  * Linux: ``/var/lib/asgard2-agent/``
-
-- To install the ASGARD agent, please follow the instructions in :ref:`administration/agent:asgard agent deployment`.
+.. important::
+   Endpoints will reconnect as new assets. Previous scan history
+   will remain attached to the **old/deleted** asset, so the new
+   endpoints will appear without history.
