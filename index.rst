@@ -35,9 +35,7 @@ find useful.
    troubleshooting/index
    issues/index
    appendix/index
-   upgrade/index
    changelog/index
-
 
 Indices and tables
 ==================
