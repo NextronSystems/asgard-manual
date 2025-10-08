@@ -4,12 +4,12 @@ Introduction
 ============
 
 ASGARD Management Center is our central management platform for
-`THOR <https://thor-manual.nextron-systems.com/en/latest/>`_ scans,
-`Aurora <https://aurora-agent-manual.nextron-systems.com/en/latest/>`_
+`THOR <https://thor-manual.nextron-systems.com>`_ scans,
+`Aurora <https://aurora-agent-manual.nextron-systems.com>`_
 for real time protection of your endpoints, custom playbooks,
 or even Thunderstorm. It can manage distributed THOR scans on
 thousands of systems, collecting and forwarding the scan results to our
-`ASGARD Analysis Cockpit <https://analysis-cockpit-manual.nextron-systems.com/en/latest/>`_
+`ASGARD Analysis Cockpit <https://analysis-cockpit-manual.nextron-systems.com>`_
 or your own SIEM.
 
 The ASGARD Management Center can control and execute complex response tasks

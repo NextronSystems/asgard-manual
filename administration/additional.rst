@@ -128,7 +128,7 @@ This will collect all files with a score of 60 or higher and make
 them available for download in ASGARDs ``Collected Files`` section.
 
 For Details on how to automatically forward to a sandbox system please
-refer to the `Analysis Cockpit Manual <https://analysis-cockpit-manual.nextron-systems.com/en/latest>`_ .
+refer to the `Analysis Cockpit Manual <https://analysis-cockpit-manual.nextron-systems.com/>`_ .
 
 Link Analysis Cockpit
 ^^^^^^^^^^^^^^^^^^^^^

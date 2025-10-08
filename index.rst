@@ -8,7 +8,7 @@ Center v3.
 
 .. note::
    If you are still using an older version of the Management Center,
-   please click `here <https://asgard-manual.nextron-systems.com/en/v2/>`__ 
+   please click `here <https://asgard-manual.nextron-systems.com/v2>`__ 
    to see the older version of the documentation.
 
 ASGARD Management Center is the central management platform for THOR
