@@ -25,5 +25,5 @@ environment, which you can find in our separate
 `THOR Manual <https://thor-manual.nextron-systems.com>`_.
 
 Supported operating systems are the ones
-`supported by THOR <https://thor-manual.nextron-systems.com/en/latest/usage/requirements.html#operating-systems>`__.
+`supported by THOR <https://thor-manual.nextron-systems.com/latest/usage/requirements.html#operating-systems>`__.
 Not supported are the operating systems with limited or special THOR support.

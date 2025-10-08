@@ -11,7 +11,7 @@ A quick summary of what Aurora is:
 - extends the Sigma standard with so-called "response actions", which can get executed after a rule matches
 - supports multiple output channels: the Windows Eventlog, a log file and remote syslog.
 
-Its documentation can be found `here <https://aurora-agent-manual.nextron-systems.com/en/latest/index.html>`_.
+Its documentation can be found `here <https://aurora-agent-manual.nextron-systems.com>`_.
 
 Aurora Overview
 ~~~~~~~~~~~~~~~
@@ -152,7 +152,7 @@ message in the ``Service Control`` > ``Aurora`` > ``Response Action Logs``:
    Aurora Simulated Response Action 
 
 More tests are available from the
-`Function Tests section of the Aurora manual <https://aurora-agent-manual.nextron-systems.com/en/latest/usage/function-tests.html>`_.
+`Function Tests section of the Aurora manual <https://aurora-agent-manual.nextron-systems.com/latest/usage/function-tests.html>`_.
 Those tests only generate detection events but no responses. If your ASGARD Management
 Center is connected to an Analysis Cockpit, you can see the detection events at ``Events`` >
 ``Aurora Events`` or in the Windows EventLog of the asset.

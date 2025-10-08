@@ -21,7 +21,7 @@ a scan will not fail if the asset is temporarily offline.
  
 - Example 1: A combination of ``--truncate 0`` and ``--allreasons`` may lead to
   very long THOR event log lines (> 64 KB), which `cannot be processed by the Analysis
-  Cockpit properly <https://analysis-cockpit-manual.nextron-systems.com/en/latest/issues/issues.html#aac-002-scan-stuck-at-status-unknown>`_.
+  Cockpit properly <https://analysis-cockpit-manual.nextron-systems.com/latest/issues/issues.html#aac-002-scan-stuck-at-status-unknown>`_.
  
 - Example 2: The use of the ``--processdump`` flag will create files on endpoints
   that are **not** automatically cleaned up.
@@ -52,7 +52,7 @@ Please keep in mind, that we have already optimized THOR to use the most relevan
 scan options for a particular system (based on type, numbers of CPUs, and system
 resources) and a comprehensive resource control is enabled by default. 
 
-For more details please refer to the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/>`_.
+For more details please refer to the `THOR manual <https://thor-manual.nextron-systems.com>`_.
 Only use the scan templates if you want to deviate from the default.
 
 Scan templates are protected from being modified by users without the
@@ -93,8 +93,8 @@ those are all users who are not a member of the group "Operator Level 1").
 THOR Excludes and False-Positive Filters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In THOR you can define `directory and file excludes <https://thor-manual.nextron-systems.com/en/latest/usage/configuration.html#files-and-directories>`_
-and `false positive filters <https://thor-manual.nextron-systems.com/en/latest/usage/configuration.html#false-positives>`_.
+In THOR you can define `directory and file excludes <https://thor-manual.nextron-systems.com/latest/usage/configuration.html#files-and-directories>`_
+and `false positive filters <https://thor-manual.nextron-systems.com/latest/usage/configuration.html#false-positives>`_.
 These features can be globally defined in ASGARD at ``Scan Control`` > ``THOR Config``.
 
 .. figure:: ../images/mc_thor-config.png
