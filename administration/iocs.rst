@@ -22,7 +22,7 @@ What's the difference between IOCs, IOC Groups, IOC Rulesets, and IOC Files?
 
 - IOC Files: Upload files containing your own IOCs that you can later use to add them
   onto your own IOC Rulesets. Please see 
-  `THOR Custom Signatures <https://thor-manual.nextron-systems.com/latest/usage/custom-signatures.html>`_ 
+  `THOR Custom Signatures <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html>`_ 
   for filename requirements and syntax.
 
 Integrating Custom IOCs
@@ -79,7 +79,7 @@ custom ruleset, the default signatures would not be applied.
 .. note::
    To scan exclusively with the custom ruleset, the flag 
    ``--customonly`` must be set (1,2). Please see
-   `THOR Flags <https://thor-manual.nextron-systems.com/latest/usage/flags.html#feature-extras>`_
+   `THOR Flags <https://thor-manual.nextron-systems.com/en/latest/usage/flags.html#feature-extras>`_
    for more information.
 
 Integrating IOCs through MISP
