@@ -6,8 +6,8 @@ Scan a Group of Systems
 A group scan is a scan task which is assigned to one or
 more asset. You define conditions, which can either be labels
 or the ASGARD Search Query, to specify which assets should be
-scanned. Group scans are used to scan multiple assets with the
-same settings/configuration.
+scanned. Group scans are used to assign identical scans (in terms
+of settings and configuration) to multiple assets.
 
 Create Group Scans
 ~~~~~~~~~~~~~~~~~~
