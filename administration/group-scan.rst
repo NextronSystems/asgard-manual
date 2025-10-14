@@ -4,9 +4,10 @@ Scan a Group of Systems
 =======================
 
 A group scan is a scan task which is assigned to one or
-more asset **condition**. Those conditions can either be labels
-or the ASGARD Search Query. This is meant to be used if you want to
-scan a large group of assets with one scan configuration.
+more asset. You define conditions, which can either be labels
+or the ASGARD Search Query, to specify which assets should be
+scanned. Group scans are used to scan multiple assets with the
+same settings/configuration.
 
 Create Group Scans
 ~~~~~~~~~~~~~~~~~~
@@ -20,38 +21,47 @@ tab. Click the ``Add Group Scan`` button in the upper right corner.
    Scan Control – Create Group Scan
 
 As with the single scans, various parameters can be set. Aside from the already
-mentioned parameters, the following parameters can be set:
+mentioned parameters, you can also configure the following:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20, 80
+   :widths: 25 75
 
    * - Parameter
      - Value
    * - **Description**
-     - Freely selectable name for the group scan.
+     - Freely selectable and optional name for the group scan
    * - **Scan Target**
-     - Here you can define which assets will be assigned the group scan.
+     - Define which assets should be scanned with this group scan.
        You can either use the ``Simple`` target option, which uses labels,
        or you can use the ``Advanced`` target options, which makes use of
        labels or the ASGARD Search Query. Leaving this option empty will scan all assets.
-   * - **Limit**
-     - ASGARD will not send additional scans to the agents when the client
-       limit is reached. Therefore you need to set a limit higher than the
-       number of hosts you want to scan or enter ``0`` for no limit. If
-       you are using MASTER ASGARD, this limit is applied on each single selected ASGARD.
-   * - **Rate**
-     - The number of scans per minute that are issued by ASGARD. This is
-       where the network load can be controlled. Additionally, it is recommended
-       to use this parameter in virtualized and oversubscribed environments in
-       order to limit the number of parallel scans on your endpoints.
    * - **Expires**
      - After this time frame, no scan orders will be issued to the connected agents. 
    * - **Scheduled Start**
      - Select a date for a scheduled start of the scan.
+   * - **Limit**
+     - This specifies the maximum scans this group scan is assigning. Once the
+       limit is reached, no more scans will be issued. Therefore you need to set
+       a limit higher than the number of hosts you want to scan or enter ``0`` for
+       no limit. If you are using MASTER ASGARD, this limit is applied on each single
+       selected ASGARD.
+   * - **Rate**
+     - The rate at which new scans are being issued by the ASGARD. You can control
+       network load with this option, since a scan also means that the asset needs to
+       download THOR from the ASGARD. We recommend to use this parameter in virtualized
+       and oversubscribed environments in order to limit the number of parallel scans
+       on your endpoints.
+   * - **Max. Concurrent Scans**
+     - Limits the number of concurrent scans running at once. When the limit is reached,
+       no new scans will be started until one of the running scans is completed or failed.
+   * - **Max. Runtime**
+     - A started scan is cancelled after exceeding the maximum runtime. This is used
+       to stop any hanging/unresponsive scans.
 
-After the group scan has been ``Saved`` or ``Saved and Started``, you will
-automatically be forwarded to the list of grouped scans. 
+Once you are done configuring your group scan, you can either **Add the Group Scan** or
+**Add and Activate the Group Scan**. Only adding the group scan without activating it
+will "park" it until it has been activated - at which point scans will be issued.
 
 List of all Group Scans
 ~~~~~~~~~~~~~~~~~~~~~~~
