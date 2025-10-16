@@ -10,5 +10,5 @@ can perform on your Management Center.
     :caption: Contents
 
     backup-restore
-    log
+    logs
     disk

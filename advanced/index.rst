@@ -10,7 +10,6 @@ some options could be helpful for your environment.
 .. toctree:: 
     :caption: Contents
 
-    logs
     agents
     custom-agent
     backup-restore
