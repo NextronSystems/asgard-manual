@@ -1,0 +1,10 @@
+Filename;Origin;Content
+asgard.log;Management Center Backend;System and operating events
+asgard-audit.log;Management Center (user interactions);User actions, logins, changes
+backup.log;Backups;Backup operations
+agent-access.log;ASGARD Agent;Connections and used Method
+agent-offline.log;Agent Connectivity;Timestamps of offline agents
+scan.log;Agent via Syslog [1]_;All log lines produced by THOR
+subscan.log;Agent via Syslog [1]_;Scan Start, Licensing, Completion events produced by THOR
+aurora-service.log;Aurora Assets;Any events produced by Aurora
+thunderstorm.log;Thunderstorm;Full log output of Thunderstorm
