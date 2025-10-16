@@ -28,7 +28,7 @@ Below you can find a list of logs and where they originate from:
 
 .. [1] Only if ``--syslog %asgard-host%`` is using during scanning.
        This can be **optionally** used if you want to receive THOR
-       Logs in realtime.
+       Logs in real-time.
 
 .. note::
    Some of the above logs can be forwarded via syslog. Please see

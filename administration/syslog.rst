@@ -6,8 +6,9 @@ Syslog Forwarding
 .. hint::
    This chapter is optional
 
-To configure Syslog Forwarding of logs, you can set the ``--syslog`` flag
-during scans. You have multiple options as to where you can send the logs.
+To configure Syslog Forwarding of THOR logs in real-time, you can set
+the ``--syslog`` flag during scans. You have multiple options as to
+where you can send the logs.
 
 .. figure:: ../images/mc_syslog-flag.png
    :alt: Syslog Forwarding via --syslog flag

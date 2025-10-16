@@ -29,16 +29,18 @@ The following log sources can be forwarded individually:
      - All ASGARD agent activities
    * - THOR Log
      - THOR scan results
-   * - Thor Log (Realtime)
-     - The THOR (Realtime) logs are the same logs as THOR logs,
+   * - THOR Log (Realtime)
+     - THOR scan results [1]_
+   * - Aurora Log
+     - Aurora Logs
+
+.. [1] ``The THOR (Realtime)`` logs are the same logs as THOR logs,
        except that they are collected via udp syslog instead of
        https. To forward THOR logs in realtime, you have to
        configure your scans to forward syslog to ASGARD, see
-       :ref:`administration/syslog:syslog forwarding`). Make
+       :ref:`administration/syslog:syslog forwarding`. Make
        sure the necessary firewall rules are in place to allow
        the asset to communicate with the ASGARD.
-   * - Aurora Log
-     - Aurora Logs
 
 TLS Certificate Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
