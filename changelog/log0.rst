@@ -1,86 +1,71 @@
-Management Center v3.0
+Management Center v4.0
 ======================
 
-Management Center 3.0.16
-------------------------
+Management Center 4.0.0
+-----------------------
 
-Release Date: Tue,  2 Jul 2024 09:50:00 +0200
+Release Date: 
 
-.. list-table::
-    :header-rows: 1
-    :widths: 15, 85
+----
 
-    * - Type
-      - Description
-    * - Security
-      - OS Security Fix
+* Breaking Changes
 
-Management Center 3.0.15
-------------------------
+  - The below tables have been updated to use UUIDs as primary keys instead of auto-incrementing integers:
 
-Release Date: Tue, 18 Jun 2024 16:45:00 +0200
+    - Assets
+    - Asset Requests
+    - Tasks/Scans
+    - Group Tasks/Scans
+    - Scheduled Group Tasks/Scans
+    - MISP data (misp_events, misp_attributes, misp_tags, and mapping tables)
+    - Users
+    - Roles
+    - LDAP Roles
 
-.. list-table::
-    :header-rows: 1
-    :widths: 15, 85
+    For further information please refer to the database migration guide: ``TODO``
 
-    * - Type
-      - Description
-    * - Bugfix
-      - Normalized hostnames during license generation to reduce quota usage in the long term
-    * - Bugfix
-      - Fixed issues with the http proxy configuration on fresh installations
+  - Various API endpoints have been updated to use UUIDs instead of integer IDs.
+    Please refer to the updated API documentation for details. You can find a list of all changes here: ``TODO``
+  - The config has been migrated from key-value pairs to a structured yaml format.
+  - Product Updates (THOR & THOR Signatures, Aurora & Aurora Signatures) Updates are now managed through version pinnings.
+    Each product can be configured with one or multiple constraints (e.g., "10.*", "10.7.*", etc.) to define which versions should be used.
+    This allows for more flexible update management and better control over product versions in your environment,
+    new versions that match the constraints will be automatically be used in scans and services.
+  - All playbook file uploads now use zip format instead of tar.gz.
+    Existing playbook files will be automatically converted during the update process.
+    The Collect File and Collect Directory playbooks now support a password for encrypting the resulting zip.
+  - Removed Bifrost Support
 
-Management Center 3.0.12
-------------------------
+----
 
-Release Date:  Thu, 28 Mar 2024 11:46:00 +0200
+* Highlights
 
-.. list-table::
-    :header-rows: 1
-    :widths: 15, 85
+  - THOR 11 Integration ``TODO``
+  - Software Inventory
+  - Live Event Streaming: Real-time THOR event forwarding to Asgard Analysis Cockpit
+    The option can be enabled with a checkbox in the Scan Settings for single, group and scheduled scans.
+  - Modernized codebase foundation to accelerate future development
 
-    * - Type
-      - Description
-    * - Bugfix
-      - Improved performance of the asset table and the task statistics
-    * - Bugfix
-      - Fixed non-working API key generation for read-only users
-    * - Bugfix
-      - Fixed non-working CSR generation for HTTPS TLS certificate
-    * - Bugfix
-      - Removed some major upgrade leftovers from the diagnostics pack
+----
 
-Management Center 3.0.11
-------------------------
+* Improvements
 
-Release Date:  Wed, 28 Feb 2024 09:19:00 +0200
+  - MISP entities (except the rulesets) are now stored with an internal UUID, the original id is preserved in a new column `source_id`
+  - Scans Table > Scan Arguments now only shows actually set arguments, empty values are hidden for a cleaner look
+  - API Keys are now hashed with SHA-256 instead of encrypting with AES
 
-.. list-table::
-    :header-rows: 1
-    :widths: 15, 85
+----
 
-    * - Type
-      - Description
-    * - Bugfix
-      - Fixed non-working diagnostics pack generation on some Management Centers
+* Changed
 
-Management Center 3.0.10
-------------------------
+  - Default playbooks are now only created during installation or updates, not on every start of the management-center.
+  - Default sigma rulesets are now only created during installation or updates, not on every start of the management-center.
+  - Default service configurations are now only created during installation or updates, not on every start of the management-center.
 
-Release Date:  Tue, 20 Feb 2024 13:01:00 +0200
+----
 
-.. list-table::
-    :header-rows: 1
-    :widths: 15, 85
+* Bugfixes
 
-    * - Type
-      - Description
-    * - Operating System Upgrade
-      - Upgraded operating system from Debian 10 to Debian 12
-    * - Switched update server
-      - Changed update server from update3.nextron-systems.com to update-301.nextron-systems.com. Please adjust your firewall to allow connections to the new server.
-    * - Time service transition
-      - Switched from ntp to timesyncd for time synchronization.
-    * - UI Enhancements
-      - A fresh, improved look and feel that makes the UI more intuitive and easier to use.
+  - Fixed wrong value being stored for `3 day` option in Advanced Settings > Hide Assets/Resume Deadline
+  - Fixed wrong thunderstorm collector example on Thunderstorm page
+  - Assets can no longer be deleted while they have any active service
