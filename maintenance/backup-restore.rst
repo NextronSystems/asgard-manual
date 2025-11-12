@@ -13,3 +13,5 @@ you can upload them here as well.
    :alt: Backup & Restore
 
    Backup & Restore
+
+Backups are located at ``/var/lib/asgard-management-center/backups`` on the system.
