@@ -12,5 +12,4 @@ some options could be helpful for your environment.
 
     agents
     custom-agent
-    backup-restore
     remote-console
