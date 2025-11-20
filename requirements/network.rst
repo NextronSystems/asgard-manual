@@ -148,9 +148,9 @@ Secure Communication
 ^^^^^^^^^^^^^^^^^^^^
 
 Any connection within our products (with the exception of syslog over plaintext)
-is done via TLS. That means client and server certificates are used for the
-authentication between both products. This ensures that no attacker can read
-any sensitive information if a Man in the Middle-attack-would-take place.
+is done via TLS. Clients verify the server certificate used by the ASGARD Management
+Center when connecting. This ensures that no attacker can read any sensitive
+information if a Man in the Middle-attack-would-take place.
 
 Time Synchronization
 ^^^^^^^^^^^^^^^^^^^^
