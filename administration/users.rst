@@ -18,7 +18,7 @@ Editing a user account does not require a password although
 the fields are shown in the dialogue. An initial password
 has to be provided for user creation, though.
 
-Access the user roles in ``Settings`` > ``Roles``. 
+Access the user roles in ``Settings`` > ``Roles``.
 
 You can download a list of all users in CSV format.
 
@@ -33,16 +33,16 @@ deleted. The ASGARD role model is fully configurable.
 .. figure:: ../images/mc_roles-factory-defaults.png
    :alt: ASGARD User Roles
 
-   User Roles – Factory Defaults 
+   User Roles – Factory Defaults
 
-Note that all users except users with the right ``Readonly`` have the right to run scans on endpoints. 
+Note that all users except users with the right ``Readonly`` have the right to run scans on endpoints.
 
 The following section describes these predefined rights and restrictions that each role can have.
 
 Rights
 ^^^^^^
 
-.. list-table:: 
+.. list-table::
    :header-rows: 1
    :widths: 30, 70
 
@@ -61,10 +61,10 @@ Rights
    * - Service Control
      - User can manage services on endpoint, e.g. Aurora
 
-Restrictions 
+Restrictions
 ^^^^^^^^^^^^
 
-.. list-table:: 
+.. list-table::
    :header-rows: 1
    :widths: 30, 70
 
@@ -91,6 +91,12 @@ In the right column, the mapping of LDAP groups to ASGARD groups
 
 First check if your LDAP server is reachable by ASGARD by clicking "Test Connection".
 
+.. note::
+   If you are using LDAPS with a self-signed certificate or a custom CA, you must trust the signer on the ASGARD server.
+   Copy the CA certificate to ``/usr/local/share/ca-certificates``.
+   Run ``sudo update-ca-certificates``.
+   Restart the ASGARD service: ``sudo systemctl restart asgard-management-center``.
+
 .. figure:: ../images/mc_ldap-server.png
    :alt: Configure the LDAP Server
 
@@ -112,7 +118,7 @@ A default for LDAP and AD in a flat structure is given in the
 **"Use recommended filters"** drop-down menu, but you can
 adapt it to your liking. The test button shows you if a login
 with that user would be successful and which groups ASGARD identified
-and could be used for a mapping to ASGARD groups. 
+and could be used for a mapping to ASGARD groups.
 
 .. figure:: ../images/mc_ldap-filter.png
    :alt: Configure the LDAP User and Group Filters
