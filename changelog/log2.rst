@@ -1,6 +1,20 @@
 Management Center v3.2
 ======================
 
+Management Center 3.2.1
+-----------------------
+
+Release Date: Wed, 17 Dec 2025 12:27:00 +0200
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed an issue where agents appeared offline and could not download the Agent Core due to exhausted module download slots caused by agents with repeated download failures (e.g., due to full disks)
+
 Management Center 3.2.0
 -----------------------
 
