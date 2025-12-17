@@ -101,7 +101,7 @@ You can test it, by executing the following command in Terminal:
 
 .. code-block:: console
    
-   MacBook-Pro:~ nextron$  pkgutil --check-signature /Users/nextron/Downloads/asgard2-agent-macos-arm64.pkg
+   MacBook-Pro:~ nextron$ pkgutil --check-signature /Users/nextron/Downloads/asgard2-agent-macos-arm64.pkg
    Package "asgard2-agent-macos-arm64.pkg":
    Status: signed by a developer certificate issued by Apple for distribution
    Notarization: trusted by the Apple notary service
@@ -162,9 +162,9 @@ To query the database, open the Terminal App and perform the following SQL comma
 .. code-block:: console
     :emphasize-lines: 2
    
-     MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
-     kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
-     MacBook-Pro:~ nextron$
+    MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
+    kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
+    MacBook-Pro:~ nextron$
 
 This value section must match:
 
