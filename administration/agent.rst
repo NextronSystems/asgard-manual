@@ -160,11 +160,11 @@ If you have updated from macOS 15 Sequoia you should check in ASGARD the THOR sc
 To query the database, open the Terminal App and perform the following SQL command:
 
 .. code-block:: console
-    :emphasize-lines: 2
+   :emphasize-lines: 2
    
-    MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
-    kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
-    MacBook-Pro:~ nextron$
+   MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
+   kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
+   MacBook-Pro:~ nextron$
 
 This value section must match:
 
@@ -202,9 +202,9 @@ Check that the permissions have now been granted correctly by reopening the Term
 .. code-block:: console
    :emphasize-lines: 2
    
-     MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
-     kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
-     MacBook-Pro:~ nextron$
+   MacBook-Pro:~ nextron$ sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'select * from access' | grep asgard
+   kTCCServiceSystemPolicyAllFiles|/private/var/lib/asgard2-agent/asgard2-agent-service|1|2|4|1|??||0|UNUSED|0|176962327|||UNUSED|0
+   MacBook-Pro:~ nextron$
 
 Please note that ``asgard2-agent-service`` is still not displayed in the UI.
 
