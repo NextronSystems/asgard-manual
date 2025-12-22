@@ -208,7 +208,7 @@ Check that the permissions have now been granted correctly by reopening the Term
 
 Please note that ``asgard2-agent-service`` is still not displayed in the UI.
 
-inally adjust the permissions again:
+Finally adjust the permissions again:
 
 .. code-block:: console
    
