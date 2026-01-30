@@ -1,6 +1,22 @@
 Management Center v3.2
 ======================
 
+Management Center 3.2.2
+-----------------------
+
+Release Date: Fri, 30 Jan 2026 11:45:00 +0100
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed AIX compatibility issue where the binary was only running on AIX 7.3; now supports AIX 7.2 again
+    * - Bugfix
+      - Fixed THOR Launcher deadlock when THOR subprocess received an external termination signal
+
 Management Center 3.2.1
 -----------------------
 
