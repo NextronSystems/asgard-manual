@@ -107,7 +107,7 @@ From Master ASGARD to ASGARD
    * - Management Backend
      - 5443/tcp
 
-You cannot manage ASGARD v3 systems from a Master ASGARD v2.
+You cannot manage ASGARD v4 systems from a Master ASGARD v3 and vice versa.
 
 From Management Workstation to Master ASGARD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
