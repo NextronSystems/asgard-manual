@@ -10,6 +10,4 @@ Center version 3 and its components.
 .. toctree:: 
     :caption: Contents
 
-    log2
-    log1
     log0
