@@ -1,6 +1,6 @@
 import os
 
-project = 'ASGARD Management Center v3 Manual'
+project = 'ASGARD Management Center 4 Manual'
 version="3.0"
 copyright = '2025, Nextron Systems GmbH'
 author = 'Nextron Systems'

@@ -1,14 +1,14 @@
 .. index:: Home
 
-Nextron Systems - Management Center v3
+Nextron Systems - Management Center 4
 ======================================
 
 Welcome to Nextron System's Manual for the ASGARD Management
-Center v3.
+Center v4.
 
 .. note::
-   If you are still using an older version of the Management Center,
-   please click `here <https://asgard-manual.nextron-systems.com/en/v2>`__ 
+   If you are still using an version 3 of the Management Center,
+   please click `here <https://asgard-manual.nextron-systems.com/en/v3>`__ 
    to see the older version of the documentation.
 
 ASGARD Management Center is the central management platform for THOR
